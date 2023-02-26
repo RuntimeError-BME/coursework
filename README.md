@@ -19,7 +19,7 @@ The repository contains the following directories:
 
 To get started with the project, follow these steps:
 
-#### Adding Your SSH Key to GitHub
+### Adding an SSH Key to GitHub
 
 In order to access the repository, you'll need to add your SSH key to your GitHub account. To do this, follow the steps below:
 
@@ -35,39 +35,30 @@ In order to access the repository, you'll need to add your SSH key to your GitHu
     
 For a more detailed guide: [Adding a new SSH key to your GitHub account](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account).
 
-#### Cloning the Repository
+### Cloning the Repository
 
 For more detailed guide, check out this tutorial: [Cloning a repository](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository).
 
-#### Create a New Branch
+### Create a New Branch
 For more detailed guide, check out this tutorial: [Creating and managing branches](https://docs.github.com/en/desktop/contributing-and-collaborating-using-github-desktop/creating-and-managing-branches).
 
 
 
-#### Git Basics
+### Git Basics
 4. Switch between branches, merge, push, pull, create a pull request, undo changes, and learn other basic Git knowledge by following this tutorial: [GitHub Git Handbook](https://guides.github.com/introduction/git-handbook/).
 
 ## Programming Conventions
 
-Please make sure to follow the programming conventions listed below when contributing to our Java project:
-
-- Use CamelCase for class names and variable names
-- Use snake_case for method names
-- Indent using four spaces
-- Use Javadoc comments to document classes, methods, and variables
-- Follow the SOLID principles
-- Write clean, readable, and maintainable code
+**TBD**
 
 ## Further Reading
 
-For more information on the tools and technologies we are using, check out the resources below:
+Useful cheatsheets & documentations:
 
+- [Git cheatsheet](https://education.github.com/git-cheat-sheet-education.pdf)
+- [JUnit 5 Guide](https://www.baeldung.com/junit-5)
 - [Maven in 5 minutes](https://maven.apache.org/guides/getting-started/maven-in-five-minutes.html)
 - [Java documentation](https://docs.oracle.com/en/java/)
 - [UML basics](https://www.tutorialspoint.com/uml/uml_basics.htm)
 - [GitHub documentation](https://docs.github.com/en)
 - [Git documentation](https://git-scm.com/doc)
-
-## Contact Us
-
-If you have any questions or comments about the project, please contact us at [email address or any other means of communication]. We look forward to hearing from you!
