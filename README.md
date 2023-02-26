@@ -19,9 +19,32 @@ The repository contains the following directories:
 
 To get started with the project, follow these steps:
 
-1. Add your SSH key to your GitHub account by following this tutorial: [Adding a new SSH key to your GitHub account](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account).
-2. Clone the repository to your local machine using Git by following this tutorial: [Cloning a repository](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository).
-3. Create a new branch to work on by following this tutorial: [Creating and managing branches](https://docs.github.com/en/desktop/contributing-and-collaborating-using-github-desktop/creating-and-managing-branches).
+#### Adding Your SSH Key to GitHub
+
+In order to access the repository, you'll need to add your SSH key to your GitHub account. To do this, follow the steps below:
+
+- Open Git Bash or Terminal on your local machine.
+- Type `ssh-keygen -t ed25519 -C "your_email@example.com"` and press Enter. Make sure you enter the same E-Mail that you use for GitHub.
+- It will prompt you to enter a file in which to save the key. Press Enter to accept the default file location (just press enter bro).
+- You will then be prompted to enter a passphrase. You can either enter a passphrase or leave it blank.
+- Your SSH key will be generated and saved to your default file location, typically in the `.ssh` directory.
+- Use the command `cat ~/.ssh/id_ed25519.pub` to display your public SSH key.
+- Copy the output to your clipboard.
+- Log in to your GitHub account and go to `Settings > SSH and GPG keys`. Click `New SSH key`. Paste your public SSH key into the `Key` field. Give your key a descriptive title and click `Add SSH key`.
+- You can now access the repository using your SSH key 😎
+    
+For a more detailed guide: [Adding a new SSH key to your GitHub account](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account).
+
+#### Cloning the Repository
+
+For more detailed guide, check out this tutorial: [Cloning a repository](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository).
+
+#### Create a New Branch
+For more detailed guide, check out this tutorial: [Creating and managing branches](https://docs.github.com/en/desktop/contributing-and-collaborating-using-github-desktop/creating-and-managing-branches).
+
+
+
+#### Git Basics
 4. Switch between branches, merge, push, pull, create a pull request, undo changes, and learn other basic Git knowledge by following this tutorial: [GitHub Git Handbook](https://guides.github.com/introduction/git-handbook/).
 
 ## Programming Conventions
