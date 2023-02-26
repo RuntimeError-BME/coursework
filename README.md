@@ -1,10 +1,10 @@
 # SW Project Coursework
 
-Welcome to RuntimeError's coursework repository for Semester 22-23/2's Software Project Laboratory course (BMEVIIIAB02).
+Welcome to the RuntimeError team's coursework repository for Semester 22-23/2's Software Project Laboratory course (BMEVIIIAB02).
 
 ## Overview
 
-This repository contains all the files and resources related to our school project. We are working on creating a high-quality software solution using the latest tools and technologies. This README file provides an overview of the repository and instructions for getting started.
+This repository contains all the files and resources related to our school project. We are working trying to avoid technical debt and create a high-quality solution, so we shall document our architectural decisions, conventions and basic developer docs here. This README file provides an overview of the repository and instructions for getting started.
 
 ## Contents
 
@@ -19,14 +19,31 @@ The repository contains the following directories:
 
 To get started with the project, follow these steps:
 
-1. Clone the repository to your local machine using Git.
-2. Navigate to the `src` directory and open the project in your preferred IDE or text editor.
-3. Install any dependencies required by the project using the appropriate package manager.
-4. Build and run the project.
+1. Add your SSH key to your GitHub account by following this tutorial: [Adding a new SSH key to your GitHub account](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account).
+2. Clone the repository to your local machine using Git by following this tutorial: [Cloning a repository](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository).
+3. Create a new branch to work on by following this tutorial: [Creating and managing branches](https://docs.github.com/en/desktop/contributing-and-collaborating-using-github-desktop/creating-and-managing-branches).
+4. Switch between branches, merge, push, pull, create a pull request, undo changes, and learn other basic Git knowledge by following this tutorial: [GitHub Git Handbook](https://guides.github.com/introduction/git-handbook/).
 
-## Contributing
+## Programming Conventions
 
-We welcome contributions from other members of the community! If you have any suggestions, bug reports, or feature requests, please submit them as issues in the repository. You can also create pull requests to contribute code changes or bug fixes.
+Please make sure to follow the programming conventions listed below when contributing to our Java project:
+
+- Use CamelCase for class names and variable names
+- Use snake_case for method names
+- Indent using four spaces
+- Use Javadoc comments to document classes, methods, and variables
+- Follow the SOLID principles
+- Write clean, readable, and maintainable code
+
+## Further Reading
+
+For more information on the tools and technologies we are using, check out the resources below:
+
+- [Maven in 5 minutes](https://maven.apache.org/guides/getting-started/maven-in-five-minutes.html)
+- [Java documentation](https://docs.oracle.com/en/java/)
+- [UML basics](https://www.tutorialspoint.com/uml/uml_basics.htm)
+- [GitHub documentation](https://docs.github.com/en)
+- [Git documentation](https://git-scm.com/doc)
 
 ## Contact Us
 
