@@ -74,6 +74,6 @@ Useful cheatsheets & documentations:
 - [JUnit 5 Guide](https://www.baeldung.com/junit-5)
 - [Maven in 5 minutes](https://maven.apache.org/guides/getting-started/maven-in-five-minutes.html)
 - [Java documentation](https://docs.oracle.com/en/java/)
-- [UML basics](https://www.tutorialspoint.com/uml/uml_basics.htm)
+- [UML Cheatsheet](https://khalilstemmler.com/articles/uml-cheatsheet/)
 - [GitHub documentation](https://docs.github.com/en)
 - [Git documentation](https://git-scm.com/doc)
