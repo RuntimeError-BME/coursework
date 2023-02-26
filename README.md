@@ -10,7 +10,7 @@ This repository contains all the files and resources related to our school proje
 
 The repository contains the following directories:
 
-- `docs`: This directory contains documentation related to the project, such as design documents, requirements specifications, and user manuals.
+- `docs`: TBD if needed
 - `src`: This directory contains the source code for the project.
 - `tests`: This directory contains test files for the project.
 - `resources`: This directory contains resources such as images, icons, and other assets used in the project.
@@ -37,15 +37,29 @@ For a more detailed guide: [Adding a new SSH key to your GitHub account](https:/
 
 ### Cloning the Repository
 
+Type `cd "your-desired-directory" && git clone git@github.com:RuntimeError-BME/coursework.git`
+
 For more detailed guide, check out this tutorial: [Cloning a repository](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository).
 
-### Create a New Branch
+### Git Basics
+
+#### Creating Branches
+1. From the command line, navigate to the root directory of your local repository.
+2. Type `git checkout -b new_branch` and press Enter. Replace `new_branch` with the name of your new branch.
+3. To make the new branch visible online, type `git push --set-upstream origin new_branch`
+4. You are now working on the new branch. You can make changes to the code and commit them as usual.
+5. To switch back to the main branch, type `git checkout main` and press Enter. Replace `main` with the name of your main branch.
 For more detailed guide, check out this tutorial: [Creating and managing branches](https://docs.github.com/en/desktop/contributing-and-collaborating-using-github-desktop/creating-and-managing-branches).
 
+#### Stashing Changes
 
+Sometimes, you may need to temporarily set aside changes that you've made to your code, without committing them to your branch. This is where Git's stash command comes in handy. To stash your changes, follow these steps:
 
-### Git Basics
-4. Switch between branches, merge, push, pull, create a pull request, undo changes, and learn other basic Git knowledge by following this tutorial: [GitHub Git Handbook](https://guides.github.com/introduction/git-handbook/).
+1. From the command line, navigate to the root directory of your local repository.
+2. Type `git stash` and press Enter.
+3. Your changes are now stashed, and you can switch to a different branch or perform other operations without your changes getting in the way.
+4. To retrieve your stashed changes, type `git stash apply` and press Enter.
+5. Your changes are now reapplied to your code. You can continue working on them and commit them to your branch when you're ready.
 
 ## Programming Conventions
 
@@ -56,6 +70,7 @@ For more detailed guide, check out this tutorial: [Creating and managing branche
 Useful cheatsheets & documentations:
 
 - [Git cheatsheet](https://education.github.com/git-cheat-sheet-education.pdf)
+- [GitHub Git Handbook](https://guides.github.com/introduction/git-handbook/).
 - [JUnit 5 Guide](https://www.baeldung.com/junit-5)
 - [Maven in 5 minutes](https://maven.apache.org/guides/getting-started/maven-in-five-minutes.html)
 - [Java documentation](https://docs.oracle.com/en/java/)
