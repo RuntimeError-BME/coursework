@@ -1,8 +1,5 @@
 package org.runtimeerror.model.map;
-
 import org.runtimeerror.Main;
-import sun.reflect.generics.reflectiveObjects.NotImplementedException;
-
 import static org.runtimeerror.skeleton.SkeletonController._Game;
 
 
@@ -25,7 +22,6 @@ public abstract class Breakable extends Element {
         Main.skeleton.PrintFunctionCalled(this);
         broken = false;
         Main.skeleton.PrintFunctionReturned("Fix", "" );
-
     }
 
     /* Elrontja az elemet. */
@@ -63,7 +59,6 @@ public abstract class Breakable extends Element {
                 Main.skeleton.PrintFunctionCall(this,"AddSaboteurPoints","1");
                 _Game.AddSaboteurPoints(1);
             }
-
         }
         else {
             Main.skeleton.PrintFunctionCall(this,"AddSaboteurPoints","1");
@@ -73,7 +68,7 @@ public abstract class Breakable extends Element {
     }
 
     // TODO: override in PROTO
-    /* Visszaadja, hogy az elem felvehető-e.
+    /** Visszaadja, hogy az elem felvehető-e.
      Az Element ősbéli megvalósításhoz hozzá vesz egy új feltételt: ne legyen törött sem, hogy felvehető legyen. */
 //    @Override
 //    public boolean GetPickUpAble() {

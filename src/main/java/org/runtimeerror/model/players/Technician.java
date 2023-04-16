@@ -1,32 +1,36 @@
 package org.runtimeerror.model.players;
-
 import org.runtimeerror.Main;
 import org.runtimeerror.model.map.*;
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 import static org.runtimeerror.skeleton.SkeletonController.isLogging;
-
 import org.runtimeerror.model.map.Element;
-
-import java.net.Inet4Address;
-import java.net.UnknownHostException;
-
 import static org.runtimeerror.skeleton.SkeletonController._Game;
 
-public class Technician extends Player {
 
+/**
+ * Olyan játékos, aki csövek lyukasztása helyett javítani tudja őket, illetve pumpákat is.
+ * Emellett képes vagy egy csövet, vagy egy pumpát tárolni magánál, ami el is tud helyezni a megfelelő feltételek fennállása esetén.
+ */
+public class Technician extends Player {
+    /**
+     * Attribútumok
+     */
     private Breakable part; // az elem, amelyet a szerelő felvett a pályáról. Ha nincs nála ilyen, akkor null.
 
-    /* Konstruktorok */
+    /**
+     * Attribútumok
+     */
+    /** Konstruktorok */
     public Technician(String name) { super(name, new ManipulatorTechnician()); }
     public Technician(String name, Manipulator m) { super(name, m); }
 
-    /* Megkísérel felvenni egy part-ot a jelenlegi elemtől.
+    /** Megkísérel felvenni egy part-ot a jelenlegi elemtől.
       (Csak ciszterna esetén fog tényleg sikerülni egy pumpát felvennie.) */
     public void PickUpPart() {
         throw new NotImplementedException();
     }
 
-    /* Megkísérli felvenni a d irányban lévő part-ot, ha van olyan. */
+    /** Megkísérli felvenni a d irányban lévő part-ot, ha van olyan. */
     public void PickUpPart(Direction d) {
         Main.skeleton.PrintFunctionCalled(this);
 
@@ -67,7 +71,7 @@ public class Technician extends Player {
 
     }
 
-    /* Megkísérli elhelyezni a tárolt part-ját d irányba. A művelet sikerességével tér vissza. */
+    /** Megkísérli elhelyezni a tárolt part-ját d irányba. A művelet sikerességével tér vissza. */
     public boolean PlacePart(Direction d) {
         Main.skeleton.PrintFunctionCalled(this);
 
@@ -81,19 +85,19 @@ public class Technician extends Player {
     private boolean PlacePart(Breakable storedPart,Direction d) {
         Main.skeleton.PrintFunctionCalled(this);
         Main.skeleton.PrintFunctionCall(this, "GetCurrElem");
-        Element currElem=GetCurrElem();
-        isLogging=false;
-        Element targetElem=new Pipe();
-        isLogging=true;
+        Element currElem = GetCurrElem();
+        isLogging = false;
+        Element targetElem = new Pipe();
         boolean re;
         if(storedPart.GetPickUpAble()) {
             Main.skeleton.PrintFunctionCall(this, "GetNb", "d");
             re = (currElem.GetNb(d) == null);
-        }else {
+        } else {
+            isLogging = true;
             Main.skeleton.PrintFunctionCall(this, "GetNb", "d");
-            targetElem= currElem.GetNb(d);
-            re=(targetElem!=null);
-        }
+            targetElem = currElem.GetNb(d);
+            re = (targetElem != null);
+            {
 
         if(re){
 
@@ -129,14 +133,14 @@ public class Technician extends Player {
 
     }
 
-    /* Visszaadja azt a Breakable-t („part” attribútumot), ami a szerelőnél van. */
+    /** Visszaadja azt a Breakable-t („part” attribútumot), ami a szerelőnél van. */
     public Breakable GetPart() {
         Main.skeleton.PrintFunctionCalled(this);
         Main.skeleton.PrintFunctionReturned("GetPart",part==null ? "null" : "part");
         return part;
     }
 
-    /* Az átadott Breakable-re állítja a „part” attribútumot. */
+    /** Az átadott Breakable-re állítja a „part” attribútumot. */
     public void SetPart(Breakable b) {
         Main.skeleton.PrintFunctionCalled(this);
         part=b;

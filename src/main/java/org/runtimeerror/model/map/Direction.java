@@ -1,9 +1,18 @@
 package org.runtimeerror.model.map;
 
-public class Direction {
 
+/**
+ * A geometriát igyekeztünk eltávolítani. A Direction típus a modell szempontjából tetszőleges absztrakció lehet.
+ */
+public class Direction {
+    /**
+     * Attribútumok
+     */
     private final int ordinal;
 
+    /**
+     * Metódusok
+     */
     public Direction(int value) {
         if (value < 0)
             throw new IllegalArgumentException("Csak pozitív lehet az irány (indexelésre lesz használva).");

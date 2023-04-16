@@ -1,13 +1,17 @@
 package org.runtimeerror.model.map;
-
 import org.runtimeerror.Main;
-import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 import org.runtimeerror.model.players.Manipulator;
 import static org.runtimeerror.skeleton.SkeletonController.ObjNameMap;
-import static org.runtimeerror.skeleton.SkeletonController._Game;
 
+
+/**
+ * Olyan elromolható, felvehető elem, amely vizet képes átereszteni a bemenetként beállított csövéből a kimenetként beállított csövébe.
+ * Pontot oszt a szabotőröknek, ha nincsen kimenete, amikor vizet eresztene át.
+ */
 public class Pump extends Breakable {
-
+    /**
+     * Metódusok
+     */
     public Pump(){
         super();
         ObjNameMap.put(this, "newPump:Pump");
@@ -15,7 +19,7 @@ public class Pump extends Breakable {
         Main.skeleton.PrintFunctionReturned("Pump","newPump");
     }
 
-    /* Az átvett manipulátorral manipulálja ezt a konkrét elemet. */
+    /** Az átvett manipulátorral manipulálja ezt a konkrét elemet. */
     @Override
     public void Manipulate(Manipulator m) {
         Main.skeleton.PrintFunctionCalled(this);
@@ -23,5 +27,4 @@ public class Pump extends Breakable {
         m.Manipulate(this);
         Main.skeleton.PrintFunctionReturned("Manipulate", "");
     }
-
 }

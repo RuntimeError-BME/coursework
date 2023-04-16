@@ -1,25 +1,35 @@
 package org.runtimeerror.model.map;
-
 import java.util.List;
 import java.util.ArrayList;
-
 import org.runtimeerror.Main;
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
-public class Network {
 
+/**
+ * Tárolja a pálya elemeit. Csövek és pumpák adhatók hozzá, a csöveket pedig el is lehet távolítani róla.
+ * Vizsgálja, hogy ezek a műveletek lehetségesek-e egyáltalán.
+ * A benne tárolt elemek azok, amik ténylegesen meg is lesznek jelenítve a pályán.
+ * Továbbá ez az osztály indítja el a vízfolyást forrásokból.
+ */
+public class Network {
+    /**
+     * Attribútumok
+     */
     private final List<Element> elements = new ArrayList<>(32); // a pálya összes elemét tárolja
 
-    /* Külön csoportosítja minden elem közül a ciszternákat. (De az "elements"-ben is szerepelnek.) */
+    /** Külön csoportosítja minden elem közül a ciszternákat. (De az "elements"-ben is szerepelnek.) */
     private final List<Cistern> cisterns = new ArrayList<>(4);
 
-    /* Külön csoportosítja minden elem közül a forrásokat. (De az "elements"-ben is szerepelnek.) */
+    /** Külön csoportosítja minden elem közül a forrásokat. (De az "elements"-ben is szerepelnek.) */
     private final List<Source> sources = new ArrayList<>(4);
 
-    /* Külön csoportosítja minden elem közül a pumpákat. (De az "elements"-ben is szerepelnek.) */
+    /** Külön csoportosítja minden elem közül a pumpákat. (De az "elements"-ben is szerepelnek.) */
     private final List<Pump> pumps = new ArrayList<>(8);
 
-    /* Megkísérli eltávolítani az átadott elemet a pályáról. Ha ennek semmi akadálya nem volt
+    /**
+     * Metódusok
+     */
+    /** Megkísérli eltávolítani az átadott elemet a pályáról. Ha ennek semmi akadálya nem volt
      (pl. nem esne komponensekre a pálya, mint gráf), akkor igazzal tér vissza.
      Ellenkező esetben nem módosít semmi a pályán. */
     public boolean RemoveElem(Element e) {
@@ -29,7 +39,7 @@ public class Network {
         return re;
     }
 
-    /* Az átadott csövet megkísérli hozzáadni a pályához. Ennek sikerességét adja vissza. */
+    /** Az átadott csövet megkísérli hozzáadni a pályához. Ennek sikerességét adja vissza. */
     public boolean AddPipe(Pipe p) {
         Main.skeleton.PrintFunctionCalled(this);
         if(elements.size()<32){
@@ -43,45 +53,42 @@ public class Network {
         }
     }
 
-    /* Az átadott pumpával kísérli meg felülírni a másik átadott elemet a pályán. Ennek sikerességét adja vissza. */
+    /** Az átadott pumpával kísérli meg felülírni a másik átadott elemet a pályán. Ennek sikerességét adja vissza. */
     public boolean AddPump(Pump p, Element e) {
         Main.skeleton.PrintFunctionCalled(this);
 
-
         boolean b=(elements.remove(e) && pumps.add(p) && elements.add(p));
-
 
         Main.skeleton.PrintFunctionReturned("AddPump", b ? "true" : "false");
         return b;
     }
 
-    /* Felapasztja az összes vizet a pályáról, majd minden forrásból elindítja a vizet,
+    /** Felapasztja az összes vizet a pályáról, majd minden forrásból elindítja a vizet,
      aminek következtében el lesz árasztva vízzel a pálya, és pontokat fognak kapni a csapatok. */
     public void Flood() {
         throw new NotImplementedException();
     }
 
-    /* Visszaadja a pálya minden elemét. */
+    /** Visszaadja a pálya minden elemét. */
     public final List<Element> GetElements() {
         throw new NotImplementedException();
     }
 
-    /* Visszaadja a pályán lévő pumpákat. */
+    /** Visszaadja a pályán lévő pumpákat. */
     public final List<Pump> GetPumps() {
         throw new NotImplementedException();
     }
 
-    /* Visszaadja a pályán lévő ciszternákat. */
+    /** Visszaadja a pályán lévő ciszternákat. */
     public final List<Cistern> GetCisterns() {
         Main.skeleton.PrintFunctionCalled(this);
         Main.skeleton.PrintFunctionReturned("GetCisterns","cists");
         return cisterns;
     }
 
+    /** --------- CSAK A PÁLYA INICIALIZÁLÁSKOR HASZNÁLT FÜGGVÉNYEK (nincs hibakezelés bennük): --------- */
 
-    /* --------- CSAK A PÁLYA INICIALIZÁLÁSKOR HASZNÁLT FÜGGVÉNYEK (nincs hibakezelés bennük): --------- */
-
-    /* Az átadott ciszternát hozzáadja a pályához. */
+    /** Az átadott ciszternát hozzáadja a pályához. */
     public boolean AddCistern(Cistern c) {
         Main.skeleton.PrintFunctionCalled(this);
         if(cisterns.size()==4){
@@ -93,10 +100,9 @@ public class Network {
             Main.skeleton.PrintFunctionReturned("AddCistern", "true");
             return true;
         }
-
     }
 
-    /* Az átadott forrást hozzáadja a pályához. */
+    /** Az átadott forrást hozzáadja a pályához. */
     public boolean AddSource(Source s) {
         throw new NotImplementedException();
     }

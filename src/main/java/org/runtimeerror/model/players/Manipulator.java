@@ -1,19 +1,26 @@
 package org.runtimeerror.model.players;
-
 import org.runtimeerror.Main;
 import java.util.List;
 import org.runtimeerror.model.map.*;
-import sun.reflect.generics.reflectiveObjects.NotImplementedException;
-
 import static org.runtimeerror.skeleton.SkeletonController._Game;
 import static org.runtimeerror.skeleton.SkeletonController._GameI;
 
-public abstract class Manipulator {
 
-    /* Absztrakt metódus a játékosok csőmanipuláló viselkedésének leírására. */
+/**
+ * Absztrakt osztály, amely a Visitor tervezési mintát valósítja meg a leszármazottaival együtt.
+ * A leszármazottai egy játékos típusnak készítik el a „gazda” elem manipulálását megvalósító viselkedést minden elem esetére (pumpák, csövek, források, ciszternák).
+ * A szerelők konkrét manipulátora például definiálja, hogy mit tud tenni egy szerelő, ha az előbb említett elemeken állva próbál interaktálni.
+ * A függvényei gyakran a kört is léptetik.
+ */
+public abstract class Manipulator {
+    /**
+     * Metódusok
+     * @param p
+     */
+    /** Absztrakt metódus a játékosok csőmanipuláló viselkedésének leírására. */
     public abstract void Manipulate(Pipe p);
 
-    /* Átállítja az átadott pumpát (GameInput-ot használja a bemenetért). Ezután véget ér a játékos köre (turn). */
+    /** Átállítja az átadott pumpát (GameInput-ot használja a bemenetért). Ezután véget ér a játékos köre (turn). */
     public void Manipulate(Pump p) {
         Main.skeleton.PrintFunctionCalled(this);
 
@@ -38,7 +45,7 @@ public abstract class Manipulator {
         Main.skeleton.PrintFunctionReturned("Manipulate","");
     }
 
-    /* Átlépteti a jelenlegi játékost a következő ciszternára. Ezzel nem ér véget a játékos köre (turn). */
+    /** Átlépteti a jelenlegi játékost a következő ciszternára. Ezzel nem ér véget a játékos köre (turn). */
     public void Manipulate(Cistern c) {
         Main.skeleton.PrintFunctionCalled(this);
 
@@ -62,7 +69,7 @@ public abstract class Manipulator {
         Main.skeleton.PrintFunctionReturned("Manipulate", "");
     }
 
-    /* Üres törzsű függvény, jelenleg a játékosok nem tesznek semmit a forráson állva.
+    /** Üres törzsű függvény, jelenleg a játékosok nem tesznek semmit a forráson állva.
      (A jövőbeli bővíthetőségre fenntartva, illetve a Dynamic Dispatch hibátlan működése miatt kell,
      hogy ne kelljen Type-checking a hívóoldalon.) */
     public void Manipulate(Source s) { }

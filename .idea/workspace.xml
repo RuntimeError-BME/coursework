@@ -7,24 +7,27 @@
     <list default="true" id="52169174-47a2-4a8d-a704-4d727098fc35" name="Changes" comment="update">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/controller/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/controller/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/map/Breakable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/map/Breakable.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/map/Cistern.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/map/Cistern.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/map/Direction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/map/Direction.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/map/Element.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/map/Element.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/map/Network.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/map/Network.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/map/Pipe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/map/Pipe.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/map/Pump.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/map/Pump.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/map/Source.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/map/Source.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/players/Manipulator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/players/Manipulator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/players/ManipulatorTechnician.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/players/ManipulatorTechnician.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/players/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/players/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/players/Technician.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/players/Technician.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/skeleton/SkeletonController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/skeleton/SkeletonController.java" afterDir="false" />
     </list>
     <list id="dcdd43b1-ccd4-4ce0-98e8-aa137394008b" name="Changes by feket" comment="Update 2023.04.16. 13:38">
       <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/map/Cistern.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/map/Cistern.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/map/Network.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/map/Network.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/skeleton/SkeletonController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/skeleton/SkeletonController.java" afterDir="false" />
     </list>
     <list id="205dbb38-e22d-43a3-9ecc-6572d6faf77f" name="Changes by Tep Oli" comment="Changes by Tep Oli">
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/controller/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/controller/Game.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/map/Breakable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/map/Breakable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/map/Element.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/map/Element.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/map/Network.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/map/Network.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/map/Pipe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/map/Pipe.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/players/ManipulatorSaboteur.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/players/ManipulatorSaboteur.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/players/Technician.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/players/Technician.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/skeleton/SkeletonController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/skeleton/SkeletonController.java" afterDir="false" />
     </list>
@@ -42,113 +45,173 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="LineStatusTrackerManager">
+    <file path="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/map/Breakable.java">
+      <ranges>
+        <range start1="1" end1="2" start2="1" end2="1" changelist="52169174-47a2-4a8d-a704-4d727098fc35" />
+        <range start1="3" end1="5" start2="2" end2="2" changelist="52169174-47a2-4a8d-a704-4d727098fc35" />
+        <range start1="22" end1="23" start2="19" end2="22" changelist="205dbb38-e22d-43a3-9ecc-6572d6faf77f" />
+        <range start1="27" end1="28" start2="26" end2="26" changelist="52169174-47a2-4a8d-a704-4d727098fc35" />
+        <range start1="30" end1="31" start2="28" end2="31" changelist="205dbb38-e22d-43a3-9ecc-6572d6faf77f" />
+        <range start1="37" end1="38" start2="37" end2="40" changelist="205dbb38-e22d-43a3-9ecc-6572d6faf77f" />
+        <range start1="44" end1="47" start2="46" end2="52" changelist="205dbb38-e22d-43a3-9ecc-6572d6faf77f" />
+        <range start1="65" end1="66" start2="70" end2="70" changelist="52169174-47a2-4a8d-a704-4d727098fc35" />
+        <range start1="75" end1="76" start2="79" end2="80" changelist="52169174-47a2-4a8d-a704-4d727098fc35" />
+      </ranges>
+    </file>
     <file path="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/map/Pipe.java">
       <ranges>
-        <range start1="7" end1="7" start2="7" end2="10" changelist="52169174-47a2-4a8d-a704-4d727098fc35" />
-        <range start1="11" end1="11" start2="14" end2="16" changelist="205dbb38-e22d-43a3-9ecc-6572d6faf77f" />
-        <range start1="12" end1="12" start2="17" end2="18" changelist="205dbb38-e22d-43a3-9ecc-6572d6faf77f" />
-        <range start1="30" end1="34" start2="36" end2="37" changelist="52169174-47a2-4a8d-a704-4d727098fc35" />
+        <range start1="1" end1="2" start2="1" end2="1" changelist="52169174-47a2-4a8d-a704-4d727098fc35" />
+        <range start1="3" end1="4" start2="2" end2="2" changelist="52169174-47a2-4a8d-a704-4d727098fc35" />
+        <range start1="6" end1="8" start2="4" end2="4" changelist="52169174-47a2-4a8d-a704-4d727098fc35" />
+        <range start1="10" end1="10" start2="6" end2="13" changelist="52169174-47a2-4a8d-a704-4d727098fc35" />
+        <range start1="11" end1="12" start2="14" end2="17" changelist="52169174-47a2-4a8d-a704-4d727098fc35" />
+        <range start1="20" end1="21" start2="25" end2="28" changelist="205dbb38-e22d-43a3-9ecc-6572d6faf77f" />
+        <range start1="34" end1="37" start2="41" end2="46" changelist="205dbb38-e22d-43a3-9ecc-6572d6faf77f" />
+        <range start1="38" end1="38" start2="47" end2="52" changelist="205dbb38-e22d-43a3-9ecc-6572d6faf77f" />
+        <range start1="43" end1="44" start2="57" end2="61" changelist="205dbb38-e22d-43a3-9ecc-6572d6faf77f" />
       </ranges>
     </file>
     <file path="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/map/Cistern.java">
       <ranges>
-        <range start1="30" end1="31" start2="30" end2="37" changelist="52169174-47a2-4a8d-a704-4d727098fc35" />
-        <range start1="41" end1="41" start2="47" end2="71" changelist="dcdd43b1-ccd4-4ce0-98e8-aa137394008b" />
+        <range start1="1" end1="2" start2="1" end2="1" changelist="52169174-47a2-4a8d-a704-4d727098fc35" />
+        <range start1="4" end1="5" start2="3" end2="3" changelist="52169174-47a2-4a8d-a704-4d727098fc35" />
+        <range start1="17" end1="18" start2="15" end2="16" changelist="52169174-47a2-4a8d-a704-4d727098fc35" />
+        <range start1="34" end1="35" start2="32" end2="33" changelist="52169174-47a2-4a8d-a704-4d727098fc35" />
+        <range start1="46" end1="47" start2="44" end2="45" changelist="52169174-47a2-4a8d-a704-4d727098fc35" />
+        <range start1="72" end1="75" start2="70" end2="70" changelist="dcdd43b1-ccd4-4ce0-98e8-aa137394008b" />
+        <range start1="77" end1="78" start2="72" end2="72" changelist="52169174-47a2-4a8d-a704-4d727098fc35" />
       </ranges>
     </file>
-    <file path="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/map/Network.java">
+    <file path="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/players/Technician.java">
       <ranges>
-        <range start1="33" end1="33" start2="33" end2="34" changelist="205dbb38-e22d-43a3-9ecc-6572d6faf77f" />
-        <range start1="46" end1="47" start2="47" end2="55" changelist="dcdd43b1-ccd4-4ce0-98e8-aa137394008b" />
-      </ranges>
-    </file>
-    <file path="$PROJECT_DIR$/src/main/java/org/runtimeerror/controller/Game.java">
-      <ranges>
-        <range start1="14" end1="14" start2="14" end2="20" changelist="52169174-47a2-4a8d-a704-4d727098fc35" />
-        <range start1="15" end1="16" start2="21" end2="24" changelist="52169174-47a2-4a8d-a704-4d727098fc35" />
-        <range start1="22" end1="22" start2="30" end2="33" changelist="52169174-47a2-4a8d-a704-4d727098fc35" />
-        <range start1="30" end1="30" start2="41" end2="44" changelist="52169174-47a2-4a8d-a704-4d727098fc35" />
-        <range start1="36" end1="37" start2="50" end2="53" changelist="52169174-47a2-4a8d-a704-4d727098fc35" />
-        <range start1="41" end1="42" start2="57" end2="60" changelist="52169174-47a2-4a8d-a704-4d727098fc35" />
-        <range start1="102" end1="103" start2="120" end2="146" changelist="205dbb38-e22d-43a3-9ecc-6572d6faf77f" />
-      </ranges>
-    </file>
-    <file path="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/map/Element.java">
-      <ranges>
-        <range start1="48" end1="49" start2="48" end2="49" changelist="205dbb38-e22d-43a3-9ecc-6572d6faf77f" />
-        <range start1="113" end1="114" start2="113" end2="117" changelist="52169174-47a2-4a8d-a704-4d727098fc35" />
-        <range start1="118" end1="118" start2="121" end2="122" changelist="52169174-47a2-4a8d-a704-4d727098fc35" />
-        <range start1="119" end1="119" start2="123" end2="124" changelist="52169174-47a2-4a8d-a704-4d727098fc35" />
+        <range start1="1" end1="2" start2="1" end2="1" changelist="52169174-47a2-4a8d-a704-4d727098fc35" />
+        <range start1="6" end1="7" start2="5" end2="5" changelist="52169174-47a2-4a8d-a704-4d727098fc35" />
+        <range start1="8" end1="12" start2="6" end2="6" changelist="52169174-47a2-4a8d-a704-4d727098fc35" />
+        <range start1="14" end1="14" start2="8" end2="13" changelist="52169174-47a2-4a8d-a704-4d727098fc35" />
+        <range start1="15" end1="16" start2="14" end2="17" changelist="52169174-47a2-4a8d-a704-4d727098fc35" />
+        <range start1="18" end1="19" start2="19" end2="23" changelist="52169174-47a2-4a8d-a704-4d727098fc35" />
+        <range start1="22" end1="23" start2="26" end2="27" changelist="52169174-47a2-4a8d-a704-4d727098fc35" />
+        <range start1="28" end1="29" start2="32" end2="33" changelist="52169174-47a2-4a8d-a704-4d727098fc35" />
+        <range start1="69" end1="70" start2="73" end2="74" changelist="52169174-47a2-4a8d-a704-4d727098fc35" />
+        <range start1="83" end1="87" start2="87" end2="90" changelist="52169174-47a2-4a8d-a704-4d727098fc35" />
+        <range start1="88" end1="89" start2="91" end2="93" changelist="205dbb38-e22d-43a3-9ecc-6572d6faf77f" />
+        <range start1="91" end1="92" start2="95" end2="97" changelist="52169174-47a2-4a8d-a704-4d727098fc35" />
+        <range start1="93" end1="96" start2="98" end2="101" changelist="52169174-47a2-4a8d-a704-4d727098fc35" />
+        <range start1="97" end1="98" start2="102" end2="103" changelist="205dbb38-e22d-43a3-9ecc-6572d6faf77f" />
+        <range start1="99" end1="102" start2="104" end2="107" changelist="205dbb38-e22d-43a3-9ecc-6572d6faf77f" />
+        <range start1="103" end1="105" start2="108" end2="110" changelist="205dbb38-e22d-43a3-9ecc-6572d6faf77f" />
+        <range start1="106" end1="115" start2="111" end2="119" changelist="205dbb38-e22d-43a3-9ecc-6572d6faf77f" />
+        <range start1="116" end1="119" start2="120" end2="123" changelist="205dbb38-e22d-43a3-9ecc-6572d6faf77f" />
+        <range start1="121" end1="122" start2="125" end2="126" changelist="205dbb38-e22d-43a3-9ecc-6572d6faf77f" />
+        <range start1="123" end1="124" start2="127" end2="128" changelist="205dbb38-e22d-43a3-9ecc-6572d6faf77f" />
+        <range start1="126" end1="126" start2="130" end2="133" changelist="205dbb38-e22d-43a3-9ecc-6572d6faf77f" />
+        <range start1="128" end1="129" start2="135" end2="135" changelist="205dbb38-e22d-43a3-9ecc-6572d6faf77f" />
+        <range start1="131" end1="132" start2="137" end2="138" changelist="52169174-47a2-4a8d-a704-4d727098fc35" />
+        <range start1="138" end1="139" start2="144" end2="145" changelist="52169174-47a2-4a8d-a704-4d727098fc35" />
       </ranges>
     </file>
     <file path="$PROJECT_DIR$/src/main/java/org/runtimeerror/skeleton/SkeletonController.java">
       <ranges>
-        <range start1="18" end1="19" start2="18" end2="19" changelist="dcdd43b1-ccd4-4ce0-98e8-aa137394008b" />
-        <range start1="126" end1="126" start2="126" end2="127" changelist="205dbb38-e22d-43a3-9ecc-6572d6faf77f" />
-        <range start1="127" end1="127" start2="128" end2="134" changelist="205dbb38-e22d-43a3-9ecc-6572d6faf77f" />
-        <range start1="147" end1="148" start2="154" end2="154" changelist="dcdd43b1-ccd4-4ce0-98e8-aa137394008b" />
-        <range start1="646" end1="650" start2="652" end2="652" changelist="52169174-47a2-4a8d-a704-4d727098fc35" />
-        <range start1="658" end1="659" start2="660" end2="660" changelist="52169174-47a2-4a8d-a704-4d727098fc35" />
-        <range start1="737" end1="738" start2="738" end2="738" changelist="dcdd43b1-ccd4-4ce0-98e8-aa137394008b" />
-        <range start1="739" end1="739" start2="739" end2="748" changelist="dcdd43b1-ccd4-4ce0-98e8-aa137394008b" />
-        <range start1="741" end1="741" start2="750" end2="755" changelist="dcdd43b1-ccd4-4ce0-98e8-aa137394008b" />
-        <range start1="743" end1="743" start2="757" end2="760" changelist="dcdd43b1-ccd4-4ce0-98e8-aa137394008b" />
-        <range start1="745" end1="745" start2="762" end2="764" changelist="dcdd43b1-ccd4-4ce0-98e8-aa137394008b" />
-        <range start1="748" end1="749" start2="767" end2="768" changelist="dcdd43b1-ccd4-4ce0-98e8-aa137394008b" />
-        <range start1="750" end1="750" start2="769" end2="782" changelist="dcdd43b1-ccd4-4ce0-98e8-aa137394008b" />
-        <range start1="752" end1="752" start2="784" end2="791" changelist="dcdd43b1-ccd4-4ce0-98e8-aa137394008b" />
-        <range start1="754" end1="754" start2="793" end2="796" changelist="dcdd43b1-ccd4-4ce0-98e8-aa137394008b" />
-        <range start1="756" end1="756" start2="798" end2="800" changelist="dcdd43b1-ccd4-4ce0-98e8-aa137394008b" />
-        <range start1="759" end1="760" start2="803" end2="803" changelist="dcdd43b1-ccd4-4ce0-98e8-aa137394008b" />
-        <range start1="761" end1="761" start2="804" end2="819" changelist="dcdd43b1-ccd4-4ce0-98e8-aa137394008b" />
-        <range start1="763" end1="763" start2="821" end2="828" changelist="dcdd43b1-ccd4-4ce0-98e8-aa137394008b" />
-        <range start1="765" end1="765" start2="830" end2="835" changelist="dcdd43b1-ccd4-4ce0-98e8-aa137394008b" />
-        <range start1="767" end1="767" start2="837" end2="839" changelist="dcdd43b1-ccd4-4ce0-98e8-aa137394008b" />
-        <range start1="770" end1="771" start2="842" end2="842" changelist="52169174-47a2-4a8d-a704-4d727098fc35" />
-        <range start1="772" end1="772" start2="843" end2="854" changelist="52169174-47a2-4a8d-a704-4d727098fc35" />
-        <range start1="774" end1="774" start2="856" end2="863" changelist="52169174-47a2-4a8d-a704-4d727098fc35" />
-        <range start1="776" end1="776" start2="865" end2="868" changelist="52169174-47a2-4a8d-a704-4d727098fc35" />
-        <range start1="778" end1="778" start2="870" end2="872" changelist="52169174-47a2-4a8d-a704-4d727098fc35" />
-        <range start1="792" end1="793" start2="886" end2="886" changelist="205dbb38-e22d-43a3-9ecc-6572d6faf77f" />
-        <range start1="794" end1="794" start2="887" end2="892" changelist="205dbb38-e22d-43a3-9ecc-6572d6faf77f" />
-        <range start1="796" end1="796" start2="894" end2="897" changelist="205dbb38-e22d-43a3-9ecc-6572d6faf77f" />
-        <range start1="798" end1="798" start2="899" end2="902" changelist="205dbb38-e22d-43a3-9ecc-6572d6faf77f" />
-        <range start1="800" end1="800" start2="904" end2="906" changelist="205dbb38-e22d-43a3-9ecc-6572d6faf77f" />
-        <range start1="803" end1="804" start2="909" end2="909" changelist="52169174-47a2-4a8d-a704-4d727098fc35" />
-        <range start1="805" end1="805" start2="910" end2="914" changelist="52169174-47a2-4a8d-a704-4d727098fc35" />
-        <range start1="807" end1="807" start2="916" end2="918" changelist="52169174-47a2-4a8d-a704-4d727098fc35" />
-        <range start1="809" end1="809" start2="920" end2="923" changelist="52169174-47a2-4a8d-a704-4d727098fc35" />
-        <range start1="811" end1="811" start2="925" end2="927" changelist="52169174-47a2-4a8d-a704-4d727098fc35" />
-        <range start1="814" end1="815" start2="930" end2="930" changelist="205dbb38-e22d-43a3-9ecc-6572d6faf77f" />
-        <range start1="816" end1="816" start2="931" end2="936" changelist="205dbb38-e22d-43a3-9ecc-6572d6faf77f" />
-        <range start1="818" end1="818" start2="938" end2="941" changelist="205dbb38-e22d-43a3-9ecc-6572d6faf77f" />
-        <range start1="820" end1="820" start2="943" end2="946" changelist="205dbb38-e22d-43a3-9ecc-6572d6faf77f" />
-        <range start1="822" end1="822" start2="948" end2="950" changelist="205dbb38-e22d-43a3-9ecc-6572d6faf77f" />
-        <range start1="825" end1="826" start2="953" end2="953" changelist="52169174-47a2-4a8d-a704-4d727098fc35" />
-        <range start1="827" end1="827" start2="954" end2="957" changelist="52169174-47a2-4a8d-a704-4d727098fc35" />
-        <range start1="829" end1="829" start2="959" end2="960" changelist="52169174-47a2-4a8d-a704-4d727098fc35" />
-        <range start1="831" end1="831" start2="962" end2="965" changelist="52169174-47a2-4a8d-a704-4d727098fc35" />
-        <range start1="833" end1="833" start2="967" end2="969" changelist="52169174-47a2-4a8d-a704-4d727098fc35" />
-        <range start1="836" end1="837" start2="972" end2="972" changelist="52169174-47a2-4a8d-a704-4d727098fc35" />
-        <range start1="838" end1="838" start2="973" end2="978" changelist="52169174-47a2-4a8d-a704-4d727098fc35" />
-        <range start1="840" end1="840" start2="980" end2="983" changelist="52169174-47a2-4a8d-a704-4d727098fc35" />
-        <range start1="842" end1="842" start2="985" end2="988" changelist="52169174-47a2-4a8d-a704-4d727098fc35" />
-        <range start1="844" end1="844" start2="990" end2="992" changelist="52169174-47a2-4a8d-a704-4d727098fc35" />
-        <range start1="847" end1="848" start2="995" end2="995" changelist="52169174-47a2-4a8d-a704-4d727098fc35" />
-        <range start1="849" end1="849" start2="996" end2="999" changelist="52169174-47a2-4a8d-a704-4d727098fc35" />
-        <range start1="851" end1="851" start2="1001" end2="1003" changelist="52169174-47a2-4a8d-a704-4d727098fc35" />
-        <range start1="853" end1="853" start2="1005" end2="1008" changelist="52169174-47a2-4a8d-a704-4d727098fc35" />
-        <range start1="855" end1="855" start2="1010" end2="1012" changelist="52169174-47a2-4a8d-a704-4d727098fc35" />
-        <range start1="858" end1="859" start2="1015" end2="1016" changelist="dcdd43b1-ccd4-4ce0-98e8-aa137394008b" />
-        <range start1="860" end1="860" start2="1017" end2="1023" changelist="dcdd43b1-ccd4-4ce0-98e8-aa137394008b" />
-        <range start1="862" end1="862" start2="1025" end2="1029" changelist="dcdd43b1-ccd4-4ce0-98e8-aa137394008b" />
-        <range start1="864" end1="864" start2="1031" end2="1036" changelist="dcdd43b1-ccd4-4ce0-98e8-aa137394008b" />
-        <range start1="866" end1="866" start2="1038" end2="1041" changelist="dcdd43b1-ccd4-4ce0-98e8-aa137394008b" />
-        <range start1="869" end1="870" start2="1044" end2="1044" changelist="52169174-47a2-4a8d-a704-4d727098fc35" />
-        <range start1="871" end1="871" start2="1045" end2="1047" changelist="52169174-47a2-4a8d-a704-4d727098fc35" />
-        <range start1="873" end1="873" start2="1049" end2="1050" changelist="52169174-47a2-4a8d-a704-4d727098fc35" />
-        <range start1="875" end1="875" start2="1052" end2="1055" changelist="52169174-47a2-4a8d-a704-4d727098fc35" />
-        <range start1="877" end1="877" start2="1057" end2="1059" changelist="52169174-47a2-4a8d-a704-4d727098fc35" />
+        <range start1="1" end1="2" start2="1" end2="1" changelist="52169174-47a2-4a8d-a704-4d727098fc35" />
+        <range start1="5" end1="6" start2="4" end2="4" changelist="52169174-47a2-4a8d-a704-4d727098fc35" />
+        <range start1="12" end1="13" start2="10" end2="10" changelist="52169174-47a2-4a8d-a704-4d727098fc35" />
+        <range start1="15" end1="15" start2="12" end2="16" changelist="52169174-47a2-4a8d-a704-4d727098fc35" />
+        <range start1="16" end1="17" start2="17" end2="20" changelist="52169174-47a2-4a8d-a704-4d727098fc35" />
+        <range start1="22" end1="23" start2="25" end2="25" changelist="52169174-47a2-4a8d-a704-4d727098fc35" />
+        <range start1="26" end1="26" start2="28" end2="31" changelist="52169174-47a2-4a8d-a704-4d727098fc35" />
+        <range start1="170" end1="171" start2="175" end2="176" changelist="52169174-47a2-4a8d-a704-4d727098fc35" />
+        <range start1="177" end1="178" start2="182" end2="183" changelist="52169174-47a2-4a8d-a704-4d727098fc35" />
+        <range start1="181" end1="182" start2="186" end2="187" changelist="52169174-47a2-4a8d-a704-4d727098fc35" />
+        <range start1="186" end1="187" start2="191" end2="192" changelist="52169174-47a2-4a8d-a704-4d727098fc35" />
+        <range start1="191" end1="192" start2="196" end2="197" changelist="52169174-47a2-4a8d-a704-4d727098fc35" />
+        <range start1="197" end1="198" start2="202" end2="203" changelist="52169174-47a2-4a8d-a704-4d727098fc35" />
+        <range start1="207" end1="208" start2="212" end2="213" changelist="52169174-47a2-4a8d-a704-4d727098fc35" />
+        <range start1="211" end1="212" start2="216" end2="217" changelist="52169174-47a2-4a8d-a704-4d727098fc35" />
+        <range start1="217" end1="218" start2="222" end2="223" changelist="52169174-47a2-4a8d-a704-4d727098fc35" />
+        <range start1="222" end1="223" start2="227" end2="228" changelist="52169174-47a2-4a8d-a704-4d727098fc35" />
+        <range start1="228" end1="229" start2="233" end2="234" changelist="52169174-47a2-4a8d-a704-4d727098fc35" />
+        <range start1="244" end1="245" start2="249" end2="250" changelist="52169174-47a2-4a8d-a704-4d727098fc35" />
+        <range start1="251" end1="252" start2="256" end2="257" changelist="52169174-47a2-4a8d-a704-4d727098fc35" />
+        <range start1="256" end1="257" start2="261" end2="262" changelist="52169174-47a2-4a8d-a704-4d727098fc35" />
+        <range start1="262" end1="263" start2="267" end2="268" changelist="52169174-47a2-4a8d-a704-4d727098fc35" />
+        <range start1="273" end1="274" start2="278" end2="279" changelist="52169174-47a2-4a8d-a704-4d727098fc35" />
+        <range start1="280" end1="281" start2="285" end2="286" changelist="52169174-47a2-4a8d-a704-4d727098fc35" />
+        <range start1="286" end1="287" start2="291" end2="292" changelist="52169174-47a2-4a8d-a704-4d727098fc35" />
+        <range start1="294" end1="295" start2="299" end2="300" changelist="52169174-47a2-4a8d-a704-4d727098fc35" />
+        <range start1="302" end1="303" start2="307" end2="308" changelist="52169174-47a2-4a8d-a704-4d727098fc35" />
+        <range start1="308" end1="309" start2="313" end2="314" changelist="52169174-47a2-4a8d-a704-4d727098fc35" />
+        <range start1="313" end1="314" start2="318" end2="319" changelist="52169174-47a2-4a8d-a704-4d727098fc35" />
+        <range start1="320" end1="321" start2="325" end2="326" changelist="52169174-47a2-4a8d-a704-4d727098fc35" />
+        <range start1="331" end1="332" start2="336" end2="337" changelist="52169174-47a2-4a8d-a704-4d727098fc35" />
+        <range start1="338" end1="339" start2="343" end2="344" changelist="52169174-47a2-4a8d-a704-4d727098fc35" />
+        <range start1="343" end1="344" start2="348" end2="349" changelist="52169174-47a2-4a8d-a704-4d727098fc35" />
+        <range start1="349" end1="350" start2="354" end2="355" changelist="52169174-47a2-4a8d-a704-4d727098fc35" />
+        <range start1="351" end1="352" start2="356" end2="358" changelist="52169174-47a2-4a8d-a704-4d727098fc35" />
+        <range start1="364" end1="365" start2="370" end2="371" changelist="52169174-47a2-4a8d-a704-4d727098fc35" />
+        <range start1="371" end1="372" start2="377" end2="378" changelist="52169174-47a2-4a8d-a704-4d727098fc35" />
+        <range start1="376" end1="377" start2="382" end2="383" changelist="52169174-47a2-4a8d-a704-4d727098fc35" />
+        <range start1="381" end1="382" start2="387" end2="388" changelist="52169174-47a2-4a8d-a704-4d727098fc35" />
+        <range start1="383" end1="384" start2="389" end2="391" changelist="52169174-47a2-4a8d-a704-4d727098fc35" />
+        <range start1="396" end1="397" start2="403" end2="404" changelist="52169174-47a2-4a8d-a704-4d727098fc35" />
+        <range start1="403" end1="404" start2="410" end2="411" changelist="52169174-47a2-4a8d-a704-4d727098fc35" />
+        <range start1="408" end1="409" start2="415" end2="416" changelist="52169174-47a2-4a8d-a704-4d727098fc35" />
+        <range start1="417" end1="418" start2="424" end2="425" changelist="52169174-47a2-4a8d-a704-4d727098fc35" />
+        <range start1="419" end1="420" start2="426" end2="428" changelist="52169174-47a2-4a8d-a704-4d727098fc35" />
+        <range start1="432" end1="433" start2="440" end2="441" changelist="52169174-47a2-4a8d-a704-4d727098fc35" />
+        <range start1="439" end1="440" start2="447" end2="448" changelist="52169174-47a2-4a8d-a704-4d727098fc35" />
+        <range start1="444" end1="445" start2="452" end2="453" changelist="52169174-47a2-4a8d-a704-4d727098fc35" />
+        <range start1="449" end1="450" start2="457" end2="458" changelist="52169174-47a2-4a8d-a704-4d727098fc35" />
+        <range start1="451" end1="452" start2="459" end2="461" changelist="52169174-47a2-4a8d-a704-4d727098fc35" />
+        <range start1="462" end1="463" start2="471" end2="472" changelist="52169174-47a2-4a8d-a704-4d727098fc35" />
+        <range start1="469" end1="470" start2="478" end2="479" changelist="52169174-47a2-4a8d-a704-4d727098fc35" />
+        <range start1="474" end1="475" start2="483" end2="484" changelist="52169174-47a2-4a8d-a704-4d727098fc35" />
+        <range start1="480" end1="481" start2="489" end2="490" changelist="52169174-47a2-4a8d-a704-4d727098fc35" />
+        <range start1="499" end1="503" start2="508" end2="509" changelist="52169174-47a2-4a8d-a704-4d727098fc35" />
+        <range start1="511" end1="512" start2="517" end2="518" changelist="52169174-47a2-4a8d-a704-4d727098fc35" />
+        <range start1="516" end1="517" start2="522" end2="523" changelist="52169174-47a2-4a8d-a704-4d727098fc35" />
+        <range start1="523" end1="524" start2="529" end2="530" changelist="52169174-47a2-4a8d-a704-4d727098fc35" />
+        <range start1="533" end1="534" start2="539" end2="540" changelist="52169174-47a2-4a8d-a704-4d727098fc35" />
+        <range start1="540" end1="541" start2="546" end2="547" changelist="52169174-47a2-4a8d-a704-4d727098fc35" />
+        <range start1="546" end1="547" start2="552" end2="553" changelist="52169174-47a2-4a8d-a704-4d727098fc35" />
+        <range start1="552" end1="553" start2="558" end2="559" changelist="52169174-47a2-4a8d-a704-4d727098fc35" />
+        <range start1="562" end1="563" start2="568" end2="569" changelist="52169174-47a2-4a8d-a704-4d727098fc35" />
+        <range start1="567" end1="568" start2="573" end2="574" changelist="52169174-47a2-4a8d-a704-4d727098fc35" />
+        <range start1="572" end1="573" start2="578" end2="579" changelist="52169174-47a2-4a8d-a704-4d727098fc35" />
+        <range start1="578" end1="579" start2="584" end2="585" changelist="52169174-47a2-4a8d-a704-4d727098fc35" />
+        <range start1="586" end1="587" start2="592" end2="593" changelist="52169174-47a2-4a8d-a704-4d727098fc35" />
+        <range start1="592" end1="594" start2="598" end2="599" changelist="52169174-47a2-4a8d-a704-4d727098fc35" />
+        <range start1="599" end1="600" start2="604" end2="605" changelist="52169174-47a2-4a8d-a704-4d727098fc35" />
+        <range start1="605" end1="606" start2="610" end2="611" changelist="52169174-47a2-4a8d-a704-4d727098fc35" />
+        <range start1="617" end1="618" start2="622" end2="623" changelist="52169174-47a2-4a8d-a704-4d727098fc35" />
+        <range start1="624" end1="626" start2="629" end2="630" changelist="52169174-47a2-4a8d-a704-4d727098fc35" />
+        <range start1="631" end1="632" start2="635" end2="636" changelist="52169174-47a2-4a8d-a704-4d727098fc35" />
+        <range start1="637" end1="638" start2="641" end2="642" changelist="52169174-47a2-4a8d-a704-4d727098fc35" />
+        <range start1="652" end1="653" start2="656" end2="657" changelist="52169174-47a2-4a8d-a704-4d727098fc35" />
+        <range start1="660" end1="661" start2="664" end2="665" changelist="52169174-47a2-4a8d-a704-4d727098fc35" />
+        <range start1="665" end1="666" start2="669" end2="670" changelist="52169174-47a2-4a8d-a704-4d727098fc35" />
+        <range start1="671" end1="672" start2="675" end2="676" changelist="52169174-47a2-4a8d-a704-4d727098fc35" />
+        <range start1="689" end1="690" start2="693" end2="694" changelist="52169174-47a2-4a8d-a704-4d727098fc35" />
+        <range start1="698" end1="699" start2="702" end2="703" changelist="52169174-47a2-4a8d-a704-4d727098fc35" />
+        <range start1="704" end1="705" start2="708" end2="709" changelist="52169174-47a2-4a8d-a704-4d727098fc35" />
+        <range start1="710" end1="711" start2="714" end2="715" changelist="52169174-47a2-4a8d-a704-4d727098fc35" />
+        <range start1="720" end1="721" start2="724" end2="725" changelist="52169174-47a2-4a8d-a704-4d727098fc35" />
+        <range start1="727" end1="728" start2="731" end2="732" changelist="52169174-47a2-4a8d-a704-4d727098fc35" />
+        <range start1="732" end1="733" start2="736" end2="737" changelist="52169174-47a2-4a8d-a704-4d727098fc35" />
+        <range start1="738" end1="739" start2="742" end2="743" changelist="52169174-47a2-4a8d-a704-4d727098fc35" />
+        <range start1="749" end1="750" start2="753" end2="754" changelist="52169174-47a2-4a8d-a704-4d727098fc35" />
+        <range start1="756" end1="757" start2="760" end2="761" changelist="52169174-47a2-4a8d-a704-4d727098fc35" />
+        <range start1="761" end1="762" start2="765" end2="766" changelist="52169174-47a2-4a8d-a704-4d727098fc35" />
+        <range start1="768" end1="769" start2="772" end2="773" changelist="52169174-47a2-4a8d-a704-4d727098fc35" />
+        <range start1="783" end1="784" start2="787" end2="788" changelist="52169174-47a2-4a8d-a704-4d727098fc35" />
+        <range start1="792" end1="793" start2="796" end2="797" changelist="52169174-47a2-4a8d-a704-4d727098fc35" />
+        <range start1="797" end1="798" start2="801" end2="802" changelist="52169174-47a2-4a8d-a704-4d727098fc35" />
+        <range start1="850" end1="850" start2="854" end2="856" changelist="205dbb38-e22d-43a3-9ecc-6572d6faf77f" />
+        <range start1="854" end1="854" start2="860" end2="862" changelist="205dbb38-e22d-43a3-9ecc-6572d6faf77f" />
+        <range start1="875" end1="876" start2="883" end2="883" changelist="205dbb38-e22d-43a3-9ecc-6572d6faf77f" />
+        <range start1="877" end1="877" start2="884" end2="897" changelist="205dbb38-e22d-43a3-9ecc-6572d6faf77f" />
+        <range start1="879" end1="879" start2="899" end2="905" changelist="205dbb38-e22d-43a3-9ecc-6572d6faf77f" />
+        <range start1="881" end1="881" start2="907" end2="910" changelist="205dbb38-e22d-43a3-9ecc-6572d6faf77f" />
+        <range start1="883" end1="883" start2="912" end2="914" changelist="205dbb38-e22d-43a3-9ecc-6572d6faf77f" />
       </ranges>
     </file>
   </component>
@@ -215,7 +278,7 @@
       <updated>1677421116671</updated>
       <workItem from="1681638695887" duration="12126000" />
       <workItem from="1681652748044" duration="10000" />
-      <workItem from="1681653842771" duration="26003000" />
+      <workItem from="1681653842771" duration="28683000" />
     </task>
     <task id="LOCAL-00001" summary="Test commit">
       <created>1681639355143</created>
@@ -329,7 +392,28 @@
       <option name="project" value="LOCAL" />
       <updated>1681669997464</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="update">
+      <created>1681683567634</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1681683567634</updated>
+    </task>
+    <task id="LOCAL-00018" summary="Update 2023.04.16. 13:38">
+      <created>1681683638734</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1681683638734</updated>
+    </task>
+    <task id="LOCAL-00019" summary="Changes by Tep Oli">
+      <created>1681683670157</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1681683670157</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -354,6 +438,17 @@
     <MESSAGE value="Update 2023.04.16. 13:38" />
     <MESSAGE value="Changes by Tep Oli" />
     <option name="LAST_COMMIT_MESSAGE" value="Changes by Tep Oli" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/runtimeerror/model/players/Technician.java</url>
+          <line>121</line>
+          <option name="timeStamp" value="22" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

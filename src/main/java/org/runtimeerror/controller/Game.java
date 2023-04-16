@@ -1,16 +1,12 @@
 package org.runtimeerror.controller;
-
 import org.runtimeerror.Main;
 import org.runtimeerror.model.map.*;
 import org.runtimeerror.model.players.Technician;
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 import org.runtimeerror.model.players.Player;
-
 import static org.runtimeerror.skeleton.SkeletonController._Game;
-
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
 
 /**
@@ -46,21 +42,21 @@ public class Game {
         this.network = network;
     }
 
-    /* Átadott számú pontot ad a szerelőknek. */
+    /** Átadott számú pontot ad a szerelőknek. */
     public void AddTechnicianPoints(int points) {
         Main.skeleton.PrintFunctionCalled(this);
         scoreTechnician += points;
         Main.skeleton.PrintFunctionReturned("AddTechnicianPoints","");
     }
 
-    /* Átadott számú pontot ad a szabotőröknek. */
+    /** Átadott számú pontot ad a szabotőröknek. */
     public void AddSaboteurPoints(int points) {
         Main.skeleton.PrintFunctionCalled(this);
         scoreSaboteur += points;
         Main.skeleton.PrintFunctionReturned("AddSaboteurPoints","");
     }
 
-    /* A következő turn indítása (áramoltatja a vizet, pontokat oszt, véletlenszerűen pumpákat ront el,
+    /** A következő turn indítása (áramoltatja a vizet, pontokat oszt, véletlenszerűen pumpákat ront el,
      és ha véget ért egy teljes kör (round), akkor új csöveket teremt a ciszternák üres szomszédjai helyén).
      Ha az egyik csapat elérte a győzelemhez szükséges pontok számát, véget vet a játéknak. */
     public void NextTurn() {
@@ -70,14 +66,14 @@ public class Game {
         //throw new NotImplementedException();
     }
 
-    /* Visszaadja a játékost, aki éppen soron van (akinek turnje van jelenleg). */
+    /** Visszaadja a játékost, aki éppen soron van (akinek turnje van jelenleg). */
     public Player GetCurrPlayer() {
         Main.skeleton.PrintFunctionCalled(this);
         Main.skeleton.PrintFunctionReturned("GetCurrPlayer", "player");
         return players.get(currPlayerIdx);
     }
 
-    /* Igazat ad vissza, ha éppen szerelő jön az adott körben. */
+    /** Igazat ad vissza, ha éppen szerelő jön az adott körben. */
     public boolean IsTechnicianTurn() {
         Main.skeleton.PrintFunctionCalled(this);
         boolean re=currPlayerIdx%2==0;
@@ -85,37 +81,36 @@ public class Game {
         return re;
     }
 
-    /* Visszaadja a pálya elemeit számontartó objektumot. */
+    /** Visszaadja a pálya elemeit számontartó objektumot. */
     public Network GetNetwork() {
         Main.skeleton.PrintFunctionCalled(this);
         Main.skeleton.PrintFunctionReturned("GetNetwork","network");
         return network;
     }
 
-
-    /* Inner-class. A felhasználót és a játékot köti össze. Irányokat / célpontokat tud bekérni a felhasználótól.
+    /** Inner-class. A felhasználót és a játékot köti össze. Irányokat / célpontokat tud bekérni a felhasználótól.
      Játékosmozgatást, cső- és pumpalehelyezést, illetve csőfelvevést kezdeményezhet vele. */
     public static class Input {
 
-        /* d irányba próbálja mozgatni az épp soron lévő játékost, arról az elemről, amelyiken éppen tartózkodik. */
+        /** d irányba próbálja mozgatni az épp soron lévő játékost, arról az elemről, amelyiken éppen tartózkodik. */
         public void MoveCurrPlayer(Direction d) {
             throw new NotImplementedException();
         }
 
-        /* Akkor hívandó függvény, amikor éppen azt az elemet szeretné manipulálni / interakcióba lépni vele
+        /** Akkor hívandó függvény, amikor éppen azt az elemet szeretné manipulálni / interakcióba lépni vele
          (csövet lyukasztani / foltozni, pumpát javítani / átállítani vagy a következő ciszternára ugrani)
          a soron lévő játékos, amelyiken éppen áll. */
         public void TryCurrElemManipulation() {
             throw new NotImplementedException();
         }
 
-        /* Akkor hívandó függvény, amikor a soron lévő játékos megpróbál egy tőle d irányba lévő szomszédos csövet
+        /** Akkor hívandó függvény, amikor a soron lévő játékos megpróbál egy tőle d irányba lévő szomszédos csövet
          felvenni, és a tárolójában eltárolni. */
         public void TryPartRelocation(Direction d) {
             throw new NotImplementedException();
         }
 
-        /* Akkor hívandó függvény, amikor a soron lévő játékos megpróbálja a tárolt part-ját tőle d irányba
+        /** Akkor hívandó függvény, amikor a soron lévő játékos megpróbálja a tárolt part-ját tőle d irányba
          lehelyezni. */
         public void TryPartPlacement(Direction d) {
             Main.skeleton.PrintFunctionCalled(this);
@@ -146,7 +141,7 @@ public class Game {
             Main.skeleton.PrintFunctionReturned("TryPartPlacement", "");
         }
 
-        /* Akkor hívandó függvény, amikor egy játékos egy part-ot próbálna a tárolójába tenni
+        /** Akkor hívandó függvény, amikor egy játékos egy part-ot próbálna a tárolójába tenni
          (nem a játéktérről, hanem közvetlenül odaadva). Ez csak akkor lesz sikeres, ha a játékos szerelő,
          üres a tárolója, és az elem amin áll, támogat ilyen funkcionalitást. */
         public void Pickup() {
@@ -176,15 +171,9 @@ public class Game {
             Main.skeleton.PrintFunctionReturned("Pickup","");
         }
 
-        /* Pumpa átállításához visszaadja a soron lévő játékos által bevitt irányokat. */
+        /** Pumpa átállításához visszaadja a soron lévő játékos által bevitt irányokat. */
         public Direction[] GetNewPumpDirections() {
             Main.skeleton.PrintFunctionCalled(this);
-
-//            Scanner sc1 = new Scanner(System.in);
-//            int inputValue1 = sc1.nextInt();
-//
-//            Scanner sc2 = new Scanner(System.in);
-//            int inputValue2 = sc2.nextInt();
 
             Direction[] dirs= new Direction[] {
                     new Direction(1),
@@ -196,10 +185,9 @@ public class Game {
         }
     }
 
+    /** --------- CSAK A JÁTÉK INICIALIZÁLÁSKOR HASZNÁLT FÜGGVÉNYEK (nincs hibakezelés bennük): --------- */
 
-    /* --------- CSAK A JÁTÉK INICIALIZÁLÁSKOR HASZNÁLT FÜGGVÉNYEK (nincs hibakezelés bennük): --------- */
-
-    /* Hozzáad a játékhoz egy játékost. */
+    /** Hozzáad a játékhoz egy játékost. */
     public void AddPlayer(Player p) {
         Main.skeleton.PrintFunctionCalled(this);
         players.add(p);

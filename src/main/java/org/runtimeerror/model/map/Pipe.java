@@ -1,15 +1,20 @@
 package org.runtimeerror.model.map;
-
 import org.runtimeerror.Main;
-import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 import org.runtimeerror.model.players.Player;
 import org.runtimeerror.model.players.Manipulator;
-
-import static org.runtimeerror.skeleton.SkeletonController._Game;
 import static org.runtimeerror.skeleton.SkeletonController.ObjNameMap;
 
-public class Pipe extends Breakable {
 
+/**
+ * Olyan elromolható, felvehető elem, amelyen legfeljebb egy játékos tartózkodhat.
+ * Ki lehet lyukasztani, a lyukas csövet pedig meg is lehet javítani.
+ * Ha a cső nem lyukas akkor a kimenetéhez vizet tud juttatni.
+ * Ha lyukas, vagy a kimenete üres, akkor a szabotőrök pontot kapnak, amikor víz érkezik belé.
+ */
+public class Pipe extends Breakable {
+    /**
+     * Metódusok
+     */
     public Pipe(){
         super();
         ObjNameMap.put(this,"newPipe:Pipe");
