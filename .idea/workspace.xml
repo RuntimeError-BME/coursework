@@ -32,22 +32,54 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="LineStatusTrackerManager">
+    <file path="$PROJECT_DIR$/src/main/java/org/runtimeerror/skeleton/SkeletonController.java">
+      <ranges>
+        <range start1="5" end1="5" start2="5" end2="9" changelist="205dbb38-e22d-43a3-9ecc-6572d6faf77f" />
+        <range start1="9" end1="9" start2="13" end2="17" changelist="dcdd43b1-ccd4-4ce0-98e8-aa137394008b" />
+        <range start1="206" end1="207" start2="214" end2="214" changelist="205dbb38-e22d-43a3-9ecc-6572d6faf77f" />
+        <range start1="208" end1="208" start2="215" end2="229" changelist="205dbb38-e22d-43a3-9ecc-6572d6faf77f" />
+        <range start1="210" end1="210" start2="231" end2="236" changelist="205dbb38-e22d-43a3-9ecc-6572d6faf77f" />
+        <range start1="212" end1="212" start2="238" end2="241" changelist="205dbb38-e22d-43a3-9ecc-6572d6faf77f" />
+        <range start1="214" end1="214" start2="243" end2="245" changelist="205dbb38-e22d-43a3-9ecc-6572d6faf77f" />
+        <range start1="217" end1="218" start2="248" end2="248" changelist="dcdd43b1-ccd4-4ce0-98e8-aa137394008b" />
+        <range start1="219" end1="219" start2="249" end2="255" changelist="dcdd43b1-ccd4-4ce0-98e8-aa137394008b" />
+        <range start1="220" end1="220" start2="256" end2="259" changelist="dcdd43b1-ccd4-4ce0-98e8-aa137394008b" />
+        <range start1="222" end1="222" start2="261" end2="266" changelist="dcdd43b1-ccd4-4ce0-98e8-aa137394008b" />
+        <range start1="224" end1="224" start2="268" end2="272" changelist="dcdd43b1-ccd4-4ce0-98e8-aa137394008b" />
+        <range start1="225" end1="225" start2="273" end2="277" changelist="dcdd43b1-ccd4-4ce0-98e8-aa137394008b" />
+        <range start1="228" end1="229" start2="280" end2="280" changelist="dcdd43b1-ccd4-4ce0-98e8-aa137394008b" />
+        <range start1="230" end1="230" start2="281" end2="287" changelist="dcdd43b1-ccd4-4ce0-98e8-aa137394008b" />
+        <range start1="233" end1="233" start2="290" end2="294" changelist="dcdd43b1-ccd4-4ce0-98e8-aa137394008b" />
+        <range start1="234" end1="234" start2="295" end2="298" changelist="dcdd43b1-ccd4-4ce0-98e8-aa137394008b" />
+        <range start1="236" end1="236" start2="300" end2="303" changelist="dcdd43b1-ccd4-4ce0-98e8-aa137394008b" />
+        <range start1="239" end1="240" start2="306" end2="306" changelist="205dbb38-e22d-43a3-9ecc-6572d6faf77f" />
+        <range start1="241" end1="241" start2="307" end2="316" changelist="205dbb38-e22d-43a3-9ecc-6572d6faf77f" />
+        <range start1="244" end1="244" start2="319" end2="324" changelist="205dbb38-e22d-43a3-9ecc-6572d6faf77f" />
+        <range start1="245" end1="245" start2="325" end2="328" changelist="205dbb38-e22d-43a3-9ecc-6572d6faf77f" />
+        <range start1="247" end1="247" start2="330" end2="332" changelist="205dbb38-e22d-43a3-9ecc-6572d6faf77f" />
+      </ranges>
+    </file>
+  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="2MHObmW8IhbUi3D5DAyeBMHOvQd" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
     "codeWithMe.voiceChat.enabledByDefault": "false",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "session__week__07",
     "last_opened_file_path": "/Users/sasy/Library/CloudStorage/OneDrive-Personal/University/Semester - 4/ProjLab/Weekly Progress/07/coursework",
     "node.js.detected.package.eslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -55,6 +87,26 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RunManager">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.runtimeerror.Main" />
+      <module name="coursework" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.runtimeerror.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -72,6 +124,14 @@
       <option name="project" value="LOCAL" />
       <updated>1681639355143</updated>
     </task>
+    <task id="LOCAL-00002" summary="Upload full_doc.pdf">
+      <created>1681640081627</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1681640081627</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

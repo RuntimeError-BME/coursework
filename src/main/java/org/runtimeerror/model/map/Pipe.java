@@ -5,7 +5,7 @@ import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 import org.runtimeerror.model.players.Player;
 import org.runtimeerror.model.players.Manipulator;
 
-public class Pipe extends Element {
+public class Pipe extends Breakable {
 
     /* Felhelyezi az átadott játékost magára, ha nem áll rajta már más valaki. A művelet sikerességével tér vissza. */
     @Override

@@ -7,6 +7,10 @@ import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 import org.runtimeerror.model.map.Direction;
 import org.runtimeerror.model.players.Player;
 import org.runtimeerror.model.map.Pipe;
+import org.runtimeerror.model.map.Pump;
+import org.runtimeerror.model.map.Cistern;
+import org.runtimeerror.model.map.Source;
+
 
 public final class SkeletonController {
 
@@ -215,25 +219,61 @@ public final class SkeletonController {
     }
 
     private void test04_Move_to_Cistern() {
-        throw new NotImplementedException();
         /* inicializálás */
+        isLogging = false;
+        Player player = new Player("s1"); // akit mozgatunk (szabotőr, de technikussal is ugyanígy lenne)
+        Pipe currElem = new Pipe(); // a pumpa, amin jelenleg áll
+        player.SetCurrElem(currElem); // jelenleg ezen áll
+        currElem.AddPlayer(player);
+        Cistern targetElem = new Cistern(); // a ciszterna, amire léptetni fogjuk
 
+        Player playerOnTarget = new Player("s2"); // a játékos, aki a cél ciszternán áll
+        playerOnTarget.SetCurrElem(targetElem);
+        targetElem.AddPlayer(playerOnTarget);
         /* objektumok hozzáadása a map-hez */
+
+        ObjNameMap.put(player, "player:Player");
+        ObjNameMap.put(currElem, "currElem:Pipe");
+        ObjNameMap.put(targetElem, "targetElem:Cistern");
+        ObjNameMap.put(playerOnTarget, "playerOnTarget:Player");
 
         /* szekvencia innen */
 
+        isLogging = true;
+        PrintFunctionCall(this, "MoveTo", targetElem);
+        player.MoveTo(targetElem);
+
         /* objektumok eltávolítás a map-ből */
+
+        ObjNameMap.clear();
+        ObjNameMap.put(this, ":SkeletonController");
+
     }
 
     private void test05_Move_to_Source() {
-        throw new NotImplementedException();
         /* inicializálás */
+        isLogging = false;
+        Player player = new Player("s1"); // akit mozgatunk (szabotőr, de technikussal is ugyanígy lenne)
+        Pipe currElem = new Pipe(); // a pumpa, amin jelenleg áll
+        player.SetCurrElem(currElem); // jelenleg ezen áll
+        currElem.AddPlayer(player);
+        Source targetElem = new Source(); // a ciszterna, amire léptetni fogjuk
 
         /* objektumok hozzáadása a map-hez */
 
+        ObjNameMap.put(player, "player:Player");
+        ObjNameMap.put(currElem, "currElem:Pipe");
+        ObjNameMap.put(targetElem, "targetElem:Source");
+
         /* szekvencia innen */
+        isLogging = true;
+        PrintFunctionCall(this, "MoveTo", targetElem);
+        player.MoveTo(targetElem);
 
         /* objektumok eltávolítás a map-ből */
+        ObjNameMap.clear();
+        ObjNameMap.put(this, ":SkeletonController");
+
     }
 
     private void test06_Fix_broken_Pump() {
