@@ -23,6 +23,7 @@ public abstract class Breakable extends Element {
     }
 
     /* Visszaadja, hogy az elem törött-e. */
+    @Override
     public boolean GetBroken() {
         Main.skeleton.PrintFunctionCalled(this);
         Main.skeleton.PrintFunctionReturned("GetBroken", broken ? "true" : "false" );

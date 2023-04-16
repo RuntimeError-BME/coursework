@@ -1,7 +1,8 @@
 package org.runtimeerror.controller;
 
 import org.runtimeerror.Main;
-import org.runtimeerror.model.map.Pipe;
+import org.runtimeerror.model.map.*;
+import org.runtimeerror.model.players.Technician;
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 import org.runtimeerror.model.players.Player;
 
@@ -55,7 +56,7 @@ public class Game {
     public Player GetCurrPlayer() {
         Main.skeleton.PrintFunctionCalled(this);
         Main.skeleton.PrintFunctionReturned("GetCurrPlayer", "player");
-        return players.get(0);
+        return players.get(currPlayerIdx);
     }
 
     /* Igazat ad vissza, ha éppen szerelő jön az adott körben. */

@@ -29,6 +29,12 @@ public abstract class Element {
         return true;
     }
 
+    public boolean GetBroken(){
+        Main.skeleton.PrintFunctionCalled(this);
+        Main.skeleton.PrintFunctionReturned("GetBroken", "false");
+        return false;
+    }
+
     /* Eltávolítja a rajta lévő játékosai közül az átadottat. */
     public void RemovePlayer(Player p) {
         Main.skeleton.PrintFunctionCalled(this);
@@ -40,7 +46,7 @@ public abstract class Element {
     public Element GetNb(Direction d) {
         Main.skeleton.PrintFunctionCalled(this);
 
-        Main.skeleton.PrintFunctionReturned("GetNb", "newInp");
+        Main.skeleton.PrintFunctionReturned("GetNb", "newInp/targetElem");
         return nbs.get(d.ordinal());
 
     }
@@ -77,7 +83,9 @@ public abstract class Element {
 
     /* A szomszédos elemek számát adja vissza. */
     public int GetNbCnt() {
-        throw new NotImplementedException();
+        Main.skeleton.PrintFunctionCalled(this);
+        Main.skeleton.PrintFunctionReturned("GetNbCnt",""+nbs.size());
+        return nbs.size();
     }
 
     /* A rajta tartózkodó játékosok számát adja vissza. */
@@ -108,7 +116,7 @@ public abstract class Element {
 
     /* Az átadott érték szerint állítja be, hogy van-e víz jelenleg benne. */
     public void SetFlooded(boolean f) {
-        throw new NotImplementedException();
+        flooded=f;
     }
 
     /* A bemenetét az átadott elemre állítja be. */
@@ -124,6 +132,6 @@ public abstract class Element {
         Main.skeleton.PrintFunctionCalled(this);
         output=e;
         Main.skeleton.PrintFunctionReturned("SetOutput", "");
-
     }
+
 }

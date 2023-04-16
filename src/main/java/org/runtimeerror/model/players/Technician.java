@@ -74,11 +74,15 @@ public class Technician extends Player {
 
     /* Visszaadja azt a Breakable-t („part” attribútumot), ami a szerelőnél van. */
     public Breakable GetPart() {
-        throw new NotImplementedException();
+        Main.skeleton.PrintFunctionCalled(this);
+        Main.skeleton.PrintFunctionReturned("GetPart",part==null ? "null" : "part");
+        return part;
     }
 
     /* Az átadott Breakable-re állítja a „part” attribútumot. */
     public void SetPart(Breakable b) {
-        throw new NotImplementedException();
+        Main.skeleton.PrintFunctionCalled(this);
+        part=b;
+        Main.skeleton.PrintFunctionReturned("SetPart","");
     }
 }

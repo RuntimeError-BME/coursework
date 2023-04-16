@@ -23,12 +23,23 @@ public class Network {
      (pl. nem esne komponensekre a pálya, mint gráf), akkor igazzal tér vissza.
      Ellenkező esetben nem módosít semmi a pályán. */
     public boolean RemoveElem(Element e) {
-        throw new NotImplementedException();
+        Main.skeleton.PrintFunctionCalled(this);
+        boolean re=elements.remove(e);
+        Main.skeleton.PrintFunctionReturned("RemoveElem",re ? "true" : "false");
+        return re;
     }
 
     /* Az átadott csövet megkísérli hozzáadni a pályához. Ennek sikerességét adja vissza. */
     public boolean AddPipe(Pipe p) {
-        throw new NotImplementedException();
+        if(elements.size()<32){
+            boolean b=elements.add(p);
+            Main.skeleton.PrintFunctionReturned("AddPipe",b ? "true":"false");
+            return b;
+        }
+        else {
+            Main.skeleton.PrintFunctionReturned("AddPipe","false");
+            return false;
+        }
     }
 
     /* Az átadott pumpával kísérli meg felülírni a másik átadott elemet a pályán. Ennek sikerességét adja vissza. */

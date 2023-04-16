@@ -16,6 +16,8 @@ public class Player {
     public Player(String name) { this.name = name; manipulator = new ManipulatorSaboteur(); }
     public Player(String name, Manipulator m) { this.name = name; manipulator = m; }
 
+
+
     /* Beállítja az elemet, amelyen a játékos tartózkodik. */
     public void SetCurrElem(Element e) {
         Main.skeleton.PrintFunctionCalled(this);

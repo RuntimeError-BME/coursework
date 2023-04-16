@@ -19,7 +19,7 @@ public final class SkeletonController {
     private boolean isLogging = true;
     private Scanner in;
     private Map<Integer, String> TestNameMap = new HashMap<>(30); // Tesztszám - Tesztnév párosok
-    private Map<Object, String> ObjNameMap = new HashMap<>(8); // Objektum - "név : típus" string párosok
+    public static Map<Object, String> ObjNameMap = new HashMap<>(8); // Objektum - "név : típus" string párosok
 
     public static Game _Game= new Game();
     public static Game.Input _GameI = new Game.Input();
@@ -629,14 +629,42 @@ public final class SkeletonController {
     }
 
     private void test14_Relocate_relocatable_Pipe() {
-        throw new NotImplementedException();
         /* inicializálás */
+        isLogging=false;
+        Technician player= new Technician("t1");
+        Pipe currElem=new Pipe();
+        currElem.AddPlayer(player);
+        player.SetCurrElem(currElem);
+        _Game=new Game();
+        Pipe nonTargetNb=new Pipe();
+        Pipe targetElem = new Pipe();
+        currElem.SetNb(new Direction(0),nonTargetNb);
+        currElem.SetNb(new Direction(1),targetElem);
+        Network network = new Network();
+        network.AddPipe(targetElem);
+        _Game.setNetwork(network);
+
+
+
+
 
         /* objektumok hozzáadása a map-hez */
+        ObjNameMap.put(player, "player:Technician");
+        ObjNameMap.put(currElem, "currElem:Pipe");
+        ObjNameMap.put(_Game, ":Game");
+        ObjNameMap.put(targetElem, "targetElem:Pipe");
+        ObjNameMap.put(nonTargetNb, "nonTargetNb:Pipe");
+        ObjNameMap.put(network, "network:Network");
+
 
         /* szekvencia innen */
+        isLogging=true;
+        Main.skeleton.PrintFunctionCall(this,"PickUpPart", "d");
+        player.PickUpPart(new Direction(1));
 
         /* objektumok eltávolítás a map-ből */
+        ObjNameMap.clear();
+        ObjNameMap.put(this, ":SkeletonController");
     }
 
     private void test15_Relocate_unrelocatable_Element() {
@@ -690,6 +718,11 @@ public final class SkeletonController {
         _Game.AddPlayer(playerT);
 
         /* objektumok hozzáadása a map-hez */
+        ObjNameMap.put(_Game, ":Game");
+        ObjNameMap.put(_GameI, ":GameInput");
+        ObjNameMap.put(playerT, "player:Technician");
+        ObjNameMap.put(currElem, "currElem:Cistern");
+
 
         /* szekvencia innen */
         isLogging = true;

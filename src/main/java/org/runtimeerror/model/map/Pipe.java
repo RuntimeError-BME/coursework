@@ -7,6 +7,11 @@ import org.runtimeerror.model.players.Manipulator;
 
 public class Pipe extends Breakable {
 
+    public Pipe(){
+        super();
+        pickUpAble=true;
+    }
+
     /* Felhelyezi az átadott játékost magára, ha nem áll rajta már más valaki. A művelet sikerességével tér vissza. */
     @Override
     public boolean AddPlayer(Player p) {
@@ -26,6 +31,11 @@ public class Pipe extends Breakable {
     @Override
     public void Flood() {
         throw new NotImplementedException();
+    }
+
+    @Override
+    public void SetNb(Direction d, Element e){
+        if(this.GetNbCnt()<2){super.SetNb(d,e);}
     }
 
     /* Az átvett manipulátorral manipulálja ezt a konkrét elemet. */
