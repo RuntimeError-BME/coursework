@@ -28,7 +28,10 @@ public class ManipulatorTechnician extends Manipulator {
             Main.skeleton.PrintFunctionCall(this, "NextTurn");
             _Game.NextTurn();
             Main.skeleton.PrintFunctionReturned("Manipulate", "");
-        } else
-            throw new NotImplementedException();
+        } else {
+            Main.skeleton.PrintFunctionCall(this, "<<base>>Manipulate",p);
+            super.Manipulate(p);
+            Main.skeleton.PrintFunctionReturned("Manipulate", "");
+        }
     }
 }

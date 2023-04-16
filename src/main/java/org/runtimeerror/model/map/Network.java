@@ -2,6 +2,8 @@ package org.runtimeerror.model.map;
 
 import java.util.List;
 import java.util.ArrayList;
+
+import org.runtimeerror.Main;
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 public class Network {
@@ -52,19 +54,31 @@ public class Network {
 
     /* Visszaadja a pályán lévő ciszternákat. */
     public final List<Cistern> GetCisterns() {
-        throw new NotImplementedException();
+        Main.skeleton.PrintFunctionCalled(this);
+        Main.skeleton.PrintFunctionReturned("GetCisterns","cists");
+        return cisterns;
     }
 
 
     /* --------- CSAK A PÁLYA INICIALIZÁLÁSKOR HASZNÁLT FÜGGVÉNYEK (nincs hibakezelés bennük): --------- */
 
     /* Az átadott ciszternát hozzáadja a pályához. */
-    public boolean AddCistern(Pipe p) {
-        throw new NotImplementedException();
+    public boolean AddCistern(Cistern c) {
+        Main.skeleton.PrintFunctionCalled(this);
+        if(cisterns.size()==4){
+            Main.skeleton.PrintFunctionReturned("AddCistern", "false");
+            return false;
+        }
+        else{
+            cisterns.add(c);
+            Main.skeleton.PrintFunctionReturned("AddCistern", "true");
+            return true;
+        }
+
     }
 
     /* Az átadott forrást hozzáadja a pályához. */
-    public boolean AddSource(Pipe p) {
+    public boolean AddSource(Source s) {
         throw new NotImplementedException();
     }
 }

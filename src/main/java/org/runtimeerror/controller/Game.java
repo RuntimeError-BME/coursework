@@ -23,10 +23,13 @@ public class Game {
         currPlayerIdx = 0; // a soron lévő játékos indexe a „players” gyűjteményben
         scoreTechnician = 0; // a szerelők pontszáma
         scoreSaboteur = 0; // a szabotőrök pontszáma
-        List<Player> players=new ArrayList<>(); // a játékban résztvevő játékosok
-        Network network=null; // a pálya elemeit tárolja, szortírozza
+        players=new ArrayList<>(); // a játékban résztvevő játékosok
+        network=null; // a pálya elemeit tárolja, szortírozza
     }
 
+    public void setNetwork(Network network) {
+        this.network = network;
+    }
 
     /* Átadott számú pontot ad a szerelőknek. */
     public void AddTechnicianPoints(int points) {
@@ -50,7 +53,9 @@ public class Game {
 
     /* Visszaadja a játékost, aki éppen soron van (akinek turnje van jelenleg). */
     public Player GetCurrPlayer() {
-        throw new NotImplementedException();
+        Main.skeleton.PrintFunctionCalled(this);
+        Main.skeleton.PrintFunctionReturned("GetCurrPlayer", "player");
+        return players.get(0);
     }
 
     /* Igazat ad vissza, ha éppen szerelő jön az adott körben. */
@@ -60,7 +65,9 @@ public class Game {
 
     /* Visszaadja a pálya elemeit számontartó objektumot. */
     public Network GetNetwork() {
-        throw new NotImplementedException();
+        Main.skeleton.PrintFunctionCalled(this);
+        Main.skeleton.PrintFunctionReturned("GetNetwork","network");
+        return network;
     }
 
 
@@ -102,10 +109,18 @@ public class Game {
         /* Pumpa átállításához visszaadja a soron lévő játékos által bevitt irányokat. */
         public Direction[] GetNewPumpDirections() {
             Main.skeleton.PrintFunctionCalled(this);
+
+//            Scanner sc1 = new Scanner(System.in);
+//            int inputValue1 = sc1.nextInt();
+//
+//            Scanner sc2 = new Scanner(System.in);
+//            int inputValue2 = sc2.nextInt();
+
             Direction[] dirs= new Direction[] {
                     new Direction(1),
                     new Direction(2)
             };
+
             Main.skeleton.PrintFunctionReturned("GetNewPumpDirections", "dirs");
             return dirs;
         }

@@ -31,6 +31,9 @@ public class Pipe extends Breakable {
     /* Az átvett manipulátorral manipulálja ezt a konkrét elemet. */
     @Override
     public void Manipulate(Manipulator m) {
-        throw new NotImplementedException();
+        Main.skeleton.PrintFunctionCalled(this);
+        Main.skeleton.PrintFunctionCall(this,"Manipulate",this);
+        m.Manipulate(this);
+        Main.skeleton.PrintFunctionReturned("Manipulate","");
     }
 }

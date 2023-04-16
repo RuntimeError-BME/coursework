@@ -107,8 +107,7 @@ public abstract class Element {
     /* A bemenetét az átadott elemre állítja be. */
     public void SetInput(Element e) {
         Main.skeleton.PrintFunctionCalled(this);
-
-
+        input=e;
         Main.skeleton.PrintFunctionReturned("SetInput", "");
 
     }

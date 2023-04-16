@@ -116,6 +116,14 @@ public final class SkeletonController {
         indent();
         System.out.print(ObjNameMap.get(callerThis) + " calls " + funName + "()");
     }
+    public void PrintFunctionCall(Object callerThis, String funName, String param1) {
+
+        if (!isLogging)
+            return;
+        indent();
+        System.out.print(ObjNameMap.get(callerThis) + " calls " + funName + "(" +
+                param1 + ")");
+    }
 
     public void PrintFunctionCall(Object callerThis, String funName, Object param1) {
 
@@ -343,6 +351,10 @@ public final class SkeletonController {
         playerS.SetCurrElem(currElemS);
         currElemS.AddPlayer(playerS);
         _Game = new Game();
+        Pipe p1S=new Pipe();
+        Pipe p2S=new Pipe();
+        currElemS.SetNb(new Direction(1),p1S);
+        currElemS.SetNb(new Direction(2),p2S);
 
         /* objektumok hozzáadása a map-hez */
         ObjNameMap.put(playerS, "player:Player");
@@ -361,17 +373,102 @@ public final class SkeletonController {
         ObjNameMap.put(this, ":SkeletonController");
 
 
+        /* Technician */
+        System.out.println("\nTechnician:\n");
+        /* inicializálás */
+        isLogging = false;
+        ManipulatorTechnician manipulatorT = new ManipulatorTechnician();
+        Player playerT = new Player("s1",manipulatorT);
+        Pump currElemT = new Pump();
+        playerT.SetCurrElem(currElemT);
+        currElemT.AddPlayer(playerT);
+        _Game = new Game();
+        Pipe p1T=new Pipe();
+        Pipe p2T=new Pipe();
+        currElemT.SetNb(new Direction(1),p1T);
+        currElemT.SetNb(new Direction(2),p2T);
+
+        /* objektumok hozzáadása a map-hez */
+        ObjNameMap.put(playerT, "player:Technician");
+        ObjNameMap.put(currElemT, "currElem:Pump");
+        ObjNameMap.put(manipulatorT, "manipulator:ManipulatorTechnician");
+        ObjNameMap.put(_Game, ":Game");
+        ObjNameMap.put(_GameI, ":GameInput");
+
+        /* szekvencia innen */
+        isLogging=true;
+        PrintFunctionCall(this, "ManipulateCurrElem");
+        playerT.ManipulateCurrElem();
+
+        /* objektumok eltávolítás a map-ből */
+        ObjNameMap.clear();
+        ObjNameMap.put(this, ":SkeletonController");
+
+
+
     }
 
     private void test08_Change_directions_of_broken_Pump() {
-        throw new NotImplementedException();
+        /* Saboteur */
+        System.out.println("\nSaboteur:\n");
         /* inicializálás */
+        isLogging = false;
+        ManipulatorSaboteur manipulatorS = new ManipulatorSaboteur();
+        Player playerS = new Player("s1",manipulatorS);
+        Pump currElemS = new Pump();
+        playerS.SetCurrElem(currElemS);
+        currElemS.AddPlayer(playerS);
+        _Game = new Game();
+        Pipe p1S=new Pipe();
+        Pipe p2S=new Pipe();
+        currElemS.SetNb(new Direction(1),p1S);
+        currElemS.SetNb(new Direction(2),p2S);
+
+        /* objektumok hozzáadása a map-hez */
+        ObjNameMap.put(playerS, "player:Player");
+        ObjNameMap.put(currElemS, "currElem:Pump");
+        ObjNameMap.put(manipulatorS, "manipulator:ManipulatorSaboteur");
+        ObjNameMap.put(_Game, ":Game");
+        ObjNameMap.put(_GameI, ":GameInput");
+
+        /* szekvencia innen */
+        isLogging=true;
+        PrintFunctionCall(this, "ManipulateCurrElem");
+        playerS.ManipulateCurrElem();
+
+        /* objektumok eltávolítás a map-ből */
+        ObjNameMap.clear();
+        ObjNameMap.put(this, ":SkeletonController");
+
+
+        /* Technician */
+        System.out.println("\nTechnician:\n");
+        /* inicializálás */
+        isLogging=false;
+        ManipulatorTechnician manipulator = new ManipulatorTechnician();
+        Technician player = new Technician("t1",manipulator);
+        Pump currElem = new Pump(); // a pumpa, amin jelenleg áll
+        player.SetCurrElem(currElem); // jelenleg ezen áll
+        currElem.AddPlayer(player);
+        _Game = new Game();
+
+        currElem.Break();
 
         /* objektumok hozzáadása a map-hez */
 
+        ObjNameMap.put(player, "player:Technician");
+        ObjNameMap.put(currElem, "currElem:Pump");
+        ObjNameMap.put(manipulator, "manipulator:ManipulatorTechnician");
+        ObjNameMap.put(_Game, ":Game");
+
         /* szekvencia innen */
+        isLogging = true;
+        PrintFunctionCall(this, "ManipulateCurrElem");
+        player.ManipulateCurrElem();
 
         /* objektumok eltávolítás a map-ből */
+        ObjNameMap.clear();
+        ObjNameMap.put(this, ":SkeletonController");
     }
 
     private void test09_Cross_Cisterns() {
@@ -447,14 +544,29 @@ public final class SkeletonController {
     }
 
     private void test11_Break_broken_Pipe() {
-        throw new NotImplementedException();
         /* inicializálás */
+        isLogging = false;
+        ManipulatorSaboteur manipulator=new ManipulatorSaboteur();
+        Player player=new Player("s1",manipulator);
+        Pipe currElem= new Pipe();
+        currElem.AddPlayer(player);
+        player.SetCurrElem(currElem);
+        currElem.Break();
+
 
         /* objektumok hozzáadása a map-hez */
+        ObjNameMap.put(player, "player:Player");
+        ObjNameMap.put(currElem, "currElem:Pipe");
+        ObjNameMap.put(manipulator, "manipulator:ManipulatorSaboteur");
 
         /* szekvencia innen */
+        isLogging = true;
+        Main.skeleton.PrintFunctionCall(this,"ManipulateCurrElem");
+        player.ManipulateCurrElem();
 
         /* objektumok eltávolítás a map-ből */
+        ObjNameMap.clear();
+        ObjNameMap.put(this, ":SkeletonController");
     }
 
     private void test12_Fix_not_broken_Pipe() {
