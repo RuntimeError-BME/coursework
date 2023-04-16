@@ -10,7 +10,7 @@ public class Player {
     /* A játékos által használt manipulator objektum a „gazda” elemmel való interkaciók lekezeléséhez. */
     private final Manipulator manipulator;
     private final String name; // a játékos neve, azonosítója
-    private Element currElem; // az elem, amelyen a játékos éppen tartózkodik („gazda” elem)
+    protected Element currElem; // az elem, amelyen a játékos éppen tartózkodik („gazda” elem)
 
     /* Konstruktorok */
     public Player(String name) { this.name = name; manipulator = new ManipulatorSaboteur(); }
@@ -21,6 +21,13 @@ public class Player {
         Main.skeleton.PrintFunctionCalled(this);
         currElem = e;
         Main.skeleton.PrintFunctionReturned("SetCurrElem", "");
+    }
+
+    /* Lekéri az elemet, amelyen a játékos tartózkodik. */
+    public Element GetCurrElem() {
+        Main.skeleton.PrintFunctionCalled(this);
+        Main.skeleton.PrintFunctionReturned("GetCurrElem", "currElem");
+        return currElem;
     }
 
     /* Az átadott elemre helyezi a játékost, ha ez lehetséges. */

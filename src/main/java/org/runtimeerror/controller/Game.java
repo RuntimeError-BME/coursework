@@ -4,8 +4,8 @@ import org.runtimeerror.Main;
 import org.runtimeerror.model.map.Pipe;
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 import org.runtimeerror.model.players.Player;
-import org.runtimeerror.model.map.Direction;
-import org.runtimeerror.model.map.Network;
+
+import static org.runtimeerror.skeleton.SkeletonController._Game;
 
 import java.util.ArrayList;
 import java.util.List;

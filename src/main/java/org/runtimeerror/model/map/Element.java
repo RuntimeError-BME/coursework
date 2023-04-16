@@ -69,7 +69,10 @@ public abstract class Element {
 
     /* Visszaadja, hogy az elem felvehető-e. A származtatott elemek felüldefiniálhatják. */
     public boolean GetPickUpAble() {
-        throw new NotImplementedException();
+        Main.skeleton.PrintFunctionCalled(this);
+        Main.skeleton.PrintFunctionReturned("GetPickUpAble",pickUpAble && (players.size()==0) ? "true" : "false");
+
+        return pickUpAble&&(players.size()==0);
     }
 
     /* A szomszédos elemek számát adja vissza. */
