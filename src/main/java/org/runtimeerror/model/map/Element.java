@@ -133,7 +133,10 @@ public abstract class Element {
         Main.skeleton.PrintFunctionReturned("SetFlooded","");
     }
 
-    /** A bemenetét az átadott elemre állítja be. */
+    /**
+     * A bemenetét az átadott elemre állítja be.
+     * @param e - az új bemenet
+     */
     public void SetInput(Element e) {
         Main.skeleton.PrintFunctionCalled(this);
         input=e;
@@ -141,7 +144,9 @@ public abstract class Element {
 
     }
 
-    /** A kimenetét az átadott elemre állítja be. */
+    /** A kimenetét az átadott elemre állítja be.
+     * @param e - az új kimenet
+     */
     public void SetOutput(Element e) {
         Main.skeleton.PrintFunctionCalled(this);
         output=e;
