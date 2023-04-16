@@ -89,7 +89,8 @@ public class Technician extends Player {
         isLogging = false;
         Element targetElem = new Pipe();
         boolean re;
-        if(storedPart.GetPickUpAble()) {
+        if (storedPart.GetPickUpAble()) {
+            isLogging = true;
             Main.skeleton.PrintFunctionCall(this, "GetNb", "d");
             re = (currElem.GetNb(d) == null);
         } else {
@@ -99,38 +100,39 @@ public class Technician extends Player {
             re = (targetElem != null);
             {
 
-        if(re){
+                if (re) {
 
-            isLogging=false;
-            if(storedPart.GetPickUpAble()) {
-                isLogging=true;
+                    isLogging = false;
+                    if (storedPart.GetPickUpAble()) {
+                        isLogging = true;
 
-                Main.skeleton.PrintFunctionCall(this, "GetNetwork");
-                Network network = _Game.GetNetwork();
+                        Main.skeleton.PrintFunctionCall(this, "GetNetwork");
+                        Network network = _Game.GetNetwork();
 
-                Main.skeleton.PrintFunctionCall(this, "AddPipe", "storedPart");
-                re = network.AddPipe((Pipe) storedPart);
-            }
-            else {
-                isLogging=true;
-                Main.skeleton.PrintFunctionCall(this, "GetPickUpAble");
-                if(targetElem.GetPickUpAble()){
-                    Main.skeleton.PrintFunctionCall(this, "GetNetwork");
-                    Network network = _Game.GetNetwork();
+                        Main.skeleton.PrintFunctionCall(this, "AddPipe", "storedPart");
+                        re = network.AddPipe((Pipe) storedPart);
+                    } else {
+                        isLogging = true;
+                        Main.skeleton.PrintFunctionCall(this, "GetPickUpAble");
+                        if (targetElem.GetPickUpAble()) {
+                            Main.skeleton.PrintFunctionCall(this, "GetNetwork");
+                            Network network = _Game.GetNetwork();
 
-                    Main.skeleton.PrintFunctionCall(this, "AddPump", "storedPart");
-                    re=network.AddPump((Pump) storedPart,targetElem);
+                            Main.skeleton.PrintFunctionCall(this, "AddPump", "storedPart", "targetElem");
+                            re = network.AddPump((Pump) storedPart, targetElem);
+                        }
+
+
+                    }
+
                 }
 
 
+
             }
-
         }
-
-
         Main.skeleton.PrintFunctionReturned("PlacePart", re ? "true" : "false");
         return re;
-
     }
 
     /** Visszaadja azt a Breakable-t („part” attribútumot), ami a szerelőnél van. */

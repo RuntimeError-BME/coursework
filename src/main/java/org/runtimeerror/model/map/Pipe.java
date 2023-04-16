@@ -23,7 +23,9 @@ public class Pipe extends Breakable {
         Main.skeleton.PrintFunctionReturned("<<create>>Pipe","newPipe");
     }
 
-    /* Felhelyezi az átadott játékost magára, ha nem áll rajta már más valaki. A művelet sikerességével tér vissza. */
+    /**
+     *Felhelyezi az átadott játékost magára, ha nem áll rajta már más valaki. A művelet sikerességével tér vissza.
+     */
     @Override
     public boolean AddPlayer(Player p) {
         Main.skeleton.PrintFunctionCalled(this);
@@ -37,16 +39,26 @@ public class Pipe extends Breakable {
         return false;
     }
 
-    /* Vízzel tölti meg magát. Ha lyukas a cső vagy nincs output-ja akkor pontot kapnak a szabotőrök,
-    különben pedig hívja tovább az output-ján a Flood() függvényt (ereszti tovább a vizet). */
-    //Flood volt itt.
+    /**Vízzel tölti meg magát. Ha lyukas a cső vagy nincs output-ja akkor pontot kapnak a szabotőrök,
+     *különben pedig hívja tovább az output-ján a Flood() függvényt (ereszti tovább a vizet).
+     *Flood volt itt.
+     *
+     */
 
+    /**
+     * Beállítja, d irányba a Pipe szomszédjának e-t ha még nincs 2 szomszédja.
+     * @param d - irány
+     * @param e - új szomszéd
+     */
     @Override
     public void SetNb(Direction d, Element e){
         if(this.GetNbCnt()<2){super.SetNb(d,e);}
     }
 
-    /* Az átvett manipulátorral manipulálja ezt a konkrét elemet. */
+    /**
+     * Az átvett manipulátorral manipulálja ezt a konkrét elemet.
+     * @param m - manipulátor
+     */
     @Override
     public void Manipulate(Manipulator m) {
         Main.skeleton.PrintFunctionCalled(this);

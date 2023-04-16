@@ -852,10 +852,14 @@ public final class SkeletonController {
         Technician player = new Technician("t1");
         _Game.AddPlayer(player);
         Pipe currElem = new Pipe();
+        currElem.AddPlayer(player);
+        player.SetCurrElem(currElem);
         Pump storedPart = new Pump();
         player.SetPart(storedPart);
         Pipe targetElem = new Pipe();
         currElem.SetNb(new Direction(0), targetElem);
+        _Game.setNetwork(network);
+        network.AddPipe(targetElem);
 
         /* objektumok hozzáadása a map-hez */
         ObjNameMap.put(_GameI, ":GameInput");
@@ -877,14 +881,37 @@ public final class SkeletonController {
     }
 
     private void test21_Place_Pump_when_not_placeable() {
-        throw new NotImplementedException();
         /* inicializálás */
+        isLogging = false;
+        _GameI = new Game.Input();
+        _Game = new Game();
+        Network network = new Network();
+        Technician player = new Technician("t1");
+        _Game.AddPlayer(player);
+        Pipe currElem = new Pipe();
+        currElem.AddPlayer(player);
+        player.SetCurrElem(currElem);
+        Pump storedPart = new Pump();
+
+        player.SetPart(storedPart);
+        _Game.setNetwork(network);
 
         /* objektumok hozzáadása a map-hez */
+        ObjNameMap.put(_GameI, ":GameInput");
+        ObjNameMap.put(_Game, ":Game");
+        ObjNameMap.put(network, "network:Network");
+        ObjNameMap.put(player, "player:Player");
+        ObjNameMap.put(currElem, "currElem:Pipe");
+        ObjNameMap.put(storedPart, "storedPart:Pump");
 
         /* szekvencia innen */
+        isLogging = true;
+        Main.skeleton.PrintFunctionCall(this, "TryPlacement", "d");
+        _GameI.TryPartPlacement(new Direction(0));
 
         /* objektumok eltávolítás a map-ből */
+        ObjNameMap.clear();
+        ObjNameMap.put(this, ":SkeletonController");
     }
 
     private void test22_Flood_not_broken_Pipe() {

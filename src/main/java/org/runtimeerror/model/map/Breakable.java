@@ -17,30 +17,39 @@ public abstract class Breakable extends Element {
     /**
      * Metódusok
      */
-    /* Megjavítja az elemet. */
+    /**
+     *  Megjavítja az elemet.
+     */
     public void Fix() {
         Main.skeleton.PrintFunctionCalled(this);
         broken = false;
         Main.skeleton.PrintFunctionReturned("Fix", "" );
     }
 
-    /* Elrontja az elemet. */
+    /**
+     * Elrontja az elemet.
+     */
     public void Break() {
         Main.skeleton.PrintFunctionCalled(this);
         broken = true;
         Main.skeleton.PrintFunctionReturned("Break", "" );
     }
 
-    /* Visszaadja, hogy az elem törött-e. */
+    /**
+     * Visszaadja, hogy az elem törött-e.
+     */
     @Override
     public boolean GetBroken() {
         Main.skeleton.PrintFunctionCalled(this);
         Main.skeleton.PrintFunctionReturned("GetBroken", broken ? "true" : "false" );
         return broken;
     }
-    /* Ha a pumpa el van romolva, nem tesz semmit.
-         Ha nincs elromolva akkor vízzel tölti fel magát. Ha nincsen outputja, akkor a szabotőrök pontot kapnak,
-         de ha van outputja, akkor az outputra továbbhívja a Flood() függvényt. */
+
+    /**
+     *  Ha a pumpa el van romolva, nem tesz semmit.
+     * Ha nincs elromolva akkor vízzel tölti fel magát. Ha nincsen outputja, akkor a szabotőrök pontot kapnak,
+     * de ha van outputja, akkor az outputra továbbhívja a Flood() függvényt.
+     */
     @Override
     public void Flood() {
         Main.skeleton.PrintFunctionCalled(this);
