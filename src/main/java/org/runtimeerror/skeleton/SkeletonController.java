@@ -4,18 +4,14 @@ import java.util.Map;
 import java.util.HashMap;
 import java.util.Scanner;
 
+import org.runtimeerror.Main;
 import org.runtimeerror.controller.Game;
+import org.runtimeerror.model.map.*;
 import org.runtimeerror.model.players.ManipulatorSaboteur;
 import org.runtimeerror.model.players.ManipulatorTechnician;
 import org.runtimeerror.model.players.Technician;
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
-import org.runtimeerror.model.map.Direction;
 import org.runtimeerror.model.players.Player;
-import org.runtimeerror.model.map.Pipe;
-import org.runtimeerror.model.map.Pump;
-import org.runtimeerror.model.map.Cistern;
-import org.runtimeerror.model.map.Source;
-import org.runtimeerror.controller.Game.Input;
 
 public final class SkeletonController {
 
@@ -329,7 +325,7 @@ public final class SkeletonController {
         /* szekvencia innen */
         isLogging = true;
         PrintFunctionCall(this, "ManipulateCurrElem");
-        player.ManipulateCurrentElement();
+        player.ManipulateCurrElem();
 
         /* objektumok eltávolítás a map-ből */
         ObjNameMap.clear();
@@ -337,6 +333,8 @@ public final class SkeletonController {
     }
 
     private void test07_Change_directions_of_not_broken_Pump() {
+        /* Saboteur */
+        System.out.println("\nSaboteur:\n");
         /* inicializálás */
         isLogging = false;
         ManipulatorSaboteur manipulatorS = new ManipulatorSaboteur();
@@ -356,10 +354,7 @@ public final class SkeletonController {
         /* szekvencia innen */
         isLogging=true;
         PrintFunctionCall(this, "ManipulateCurrElem");
-        playerS.ManipulateCurrentElement();
-
-
-
+        playerS.ManipulateCurrElem();
 
         /* objektumok eltávolítás a map-ből */
         ObjNameMap.clear();

@@ -47,7 +47,7 @@ public class Player {
 
     /* Manipulálja azt az elemet, amelyen éppen tartózkodik.
      A manipulátora határozza meg, hogy mely „gazda” elem típus esetén mit tesz. */
-    public void ManipulateCurrentElement() {
+    public void ManipulateCurrElem() {
         Main.skeleton.PrintFunctionCalled(this);
 
         Main.skeleton.PrintFunctionCall(this, "Manipulate", manipulator);
