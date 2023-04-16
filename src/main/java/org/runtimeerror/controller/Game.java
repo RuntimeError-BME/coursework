@@ -88,7 +88,13 @@ public class Game {
 
         /* Pumpa átállításához visszaadja a soron lévő játékos által bevitt irányokat. */
         public Direction[] GetNewPumpDirections() {
-            throw new NotImplementedException();
+            Main.skeleton.PrintFunctionCalled(this);
+            Direction[] dirs= new Direction[] {
+                    new Direction(1),
+                    new Direction(2)
+            };
+            Main.skeleton.PrintFunctionReturned("GetNewPumpDirections", "dirs");
+            return dirs;
         }
     }
 

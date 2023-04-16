@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.Scanner;
 
 import org.runtimeerror.controller.Game;
+import org.runtimeerror.model.players.ManipulatorSaboteur;
 import org.runtimeerror.model.players.ManipulatorTechnician;
 import org.runtimeerror.model.players.Technician;
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
@@ -14,7 +15,7 @@ import org.runtimeerror.model.map.Pipe;
 import org.runtimeerror.model.map.Pump;
 import org.runtimeerror.model.map.Cistern;
 import org.runtimeerror.model.map.Source;
-
+import org.runtimeerror.controller.Game.Input;
 
 public final class SkeletonController {
 

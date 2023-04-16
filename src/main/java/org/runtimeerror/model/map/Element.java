@@ -102,7 +102,11 @@ public abstract class Element {
 
     /* A bemenetét az átadott elemre állítja be. */
     public void SetInput(Element e) {
-        throw new NotImplementedException();
+        Main.skeleton.PrintFunctionCalled(this);
+
+
+        Main.skeleton.PrintFunctionReturned("SetInput", "");
+
     }
 
     /* A kimenetét az átadott elemre állítja be. */
