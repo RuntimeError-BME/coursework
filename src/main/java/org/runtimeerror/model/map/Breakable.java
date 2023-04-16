@@ -1,11 +1,11 @@
 package org.runtimeerror.model.map;
 
+import org.runtimeerror.Main;
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 public abstract class Breakable extends Element {
 
     private boolean broken; // hibás-e vagy sem, azaz át tud-e ereszteni magán vizet
-
     /* Megjavítja az elemet. */
     public void Fix() {
         throw new NotImplementedException();
@@ -13,12 +13,16 @@ public abstract class Breakable extends Element {
 
     /* Elrontja az elemet. */
     public void Break() {
-        throw new NotImplementedException();
+        Main.skeleton.PrintFunctionCalled(this);
+        broken = true;
+        Main.skeleton.PrintFunctionReturned("GetBroken", "" );
     }
 
     /* Visszaadja, hogy az elem törött-e. */
-    public void GetBroken() {
-        throw new NotImplementedException();
+    public boolean GetBroken() {
+        Main.skeleton.PrintFunctionCalled(this);
+        Main.skeleton.PrintFunctionReturned("GetBroken", broken ? "true" : "false" );
+        return broken;
     }
 
     // TODO: override in PROTO

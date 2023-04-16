@@ -22,6 +22,8 @@ public abstract class Element {
     /* Felrak magára egy játékos, ha ez lehetséges. A művelet sikerességével tér vissza. */
     public boolean AddPlayer(Player p) {
         Main.skeleton.PrintFunctionCalled(this);
+        Main.skeleton.PrintFunctionCall(this, "GetPlayerCnt");
+        GetPlayerCnt();
         players.add(p);
         Main.skeleton.PrintFunctionReturned("AddPlayer", "true");
         return true;

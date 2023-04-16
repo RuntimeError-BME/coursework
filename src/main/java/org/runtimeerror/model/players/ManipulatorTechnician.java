@@ -1,5 +1,7 @@
 package org.runtimeerror.model.players;
 
+import org.runtimeerror.Main;
+import org.runtimeerror.controller.Game;
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 import org.runtimeerror.model.map.Pipe;
 import org.runtimeerror.model.map.Pump;
@@ -16,6 +18,14 @@ public class ManipulatorTechnician extends Manipulator {
      (ez esetben meghívja az ősbéli megvalósítását a függvénynek). */
     @Override
     public void Manipulate(Pump p) {
-        throw new NotImplementedException();
+        Main.skeleton.PrintFunctionCalled(this);
+        Main.skeleton.PrintFunctionCall(this, "GetBroken()");
+        if (p.GetBroken()) {
+            Main.skeleton.PrintFunctionCall(this, "Fix()");
+            p.Fix();
+            Game.NextTurn();
+            Main.skeleton.PrintFunctionReturned("Manipulate", "");
+        } else
+            throw new NotImplementedException();
     }
 }

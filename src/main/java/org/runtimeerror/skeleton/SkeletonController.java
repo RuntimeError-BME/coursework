@@ -3,6 +3,10 @@ package org.runtimeerror.skeleton;
 import java.util.Map;
 import java.util.HashMap;
 import java.util.Scanner;
+
+import org.runtimeerror.controller.Game;
+import org.runtimeerror.model.players.ManipulatorTechnician;
+import org.runtimeerror.model.players.Technician;
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 import org.runtimeerror.model.map.Direction;
 import org.runtimeerror.model.players.Player;
@@ -208,14 +212,37 @@ public final class SkeletonController {
     }
 
     private void test03_Move_to_Pump() {
-        throw new NotImplementedException();
         /* inicializálás */
+        isLogging = false;
+        Player player = new Player("s1"); // akit mozgatunk (szabotőr, de technikussal is ugyanígy lenne)
+        Pipe currElem = new Pipe(); // a pumpa, amin jelenleg áll
+        player.SetCurrElem(currElem); // jelenleg ezen áll
+        currElem.AddPlayer(player);
+        Pump targetElem = new Pump(); // a cső, amire léptetni fogjuk
+
+        Player playerOnTarget1 = new Player("s2"); // a játékos, aki a cél pumpán áll
+        playerOnTarget1.SetCurrElem(targetElem);
+        targetElem.AddPlayer(playerOnTarget1);
+
+        Player playerOnTarget2 = new Player("s3"); // a játékos, aki a cél pumpán áll
+        playerOnTarget2.SetCurrElem(targetElem);
+        targetElem.AddPlayer(playerOnTarget2);
 
         /* objektumok hozzáadása a map-hez */
+        ObjNameMap.put(player, "player:Player");
+        ObjNameMap.put(currElem, "currElem:Pipe");
+        ObjNameMap.put(targetElem, "targetElem:Pump");
+        ObjNameMap.put(playerOnTarget1, "playerOnTarget:Player1");
+        ObjNameMap.put(playerOnTarget2, "playerOnTarget:Player2");
 
         /* szekvencia innen */
+        isLogging = true;
+        PrintFunctionCall(this, "MoveTo", targetElem);
+        player.MoveTo(targetElem);
 
         /* objektumok eltávolítás a map-ből */
+        ObjNameMap.clear();
+        ObjNameMap.put(this, ":SkeletonController");
     }
 
     private void test04_Move_to_Cistern() {
@@ -277,14 +304,32 @@ public final class SkeletonController {
     }
 
     private void test06_Fix_broken_Pump() {
-        throw new NotImplementedException();
         /* inicializálás */
+        isLogging=true;
+        ManipulatorTechnician manipulator = new ManipulatorTechnician();
+        Technician player = new Technician("t1",manipulator);
+        Pump currElem = new Pump(); // a pumpa, amin jelenleg áll
+        player.SetCurrElem(currElem); // jelenleg ezen áll
+        currElem.AddPlayer(player);
+        Game game = new Game();
+        game.AddPlayer(player);
+        currElem.Break();
 
         /* objektumok hozzáadása a map-hez */
 
+        ObjNameMap.put(player, "player:Player");
+        ObjNameMap.put(currElem, "currElem:Pump");
+        ObjNameMap.put(manipulator, "manipulator:ManipulatorTechnician");
+        ObjNameMap.put(game, ":Game");
+
         /* szekvencia innen */
+        isLogging = true;
+        PrintFunctionCall(this, "ManipulateCurrElem");
+        player.ManipulateCurrentElement();
 
         /* objektumok eltávolítás a map-ből */
+        ObjNameMap.clear();
+        ObjNameMap.put(this, ":SkeletonController");
     }
 
     private void test07_Change_directions_of_not_broken_Pump() {

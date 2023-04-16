@@ -1,5 +1,6 @@
 package org.runtimeerror.controller;
 
+import org.runtimeerror.Main;
 import org.runtimeerror.model.map.Pipe;
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 import org.runtimeerror.model.players.Player;
@@ -30,7 +31,7 @@ public class Game {
     /* A következő turn indítása (áramoltatja a vizet, pontokat oszt, véletlenszerűen pumpákat ront el,
      és ha véget ért egy teljes kör (round), akkor új csöveket teremt a ciszternák üres szomszédjai helyén).
      Ha az egyik csapat elérte a győzelemhez szükséges pontok számát, véget vet a játéknak. */
-    public void NextTurn() {
+    public static void NextTurn() {
         throw new NotImplementedException();
     }
 
@@ -96,6 +97,8 @@ public class Game {
 
     /* Hozzáad a játékhoz egy játékost. */
     public void AddPlayer(Player p) {
-        throw new NotImplementedException();
+        Main.skeleton.PrintFunctionCalled(this);
+        players.add(p);
+        Main.skeleton.PrintFunctionReturned("AddPlayer", "");
     }
 }
