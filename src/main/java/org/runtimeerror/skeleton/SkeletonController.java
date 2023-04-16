@@ -805,7 +805,7 @@ public final class SkeletonController {
     }
 
     private void test19_Place_Pipe_when_not_placeable() {
-        /* inicializálás */
+        /** inicializálás */
         isLogging = false;
         _GameI = new Game.Input();
         _Game = new Game();

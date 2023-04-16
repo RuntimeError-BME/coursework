@@ -1,7 +1,4 @@
 package org.runtimeerror;
-
-import java.net.Inet4Address;
-import java.net.UnknownHostException;
 import java.util.Scanner;
 
 import org.runtimeerror.controller.Game;
