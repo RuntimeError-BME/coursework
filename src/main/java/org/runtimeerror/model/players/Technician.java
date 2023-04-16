@@ -1,8 +1,16 @@
 package org.runtimeerror.model.players;
 
+import org.runtimeerror.Main;
+import org.runtimeerror.model.map.Element;
+import org.runtimeerror.model.map.Network;
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 import org.runtimeerror.model.map.Direction;
 import org.runtimeerror.model.map.Breakable;
+
+import java.net.Inet4Address;
+import java.net.UnknownHostException;
+
+import static org.runtimeerror.skeleton.SkeletonController._Game;
 
 public class Technician extends Player {
 
@@ -20,7 +28,43 @@ public class Technician extends Player {
 
     /* Megkísérli felvenni a d irányban lévő part-ot, ha van olyan. */
     public void PickUpPart(Direction d) {
-        throw new NotImplementedException();
+        Main.skeleton.PrintFunctionCalled(this);
+
+
+        Main.skeleton.PrintFunctionCall(this, "GetNbCnt");
+        int NbCnt = currElem.GetNbCnt();
+
+        Main.skeleton.PrintFunctionCall(this, "GetNb", "d");
+        Element targetElem = currElem.GetNb(d);
+
+        Main.skeleton.PrintFunctionCall(this, "GetPickUpAble");
+        boolean pickUpAble = targetElem.GetPickUpAble();
+        if(pickUpAble) {
+            Main.skeleton.PrintFunctionCall(this, "GetFlooded");
+            boolean flooded = targetElem.GetFlooded();
+
+            Main.skeleton.PrintFunctionCall(this, "GetBroken");
+            boolean broken = targetElem.GetBroken();
+
+            if (!flooded && !broken) {
+                Main.skeleton.PrintFunctionCall(this, "GetPart");
+                if (GetPart() == null) {
+
+                    Main.skeleton.PrintFunctionCall(this, "GetNetwork");
+                    Network network = _Game.GetNetwork();
+
+
+                    Main.skeleton.PrintFunctionCall(this, "RemoveElem", "targetElem");
+                    network.RemoveElem(targetElem);
+
+                    Main.skeleton.PrintFunctionCall(this, "SetPart", "targetElem");
+                    SetPart((Breakable) targetElem);
+                }
+            }
+        }
+        Main.skeleton.PrintFunctionReturned("PickUpPart","");
+
+
     }
 
     /* Megkísérli elhelyezni a tárolt part-ját d irányba. A művelet sikerességével tér vissza. */

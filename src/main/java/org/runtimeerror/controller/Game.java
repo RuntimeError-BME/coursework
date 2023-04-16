@@ -60,7 +60,10 @@ public class Game {
 
     /* Igazat ad vissza, ha éppen szerelő jön az adott körben. */
     public boolean IsTechnicianTurn() {
-        throw new NotImplementedException();
+        Main.skeleton.PrintFunctionCalled(this);
+        boolean re=currPlayerIdx%2==0;
+        Main.skeleton.PrintFunctionReturned("IsTechnicianTurn", re ? "true" : "false");
+        return re;
     }
 
     /* Visszaadja a pálya elemeit számontartó objektumot. */
@@ -103,7 +106,30 @@ public class Game {
          (nem a játéktérről, hanem közvetlenül odaadva). Ez csak akkor lesz sikeres, ha a játékos szerelő,
          üres a tárolója, és az elem amin áll, támogat ilyen funkcionalitást. */
         public void Pickup() {
-            throw new NotImplementedException();
+            Main.skeleton.PrintFunctionCalled(this);
+
+            Main.skeleton.PrintFunctionCall(this,"IsTechnicianTurn");
+            boolean techTurn = _Game.IsTechnicianTurn();
+
+            if(techTurn) {
+                Main.skeleton.PrintFunctionCall(this, "GetCurrPlayer");
+                Technician playerT = (Technician) _Game.GetCurrPlayer();
+
+                Main.skeleton.PrintFunctionCall(this, "GetPart");
+                Breakable part = playerT.GetPart();
+
+                if(part == null) {
+
+                    Main.skeleton.PrintFunctionCall(this, "GetCurrElem");
+                    Element currElem = playerT.GetCurrElem();
+
+                    Main.skeleton.PrintFunctionCall(this, "OnPickup");
+                    currElem.OnPickup();
+
+                }
+
+            }
+            Main.skeleton.PrintFunctionReturned("Pickup","");
         }
 
         /* Pumpa átállításához visszaadja a soron lévő játékos által bevitt irányokat. */

@@ -13,7 +13,16 @@ public class ManipulatorTechnician extends Manipulator {
     /* Megjavítja az átadott p csövet. Utána pedig véget ér a jelenlegi játékos köre. */
     @Override
     public void Manipulate(Pipe p) {
-        throw new NotImplementedException();
+        Main.skeleton.PrintFunctionCalled(this);
+        Main.skeleton.PrintFunctionCall(this, "GetBroken");
+        if(p.GetBroken()){
+            Main.skeleton.PrintFunctionCall(this, "Fix");
+            p.Fix();
+            Main.skeleton.PrintFunctionCall(this, "NextTurn");
+            _Game.NextTurn();
+        }
+        Main.skeleton.PrintFunctionReturned("Manipulate", "");
+
     }
 
     /* Megjavítja az átadott p pumpát, ha az elromlott, különben pedig átállítja

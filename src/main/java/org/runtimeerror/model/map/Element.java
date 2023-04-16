@@ -89,7 +89,11 @@ public abstract class Element {
 
     /* Visszaadja, hogy van-e benne víz. */
     public boolean GetFlooded() {
-        throw new NotImplementedException();
+        Main.skeleton.PrintFunctionCalled(this);
+
+        Main.skeleton.PrintFunctionReturned("GetFlooded", flooded ? "true" : "false");
+        return flooded;
+
     }
 
     /* Visszaadja a bemeneti elemét, ha van ilyen. */

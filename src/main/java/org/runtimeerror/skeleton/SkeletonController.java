@@ -378,7 +378,7 @@ public final class SkeletonController {
         /* inicializálás */
         isLogging = false;
         ManipulatorTechnician manipulatorT = new ManipulatorTechnician();
-        Player playerT = new Player("s1",manipulatorT);
+        Technician playerT = new Technician("s1",manipulatorT); //player->Technician
         Pump currElemT = new Pump();
         playerT.SetCurrElem(currElemT);
         currElemT.AddPlayer(playerT);
@@ -570,25 +570,62 @@ public final class SkeletonController {
     }
 
     private void test12_Fix_not_broken_Pipe() {
-        throw new NotImplementedException();
         /* inicializálás */
+        isLogging = false;
+        ManipulatorTechnician manipulator = new ManipulatorTechnician();
+        Pipe currElem = new Pipe();
+        Technician playerT = new Technician("t1",manipulator);
+        currElem.AddPlayer(playerT);
+        playerT.SetCurrElem(currElem);
 
         /* objektumok hozzáadása a map-hez */
 
+        ObjNameMap.put(playerT, "player:Technician");
+        ObjNameMap.put(currElem, "currElem:Pipe");
+        ObjNameMap.put(manipulator, "manipulator:ManipulatorTechnician");
+
+
         /* szekvencia innen */
 
+        isLogging = true;
+        Main.skeleton.PrintFunctionCall(this,"ManipulateCurrElem");
+        playerT.ManipulateCurrElem();
+
         /* objektumok eltávolítás a map-ből */
+        ObjNameMap.clear();
+        ObjNameMap.put(this, ":SkeletonController");
     }
 
     private void test13_Fix_broken_Pipe() {
-        throw new NotImplementedException();
         /* inicializálás */
+        isLogging = false;
+        ManipulatorTechnician manipulator = new ManipulatorTechnician();
+        Pipe currElem = new Pipe();
+        Technician playerT = new Technician("t1",manipulator);
+        currElem.AddPlayer(playerT);
+        playerT.SetCurrElem(currElem);
+        _Game = new Game();
+        _Game.AddPlayer(playerT);
+
+        currElem.Break();
 
         /* objektumok hozzáadása a map-hez */
 
+        ObjNameMap.put(playerT, "player:Technician");
+        ObjNameMap.put(currElem, "currElem:Pipe");
+        ObjNameMap.put(manipulator, "manipulator:ManipulatorTechnician");
+        ObjNameMap.put(_Game, ":Game");
+
+
         /* szekvencia innen */
 
+        isLogging = true;
+        Main.skeleton.PrintFunctionCall(this,"ManipulateCurrElem");
+        playerT.ManipulateCurrElem();
+
         /* objektumok eltávolítás a map-ből */
+        ObjNameMap.clear();
+        ObjNameMap.put(this, ":SkeletonController");
     }
 
     private void test14_Relocate_relocatable_Pipe() {
@@ -603,25 +640,65 @@ public final class SkeletonController {
     }
 
     private void test15_Relocate_unrelocatable_Element() {
-        throw new NotImplementedException();
         /* inicializálás */
+        isLogging = false;
+        Technician playerT = new Technician("t1");
+        Pipe currElem = new Pipe();
+        currElem.AddPlayer(playerT);
+        playerT.SetCurrElem(currElem);
+
+        _Game=new Game();
+        _Game.AddPlayer(playerT);
+
+        Pipe nonTargetNb = new Pipe();
+        Network network = new Network();
+        Pipe targetElem = new Pipe();
+        currElem.SetNb(new Direction(0),nonTargetNb);
+        currElem.SetNb(new Direction(1),targetElem);
+        network.AddPipe(targetElem);
+        targetElem.Break();
 
         /* objektumok hozzáadása a map-hez */
 
+        ObjNameMap.put(playerT, "player:Technician");
+        ObjNameMap.put(currElem, "currElem:Pipe");
+        ObjNameMap.put(_Game, ":Game");
+        ObjNameMap.put(nonTargetNb, "nonTargetNb:Pipe");
+        ObjNameMap.put(network, "network:Network");
+        ObjNameMap.put(targetElem, "targetElem:Pipe");
+
         /* szekvencia innen */
 
+        isLogging = true;
+        Main.skeleton.PrintFunctionCall(this,"PickUpPart", "d");
+        playerT.PickUpPart(new Direction(1));
+
         /* objektumok eltávolítás a map-ből */
+        ObjNameMap.clear();
+        ObjNameMap.put(this, ":SkeletonController");
     }
 
     private void test16_Pick_up_Pump_when_possible() {
-        throw new NotImplementedException();
         /* inicializálás */
+        isLogging = false;
+        _GameI = new Game.Input();
+        _Game = new Game();
+        Technician playerT = new Technician("t1");
+        Cistern currElem = new Cistern();
+        currElem.AddPlayer(playerT);
+        playerT.SetCurrElem(currElem);
+        _Game.AddPlayer(playerT);
 
         /* objektumok hozzáadása a map-hez */
 
         /* szekvencia innen */
+        isLogging = true;
+        Main.skeleton.PrintFunctionCall(this, "Pickup");
+        _GameI.Pickup();
 
         /* objektumok eltávolítás a map-ből */
+        ObjNameMap.clear();
+        ObjNameMap.put(this, ":SkeletonController");
     }
 
     private void test17_Pick_up_Pump_when_impossible() {
