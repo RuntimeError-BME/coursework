@@ -339,14 +339,14 @@ public final class SkeletonController {
         isLogging = false;
         ManipulatorSaboteur manipulatorS = new ManipulatorSaboteur();
         Player playerS = new Player("s1",manipulatorS);
-        Pump currElem = new Pump();
-        playerS.SetCurrElem(currElem);
-        currElem.AddPlayer(playerS);
+        Pump currElemS = new Pump();
+        playerS.SetCurrElem(currElemS);
+        currElemS.AddPlayer(playerS);
         _Game = new Game();
 
         /* objektumok hozzáadása a map-hez */
         ObjNameMap.put(playerS, "player:Player");
-        ObjNameMap.put(currElem, "currElem:Pump");
+        ObjNameMap.put(currElemS, "currElem:Pump");
         ObjNameMap.put(manipulatorS, "manipulator:ManipulatorSaboteur");
         ObjNameMap.put(_Game, ":Game");
         ObjNameMap.put(_GameI, ":GameInput");
@@ -375,25 +375,75 @@ public final class SkeletonController {
     }
 
     private void test09_Cross_Cisterns() {
-        throw new NotImplementedException();
         /* inicializálás */
+        isLogging = false;
+        ManipulatorSaboteur manipulator=new ManipulatorSaboteur();
+        Player player = new Player("s1", manipulator);
+        Cistern currElem = new Cistern();
+        player.SetCurrElem(currElem);
+        currElem.AddPlayer(player);
+        _Game=new Game();
+        _Game.AddPlayer(player);
+        Network network = new Network();
+        Cistern targetElem = new Cistern();
+        _Game.setNetwork(network);
+        network.AddCistern(currElem);
+        network.AddCistern(targetElem);
+
+        Player playerOnTarget=new Player("s2");
+        playerOnTarget.SetCurrElem(targetElem);
+        targetElem.AddPlayer(playerOnTarget);
+
+
+
 
         /* objektumok hozzáadása a map-hez */
 
+        ObjNameMap.put(player, "player:Player");
+        ObjNameMap.put(currElem, "currElem:Cistern");
+        ObjNameMap.put(manipulator, "manipulator:ManipulatorSaboteur");
+        ObjNameMap.put(network, "network:Network");
+        ObjNameMap.put(targetElem, "targetElem:Cistern");
+        ObjNameMap.put(_Game, ":Game");
+
         /* szekvencia innen */
+        isLogging = true;
+        PrintFunctionCall(this, "ManipulateCurrElem");
+        player.ManipulateCurrElem();
 
         /* objektumok eltávolítás a map-ből */
+
+        ObjNameMap.clear();
+        ObjNameMap.put(this, ":SkeletonController");
     }
 
     private void test10_Break_not_broken_Pipe() {
-        throw new NotImplementedException();
         /* inicializálás */
+        isLogging = false;
+        ManipulatorSaboteur manipulator = new ManipulatorSaboteur();
+        Player player = new Player("s1", manipulator);
+        Pipe currElem = new Pipe();
+        currElem.AddPlayer(player);
+        player.SetCurrElem(currElem);
+        _Game = new Game();
+        _Game.AddPlayer(player);
 
         /* objektumok hozzáadása a map-hez */
 
+        ObjNameMap.put(player, "player:Player");
+        ObjNameMap.put(currElem, "currElem:Pipe");
+        ObjNameMap.put(manipulator, "manipulator:ManipulatorSaboteur");
+        ObjNameMap.put(_Game, ":Game");
+
         /* szekvencia innen */
 
+        isLogging = true;
+        PrintFunctionCall(this, "ManipulateCurrElem");
+        player.ManipulateCurrElem();
+
         /* objektumok eltávolítás a map-ből */
+        ObjNameMap.clear();
+        ObjNameMap.put(this, ":SkeletonController");
     }
 
     private void test11_Break_broken_Pipe() {

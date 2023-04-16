@@ -1,6 +1,7 @@
 package org.runtimeerror.model.players;
 
 import org.runtimeerror.Main;
+import java.util.List;
 import org.runtimeerror.model.map.*;
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
@@ -39,7 +40,26 @@ public abstract class Manipulator {
 
     /* Átlépteti a jelenlegi játékost a következő ciszternára. Ezzel nem ér véget a játékos köre (turn). */
     public void Manipulate(Cistern c) {
-        throw new NotImplementedException();
+        Main.skeleton.PrintFunctionCalled(this);
+
+        Main.skeleton.PrintFunctionCall(this, "GetNetwork");
+        Network network = _Game.GetNetwork();
+
+        Main.skeleton.PrintFunctionCall(this, "GetCisterns");
+        List<Cistern> cisterns = network.GetCisterns();
+
+        for (Cistern cistern : cisterns) {  } //ez keresné meg az input alapján
+        Cistern targetElem=cisterns.get(1); //input alapján, most konstans
+
+        Main.skeleton.PrintFunctionCall(this, "GetCurrPlayer");
+        Player player = _Game.GetCurrPlayer();
+
+
+        Main.skeleton.PrintFunctionCall(this, "MoveTo", "targetElem");
+        player.MoveTo(targetElem);
+
+
+        Main.skeleton.PrintFunctionReturned("Manipulate", "");
     }
 
     /* Üres törzsű függvény, jelenleg a játékosok nem tesznek semmit a forráson állva.

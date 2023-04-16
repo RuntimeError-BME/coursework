@@ -41,7 +41,8 @@ public abstract class Element {
         Main.skeleton.PrintFunctionCalled(this);
 
         Main.skeleton.PrintFunctionReturned("GetNb", "newInp");
-        return null;
+        return nbs.get(d.ordinal());
+
     }
 
     /* Megadott irányú szomszédjának állítja be az átadott elemet. */
@@ -114,6 +115,9 @@ public abstract class Element {
 
     /* A kimenetét az átadott elemre állítja be. */
     public void SetOutput(Element e) {
-        throw new NotImplementedException();
+        Main.skeleton.PrintFunctionCalled(this);
+        output=e;
+        Main.skeleton.PrintFunctionReturned("SetOutput", "");
+
     }
 }
