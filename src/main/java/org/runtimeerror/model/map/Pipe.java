@@ -5,6 +5,9 @@ import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 import org.runtimeerror.model.players.Player;
 import org.runtimeerror.model.players.Manipulator;
 
+import static org.runtimeerror.skeleton.SkeletonController._Game;
+import static org.runtimeerror.skeleton.SkeletonController.ObjNameMap;
+
 public class Pipe extends Breakable {
 
     public Pipe(){
@@ -28,10 +31,7 @@ public class Pipe extends Breakable {
 
     /* Vízzel tölti meg magát. Ha lyukas a cső vagy nincs output-ja akkor pontot kapnak a szabotőrök,
     különben pedig hívja tovább az output-ján a Flood() függvényt (ereszti tovább a vizet). */
-    @Override
-    public void Flood() {
-        throw new NotImplementedException();
-    }
+    //Flood volt itt.
 
     @Override
     public void SetNb(Direction d, Element e){

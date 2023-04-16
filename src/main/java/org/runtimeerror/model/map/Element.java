@@ -111,12 +111,17 @@ public abstract class Element {
 
     /* Visszaadja a kimeneti elemét, ha van ilyen. */
     public Element GetOutput() {
-        throw new NotImplementedException();
+        Main.skeleton.PrintFunctionCalled(this);
+
+        Main.skeleton.PrintFunctionReturned("GetOutput",output==null ? "null" : "output");
+        return output;
     }
 
     /* Az átadott érték szerint állítja be, hogy van-e víz jelenleg benne. */
     public void SetFlooded(boolean f) {
+        Main.skeleton.PrintFunctionCalled(this);
         flooded=f;
+        Main.skeleton.PrintFunctionReturned("SetFlooded","");
     }
 
     /* A bemenetét az átadott elemre állítja be. */

@@ -4,9 +4,14 @@ import org.runtimeerror.Main;
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 public abstract class Breakable extends Element {
-
+    /**
+     * Attribútumok
+     */
     private boolean broken = false; // hibás-e vagy sem, azaz át tud-e ereszteni magán vizet
 
+    /**
+     * Metódusok
+     */
     /* Megjavítja az elemet. */
     public void Fix() {
         Main.skeleton.PrintFunctionCalled(this);

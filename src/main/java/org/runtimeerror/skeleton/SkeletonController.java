@@ -644,10 +644,6 @@ public final class SkeletonController {
         network.AddPipe(targetElem);
         _Game.setNetwork(network);
 
-
-
-
-
         /* objektumok hozzáadása a map-hez */
         ObjNameMap.put(player, "player:Technician");
         ObjNameMap.put(currElem, "currElem:Pipe");
@@ -655,7 +651,6 @@ public final class SkeletonController {
         ObjNameMap.put(targetElem, "targetElem:Pipe");
         ObjNameMap.put(nonTargetNb, "nonTargetNb:Pipe");
         ObjNameMap.put(network, "network:Network");
-
 
         /* szekvencia innen */
         isLogging=true;
@@ -768,14 +763,36 @@ public final class SkeletonController {
     }
 
     private void test20_Place_Pump_when_placeable() {
-        throw new NotImplementedException();
         /* inicializálás */
+        isLogging = false;
+        _GameI = new Game.Input();
+        _Game = new Game();
+        Network network = new Network();
+        Technician player = new Technician("t1");
+        _Game.AddPlayer(player);
+        Pipe currElem = new Pipe();
+        Pump storedPart = new Pump();
+        player.SetPart(storedPart);
+        Pipe targetElem = new Pipe();
+        currElem.SetNb(new Direction(0), targetElem);
 
         /* objektumok hozzáadása a map-hez */
+        ObjNameMap.put(_GameI, ":GameInput");
+        ObjNameMap.put(_Game, ":Game");
+        ObjNameMap.put(network, "network:Network");
+        ObjNameMap.put(player, "player:Player");
+        ObjNameMap.put(currElem, "currElem:Pipe");
+        ObjNameMap.put(storedPart, "storedPart:Pump");
+        ObjNameMap.put(targetElem, "targetElem:Pipe");
 
         /* szekvencia innen */
+        isLogging = true;
+        Main.skeleton.PrintFunctionCall(this, "TryPlacement", "d");
+        _GameI.TryPartPlacement(new Direction(0));
 
         /* objektumok eltávolítás a map-ből */
+        ObjNameMap.clear();
+        ObjNameMap.put(this, ":SkeletonController");
     }
 
     private void test21_Place_Pump_when_not_placeable() {
@@ -801,14 +818,24 @@ public final class SkeletonController {
     }
 
     private void test23_Flood_broken_Pipe() {
-        throw new NotImplementedException();
         /* inicializálás */
+        isLogging = false;
+        Pipe pipe = new Pipe();
+        pipe.Break();
+        _Game = new Game();
 
         /* objektumok hozzáadása a map-hez */
+        ObjNameMap.put(pipe, "pipe:Pipe");
+        ObjNameMap.put(_Game, ":Game");
 
         /* szekvencia innen */
+        isLogging = true;
+        Main.skeleton.PrintFunctionCall(this, "Flood");
+        pipe.Flood();
 
         /* objektumok eltávolítás a map-ből */
+        ObjNameMap.clear();
+        ObjNameMap.put(this, ":SkeletonController");
     }
 
     private void test24_Flood_not_broken_Pump() {
@@ -823,36 +850,65 @@ public final class SkeletonController {
     }
 
     private void test25_Flood_broken_Pump() {
-        throw new NotImplementedException();
         /* inicializálás */
+        isLogging = false;
+        Pump pump = new Pump();
+        pump.Break();
 
         /* objektumok hozzáadása a map-hez */
+        ObjNameMap.put(pump, "pump:Pump");
 
         /* szekvencia innen */
+        isLogging = true;
+        Main.skeleton.PrintFunctionCall(this, "Flood");
+        pump.Flood();
 
         /* objektumok eltávolítás a map-ből */
+        ObjNameMap.clear();
+        ObjNameMap.put(this, ":SkeletonController");
     }
 
     private void test26_Flood_Source() {
-        throw new NotImplementedException();
         /* inicializálás */
+        isLogging = false;
+        Source source = new Source();
+        Pipe nb = new Pipe();
+        _Game = new Game();
+        source.SetNb(new Direction(0),nb);
 
         /* objektumok hozzáadása a map-hez */
+        ObjNameMap.put(source, "source:Source");
+        ObjNameMap.put(nb, "nb:Pipe");
+        ObjNameMap.put(_Game, ":Game");
 
         /* szekvencia innen */
+        isLogging = true;
+        Main.skeleton.PrintFunctionCall(this, "Flood");
+        source.Flood();
 
         /* objektumok eltávolítás a map-ből */
+        ObjNameMap.clear();
+        ObjNameMap.put(this, ":SkeletonController");
     }
 
     private void test27_Flood_Cistern() {
-        throw new NotImplementedException();
         /* inicializálás */
+        isLogging = false;
+        Cistern cistern = new Cistern();
+        _Game = new Game();
 
         /* objektumok hozzáadása a map-hez */
+        ObjNameMap.put(cistern, "cistern:Cistern");
+        ObjNameMap.put(_Game, ":Game");
 
         /* szekvencia innen */
+        isLogging = true;
+        Main.skeleton.PrintFunctionCall(this, "Flood");
+        cistern.Flood();
 
         /* objektumok eltávolítás a map-ből */
+        ObjNameMap.clear();
+        ObjNameMap.put(this, ":SkeletonController");
     }
 
     private void test28_Produce_Pipe() {
@@ -867,13 +923,20 @@ public final class SkeletonController {
     }
 
     private void test29_Impair_Pump() {
-        throw new NotImplementedException();
         /* inicializálás */
+        isLogging = false;
+        Pump pump = new Pump();
 
         /* objektumok hozzáadása a map-hez */
+        ObjNameMap.put(pump, "pump:Pump");
 
         /* szekvencia innen */
+        isLogging = true;
+        Main.skeleton.PrintFunctionCall(this, "Break");
+        pump.Break();
 
         /* objektumok eltávolítás a map-ből */
+        ObjNameMap.clear();
+        ObjNameMap.put(this, ":SkeletonController");
     }
 }

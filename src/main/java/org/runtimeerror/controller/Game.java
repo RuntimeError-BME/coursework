@@ -12,14 +12,25 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class Game {
 
+/**
+ * A játékmenetet kezeli (vizsgálja, hogy véget ért-e a játék, valamint a köröket vezérli).
+ * Számontartja és módosítja a csőrendszert (turn-önként véletlenszerűen pumpákat ront el, round-onként pedig ciszternák szomszédos üres helyeire új csöveket helyez le).
+ * Turn-ök elején folyatja a vizet a forrásokból a szabad végű / lyukas csövekig vagy ciszternáig, illetve pontokat tud osztani a csapatoknak, amit szintén számontart.
+ */
+public class Game {
+    /**
+     * Attribútumok
+     */
     private int currPlayerIdx = 0; // a soron lévő játékos indexe a „players” gyűjteményben
     private int scoreTechnician = 0; // a szerelők pontszáma
     private int scoreSaboteur = 0; // a szabotőrök pontszáma
     private List<Player> players; // a játékban résztvevő játékosok
     private Network network; // a pálya elemeit tárolja, szortírozza
 
+    /**
+     * Konstruktor
+     */
     public Game(){
         currPlayerIdx = 0; // a soron lévő játékos indexe a „players” gyűjteményben
         scoreTechnician = 0; // a szerelők pontszáma
@@ -28,18 +39,25 @@ public class Game {
         network=null; // a pálya elemeit tárolja, szortírozza
     }
 
+    /**
+     * Metódusok
+     */
     public void setNetwork(Network network) {
         this.network = network;
     }
 
     /* Átadott számú pontot ad a szerelőknek. */
     public void AddTechnicianPoints(int points) {
-        throw new NotImplementedException();
+        Main.skeleton.PrintFunctionCalled(this);
+        scoreTechnician += points;
+        Main.skeleton.PrintFunctionReturned("AddTechnicianPoints","");
     }
 
     /* Átadott számú pontot ad a szabotőröknek. */
     public void AddSaboteurPoints(int points) {
-        throw new NotImplementedException();
+        Main.skeleton.PrintFunctionCalled(this);
+        scoreSaboteur += points;
+        Main.skeleton.PrintFunctionReturned("AddSaboteurPoints","");
     }
 
     /* A következő turn indítása (áramoltatja a vizet, pontokat oszt, véletlenszerűen pumpákat ront el,
