@@ -4,17 +4,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="52169174-47a2-4a8d-a704-4d727098fc35" name="Changes" comment="Upload full_doc.pdf" />
-    <list id="dcdd43b1-ccd4-4ce0-98e8-aa137394008b" name="Changes by feket" comment="Update 2023.04.16. 13:38">
+    <list default="true" id="52169174-47a2-4a8d-a704-4d727098fc35" name="Changes" comment="update">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/map/Pipe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/map/Pipe.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/players/Manipulator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/players/Manipulator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/players/ManipulatorTechnician.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/players/ManipulatorTechnician.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/skeleton/SkeletonController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/skeleton/SkeletonController.java" afterDir="false" />
     </list>
-    <list id="205dbb38-e22d-43a3-9ecc-6572d6faf77f" name="Changes by Tep Oli" comment="">
+    <list id="dcdd43b1-ccd4-4ce0-98e8-aa137394008b" name="Changes by feket" comment="Update 2023.04.16. 13:38">
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/controller/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/controller/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/map/Element.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/map/Element.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/skeleton/SkeletonController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/skeleton/SkeletonController.java" afterDir="false" />
+    </list>
+    <list id="205dbb38-e22d-43a3-9ecc-6572d6faf77f" name="Changes by Tep Oli" comment="Changes by Tep Oli">
       <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/controller/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/controller/Game.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/map/Breakable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/map/Breakable.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/map/Element.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/map/Element.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/map/Pump.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/map/Pump.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/players/Manipulator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/players/Manipulator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/players/ManipulatorTechnician.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/players/ManipulatorTechnician.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/players/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/players/Player.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/skeleton/SkeletonController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/skeleton/SkeletonController.java" afterDir="false" />
@@ -33,31 +39,49 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="LineStatusTrackerManager">
+    <file path="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/players/ManipulatorTechnician.java">
+      <ranges>
+        <range start1="7" end1="7" start2="7" end2="9" changelist="52169174-47a2-4a8d-a704-4d727098fc35" />
+        <range start1="21" end1="22" start2="23" end2="24" changelist="205dbb38-e22d-43a3-9ecc-6572d6faf77f" />
+        <range start1="23" end1="24" start2="25" end2="26" changelist="205dbb38-e22d-43a3-9ecc-6572d6faf77f" />
+        <range start1="25" end1="26" start2="27" end2="29" changelist="205dbb38-e22d-43a3-9ecc-6572d6faf77f" />
+      </ranges>
+    </file>
     <file path="$PROJECT_DIR$/src/main/java/org/runtimeerror/skeleton/SkeletonController.java">
       <ranges>
-        <range start1="5" end1="5" start2="5" end2="9" changelist="205dbb38-e22d-43a3-9ecc-6572d6faf77f" />
-        <range start1="9" end1="9" start2="13" end2="17" changelist="dcdd43b1-ccd4-4ce0-98e8-aa137394008b" />
-        <range start1="206" end1="207" start2="214" end2="214" changelist="205dbb38-e22d-43a3-9ecc-6572d6faf77f" />
-        <range start1="208" end1="208" start2="215" end2="229" changelist="205dbb38-e22d-43a3-9ecc-6572d6faf77f" />
-        <range start1="210" end1="210" start2="231" end2="236" changelist="205dbb38-e22d-43a3-9ecc-6572d6faf77f" />
-        <range start1="212" end1="212" start2="238" end2="241" changelist="205dbb38-e22d-43a3-9ecc-6572d6faf77f" />
-        <range start1="214" end1="214" start2="243" end2="245" changelist="205dbb38-e22d-43a3-9ecc-6572d6faf77f" />
-        <range start1="217" end1="218" start2="248" end2="248" changelist="dcdd43b1-ccd4-4ce0-98e8-aa137394008b" />
-        <range start1="219" end1="219" start2="249" end2="255" changelist="dcdd43b1-ccd4-4ce0-98e8-aa137394008b" />
-        <range start1="220" end1="220" start2="256" end2="259" changelist="dcdd43b1-ccd4-4ce0-98e8-aa137394008b" />
-        <range start1="222" end1="222" start2="261" end2="266" changelist="dcdd43b1-ccd4-4ce0-98e8-aa137394008b" />
-        <range start1="224" end1="224" start2="268" end2="272" changelist="dcdd43b1-ccd4-4ce0-98e8-aa137394008b" />
-        <range start1="225" end1="225" start2="273" end2="277" changelist="dcdd43b1-ccd4-4ce0-98e8-aa137394008b" />
-        <range start1="228" end1="229" start2="280" end2="280" changelist="dcdd43b1-ccd4-4ce0-98e8-aa137394008b" />
-        <range start1="230" end1="230" start2="281" end2="287" changelist="dcdd43b1-ccd4-4ce0-98e8-aa137394008b" />
-        <range start1="233" end1="233" start2="290" end2="294" changelist="dcdd43b1-ccd4-4ce0-98e8-aa137394008b" />
-        <range start1="234" end1="234" start2="295" end2="298" changelist="dcdd43b1-ccd4-4ce0-98e8-aa137394008b" />
-        <range start1="236" end1="236" start2="300" end2="303" changelist="dcdd43b1-ccd4-4ce0-98e8-aa137394008b" />
-        <range start1="239" end1="240" start2="306" end2="306" changelist="205dbb38-e22d-43a3-9ecc-6572d6faf77f" />
-        <range start1="241" end1="241" start2="307" end2="316" changelist="205dbb38-e22d-43a3-9ecc-6572d6faf77f" />
-        <range start1="244" end1="244" start2="319" end2="324" changelist="205dbb38-e22d-43a3-9ecc-6572d6faf77f" />
-        <range start1="245" end1="245" start2="325" end2="328" changelist="205dbb38-e22d-43a3-9ecc-6572d6faf77f" />
-        <range start1="247" end1="247" start2="330" end2="332" changelist="205dbb38-e22d-43a3-9ecc-6572d6faf77f" />
+        <range start1="7" end1="7" start2="7" end2="8" changelist="dcdd43b1-ccd4-4ce0-98e8-aa137394008b" />
+        <range start1="16" end1="17" start2="17" end2="18" changelist="dcdd43b1-ccd4-4ce0-98e8-aa137394008b" />
+        <range start1="25" end1="25" start2="26" end2="29" changelist="205dbb38-e22d-43a3-9ecc-6572d6faf77f" />
+        <range start1="307" end1="308" start2="311" end2="312" changelist="205dbb38-e22d-43a3-9ecc-6572d6faf77f" />
+        <range start1="313" end1="315" start2="317" end2="319" changelist="205dbb38-e22d-43a3-9ecc-6572d6faf77f" />
+        <range start1="319" end1="320" start2="323" end2="324" changelist="205dbb38-e22d-43a3-9ecc-6572d6faf77f" />
+        <range start1="322" end1="323" start2="326" end2="327" changelist="205dbb38-e22d-43a3-9ecc-6572d6faf77f" />
+        <range start1="335" end1="336" start2="339" end2="339" changelist="52169174-47a2-4a8d-a704-4d727098fc35" />
+        <range start1="337" end1="337" start2="340" end2="347" changelist="52169174-47a2-4a8d-a704-4d727098fc35" />
+        <range start1="339" end1="339" start2="349" end2="354" changelist="205dbb38-e22d-43a3-9ecc-6572d6faf77f" />
+        <range start1="341" end1="341" start2="356" end2="362" changelist="52169174-47a2-4a8d-a704-4d727098fc35" />
+        <range start1="343" end1="343" start2="364" end2="368" changelist="52169174-47a2-4a8d-a704-4d727098fc35" />
+      </ranges>
+    </file>
+    <file path="$PROJECT_DIR$/src/main/java/org/runtimeerror/controller/Game.java">
+      <ranges>
+        <range start1="9" end1="9" start2="9" end2="10" changelist="205dbb38-e22d-43a3-9ecc-6572d6faf77f" />
+        <range start1="18" end1="18" start2="19" end2="27" changelist="205dbb38-e22d-43a3-9ecc-6572d6faf77f" />
+        <range start1="33" end1="35" start2="42" end2="47" changelist="205dbb38-e22d-43a3-9ecc-6572d6faf77f" />
+        <range start1="90" end1="91" start2="102" end2="109" changelist="dcdd43b1-ccd4-4ce0-98e8-aa137394008b" />
+      </ranges>
+    </file>
+    <file path="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/players/Manipulator.java">
+      <ranges>
+        <range start1="2" end1="2" start2="2" end2="4" changelist="52169174-47a2-4a8d-a704-4d727098fc35" />
+        <range start1="3" end1="7" start2="5" end2="8" changelist="52169174-47a2-4a8d-a704-4d727098fc35" />
+        <range start1="15" end1="16" start2="16" end2="37" changelist="205dbb38-e22d-43a3-9ecc-6572d6faf77f" />
+      </ranges>
+    </file>
+    <file path="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/map/Element.java">
+      <ranges>
+        <range start1="40" end1="41" start2="40" end2="44" changelist="205dbb38-e22d-43a3-9ecc-6572d6faf77f" />
+        <range start1="104" end1="105" start2="107" end2="112" changelist="dcdd43b1-ccd4-4ce0-98e8-aa137394008b" />
       </ranges>
     </file>
   </component>
@@ -115,7 +139,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1677421116671</updated>
-      <workItem from="1681638695887" duration="6447000" />
+      <workItem from="1681638695887" duration="12019000" />
     </task>
     <task id="LOCAL-00001" summary="Test commit">
       <created>1681639355143</created>
@@ -131,7 +155,28 @@
       <option name="project" value="LOCAL" />
       <updated>1681640081627</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="update">
+      <created>1681645179510</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1681645179510</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Update 2023.04.16. 13:38">
+      <created>1681645182951</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1681645182951</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Changes by Tep Oli">
+      <created>1681645186657</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1681645186657</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -141,8 +186,10 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="Test commit" />
     <MESSAGE value="Upload full_doc.pdf" />
+    <MESSAGE value="update" />
     <MESSAGE value="Update 2023.04.16. 13:38" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update 2023.04.16. 13:38" />
+    <MESSAGE value="Changes by Tep Oli" />
+    <option name="LAST_COMMIT_MESSAGE" value="Changes by Tep Oli" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

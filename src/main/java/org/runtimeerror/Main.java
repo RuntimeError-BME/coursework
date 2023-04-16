@@ -1,6 +1,8 @@
 package org.runtimeerror;
 
 import java.util.Scanner;
+
+import org.runtimeerror.controller.Game;
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 import org.runtimeerror.skeleton.SkeletonController;
 

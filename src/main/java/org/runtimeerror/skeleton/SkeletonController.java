@@ -333,14 +333,30 @@ public final class SkeletonController {
     }
 
     private void test07_Change_directions_of_not_broken_Pump() {
-        throw new NotImplementedException();
         /* inicializálás */
+        isLogging = false;
+        ManipulatorSaboteur manipulatorS = new ManipulatorSaboteur();
+        Player playerS = new Player("s1",manipulatorS);
+        Pump currElem = new Pump();
+        playerS.SetCurrElem(currElem);
+        currElem.AddPlayer(playerS);
+        _Game = new Game();
 
         /* objektumok hozzáadása a map-hez */
 
         /* szekvencia innen */
+        isLogging=true;
+        PrintFunctionCall(this, "ManipulateCurrElem");
+        playerS.ManipulateCurrentElement();
+
+
+
 
         /* objektumok eltávolítás a map-ből */
+        ObjNameMap.clear();
+        ObjNameMap.put(this, ":SkeletonController");
+
+
     }
 
     private void test08_Change_directions_of_broken_Pump() {

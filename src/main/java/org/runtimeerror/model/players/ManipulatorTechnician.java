@@ -6,6 +6,8 @@ import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 import org.runtimeerror.model.map.Pipe;
 import org.runtimeerror.model.map.Pump;
 
+import static org.runtimeerror.skeleton.SkeletonController._Game;
+
 public class ManipulatorTechnician extends Manipulator {
 
     /* Megjavítja az átadott p csövet. Utána pedig véget ér a jelenlegi játékos köre. */

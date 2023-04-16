@@ -1,10 +1,11 @@
 package org.runtimeerror.model.players;
 
+import org.runtimeerror.Main;
+import org.runtimeerror.model.map.*;
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
-import org.runtimeerror.model.map.Pipe;
-import org.runtimeerror.model.map.Pump;
-import org.runtimeerror.model.map.Cistern;
-import org.runtimeerror.model.map.Source;
+
+import static org.runtimeerror.skeleton.SkeletonController._Game;
+import static org.runtimeerror.skeleton.SkeletonController._GameI;
 
 public abstract class Manipulator {
 
