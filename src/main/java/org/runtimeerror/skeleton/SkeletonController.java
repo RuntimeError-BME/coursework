@@ -124,7 +124,14 @@ public final class SkeletonController {
         System.out.print(ObjNameMap.get(callerThis) + " calls " + funName + "(" +
                 param1 + ")");
     }
+    public void PrintFunctionCall(Object callerThis, String funName, String param1, String param2) {
 
+        if (!isLogging)
+            return;
+        indent();
+        System.out.print(ObjNameMap.get(callerThis) + " calls " + funName + "(" +
+                param1 + "," + param2 + ")");
+    }
     public void PrintFunctionCall(Object callerThis, String funName, Object param1) {
 
         if (!isLogging)
@@ -877,14 +884,26 @@ public final class SkeletonController {
     }
 
     private void test22_Flood_not_broken_Pipe() {
-        throw new NotImplementedException();
         /* inicializálás */
+        isLogging=false;
+        Pipe pipe=new Pipe();
+        Pipe output=new Pipe();
+        _Game=new Game();
+        pipe.SetOutput(output);
 
         /* objektumok hozzáadása a map-hez */
+        ObjNameMap.put(pipe,"pipe:Pipe");
+        ObjNameMap.put(output,"output:Pipe");
+        ObjNameMap.put(_Game,":Pipe");
 
         /* szekvencia innen */
+        isLogging=true;
+        Main.skeleton.PrintFunctionCall(this,"Flood");
+        pipe.Flood();
 
         /* objektumok eltávolítás a map-ből */
+        ObjNameMap.clear();
+        ObjNameMap.put(this, ":SkeletonController");
     }
 
     private void test23_Flood_broken_Pipe() {
@@ -909,14 +928,26 @@ public final class SkeletonController {
     }
 
     private void test24_Flood_not_broken_Pump() {
-        throw new NotImplementedException();
         /* inicializálás */
+        isLogging=false;
+        Pump pump=new Pump();
+        Pipe output=new Pipe();
+        _Game=new Game();
+        pump.SetOutput(output);
 
         /* objektumok hozzáadása a map-hez */
+        ObjNameMap.put(pump,"pump:Pump");
+        ObjNameMap.put(output,"output:Pipe");
+        ObjNameMap.put(_Game,":Pipe");
 
         /* szekvencia innen */
+        isLogging=true;
+        Main.skeleton.PrintFunctionCall(this,"Flood");
+        pump.Flood();
 
         /* objektumok eltávolítás a map-ből */
+        ObjNameMap.clear();
+        ObjNameMap.put(this, ":SkeletonController");
     }
 
     private void test25_Flood_broken_Pump() {

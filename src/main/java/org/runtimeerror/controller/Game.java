@@ -118,7 +118,32 @@ public class Game {
         /* Akkor hívandó függvény, amikor a soron lévő játékos megpróbálja a tárolt part-ját tőle d irányba
          lehelyezni. */
         public void TryPartPlacement(Direction d) {
-            throw new NotImplementedException();
+            Main.skeleton.PrintFunctionCalled(this);
+
+            Main.skeleton.PrintFunctionCall(this, "IsTechnicianTurn");
+            boolean techTurn = _Game.IsTechnicianTurn();
+
+            if (techTurn) {
+                Main.skeleton.PrintFunctionCall(this, "GetCurrPlayer");
+                Technician playerT = (Technician) _Game.GetCurrPlayer();
+
+                Main.skeleton.PrintFunctionCall(this, "GetPart");
+                Breakable part = playerT.GetPart();
+                if(part != null) {
+                    Main.skeleton.PrintFunctionCall(this, "PlacePart","d");
+                    boolean b = playerT.PlacePart(d);
+                    if(b){
+                        Main.skeleton.PrintFunctionCall(this,"SetPart", "null");
+                        playerT.SetPart(null);
+
+
+                        Main.skeleton.PrintFunctionCall(this,"NextTurn");
+                        _Game.NextTurn();
+                    }
+                }
+
+            }
+            Main.skeleton.PrintFunctionReturned("TryPartPlacement", "");
         }
 
         /* Akkor hívandó függvény, amikor egy játékos egy part-ot próbálna a tárolójába tenni

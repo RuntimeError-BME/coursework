@@ -1,11 +1,11 @@
 package org.runtimeerror.model.players;
 
 import org.runtimeerror.Main;
-import org.runtimeerror.model.map.Element;
-import org.runtimeerror.model.map.Network;
+import org.runtimeerror.model.map.*;
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
-import org.runtimeerror.model.map.Direction;
-import org.runtimeerror.model.map.Breakable;
+import static org.runtimeerror.skeleton.SkeletonController.isLogging;
+
+import org.runtimeerror.model.map.Element;
 
 import java.net.Inet4Address;
 import java.net.UnknownHostException;
@@ -69,7 +69,64 @@ public class Technician extends Player {
 
     /* Megkísérli elhelyezni a tárolt part-ját d irányba. A művelet sikerességével tér vissza. */
     public boolean PlacePart(Direction d) {
-        throw new NotImplementedException();
+        Main.skeleton.PrintFunctionCalled(this);
+
+        Main.skeleton.PrintFunctionCall(this,"PlacePart", "part", "d");
+        boolean re=PlacePart(part,d);
+
+        Main.skeleton.PrintFunctionReturned("PlacePart", re ? "true" : "false");
+        return re;
+    }
+
+    private boolean PlacePart(Breakable storedPart,Direction d) {
+        Main.skeleton.PrintFunctionCalled(this);
+        Main.skeleton.PrintFunctionCall(this, "GetCurrElem");
+        Element currElem=GetCurrElem();
+        isLogging=false;
+        Element targetElem=new Pipe();
+        isLogging=true;
+        boolean re;
+        if(storedPart.GetPickUpAble()) {
+            Main.skeleton.PrintFunctionCall(this, "GetNb", "d");
+            re = (currElem.GetNb(d) == null);
+        }else {
+            Main.skeleton.PrintFunctionCall(this, "GetNb", "d");
+            targetElem= currElem.GetNb(d);
+            re=(targetElem!=null);
+        }
+
+        if(re){
+
+            isLogging=false;
+            if(storedPart.GetPickUpAble()) {
+                isLogging=true;
+
+                Main.skeleton.PrintFunctionCall(this, "GetNetwork");
+                Network network = _Game.GetNetwork();
+
+                Main.skeleton.PrintFunctionCall(this, "AddPipe", "storedPart");
+                re = network.AddPipe((Pipe) storedPart);
+            }
+            else {
+                isLogging=true;
+                Main.skeleton.PrintFunctionCall(this, "GetPickUpAble");
+                if(targetElem.GetPickUpAble()){
+                    Main.skeleton.PrintFunctionCall(this, "GetNetwork");
+                    Network network = _Game.GetNetwork();
+
+                    Main.skeleton.PrintFunctionCall(this, "AddPump", "storedPart");
+                    re=network.AddPump((Pump) storedPart,targetElem);
+                }
+
+
+            }
+
+        }
+
+
+        Main.skeleton.PrintFunctionReturned("PlacePart", re ? "true" : "false");
+        return re;
+
     }
 
     /* Visszaadja azt a Breakable-t („part” attribútumot), ami a szerelőnél van. */

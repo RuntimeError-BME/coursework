@@ -46,7 +46,7 @@ public abstract class Element {
     public Element GetNb(Direction d) {
         Main.skeleton.PrintFunctionCalled(this);
 
-        Main.skeleton.PrintFunctionReturned("GetNb", "newInp/targetElem");
+        Main.skeleton.PrintFunctionReturned("GetNb", nbs.get(d.ordinal())==null?"null":"newInp/targetElem");
         return nbs.get(d.ordinal());
 
     }

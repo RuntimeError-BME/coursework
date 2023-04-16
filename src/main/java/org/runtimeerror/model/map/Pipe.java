@@ -12,7 +12,10 @@ public class Pipe extends Breakable {
 
     public Pipe(){
         super();
+        ObjNameMap.put(this,"newPipe:Pipe");
+        Main.skeleton.PrintFunctionCalled(this);
         pickUpAble=true;
+        Main.skeleton.PrintFunctionReturned("<<create>>Pipe","newPipe");
     }
 
     /* Felhelyezi az átadott játékost magára, ha nem áll rajta már más valaki. A művelet sikerességével tér vissza. */

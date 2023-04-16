@@ -31,6 +31,7 @@ public class Network {
 
     /* Az átadott csövet megkísérli hozzáadni a pályához. Ennek sikerességét adja vissza. */
     public boolean AddPipe(Pipe p) {
+        Main.skeleton.PrintFunctionCalled(this);
         if(elements.size()<32){
             boolean b=elements.add(p);
             Main.skeleton.PrintFunctionReturned("AddPipe",b ? "true":"false");
