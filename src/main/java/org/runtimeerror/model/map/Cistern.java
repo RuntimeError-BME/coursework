@@ -52,4 +52,28 @@ public class Cistern extends Element {
         m.Manipulate(this);
         Main.skeleton.PrintFunctionReturned("Manipulate","");
     }
+
+    public void ProducePipe(){
+        Main.skeleton.PrintFunctionCalled(this);
+        for (int i=0;i<4;i++){
+            Main.skeleton.PrintFunctionCall(this, "GetNb",""+i);
+            Element nb = this.GetNb(new Direction(i));
+            if(nb==null){
+
+                Main.skeleton.PrintFunctionCall(this, "<<create>>Pipe");
+                Pipe newPipe = new Pipe();
+
+                Main.skeleton.PrintFunctionCall(this, "SetNb",""+i, "newPipe");
+                this.SetNb(new Direction(i),newPipe);
+                break;
+            }
+
+        }
+
+
+
+
+        Main.skeleton.PrintFunctionReturned("ProducePipe","");
+    }
+
 }

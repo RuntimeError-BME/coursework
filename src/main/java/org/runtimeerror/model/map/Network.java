@@ -44,7 +44,14 @@ public class Network {
 
     /* Az átadott pumpával kísérli meg felülírni a másik átadott elemet a pályán. Ennek sikerességét adja vissza. */
     public boolean AddPump(Pump p, Element e) {
-        throw new NotImplementedException();
+        Main.skeleton.PrintFunctionCalled(this);
+
+
+        boolean b=(elements.remove(e) && pumps.add(p) && elements.add(p));
+
+
+        Main.skeleton.PrintFunctionReturned("AddPump", b ? "true" : "false");
+        return b;
     }
 
     /* Felapasztja az összes vizet a pályáról, majd minden forrásból elindítja a vizet,
