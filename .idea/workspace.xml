@@ -4,7 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="52169174-47a2-4a8d-a704-4d727098fc35" name="Changes" comment="" />
+    <list default="true" id="52169174-47a2-4a8d-a704-4d727098fc35" name="Changes" comment="Upload full_doc.pdf" />
+    <list id="dcdd43b1-ccd4-4ce0-98e8-aa137394008b" name="Changes by feket" comment="Update 2023.04.16. 13:38">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/map/Pipe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/map/Pipe.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/skeleton/SkeletonController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/skeleton/SkeletonController.java" afterDir="false" />
+    </list>
+    <list id="205dbb38-e22d-43a3-9ecc-6572d6faf77f" name="Changes by Tep Oli" comment="">
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/controller/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/controller/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/map/Breakable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/map/Breakable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/map/Element.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/map/Element.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/map/Pump.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/map/Pump.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/players/ManipulatorTechnician.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/players/ManipulatorTechnician.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/players/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/players/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/skeleton/SkeletonController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/skeleton/SkeletonController.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -49,12 +63,26 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1677421116671</updated>
-      <workItem from="1681638695887" duration="448000" />
+      <workItem from="1681638695887" duration="6447000" />
+    </task>
+    <task id="LOCAL-00001" summary="Test commit">
+      <created>1681639355143</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1681639355143</updated>
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="Test commit" />
+    <MESSAGE value="Upload full_doc.pdf" />
+    <MESSAGE value="Update 2023.04.16. 13:38" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update 2023.04.16. 13:38" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
