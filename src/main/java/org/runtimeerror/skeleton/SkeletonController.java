@@ -25,6 +25,9 @@ public final class SkeletonController {
     private Map<Integer, String> TestNameMap = new HashMap<>(30); // Tesztszám - Tesztnév párosok
     private Map<Object, String> ObjNameMap = new HashMap<>(8); // Objektum - "név : típus" string párosok
 
+    public static Game _Game= new Game();
+    public static Game.Input _GameI = new Game.Input();
+
     public SkeletonController(Scanner input) {
         in = input;
         TestNameMap.put(0, "exit program");
@@ -306,22 +309,22 @@ public final class SkeletonController {
 
     private void test06_Fix_broken_Pump() {
         /* inicializálás */
-        isLogging=true;
+        isLogging=false;
         ManipulatorTechnician manipulator = new ManipulatorTechnician();
         Technician player = new Technician("t1",manipulator);
         Pump currElem = new Pump(); // a pumpa, amin jelenleg áll
         player.SetCurrElem(currElem); // jelenleg ezen áll
         currElem.AddPlayer(player);
-        Game game = new Game();
-        game.AddPlayer(player);
+        _Game = new Game();
+
         currElem.Break();
 
         /* objektumok hozzáadása a map-hez */
 
-        ObjNameMap.put(player, "player:Player");
+        ObjNameMap.put(player, "player:Technician");
         ObjNameMap.put(currElem, "currElem:Pump");
         ObjNameMap.put(manipulator, "manipulator:ManipulatorTechnician");
-        ObjNameMap.put(game, ":Game");
+        ObjNameMap.put(_Game, ":Game");
 
         /* szekvencia innen */
         isLogging = true;
@@ -344,6 +347,11 @@ public final class SkeletonController {
         _Game = new Game();
 
         /* objektumok hozzáadása a map-hez */
+        ObjNameMap.put(playerS, "player:Player");
+        ObjNameMap.put(currElem, "currElem:Pump");
+        ObjNameMap.put(manipulatorS, "manipulator:ManipulatorSaboteur");
+        ObjNameMap.put(_Game, ":Game");
+        ObjNameMap.put(_GameI, ":GameInput");
 
         /* szekvencia innen */
         isLogging=true;

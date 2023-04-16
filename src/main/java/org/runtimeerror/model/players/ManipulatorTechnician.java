@@ -21,11 +21,12 @@ public class ManipulatorTechnician extends Manipulator {
     @Override
     public void Manipulate(Pump p) {
         Main.skeleton.PrintFunctionCalled(this);
-        Main.skeleton.PrintFunctionCall(this, "GetBroken()");
+        Main.skeleton.PrintFunctionCall(this, "GetBroken");
         if (p.GetBroken()) {
-            Main.skeleton.PrintFunctionCall(this, "Fix()");
+            Main.skeleton.PrintFunctionCall(this, "Fix");
             p.Fix();
-            Game.NextTurn();
+            Main.skeleton.PrintFunctionCall(this, "NextTurn");
+            _Game.NextTurn();
             Main.skeleton.PrintFunctionReturned("Manipulate", "");
         } else
             throw new NotImplementedException();

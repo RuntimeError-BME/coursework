@@ -38,7 +38,10 @@ public abstract class Element {
 
     /* Az átadott irányba lévő szomszédos elemét adja vissza, ha van ilyen. */
     public Element GetNb(Direction d) {
-        throw new NotImplementedException();
+        Main.skeleton.PrintFunctionCalled(this);
+
+        Main.skeleton.PrintFunctionReturned("GetNb", "newInp");
+        return null;
     }
 
     /* Megadott irányú szomszédjának állítja be az átadott elemet. */

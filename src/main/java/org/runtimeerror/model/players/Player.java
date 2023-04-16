@@ -53,6 +53,6 @@ public class Player {
         Main.skeleton.PrintFunctionCall(this, "Manipulate", manipulator);
         currElem.Manipulate(manipulator);
 
-        Main.skeleton.PrintFunctionReturned("ManipulateCurrentElement", "");
+        Main.skeleton.PrintFunctionReturned("ManipulateCurrElem", "");
     }
 }

@@ -7,6 +7,7 @@ import org.runtimeerror.model.players.Player;
 import org.runtimeerror.model.map.Direction;
 import org.runtimeerror.model.map.Network;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Game {
@@ -16,6 +17,14 @@ public class Game {
     private int scoreSaboteur = 0; // a szabotőrök pontszáma
     private List<Player> players; // a játékban résztvevő játékosok
     private Network network; // a pálya elemeit tárolja, szortírozza
+
+    public Game(){
+        currPlayerIdx = 0; // a soron lévő játékos indexe a „players” gyűjteményben
+        scoreTechnician = 0; // a szerelők pontszáma
+        scoreSaboteur = 0; // a szabotőrök pontszáma
+        List<Player> players=new ArrayList<>(); // a játékban résztvevő játékosok
+        Network network=null; // a pálya elemeit tárolja, szortírozza
+    }
 
 
     /* Átadott számú pontot ad a szerelőknek. */
@@ -31,8 +40,11 @@ public class Game {
     /* A következő turn indítása (áramoltatja a vizet, pontokat oszt, véletlenszerűen pumpákat ront el,
      és ha véget ért egy teljes kör (round), akkor új csöveket teremt a ciszternák üres szomszédjai helyén).
      Ha az egyik csapat elérte a győzelemhez szükséges pontok számát, véget vet a játéknak. */
-    public static void NextTurn() {
-        throw new NotImplementedException();
+    public void NextTurn() {
+        Main.skeleton.PrintFunctionCalled(this);
+
+        Main.skeleton.PrintFunctionReturned("NextTurn","");
+        //throw new NotImplementedException();
     }
 
     /* Visszaadja a játékost, aki éppen soron van (akinek turnje van jelenleg). */

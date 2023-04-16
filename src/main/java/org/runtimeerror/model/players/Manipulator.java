@@ -14,7 +14,27 @@ public abstract class Manipulator {
 
     /* Átállítja az átadott pumpát (GameInput-ot használja a bemenetért). Ezután véget ér a játékos köre (turn). */
     public void Manipulate(Pump p) {
-        throw new NotImplementedException();
+        Main.skeleton.PrintFunctionCalled(this);
+
+        Main.skeleton.PrintFunctionCall(this, "GetNewPumpDirections");
+        Direction[] dirs = _GameI.GetNewPumpDirections();
+
+        Main.skeleton.PrintFunctionCall(this,"GetNb","dirs[0]");
+        Element newInp = p.GetNb(dirs[0]);
+
+        Main.skeleton.PrintFunctionCall(this, "SetInput", "newInp");
+        p.SetInput(newInp);
+
+        Main.skeleton.PrintFunctionCall(this,"GetNb","dirs[1]");
+        Element newOut = p.GetNb(dirs[1]);
+
+        Main.skeleton.PrintFunctionCall(this, "SetOutput", "newOut");
+        p.SetOutput(newOut);
+
+        Main.skeleton.PrintFunctionCall(this,"NexTurn");
+        _Game.NextTurn();
+
+        Main.skeleton.PrintFunctionReturned("Manipulate","");
     }
 
     /* Átlépteti a jelenlegi játékost a következő ciszternára. Ezzel nem ér véget a játékos köre (turn). */

@@ -5,17 +5,21 @@ import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 public abstract class Breakable extends Element {
 
-    private boolean broken; // hibás-e vagy sem, azaz át tud-e ereszteni magán vizet
+    private boolean broken = false; // hibás-e vagy sem, azaz át tud-e ereszteni magán vizet
+
     /* Megjavítja az elemet. */
     public void Fix() {
-        throw new NotImplementedException();
+        Main.skeleton.PrintFunctionCalled(this);
+        broken = false;
+        Main.skeleton.PrintFunctionReturned("Fix", "" );
+
     }
 
     /* Elrontja az elemet. */
     public void Break() {
         Main.skeleton.PrintFunctionCalled(this);
         broken = true;
-        Main.skeleton.PrintFunctionReturned("GetBroken", "" );
+        Main.skeleton.PrintFunctionReturned("Break", "" );
     }
 
     /* Visszaadja, hogy az elem törött-e. */
