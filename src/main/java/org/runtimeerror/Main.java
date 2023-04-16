@@ -1,9 +1,8 @@
 package org.runtimeerror;
 import java.util.Scanner;
-
-import org.runtimeerror.controller.Game;
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 import org.runtimeerror.skeleton.SkeletonController;
+
 
 public class Main {
 
@@ -13,8 +12,6 @@ public class Main {
 
         Scanner in = new Scanner(System.in);
         skeleton = new SkeletonController(in);
-
-
 
         System.out.println("Udvozollek a Skeletonunk tesztelofeluleten!");
         System.out.println("A kovetkezo tesztesetek/muveletek allnak rendelkezesre:");
