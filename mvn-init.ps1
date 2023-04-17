@@ -14,10 +14,3 @@ tar -xzf $fileName -C $extractDir --strip-components=1
 
 # Add the Apache Maven "bin" directory to the PATH environment variable
 $env:Path += ";$extractDir\bin"
-
-mvn clean install
-mvn package
-
-cd ./target
-
-java -cp .\target\coursework-1.0-SNAPSHOT.jar org.runtimeerror.Main
