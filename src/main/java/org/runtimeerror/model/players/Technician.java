@@ -1,7 +1,6 @@
 package org.runtimeerror.model.players;
 import org.runtimeerror.Main;
 import org.runtimeerror.model.map.*;
-import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 import static org.runtimeerror.skeleton.SkeletonController.isLogging;
 import org.runtimeerror.model.map.Element;
 import static org.runtimeerror.skeleton.SkeletonController._Game;
@@ -26,9 +25,9 @@ public class Technician extends Player {
 
     /** Megkísérel felvenni egy part-ot a jelenlegi elemtől.
       (Csak ciszterna esetén fog tényleg sikerülni egy pumpát felvennie.) */
-    public void PickUpPart() {
-        throw new NotImplementedException();
-    }
+//    public void PickUpPart() {
+//        throw new NotImplementedException();
+//    }
 
     /** Megkísérli felvenni a d irányban lévő part-ot, ha van olyan. */
     public void PickUpPart(Direction d) {

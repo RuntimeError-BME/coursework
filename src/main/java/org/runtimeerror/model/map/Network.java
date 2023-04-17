@@ -2,7 +2,6 @@ package org.runtimeerror.model.map;
 import java.util.List;
 import java.util.ArrayList;
 import org.runtimeerror.Main;
-import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 
 /**
@@ -65,19 +64,19 @@ public class Network {
 
     /** Felapasztja az összes vizet a pályáról, majd minden forrásból elindítja a vizet,
      aminek következtében el lesz árasztva vízzel a pálya, és pontokat fognak kapni a csapatok. */
-    public void Flood() {
-        throw new NotImplementedException();
-    }
-
-    /** Visszaadja a pálya minden elemét. */
-    public final List<Element> GetElements() {
-        throw new NotImplementedException();
-    }
-
-    /** Visszaadja a pályán lévő pumpákat. */
-    public final List<Pump> GetPumps() {
-        throw new NotImplementedException();
-    }
+//    public void Flood() {
+//        throw new NotImplementedException();
+//    }
+//
+//    /** Visszaadja a pálya minden elemét. */
+//    public final List<Element> GetElements() {
+//        throw new NotImplementedException();
+//    }
+//
+//    /** Visszaadja a pályán lévő pumpákat. */
+//    public final List<Pump> GetPumps() {
+//        throw new NotImplementedException();
+//    }
 
     /** Visszaadja a pályán lévő ciszternákat. */
     public final List<Cistern> GetCisterns() {
@@ -103,7 +102,7 @@ public class Network {
     }
 
     /** Az átadott forrást hozzáadja a pályához. */
-    public boolean AddSource(Source s) {
-        throw new NotImplementedException();
-    }
+//    public boolean AddSource(Source s) {
+//        throw new NotImplementedException();
+//    }
 }

@@ -1,6 +1,5 @@
 package org.runtimeerror.model.players;
 import org.runtimeerror.Main;
-import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 import org.runtimeerror.model.map.Direction;
 import org.runtimeerror.model.map.Element;
 
@@ -59,9 +58,9 @@ public class Player {
     }
 
     /** A játékost a megadott irányban lévő elemre lépteti (a „gazda” elemétől), ha ez lehetséges. */
-    public void StepOnto(Direction d) {
-        throw new NotImplementedException();
-    }
+//    public void StepOnto(Direction d) {
+//        throw new NotImplementedException();
+//    }
 
     /** Manipulálja azt az elemet, amelyen éppen tartózkodik.
      A manipulátora határozza meg, hogy mely „gazda” elem típus esetén mit tesz. */

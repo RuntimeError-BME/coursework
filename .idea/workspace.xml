@@ -7,15 +7,15 @@
     <list default="true" id="52169174-47a2-4a8d-a704-4d727098fc35" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/skeleton/SkeletonController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/skeleton/SkeletonController.java" afterDir="false" />
-    </list>
-    <list id="f1880269-1dfa-411b-a638-fb627f93ba3a" name="Changes by szabo" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/Main.java" afterDir="false" />
-    </list>
-    <list id="8846de87-e86b-4024-bc49-282a6696216e" name="Changes by Tep Oli" comment="">
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/controller/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/controller/Game.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/map/Element.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/map/Element.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/skeleton/SkeletonController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/skeleton/SkeletonController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/map/Network.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/map/Network.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/map/Source.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/map/Source.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/players/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/players/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/players/Technician.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/players/Technician.java" afterDir="false" />
     </list>
+    <list id="f1880269-1dfa-411b-a638-fb627f93ba3a" name="Changes by szabo" comment="" />
+    <list id="8846de87-e86b-4024-bc49-282a6696216e" name="Changes by Tep Oli" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -36,64 +36,6 @@
       </list>
     </option>
   </component>
-  <component name="LineStatusTrackerManager">
-    <file path="$PROJECT_DIR$/src/main/java/org/runtimeerror/Main.java">
-      <ranges>
-        <range start1="1" end1="4" start2="1" end2="1" changelist="52169174-47a2-4a8d-a704-4d727098fc35" />
-        <range start1="5" end1="7" start2="2" end2="2" changelist="f1880269-1dfa-411b-a638-fb627f93ba3a" />
-        <range start1="9" end1="9" start2="4" end2="5" changelist="f1880269-1dfa-411b-a638-fb627f93ba3a" />
-        <range start1="18" end1="21" start2="14" end2="15" changelist="f1880269-1dfa-411b-a638-fb627f93ba3a" />
-      </ranges>
-    </file>
-    <file path="$PROJECT_DIR$/src/main/java/org/runtimeerror/skeleton/SkeletonController.java">
-      <ranges>
-        <range start1="807" end1="808" start2="807" end2="808" changelist="52169174-47a2-4a8d-a704-4d727098fc35" />
-        <range start1="824" end1="825" start2="824" end2="825" changelist="8846de87-e86b-4024-bc49-282a6696216e" />
-        <range start1="833" end1="834" start2="833" end2="834" changelist="8846de87-e86b-4024-bc49-282a6696216e" />
-        <range start1="840" end1="841" start2="840" end2="841" changelist="8846de87-e86b-4024-bc49-282a6696216e" />
-        <range start1="846" end1="847" start2="846" end2="847" changelist="8846de87-e86b-4024-bc49-282a6696216e" />
-        <range start1="863" end1="864" start2="863" end2="864" changelist="8846de87-e86b-4024-bc49-282a6696216e" />
-        <range start1="872" end1="873" start2="872" end2="873" changelist="8846de87-e86b-4024-bc49-282a6696216e" />
-        <range start1="877" end1="878" start2="877" end2="878" changelist="8846de87-e86b-4024-bc49-282a6696216e" />
-        <range start1="883" end1="884" start2="883" end2="884" changelist="8846de87-e86b-4024-bc49-282a6696216e" />
-        <range start1="898" end1="899" start2="898" end2="899" changelist="8846de87-e86b-4024-bc49-282a6696216e" />
-        <range start1="906" end1="907" start2="906" end2="907" changelist="8846de87-e86b-4024-bc49-282a6696216e" />
-        <range start1="911" end1="912" start2="911" end2="912" changelist="8846de87-e86b-4024-bc49-282a6696216e" />
-        <range start1="917" end1="918" start2="917" end2="918" changelist="8846de87-e86b-4024-bc49-282a6696216e" />
-        <range start1="924" end1="925" start2="924" end2="925" changelist="8846de87-e86b-4024-bc49-282a6696216e" />
-        <range start1="929" end1="930" start2="929" end2="930" changelist="8846de87-e86b-4024-bc49-282a6696216e" />
-        <range start1="934" end1="935" start2="934" end2="935" changelist="8846de87-e86b-4024-bc49-282a6696216e" />
-        <range start1="940" end1="941" start2="940" end2="941" changelist="8846de87-e86b-4024-bc49-282a6696216e" />
-        <range start1="946" end1="947" start2="946" end2="947" changelist="8846de87-e86b-4024-bc49-282a6696216e" />
-        <range start1="950" end1="951" start2="950" end2="951" changelist="8846de87-e86b-4024-bc49-282a6696216e" />
-        <range start1="955" end1="956" start2="955" end2="956" changelist="8846de87-e86b-4024-bc49-282a6696216e" />
-        <range start1="961" end1="962" start2="961" end2="962" changelist="8846de87-e86b-4024-bc49-282a6696216e" />
-        <range start1="968" end1="969" start2="968" end2="969" changelist="8846de87-e86b-4024-bc49-282a6696216e" />
-        <range start1="973" end1="974" start2="973" end2="974" changelist="8846de87-e86b-4024-bc49-282a6696216e" />
-        <range start1="978" end1="979" start2="978" end2="979" changelist="8846de87-e86b-4024-bc49-282a6696216e" />
-        <range start1="984" end1="985" start2="984" end2="985" changelist="8846de87-e86b-4024-bc49-282a6696216e" />
-        <range start1="989" end1="990" start2="989" end2="990" changelist="8846de87-e86b-4024-bc49-282a6696216e" />
-        <range start1="992" end1="993" start2="992" end2="993" changelist="8846de87-e86b-4024-bc49-282a6696216e" />
-        <range start1="997" end1="998" start2="997" end2="998" changelist="8846de87-e86b-4024-bc49-282a6696216e" />
-        <range start1="1003" end1="1004" start2="1003" end2="1004" changelist="8846de87-e86b-4024-bc49-282a6696216e" />
-        <range start1="1010" end1="1011" start2="1010" end2="1011" changelist="8846de87-e86b-4024-bc49-282a6696216e" />
-        <range start1="1015" end1="1016" start2="1015" end2="1016" changelist="8846de87-e86b-4024-bc49-282a6696216e" />
-        <range start1="1020" end1="1021" start2="1020" end2="1021" changelist="8846de87-e86b-4024-bc49-282a6696216e" />
-        <range start1="1026" end1="1027" start2="1026" end2="1027" changelist="8846de87-e86b-4024-bc49-282a6696216e" />
-        <range start1="1031" end1="1032" start2="1031" end2="1032" changelist="8846de87-e86b-4024-bc49-282a6696216e" />
-        <range start1="1035" end1="1036" start2="1035" end2="1036" changelist="8846de87-e86b-4024-bc49-282a6696216e" />
-        <range start1="1040" end1="1041" start2="1040" end2="1041" changelist="8846de87-e86b-4024-bc49-282a6696216e" />
-        <range start1="1047" end1="1048" start2="1047" end2="1048" changelist="8846de87-e86b-4024-bc49-282a6696216e" />
-        <range start1="1055" end1="1056" start2="1055" end2="1056" changelist="8846de87-e86b-4024-bc49-282a6696216e" />
-        <range start1="1061" end1="1062" start2="1061" end2="1062" changelist="8846de87-e86b-4024-bc49-282a6696216e" />
-        <range start1="1068" end1="1069" start2="1068" end2="1069" changelist="8846de87-e86b-4024-bc49-282a6696216e" />
-        <range start1="1075" end1="1076" start2="1075" end2="1076" changelist="8846de87-e86b-4024-bc49-282a6696216e" />
-        <range start1="1079" end1="1080" start2="1079" end2="1080" changelist="8846de87-e86b-4024-bc49-282a6696216e" />
-        <range start1="1082" end1="1083" start2="1082" end2="1083" changelist="8846de87-e86b-4024-bc49-282a6696216e" />
-        <range start1="1087" end1="1088" start2="1087" end2="1088" changelist="8846de87-e86b-4024-bc49-282a6696216e" />
-      </ranges>
-    </file>
-  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -109,6 +51,9 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
     "codeWithMe.voiceChat.enabledByDefault": "false",
+    "git-widget-placeholder": "session__week__07",
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "vue.rearranger.settings.migration": "true"
   }

@@ -4,7 +4,6 @@ import java.util.List;
 import java.util.SortedMap;
 import java.util.TreeMap;
 import org.runtimeerror.Main;
-import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 import org.runtimeerror.model.players.Player;
 import org.runtimeerror.model.players.Manipulator;
 
@@ -71,7 +70,7 @@ public abstract class Element {
      egy part-ot kaphasson a tárolójába, akkor ezt a függvényt kell felülírnia.
      Alapértelmezett megvalósítása üres törzsű függvény (alapjáraton nem támogatják az elemek ezt a funkcionalitást). */
     public void OnPickup() {
-        throw new NotImplementedException();
+        // throw new NotImplementedException();
     }
 
     /** Absztrakt metódus, amely a származtatott osztályokban felül lesz írva a szerint,
@@ -114,9 +113,9 @@ public abstract class Element {
     }
 
     /** Visszaadja a bemeneti elemét, ha van ilyen. */
-    public Element GetInput() {
-        throw new NotImplementedException();
-    }
+//    public Element GetInput() {
+//        throw new NotImplementedException();
+//    }
 
     /** Visszaadja a kimeneti elemét, ha van ilyen. */
     public Element GetOutput() {

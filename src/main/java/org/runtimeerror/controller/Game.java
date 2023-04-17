@@ -2,7 +2,6 @@ package org.runtimeerror.controller;
 import org.runtimeerror.Main;
 import org.runtimeerror.model.map.*;
 import org.runtimeerror.model.players.Technician;
-import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 import org.runtimeerror.model.players.Player;
 import static org.runtimeerror.skeleton.SkeletonController._Game;
 import java.util.ArrayList;
@@ -93,22 +92,22 @@ public class Game {
     public static class Input {
 
         /** d irányba próbálja mozgatni az épp soron lévő játékost, arról az elemről, amelyiken éppen tartózkodik. */
-        public void MoveCurrPlayer(Direction d) {
-            throw new NotImplementedException();
-        }
-
-        /** Akkor hívandó függvény, amikor éppen azt az elemet szeretné manipulálni / interakcióba lépni vele
-         (csövet lyukasztani / foltozni, pumpát javítani / átállítani vagy a következő ciszternára ugrani)
-         a soron lévő játékos, amelyiken éppen áll. */
-        public void TryCurrElemManipulation() {
-            throw new NotImplementedException();
-        }
-
-        /** Akkor hívandó függvény, amikor a soron lévő játékos megpróbál egy tőle d irányba lévő szomszédos csövet
-         felvenni, és a tárolójában eltárolni. */
-        public void TryPartRelocation(Direction d) {
-            throw new NotImplementedException();
-        }
+//        public void MoveCurrPlayer(Direction d) {
+//            throw new NotImplementedException();
+//        }
+//
+//        /** Akkor hívandó függvény, amikor éppen azt az elemet szeretné manipulálni / interakcióba lépni vele
+//         (csövet lyukasztani / foltozni, pumpát javítani / átállítani vagy a következő ciszternára ugrani)
+//         a soron lévő játékos, amelyiken éppen áll. */
+//        public void TryCurrElemManipulation() {
+//            throw new NotImplementedException();
+//        }
+//
+//        /** Akkor hívandó függvény, amikor a soron lévő játékos megpróbál egy tőle d irányba lévő szomszédos csövet
+//         felvenni, és a tárolójában eltárolni. */
+//        public void TryPartRelocation(Direction d) {
+//            throw new NotImplementedException();
+//        }
 
         /** Akkor hívandó függvény, amikor a soron lévő játékos megpróbálja a tárolt part-ját tőle d irányba
          lehelyezni. */

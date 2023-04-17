@@ -1,6 +1,5 @@
 package org.runtimeerror;
 import java.util.Scanner;
-import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 import org.runtimeerror.skeleton.SkeletonController;
 
 
@@ -27,8 +26,6 @@ public class Main {
                     skeleton.RunTest(testNr);
                 } else
                     System.out.println("Hibas bemenet. Probald ujra.");
-            } catch (NotImplementedException n_ex) {
-                n_ex.printStackTrace();
             } catch (Exception ex) {
                 System.out.println("Hibas bemenet. Probald ujra.");
                 in.next();
