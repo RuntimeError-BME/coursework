@@ -47,7 +47,10 @@ public class Pipe extends Breakable {
                 counter = 2;
             }
         }
-        else sticky=false;
+        else {
+            if(sticky) counter = 0;
+            sticky=false;
+        }
         Main.skeleton.PrintFunctionReturned("SetSticky","");
     }
 
