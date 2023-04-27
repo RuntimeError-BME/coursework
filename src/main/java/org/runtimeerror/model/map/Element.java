@@ -28,13 +28,14 @@ public abstract class Element {
      * Metódusok
      */
     /** Felrak magára egy játékos, ha ez lehetséges. A művelet sikerességével tér vissza. */
-    public boolean AddPlayer(Player p) {
+    //Add palyer returnt voidra kéne rakni az új müködés miatt
+    public void AddPlayer(Player p) {
         Main.skeleton.PrintFunctionCalled(this);
         Main.skeleton.PrintFunctionCall(this, "GetPlayerCnt");
         GetPlayerCnt();
         players.add(p);
-        Main.skeleton.PrintFunctionReturned("AddPlayer", "true");
-        return true;
+        Main.skeleton.PrintFunctionReturned("AddPlayer", "");
+        return;
     }
 
     public boolean GetBroken(){
@@ -151,4 +152,5 @@ public abstract class Element {
         output=e;
         Main.skeleton.PrintFunctionReturned("SetOutput", "");
     }
+
 }

@@ -13,7 +13,7 @@ public class ManipulatorSaboteur extends Manipulator {
      * Metódusok
      */
     /** Kilyukasztja az átadott p csövet. Utána pedig véget ér a jelenlegi játékos köre. */
-    @Override
+    /*@Override
     public void Manipulate(Pipe p) {
         Main.skeleton.PrintFunctionCalled(this);
         Main.skeleton.PrintFunctionCall(this,"GetBroken");
@@ -25,5 +25,6 @@ public class ManipulatorSaboteur extends Manipulator {
         }
 
         Main.skeleton.PrintFunctionReturned("Manipulate", "" );
-    }
+
+    }*/
 }

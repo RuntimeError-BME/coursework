@@ -45,6 +45,7 @@ public class Player {
         Main.skeleton.PrintFunctionCalled(this);
 
         Main.skeleton.PrintFunctionCall(this, "AddPlayer", this);
+        /*
         boolean playerAdded = e.AddPlayer(this);
         if (playerAdded) {
             Main.skeleton.PrintFunctionCall(this, "RemovePlayer", this);
@@ -53,6 +54,8 @@ public class Player {
             Main.skeleton.PrintFunctionCall(this, "SetCurrElem", e);
             SetCurrElem(e);
         }
+         */
+        e.AddPlayer(this);
 
         Main.skeleton.PrintFunctionReturned("MoveTo", "");
     }

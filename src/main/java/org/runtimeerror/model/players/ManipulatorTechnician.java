@@ -3,6 +3,7 @@ import org.runtimeerror.Main;
 import org.runtimeerror.model.map.Pipe;
 import org.runtimeerror.model.map.Pump;
 import static org.runtimeerror.skeleton.SkeletonController._Game;
+import static org.runtimeerror.skeleton.SkeletonController._GameI;
 
 
 /**

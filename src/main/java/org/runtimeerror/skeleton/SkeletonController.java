@@ -173,34 +173,72 @@ public final class SkeletonController {
     }
 
     private void test01_Move_to_empty_Pipe() {
-        /** inicializálás */
+
+        /*
+        *//** inicializálás *//*
         isLogging = false;
         Player player = new Player("s1"); // akit mozgatunk (szabotőr, de technikussal is ugyanígy lenne)
         Pipe currElem = new Pipe(); // a cső, amin jelenleg áll
         player.SetCurrElem(currElem); // jelenleg ezen áll
         currElem.AddPlayer(player);
         Pipe targetElem = new Pipe(); // a cső, amire léptetni fogjuk
-        /** a két cső egymás szomszédja (input/output beállítása lényegtelen ehhez a teszthez): */
+        *//** a két cső egymás szomszédja (input/output beállítása lényegtelen ehhez a teszthez): *//*
         currElem.SetNb(new Direction(0), targetElem);
         targetElem.SetNb(new Direction(3), currElem);
 
-        /** objektumok hozzáadása a map-hez */
+        *//** objektumok hozzáadása a map-hez *//*
         ObjNameMap.put(player, "player:Player");
         ObjNameMap.put(currElem, "currElem:Pipe");
         ObjNameMap.put(targetElem, "targetElem:Pipe");
 
-        /** szekvencia innen */
+        *//** szekvencia innen *//*
         isLogging = true;
         PrintFunctionCall(this, "MoveTo", targetElem);
         player.MoveTo(targetElem);
 
-        /** objektumok eltávolítás a map-ből */
+        *//** objektumok eltávolítás a map-ből *//*
+        ObjNameMap.clear();
+        ObjNameMap.put(this, ":SkeletonController");*/
+
+        /** inicializálás **/
+        isLogging = false;
+        ManipulatorTechnician manipulatorT = new ManipulatorTechnician();
+        _GameI = new Game.Input();
+        _Game = new Game();
+        Pipe currElem = new Pipe();
+        Technician T = new Technician("t1", manipulatorT);
+        currElem.AddPlayer(T);
+        T.SetCurrElem(currElem);
+        _Game.AddPlayer(T);
+
+
+        /** objektumok hozzáadása a map-hez **/
+        ObjNameMap.put(T, "T1:Technician");
+        ObjNameMap.put(currElem, "currElem:Pipe");
+        ObjNameMap.put(_Game, ":Game");
+        ObjNameMap.put(_GameI, "input:GameInput");
+        ObjNameMap.put(manipulatorT, "m:ManipulatorTechnician");
+
+
+        /** szekvencia innen **/
+        isLogging = true;
+        PrintFunctionCall(this, "Manipulate", "m");
+        currElem.Manipulate(manipulatorT);
+
+
+        /** objektumok eltávolítás a map-ből **/
         ObjNameMap.clear();
         ObjNameMap.put(this, ":SkeletonController");
+
+
+
+
+
     }
 
     private void test02_Move_to_occupied_Pipe() {
-        /** inicializálás */
+        /*
+        *//** inicializálás *//*
         isLogging = false;
         Player player = new Player("s1"); // akit mozgatunk (szabotőr, de technikussal is ugyanígy lenne)
         Pipe currElem = new Pipe(); // a cső, amin jelenleg áll
@@ -210,24 +248,62 @@ public final class SkeletonController {
         Player playerOnTarget = new Player("s2"); // a játékos, aki a cél pumpán áll
         playerOnTarget.SetCurrElem(targetElem);
         targetElem.AddPlayer(playerOnTarget);
-        /** a két cső egymás szomszédja (input/output beállítása lényegtelen ehhez a teszthez): */
+        *//** a két cső egymás szomszédja (input/output beállítása lényegtelen ehhez a teszthez): *//*
         currElem.SetNb(new Direction(0), targetElem);
         targetElem.SetNb(new Direction(3), currElem);
 
-        /** objektumok hozzáadása a map-hez */
+        *//** objektumok hozzáadása a map-hez *//*
         ObjNameMap.put(player, "player:Player");
         ObjNameMap.put(currElem, "currElem:Pipe");
         ObjNameMap.put(targetElem, "targetElem:Pipe");
         ObjNameMap.put(playerOnTarget, "playerOnTarget:Player");
 
-        /** szekvencia innen */
+        *//** szekvencia innen *//*
         isLogging = true;
         PrintFunctionCall(this, "MoveTo", targetElem);
         player.MoveTo(targetElem);
 
-        /** objektumok eltávolítás a map-ből */
+        *//** objektumok eltávolítás a map-ből *//*
+        ObjNameMap.clear();
+        ObjNameMap.put(this, ":SkeletonController");*/
+
+        isLogging=false;
+        Player s1=new Player("s1");
+        Pump currElem=new Pump();
+        Pipe targetElem=new Pipe();
+        Pipe targetElem2=new Pipe();
+        currElem.AddPlayer(s1);
+        s1.SetCurrElem(currElem);
+        currElem.SetNb(new Direction(10),targetElem);
+        targetElem.SetNb(new Direction(2),targetElem2);
+
+        targetElem.SetNb(new Direction(0),currElem);
+        _Game=new Game();
+        _GameI=new Game.Input();
+
+        ObjNameMap.put(s1, "player:Player");
+        ObjNameMap.put(currElem, "currElem:Pump");
+        ObjNameMap.put(targetElem, "targetElem:Pipe");
+        ObjNameMap.put(targetElem2, "targetElem2:Pipe");
+        ObjNameMap.put(_Game, ":Game");
+
+
+        System.out.print("Csúszós vagy ragadós vagy sima cső(0 vagy 1 vagy 2):");
+        int mi=new Scanner(System.in).nextInt();
+        switch (mi){
+            case 0: targetElem.SetSlippery(true);break;
+            case 1: targetElem.SetSticky(true); break;
+            default: targetElem.SetSlippery(false); targetElem.SetSticky(false); break;
+        }
+
+        isLogging=true;
+
+        PrintFunctionCall(this, "MoveTo", targetElem);
+        s1.MoveTo(targetElem);
+
         ObjNameMap.clear();
         ObjNameMap.put(this, ":SkeletonController");
+
     }
 
     private void test03_Move_to_Pump() {
