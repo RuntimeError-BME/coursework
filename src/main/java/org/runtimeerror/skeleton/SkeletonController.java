@@ -20,6 +20,8 @@ public final class SkeletonController {
      */
     private int tabCnt = 0;
     public static boolean isLogging = true;
+
+    public static boolean random = true;
     private Scanner in;
     private Map<Integer, String> TestNameMap = new HashMap<>(30); // Tesztszám - Tesztnév párosok
     public static Map<Object, String> ObjNameMap = new HashMap<>(8); // Objektum - "név : típus" string párosok
@@ -62,6 +64,9 @@ public final class SkeletonController {
         TestNameMap.put(28, "Produce Pipe");
         TestNameMap.put(29, "Impair Pump");
         ObjNameMap.put(this, ":SkeletonController");
+    }
+    public void Random(boolean b){
+        random = b;
     }
 
     public String GetTestName(int testNumber) {

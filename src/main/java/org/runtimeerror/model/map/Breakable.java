@@ -1,6 +1,10 @@
 package org.runtimeerror.model.map;
 import org.runtimeerror.Main;
+
+import java.util.Random;
+
 import static org.runtimeerror.skeleton.SkeletonController._Game;
+import static org.runtimeerror.skeleton.SkeletonController.random;
 
 
 /**
@@ -25,7 +29,12 @@ public abstract class Breakable extends Element {
         Main.skeleton.PrintFunctionCalled(this);
         broken = false;
         Main.skeleton.PrintFunctionReturned("Fix", "" );
-        counter = 2;
+
+        if(random){
+            counter = new Random().nextInt(5)+1; //1-6 közötti szám
+        }else {
+            counter = 2;
+        }
     }
 
     /**

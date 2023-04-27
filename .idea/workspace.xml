@@ -4,24 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="52169174-47a2-4a8d-a704-4d727098fc35" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2023__04__17__1_12_[Changes]/shelved.patch" beforeDir="false" />
+    <list default="true" id="52169174-47a2-4a8d-a704-4d727098fc35" name="Changes" comment="Move to Empty pipe&#10;Manipulate &#10;Újítások&#10;Oli, Elon">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/controller/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/controller/Game.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/map/Breakable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/map/Breakable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/players/Manipulator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/players/Manipulator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/players/ManipulatorTechnician.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/players/ManipulatorTechnician.java" afterDir="false" />
-    </list>
-    <list id="f1880269-1dfa-411b-a638-fb627f93ba3a" name="Changes by szabo" comment="" />
-    <list id="8846de87-e86b-4024-bc49-282a6696216e" name="Changes by Tep Oli" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/map/Element.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/map/Element.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/map/Pipe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/map/Pipe.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/players/Manipulator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/players/Manipulator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/players/ManipulatorSaboteur.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/players/ManipulatorSaboteur.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/players/ManipulatorTechnician.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/players/ManipulatorTechnician.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/players/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/players/Player.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/skeleton/SkeletonController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/skeleton/SkeletonController.java" afterDir="false" />
     </list>
+    <list id="f1880269-1dfa-411b-a638-fb627f93ba3a" name="Changes by szabo" comment="" />
+    <list id="8846de87-e86b-4024-bc49-282a6696216e" name="Changes by Tep Oli" comment="Move to Empty pipe&#10;Manipulate &#10;Újítások&#10;Oli, Elon" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -30,7 +20,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="main" />
+        <entry key="$PROJECT_DIR$" value="session_week_07" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -41,25 +31,6 @@
         <option value="main" />
       </list>
     </option>
-  </component>
-  <component name="LineStatusTrackerManager">
-    <file path="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/players/ManipulatorTechnician.java">
-      <ranges>
-        <range start1="5" end1="5" start2="5" end2="6" changelist="8846de87-e86b-4024-bc49-282a6696216e" />
-        <range start1="21" end1="21" start2="22" end2="23" changelist="52169174-47a2-4a8d-a704-4d727098fc35" />
-        <range start1="26" end1="26" start2="28" end2="29" changelist="52169174-47a2-4a8d-a704-4d727098fc35" />
-        <range start1="27" end1="28" start2="30" end2="35" changelist="52169174-47a2-4a8d-a704-4d727098fc35" />
-      </ranges>
-    </file>
-    <file path="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/players/Manipulator.java">
-      <ranges>
-        <range start1="2" end1="2" start2="2" end2="6" changelist="52169174-47a2-4a8d-a704-4d727098fc35" />
-        <range start1="3" end1="3" start2="7" end2="9" changelist="52169174-47a2-4a8d-a704-4d727098fc35" />
-        <range start1="4" end1="6" start2="10" end2="12" changelist="8846de87-e86b-4024-bc49-282a6696216e" />
-        <range start1="20" end1="21" start2="26" end2="27" changelist="8846de87-e86b-4024-bc49-282a6696216e" />
-        <range start1="75" end1="75" start2="81" end2="125" changelist="8846de87-e86b-4024-bc49-282a6696216e" />
-      </ranges>
-    </file>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -109,7 +80,23 @@
       <option name="presentableId" value="Default" />
       <updated>1677421116671</updated>
       <workItem from="1681686607576" duration="631000" />
+      <workItem from="1682604111022" duration="4052000" />
     </task>
+    <task id="LOCAL-00001" summary="Move to Empty pipe&#10;Manipulate &#10;Újítások&#10;Oli, Elon">
+      <created>1682595103637</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1682595103637</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Move to Empty pipe&#10;Manipulate &#10;Újítások&#10;Oli, Elon">
+      <created>1682595135105</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1682595135105</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -125,6 +112,10 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Move to Empty pipe&#10;Manipulate &#10;Újítások&#10;Oli, Elon" />
+    <option name="LAST_COMMIT_MESSAGE" value="Move to Empty pipe&#10;Manipulate &#10;Újítások&#10;Oli, Elon" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

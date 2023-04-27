@@ -41,7 +41,11 @@ public class Pipe extends Breakable {
         if(stick) {
             sticky = true;
             slippery = false;
-            counter = 2;
+            if(random){
+                counter = new Random().nextInt(5)+1; //1-6 közötti szám
+            }else {
+                counter = 2;
+            }
         }
         else sticky=false;
         Main.skeleton.PrintFunctionReturned("SetSticky","");
@@ -52,7 +56,11 @@ public class Pipe extends Breakable {
         if(slippy) {
             slippery = true;
             sticky = false;
-            counter = 2;
+            if(random){
+                counter = new Random().nextInt(5)+1; //1-6 közötti szám
+            }else {
+                counter = 2;
+            }
         }
         else {
             if(slippery) counter=0;
@@ -158,4 +166,12 @@ public class Pipe extends Breakable {
         m.Manipulate(this);
         Main.skeleton.PrintFunctionReturned("Manipulate","");
     }
+
+    @Override
+    public void Break(){
+        if(!slippery && !sticky && !super.GetBroken() && counter==0){
+            super.Break();
+        }
+    }
+
 }
