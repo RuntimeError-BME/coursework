@@ -13,6 +13,7 @@ public abstract class Breakable extends Element {
      * Attribútumok
      */
     private boolean broken = false; // hibás-e vagy sem, azaz át tud-e ereszteni magán vizet
+    protected int counter; //Muszáj itt lennie mert fos és nem éri el az ős :)
 
     /**
      * Metódusok
@@ -24,6 +25,7 @@ public abstract class Breakable extends Element {
         Main.skeleton.PrintFunctionCalled(this);
         broken = false;
         Main.skeleton.PrintFunctionReturned("Fix", "" );
+        counter = 2;
     }
 
     /**

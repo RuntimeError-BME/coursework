@@ -1,0 +1,232 @@
+Index: .idea/shelf/Uncommitted_changes_before_Checkout_at_2023__04__17__1_12_[Changes]/shelved.patch
+===================================================================
+diff --git a/.idea/shelf/Uncommitted_changes_before_Checkout_at_2023__04__17__1_12_[Changes]/shelved.patch b/.idea/shelf/Uncommitted_changes_before_Checkout_at_2023__04__17__1_12_[Changes]/shelved.patch
+deleted file mode 100644
+--- a/.idea/shelf/Uncommitted_changes_before_Checkout_at_2023__04__17__1_12_[Changes]/shelved.patch	(revision ae196460def150c8d326ca0372cef965718dafa7)
++++ /dev/null	(revision ae196460def150c8d326ca0372cef965718dafa7)
+@@ -1,54 +0,0 @@
+-Index: .idea/workspace.xml
+-IDEA additional info:
+-Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+-<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"52169174-47a2-4a8d-a704-4d727098fc35\" name=\"Changes\" comment=\"\">\r\n      <change afterPath=\"$PROJECT_DIR$/misc/diagrams/main.md\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_BRANCH_BY_REPOSITORY\">\r\n      <map>\r\n        <entry key=\"$PROJECT_DIR$\" value=\"main\" />\r\n      </map>\r\n    </option>\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"MavenImportPreferences\">\r\n    <option name=\"importingSettings\">\r\n      <MavenImportingSettings>\r\n        <option name=\"workspaceImportEnabled\" value=\"true\" />\r\n      </MavenImportingSettings>\r\n    </option>\r\n  </component>\r\n  <component name=\"ProjectId\" id=\"2MHObmW8IhbUi3D5DAyeBMHOvQd\" />\r\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\"><![CDATA[{\r\n  \"keyToString\": {\r\n    \"RunOnceActivity.OpenProjectViewOnStart\": \"true\",\r\n    \"RunOnceActivity.ShowReadmeOnStart\": \"true\",\r\n    \"WebServerToolWindowFactoryState\": \"false\",\r\n    \"node.js.selected.package.tslint\": \"(autodetect)\",\r\n    \"vue.rearranger.settings.migration\": \"true\"\r\n  }\r\n}]]></component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"52169174-47a2-4a8d-a704-4d727098fc35\" name=\"Changes\" comment=\"\" />\r\n      <created>1677421116671</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1677421116671</updated>\r\n    </task>\r\n    <servers />\r\n  </component>\r\n  <component name=\"XSLT-Support.FileAssociations.UIState\">\r\n    <expand />\r\n    <select />\r\n  </component>\r\n</project>
+-Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+-<+>UTF-8
+-===================================================================
+-diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+---- a/.idea/workspace.xml	(revision 2c2422c63d7c19e3d9319911ddf365ef945f33f9)
+-+++ b/.idea/workspace.xml	(date 1681686614937)
+-@@ -33,15 +33,35 @@
+-     <option name="hideEmptyMiddlePackages" value="true" />
+-     <option name="showLibraryContents" value="true" />
+-   </component>
+--  <component name="PropertiesComponent"><![CDATA[{
+--  "keyToString": {
+--    "RunOnceActivity.OpenProjectViewOnStart": "true",
+--    "RunOnceActivity.ShowReadmeOnStart": "true",
+--    "WebServerToolWindowFactoryState": "false",
+--    "node.js.selected.package.tslint": "(autodetect)",
+--    "vue.rearranger.settings.migration": "true"
+-+  <component name="PropertiesComponent">{
+-+  &quot;keyToString&quot;: {
+-+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+-+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+-+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+-+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+-+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+-   }
+--}]]></component>
+-+}</component>
+-+  <component name="RunManager">
+-+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+-+      <option name="MAIN_CLASS_NAME" value="org.runtimeerror.Main" />
+-+      <module name="coursework" />
+-+      <extension name="coverage">
+-+        <pattern>
+-+          <option name="PATTERN" value="org.runtimeerror.*" />
+-+          <option name="ENABLED" value="true" />
+-+        </pattern>
+-+      </extension>
+-+      <method v="2">
+-+        <option name="Make" enabled="true" />
+-+      </method>
+-+    </configuration>
+-+    <recent_temporary>
+-+      <list>
+-+        <item itemvalue="Application.Main" />
+-+      </list>
+-+    </recent_temporary>
+-+  </component>
+-   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+-   <component name="TaskManager">
+-     <task active="true" id="Default" summary="Default task">
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"52169174-47a2-4a8d-a704-4d727098fc35\" name=\"Changes\" comment=\"\">\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/org/runtimeerror/Main.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/org/runtimeerror/Main.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/org/runtimeerror/skeleton/SkeletonController.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/org/runtimeerror/skeleton/SkeletonController.java\" afterDir=\"false\" />\r\n    </list>\r\n    <list id=\"f1880269-1dfa-411b-a638-fb627f93ba3a\" name=\"Changes by szabo\" comment=\"\">\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/org/runtimeerror/Main.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/org/runtimeerror/Main.java\" afterDir=\"false\" />\r\n    </list>\r\n    <list id=\"8846de87-e86b-4024-bc49-282a6696216e\" name=\"Changes by Tep Oli\" comment=\"\">\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/org/runtimeerror/model/map/Element.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/org/runtimeerror/model/map/Element.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/org/runtimeerror/skeleton/SkeletonController.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/org/runtimeerror/skeleton/SkeletonController.java\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_BRANCH_BY_REPOSITORY\">\r\n      <map>\r\n        <entry key=\"$PROJECT_DIR$\" value=\"main\" />\r\n      </map>\r\n    </option>\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"GithubProjectSettings\">\r\n    <option name=\"branchProtectionPatterns\">\r\n      <list>\r\n        <option value=\"main\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"LineStatusTrackerManager\">\r\n    <file path=\"$PROJECT_DIR$/src/main/java/org/runtimeerror/Main.java\">\r\n      <ranges>\r\n        <range start1=\"1\" end1=\"4\" start2=\"1\" end2=\"1\" changelist=\"52169174-47a2-4a8d-a704-4d727098fc35\" />\r\n        <range start1=\"5\" end1=\"7\" start2=\"2\" end2=\"2\" changelist=\"f1880269-1dfa-411b-a638-fb627f93ba3a\" />\r\n        <range start1=\"9\" end1=\"9\" start2=\"4\" end2=\"5\" changelist=\"f1880269-1dfa-411b-a638-fb627f93ba3a\" />\r\n        <range start1=\"18\" end1=\"21\" start2=\"14\" end2=\"15\" changelist=\"f1880269-1dfa-411b-a638-fb627f93ba3a\" />\r\n      </ranges>\r\n    </file>\r\n    <file path=\"$PROJECT_DIR$/src/main/java/org/runtimeerror/skeleton/SkeletonController.java\">\r\n      <ranges>\r\n        <range start1=\"807\" end1=\"808\" start2=\"807\" end2=\"808\" changelist=\"52169174-47a2-4a8d-a704-4d727098fc35\" />\r\n        <range start1=\"824\" end1=\"825\" start2=\"824\" end2=\"825\" changelist=\"8846de87-e86b-4024-bc49-282a6696216e\" />\r\n        <range start1=\"833\" end1=\"834\" start2=\"833\" end2=\"834\" changelist=\"8846de87-e86b-4024-bc49-282a6696216e\" />\r\n        <range start1=\"840\" end1=\"841\" start2=\"840\" end2=\"841\" changelist=\"8846de87-e86b-4024-bc49-282a6696216e\" />\r\n        <range start1=\"846\" end1=\"847\" start2=\"846\" end2=\"847\" changelist=\"8846de87-e86b-4024-bc49-282a6696216e\" />\r\n        <range start1=\"863\" end1=\"864\" start2=\"863\" end2=\"864\" changelist=\"8846de87-e86b-4024-bc49-282a6696216e\" />\r\n        <range start1=\"872\" end1=\"873\" start2=\"872\" end2=\"873\" changelist=\"8846de87-e86b-4024-bc49-282a6696216e\" />\r\n        <range start1=\"877\" end1=\"878\" start2=\"877\" end2=\"878\" changelist=\"8846de87-e86b-4024-bc49-282a6696216e\" />\r\n        <range start1=\"883\" end1=\"884\" start2=\"883\" end2=\"884\" changelist=\"8846de87-e86b-4024-bc49-282a6696216e\" />\r\n        <range start1=\"898\" end1=\"899\" start2=\"898\" end2=\"899\" changelist=\"8846de87-e86b-4024-bc49-282a6696216e\" />\r\n        <range start1=\"906\" end1=\"907\" start2=\"906\" end2=\"907\" changelist=\"8846de87-e86b-4024-bc49-282a6696216e\" />\r\n        <range start1=\"911\" end1=\"912\" start2=\"911\" end2=\"912\" changelist=\"8846de87-e86b-4024-bc49-282a6696216e\" />\r\n        <range start1=\"917\" end1=\"918\" start2=\"917\" end2=\"918\" changelist=\"8846de87-e86b-4024-bc49-282a6696216e\" />\r\n        <range start1=\"924\" end1=\"925\" start2=\"924\" end2=\"925\" changelist=\"8846de87-e86b-4024-bc49-282a6696216e\" />\r\n        <range start1=\"929\" end1=\"930\" start2=\"929\" end2=\"930\" changelist=\"8846de87-e86b-4024-bc49-282a6696216e\" />\r\n        <range start1=\"934\" end1=\"935\" start2=\"934\" end2=\"935\" changelist=\"8846de87-e86b-4024-bc49-282a6696216e\" />\r\n        <range start1=\"940\" end1=\"941\" start2=\"940\" end2=\"941\" changelist=\"8846de87-e86b-4024-bc49-282a6696216e\" />\r\n        <range start1=\"946\" end1=\"947\" start2=\"946\" end2=\"947\" changelist=\"8846de87-e86b-4024-bc49-282a6696216e\" />\r\n        <range start1=\"950\" end1=\"951\" start2=\"950\" end2=\"951\" changelist=\"8846de87-e86b-4024-bc49-282a6696216e\" />\r\n        <range start1=\"955\" end1=\"956\" start2=\"955\" end2=\"956\" changelist=\"8846de87-e86b-4024-bc49-282a6696216e\" />\r\n        <range start1=\"961\" end1=\"962\" start2=\"961\" end2=\"962\" changelist=\"8846de87-e86b-4024-bc49-282a6696216e\" />\r\n        <range start1=\"968\" end1=\"969\" start2=\"968\" end2=\"969\" changelist=\"8846de87-e86b-4024-bc49-282a6696216e\" />\r\n        <range start1=\"973\" end1=\"974\" start2=\"973\" end2=\"974\" changelist=\"8846de87-e86b-4024-bc49-282a6696216e\" />\r\n        <range start1=\"978\" end1=\"979\" start2=\"978\" end2=\"979\" changelist=\"8846de87-e86b-4024-bc49-282a6696216e\" />\r\n        <range start1=\"984\" end1=\"985\" start2=\"984\" end2=\"985\" changelist=\"8846de87-e86b-4024-bc49-282a6696216e\" />\r\n        <range start1=\"989\" end1=\"990\" start2=\"989\" end2=\"990\" changelist=\"8846de87-e86b-4024-bc49-282a6696216e\" />\r\n        <range start1=\"992\" end1=\"993\" start2=\"992\" end2=\"993\" changelist=\"8846de87-e86b-4024-bc49-282a6696216e\" />\r\n        <range start1=\"997\" end1=\"998\" start2=\"997\" end2=\"998\" changelist=\"8846de87-e86b-4024-bc49-282a6696216e\" />\r\n        <range start1=\"1003\" end1=\"1004\" start2=\"1003\" end2=\"1004\" changelist=\"8846de87-e86b-4024-bc49-282a6696216e\" />\r\n        <range start1=\"1010\" end1=\"1011\" start2=\"1010\" end2=\"1011\" changelist=\"8846de87-e86b-4024-bc49-282a6696216e\" />\r\n        <range start1=\"1015\" end1=\"1016\" start2=\"1015\" end2=\"1016\" changelist=\"8846de87-e86b-4024-bc49-282a6696216e\" />\r\n        <range start1=\"1020\" end1=\"1021\" start2=\"1020\" end2=\"1021\" changelist=\"8846de87-e86b-4024-bc49-282a6696216e\" />\r\n        <range start1=\"1026\" end1=\"1027\" start2=\"1026\" end2=\"1027\" changelist=\"8846de87-e86b-4024-bc49-282a6696216e\" />\r\n        <range start1=\"1031\" end1=\"1032\" start2=\"1031\" end2=\"1032\" changelist=\"8846de87-e86b-4024-bc49-282a6696216e\" />\r\n        <range start1=\"1035\" end1=\"1036\" start2=\"1035\" end2=\"1036\" changelist=\"8846de87-e86b-4024-bc49-282a6696216e\" />\r\n        <range start1=\"1040\" end1=\"1041\" start2=\"1040\" end2=\"1041\" changelist=\"8846de87-e86b-4024-bc49-282a6696216e\" />\r\n        <range start1=\"1047\" end1=\"1048\" start2=\"1047\" end2=\"1048\" changelist=\"8846de87-e86b-4024-bc49-282a6696216e\" />\r\n        <range start1=\"1055\" end1=\"1056\" start2=\"1055\" end2=\"1056\" changelist=\"8846de87-e86b-4024-bc49-282a6696216e\" />\r\n        <range start1=\"1061\" end1=\"1062\" start2=\"1061\" end2=\"1062\" changelist=\"8846de87-e86b-4024-bc49-282a6696216e\" />\r\n        <range start1=\"1068\" end1=\"1069\" start2=\"1068\" end2=\"1069\" changelist=\"8846de87-e86b-4024-bc49-282a6696216e\" />\r\n        <range start1=\"1075\" end1=\"1076\" start2=\"1075\" end2=\"1076\" changelist=\"8846de87-e86b-4024-bc49-282a6696216e\" />\r\n        <range start1=\"1079\" end1=\"1080\" start2=\"1079\" end2=\"1080\" changelist=\"8846de87-e86b-4024-bc49-282a6696216e\" />\r\n        <range start1=\"1082\" end1=\"1083\" start2=\"1082\" end2=\"1083\" changelist=\"8846de87-e86b-4024-bc49-282a6696216e\" />\r\n        <range start1=\"1087\" end1=\"1088\" start2=\"1087\" end2=\"1088\" changelist=\"8846de87-e86b-4024-bc49-282a6696216e\" />\r\n      </ranges>\r\n    </file>\r\n  </component>\r\n  <component name=\"MarkdownSettingsMigration\">\r\n    <option name=\"stateVersion\" value=\"1\" />\r\n  </component>\r\n  <component name=\"ProjectId\" id=\"2MHObmW8IhbUi3D5DAyeBMHOvQd\" />\r\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\"><![CDATA[{\r\n  \"keyToString\": {\r\n    \"RunOnceActivity.OpenProjectViewOnStart\": \"true\",\r\n    \"RunOnceActivity.ShowReadmeOnStart\": \"true\",\r\n    \"WebServerToolWindowFactoryState\": \"false\",\r\n    \"codeWithMe.voiceChat.enabledByDefault\": \"false\",\r\n    \"node.js.selected.package.tslint\": \"(autodetect)\",\r\n    \"vue.rearranger.settings.migration\": \"true\"\r\n  }\r\n}]]></component>\r\n  <component name=\"RunManager\">\r\n    <configuration name=\"Main\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"org.runtimeerror.Main\" />\r\n      <module name=\"coursework\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"org.runtimeerror.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <recent_temporary>\r\n      <list>\r\n        <item itemvalue=\"Application.Main\" />\r\n      </list>\r\n    </recent_temporary>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"52169174-47a2-4a8d-a704-4d727098fc35\" name=\"Changes\" comment=\"\" />\r\n      <created>1677421116671</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1677421116671</updated>\r\n      <workItem from=\"1681686607576\" duration=\"631000\" />\r\n    </task>\r\n    <servers />\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"3\" />\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State />\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n  </component>\r\n  <component name=\"XSLT-Support.FileAssociations.UIState\">\r\n    <expand />\r\n    <select />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision ae196460def150c8d326ca0372cef965718dafa7)
++++ b/.idea/workspace.xml	(date 1682069206474)
+@@ -4,18 +4,11 @@
+     <option name="autoReloadType" value="SELECTIVE" />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="52169174-47a2-4a8d-a704-4d727098fc35" name="Changes" comment="">
++    <list default="true" id="52169174-47a2-4a8d-a704-4d727098fc35" name="Changes" comment=":)">
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/Main.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/skeleton/SkeletonController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/skeleton/SkeletonController.java" afterDir="false" />
+-    </list>
+-    <list id="f1880269-1dfa-411b-a638-fb627f93ba3a" name="Changes by szabo" comment="">
+-      <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/Main.java" afterDir="false" />
+-    </list>
+-    <list id="8846de87-e86b-4024-bc49-282a6696216e" name="Changes by Tep Oli" comment="">
+-      <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/map/Element.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/map/Element.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/skeleton/SkeletonController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/skeleton/SkeletonController.java" afterDir="false" />
+     </list>
++    <list id="f1880269-1dfa-411b-a638-fb627f93ba3a" name="Changes by szabo" comment="Changes by szabo" />
++    <list id="8846de87-e86b-4024-bc49-282a6696216e" name="Changes by Tep Oli" comment="Changes by Tep Oli" />
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+@@ -35,64 +28,6 @@
+         <option value="main" />
+       </list>
+     </option>
+-  </component>
+-  <component name="LineStatusTrackerManager">
+-    <file path="$PROJECT_DIR$/src/main/java/org/runtimeerror/Main.java">
+-      <ranges>
+-        <range start1="1" end1="4" start2="1" end2="1" changelist="52169174-47a2-4a8d-a704-4d727098fc35" />
+-        <range start1="5" end1="7" start2="2" end2="2" changelist="f1880269-1dfa-411b-a638-fb627f93ba3a" />
+-        <range start1="9" end1="9" start2="4" end2="5" changelist="f1880269-1dfa-411b-a638-fb627f93ba3a" />
+-        <range start1="18" end1="21" start2="14" end2="15" changelist="f1880269-1dfa-411b-a638-fb627f93ba3a" />
+-      </ranges>
+-    </file>
+-    <file path="$PROJECT_DIR$/src/main/java/org/runtimeerror/skeleton/SkeletonController.java">
+-      <ranges>
+-        <range start1="807" end1="808" start2="807" end2="808" changelist="52169174-47a2-4a8d-a704-4d727098fc35" />
+-        <range start1="824" end1="825" start2="824" end2="825" changelist="8846de87-e86b-4024-bc49-282a6696216e" />
+-        <range start1="833" end1="834" start2="833" end2="834" changelist="8846de87-e86b-4024-bc49-282a6696216e" />
+-        <range start1="840" end1="841" start2="840" end2="841" changelist="8846de87-e86b-4024-bc49-282a6696216e" />
+-        <range start1="846" end1="847" start2="846" end2="847" changelist="8846de87-e86b-4024-bc49-282a6696216e" />
+-        <range start1="863" end1="864" start2="863" end2="864" changelist="8846de87-e86b-4024-bc49-282a6696216e" />
+-        <range start1="872" end1="873" start2="872" end2="873" changelist="8846de87-e86b-4024-bc49-282a6696216e" />
+-        <range start1="877" end1="878" start2="877" end2="878" changelist="8846de87-e86b-4024-bc49-282a6696216e" />
+-        <range start1="883" end1="884" start2="883" end2="884" changelist="8846de87-e86b-4024-bc49-282a6696216e" />
+-        <range start1="898" end1="899" start2="898" end2="899" changelist="8846de87-e86b-4024-bc49-282a6696216e" />
+-        <range start1="906" end1="907" start2="906" end2="907" changelist="8846de87-e86b-4024-bc49-282a6696216e" />
+-        <range start1="911" end1="912" start2="911" end2="912" changelist="8846de87-e86b-4024-bc49-282a6696216e" />
+-        <range start1="917" end1="918" start2="917" end2="918" changelist="8846de87-e86b-4024-bc49-282a6696216e" />
+-        <range start1="924" end1="925" start2="924" end2="925" changelist="8846de87-e86b-4024-bc49-282a6696216e" />
+-        <range start1="929" end1="930" start2="929" end2="930" changelist="8846de87-e86b-4024-bc49-282a6696216e" />
+-        <range start1="934" end1="935" start2="934" end2="935" changelist="8846de87-e86b-4024-bc49-282a6696216e" />
+-        <range start1="940" end1="941" start2="940" end2="941" changelist="8846de87-e86b-4024-bc49-282a6696216e" />
+-        <range start1="946" end1="947" start2="946" end2="947" changelist="8846de87-e86b-4024-bc49-282a6696216e" />
+-        <range start1="950" end1="951" start2="950" end2="951" changelist="8846de87-e86b-4024-bc49-282a6696216e" />
+-        <range start1="955" end1="956" start2="955" end2="956" changelist="8846de87-e86b-4024-bc49-282a6696216e" />
+-        <range start1="961" end1="962" start2="961" end2="962" changelist="8846de87-e86b-4024-bc49-282a6696216e" />
+-        <range start1="968" end1="969" start2="968" end2="969" changelist="8846de87-e86b-4024-bc49-282a6696216e" />
+-        <range start1="973" end1="974" start2="973" end2="974" changelist="8846de87-e86b-4024-bc49-282a6696216e" />
+-        <range start1="978" end1="979" start2="978" end2="979" changelist="8846de87-e86b-4024-bc49-282a6696216e" />
+-        <range start1="984" end1="985" start2="984" end2="985" changelist="8846de87-e86b-4024-bc49-282a6696216e" />
+-        <range start1="989" end1="990" start2="989" end2="990" changelist="8846de87-e86b-4024-bc49-282a6696216e" />
+-        <range start1="992" end1="993" start2="992" end2="993" changelist="8846de87-e86b-4024-bc49-282a6696216e" />
+-        <range start1="997" end1="998" start2="997" end2="998" changelist="8846de87-e86b-4024-bc49-282a6696216e" />
+-        <range start1="1003" end1="1004" start2="1003" end2="1004" changelist="8846de87-e86b-4024-bc49-282a6696216e" />
+-        <range start1="1010" end1="1011" start2="1010" end2="1011" changelist="8846de87-e86b-4024-bc49-282a6696216e" />
+-        <range start1="1015" end1="1016" start2="1015" end2="1016" changelist="8846de87-e86b-4024-bc49-282a6696216e" />
+-        <range start1="1020" end1="1021" start2="1020" end2="1021" changelist="8846de87-e86b-4024-bc49-282a6696216e" />
+-        <range start1="1026" end1="1027" start2="1026" end2="1027" changelist="8846de87-e86b-4024-bc49-282a6696216e" />
+-        <range start1="1031" end1="1032" start2="1031" end2="1032" changelist="8846de87-e86b-4024-bc49-282a6696216e" />
+-        <range start1="1035" end1="1036" start2="1035" end2="1036" changelist="8846de87-e86b-4024-bc49-282a6696216e" />
+-        <range start1="1040" end1="1041" start2="1040" end2="1041" changelist="8846de87-e86b-4024-bc49-282a6696216e" />
+-        <range start1="1047" end1="1048" start2="1047" end2="1048" changelist="8846de87-e86b-4024-bc49-282a6696216e" />
+-        <range start1="1055" end1="1056" start2="1055" end2="1056" changelist="8846de87-e86b-4024-bc49-282a6696216e" />
+-        <range start1="1061" end1="1062" start2="1061" end2="1062" changelist="8846de87-e86b-4024-bc49-282a6696216e" />
+-        <range start1="1068" end1="1069" start2="1068" end2="1069" changelist="8846de87-e86b-4024-bc49-282a6696216e" />
+-        <range start1="1075" end1="1076" start2="1075" end2="1076" changelist="8846de87-e86b-4024-bc49-282a6696216e" />
+-        <range start1="1079" end1="1080" start2="1079" end2="1080" changelist="8846de87-e86b-4024-bc49-282a6696216e" />
+-        <range start1="1082" end1="1083" start2="1082" end2="1083" changelist="8846de87-e86b-4024-bc49-282a6696216e" />
+-        <range start1="1087" end1="1088" start2="1087" end2="1088" changelist="8846de87-e86b-4024-bc49-282a6696216e" />
+-      </ranges>
+-    </file>
+   </component>
+   <component name="MarkdownSettingsMigration">
+     <option name="stateVersion" value="1" />
+@@ -103,16 +38,16 @@
+     <option name="hideEmptyMiddlePackages" value="true" />
+     <option name="showLibraryContents" value="true" />
+   </component>
+-  <component name="PropertiesComponent"><![CDATA[{
+-  "keyToString": {
+-    "RunOnceActivity.OpenProjectViewOnStart": "true",
+-    "RunOnceActivity.ShowReadmeOnStart": "true",
+-    "WebServerToolWindowFactoryState": "false",
+-    "codeWithMe.voiceChat.enabledByDefault": "false",
+-    "node.js.selected.package.tslint": "(autodetect)",
+-    "vue.rearranger.settings.migration": "true"
++  <component name="PropertiesComponent">{
++  &quot;keyToString&quot;: {
++    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
++    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
++    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
++    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
++    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
++    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+   }
+-}]]></component>
++}</component>
+   <component name="RunManager">
+     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+       <option name="MAIN_CLASS_NAME" value="org.runtimeerror.Main" />
+@@ -141,8 +76,33 @@
+       <option name="number" value="Default" />
+       <option name="presentableId" value="Default" />
+       <updated>1677421116671</updated>
+-      <workItem from="1681686607576" duration="631000" />
++      <workItem from="1681686607576" duration="1180000" />
++      <workItem from="1681805885387" duration="85000" />
++      <workItem from="1681934859501" duration="66000" />
++      <workItem from="1682068845930" duration="361000" />
+     </task>
++    <task id="LOCAL-00001" summary="Mindenkinek 0 ora lesz kivéve nekünk">
++      <created>1681687551863</created>
++      <option name="number" value="00001" />
++      <option name="presentableId" value="LOCAL-00001" />
++      <option name="project" value="LOCAL" />
++      <updated>1681687551863</updated>
++    </task>
++    <task id="LOCAL-00002" summary="Changes by szabo">
++      <created>1681687577567</created>
++      <option name="number" value="00002" />
++      <option name="presentableId" value="LOCAL-00002" />
++      <option name="project" value="LOCAL" />
++      <updated>1681687577567</updated>
++    </task>
++    <task id="LOCAL-00003" summary="Changes by Tep Oli">
++      <created>1681687584457</created>
++      <option name="number" value="00003" />
++      <option name="presentableId" value="LOCAL-00003" />
++      <option name="project" value="LOCAL" />
++      <updated>1681687584457</updated>
++    </task>
++    <option name="localTasksCounter" value="4" />
+     <servers />
+   </component>
+   <component name="TypeScriptGeneratedFilesManager">
+@@ -158,6 +118,12 @@
+         </entry>
+       </map>
+     </option>
++  </component>
++  <component name="VcsManagerConfiguration">
++    <MESSAGE value="Mindenkinek 0 ora lesz kivéve nekünk" />
++    <MESSAGE value="Changes by szabo" />
++    <MESSAGE value="Changes by Tep Oli" />
++    <option name="LAST_COMMIT_MESSAGE" value="Changes by Tep Oli" />
+   </component>
+   <component name="XSLT-Support.FileAssociations.UIState">
+     <expand />

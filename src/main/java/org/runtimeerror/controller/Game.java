@@ -37,6 +37,12 @@ public class Game {
     /**
      * Metódusok
      */
+
+    /** DEBUGHOZ */
+    public void setCurrPlayerIdx(int idx){
+        currPlayerIdx = idx;
+    }
+
     public void setNetwork(Network network) {
         this.network = network;
     }

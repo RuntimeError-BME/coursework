@@ -19,13 +19,19 @@ public class ManipulatorTechnician extends Manipulator {
     public void Manipulate(Pipe p) {
         Main.skeleton.PrintFunctionCalled(this);
         Main.skeleton.PrintFunctionCall(this, "GetBroken");
+
         if(p.GetBroken()){
             Main.skeleton.PrintFunctionCall(this, "Fix");
             p.Fix();
             Main.skeleton.PrintFunctionCall(this, "NextTurn");
             _Game.NextTurn();
+            Main.skeleton.PrintFunctionReturned("Manipulate", "");
         }
-        Main.skeleton.PrintFunctionReturned("Manipulate", "");
+        else{
+            Main.skeleton.PrintFunctionCall(this, "<<base>>Manipulate",p);
+            super.Manipulate(p);
+            Main.skeleton.PrintFunctionReturned("Manipulate", "");
+        }
     }
 
     /** Megjavítja az átadott p pumpát, ha az elromlott, különben pedig átállítja
