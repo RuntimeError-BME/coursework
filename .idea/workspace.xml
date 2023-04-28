@@ -4,15 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="52169174-47a2-4a8d-a704-4d727098fc35" name="Changes" comment="...&#10;Random hozzáadása&#10;SetSticky kiegészítés">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/map/Breakable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/map/Breakable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/map/Pipe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/map/Pipe.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/players/Manipulator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/players/Manipulator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/skeleton/SkeletonController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/skeleton/SkeletonController.java" afterDir="false" />
+    <list default="true" id="52169174-47a2-4a8d-a704-4d727098fc35" name="Changes" comment="...&#10;Random kiegészítés">
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/map/Network.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/map/Network.java" afterDir="false" />
     </list>
     <list id="f1880269-1dfa-411b-a638-fb627f93ba3a" name="Changes by szabo" comment="" />
     <list id="8846de87-e86b-4024-bc49-282a6696216e" name="Changes by Tep Oli" comment="Move to Empty pipe&#10;Manipulate &#10;Újítások&#10;Oli, Elon">
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/controller/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/controller/Game.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/map/Pipe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/map/Pipe.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/players/Technician.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/players/Technician.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/skeleton/SkeletonController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/skeleton/SkeletonController.java" afterDir="false" />
@@ -43,26 +40,6 @@
         <option value="main" />
       </list>
     </option>
-  </component>
-  <component name="LineStatusTrackerManager">
-    <file path="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/map/Pipe.java">
-      <ranges>
-        <range start1="53" end1="53" start2="53" end2="54" changelist="52169174-47a2-4a8d-a704-4d727098fc35" />
-        <range start1="71" end1="71" start2="72" end2="73" changelist="52169174-47a2-4a8d-a704-4d727098fc35" />
-        <range start1="110" end1="111" start2="112" end2="114" changelist="8846de87-e86b-4024-bc49-282a6696216e" />
-        <range start1="112" end1="113" start2="115" end2="116" changelist="8846de87-e86b-4024-bc49-282a6696216e" />
-        <range start1="115" end1="116" start2="118" end2="119" changelist="8846de87-e86b-4024-bc49-282a6696216e" />
-        <range start1="174" end1="174" start2="177" end2="179" changelist="8846de87-e86b-4024-bc49-282a6696216e" />
-        <range start1="175" end1="175" start2="180" end2="181" changelist="8846de87-e86b-4024-bc49-282a6696216e" />
-        <range start1="177" end1="177" start2="183" end2="184" changelist="8846de87-e86b-4024-bc49-282a6696216e" />
-      </ranges>
-    </file>
-    <file path="$PROJECT_DIR$/src/main/java/org/runtimeerror/skeleton/SkeletonController.java">
-      <ranges>
-        <range start1="24" end1="24" start2="24" end2="25" changelist="8846de87-e86b-4024-bc49-282a6696216e" />
-        <range start1="217" end1="217" start2="218" end2="219" changelist="52169174-47a2-4a8d-a704-4d727098fc35" />
-      </ranges>
-    </file>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -113,7 +90,7 @@
       <updated>1677421116671</updated>
       <workItem from="1681686607576" duration="631000" />
       <workItem from="1682604111022" duration="4666000" />
-      <workItem from="1682667391812" duration="1618000" />
+      <workItem from="1682667391812" duration="2042000" />
     </task>
     <task id="LOCAL-00001" summary="Move to Empty pipe&#10;Manipulate &#10;Újítások&#10;Oli, Elon">
       <created>1682595103637</created>
@@ -143,7 +120,14 @@
       <option name="project" value="LOCAL" />
       <updated>1682608593846</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="...&#10;Random kiegészítés">
+      <created>1682669140057</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1682669140057</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -164,7 +148,8 @@
     <MESSAGE value="Move to Empty pipe&#10;Manipulate &#10;Újítások&#10;Oli, Elon" />
     <MESSAGE value="Move to Empty pipe&#10;Manipulate &#10;Újítások&#10;Oli, Elon&#10;+&#10;Random hozzáadása" />
     <MESSAGE value="...&#10;Random hozzáadása&#10;SetSticky kiegészítés" />
-    <option name="LAST_COMMIT_MESSAGE" value="...&#10;Random hozzáadása&#10;SetSticky kiegészítés" />
+    <MESSAGE value="...&#10;Random kiegészítés" />
+    <option name="LAST_COMMIT_MESSAGE" value="...&#10;Random kiegészítés" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

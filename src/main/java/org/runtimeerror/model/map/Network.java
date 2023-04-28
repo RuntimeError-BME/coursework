@@ -102,7 +102,17 @@ public class Network {
     }
 
     /** Az átadott forrást hozzáadja a pályához. */
-//    public boolean AddSource(Source s) {
-//        throw new NotImplementedException();
-//    }
+    public boolean AddSource(Source s) {
+        Main.skeleton.PrintFunctionCalled(this);
+        if(sources.size()==4){
+            Main.skeleton.PrintFunctionReturned("AddSource", "false");
+            return false;
+        }
+        else{
+            sources.add(s);
+            Main.skeleton.PrintFunctionReturned("AddSource","true");
+            return true;
+        }
+
+    }
 }
