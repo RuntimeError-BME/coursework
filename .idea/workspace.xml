@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="52169174-47a2-4a8d-a704-4d727098fc35" name="Changes" comment="...&#10;Random kiegészítés">
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/map/Network.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/map/Network.java" afterDir="false" />
-    </list>
+    <list default="true" id="52169174-47a2-4a8d-a704-4d727098fc35" name="Changes" comment="...&#10;Network.." />
     <list id="f1880269-1dfa-411b-a638-fb627f93ba3a" name="Changes by szabo" comment="" />
     <list id="8846de87-e86b-4024-bc49-282a6696216e" name="Changes by Tep Oli" comment="Move to Empty pipe&#10;Manipulate &#10;Újítások&#10;Oli, Elon">
       <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/controller/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/controller/Game.java" afterDir="false" />
@@ -90,7 +88,7 @@
       <updated>1677421116671</updated>
       <workItem from="1681686607576" duration="631000" />
       <workItem from="1682604111022" duration="4666000" />
-      <workItem from="1682667391812" duration="2042000" />
+      <workItem from="1682667391812" duration="2353000" />
     </task>
     <task id="LOCAL-00001" summary="Move to Empty pipe&#10;Manipulate &#10;Újítások&#10;Oli, Elon">
       <created>1682595103637</created>
@@ -127,7 +125,14 @@
       <option name="project" value="LOCAL" />
       <updated>1682669140057</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="...&#10;Network..">
+      <created>1682669741274</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1682669741274</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -149,7 +154,8 @@
     <MESSAGE value="Move to Empty pipe&#10;Manipulate &#10;Újítások&#10;Oli, Elon&#10;+&#10;Random hozzáadása" />
     <MESSAGE value="...&#10;Random hozzáadása&#10;SetSticky kiegészítés" />
     <MESSAGE value="...&#10;Random kiegészítés" />
-    <option name="LAST_COMMIT_MESSAGE" value="...&#10;Random kiegészítés" />
+    <MESSAGE value="...&#10;Network.." />
+    <option name="LAST_COMMIT_MESSAGE" value="...&#10;Network.." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
