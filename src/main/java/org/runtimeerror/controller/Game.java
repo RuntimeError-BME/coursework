@@ -66,9 +66,8 @@ public class Game {
      Ha az egyik csapat elérte a győzelemhez szükséges pontok számát, véget vet a játéknak. */
     public void NextTurn() {
         Main.skeleton.PrintFunctionCalled(this);
-
+        //Next turn -> Source-okra flood, és csövek countereit csökkenti amelyek nagyobbak 0nál vagy ha 0 akkor a sticky-t és slippery-t is falsera állítja!
         Main.skeleton.PrintFunctionReturned("NextTurn","");
-        //throw new NotImplementedException();
     }
 
     /** Visszaadja a játékost, aki éppen soron van (akinek turnje van jelenleg). */

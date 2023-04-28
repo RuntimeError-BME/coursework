@@ -85,15 +85,16 @@ public class Technician extends Player {
         Main.skeleton.PrintFunctionCalled(this);
         Main.skeleton.PrintFunctionCall(this, "GetCurrElem");
         Element currElem = GetCurrElem();
-        isLogging = false;
+        boolean islogged=isLogging;
+        if (islogged) isLogging = false;
         Element targetElem = new Pipe();
         boolean re;
         if (storedPart.GetPickUpAble()) {
-            isLogging = true;
+            if (islogged) isLogging = true;
             Main.skeleton.PrintFunctionCall(this, "GetNb", "d");
             re = (currElem.GetNb(d) == null);
         } else {
-            isLogging = true;
+            if (islogged) isLogging = true;
             Main.skeleton.PrintFunctionCall(this, "GetNb", "d");
             targetElem = currElem.GetNb(d);
             re = (targetElem != null);
@@ -101,9 +102,9 @@ public class Technician extends Player {
 
                 if (re) {
 
-                    isLogging = false;
+                    if (islogged) isLogging = false;
                     if (storedPart.GetPickUpAble()) {
-                        isLogging = true;
+                        if (islogged) isLogging = true;
 
                         Main.skeleton.PrintFunctionCall(this, "GetNetwork");
                         Network network = _Game.GetNetwork();
@@ -111,7 +112,7 @@ public class Technician extends Player {
                         Main.skeleton.PrintFunctionCall(this, "AddPipe", "storedPart");
                         re = network.AddPipe((Pipe) storedPart);
                     } else {
-                        isLogging = true;
+                        if (islogged) isLogging = true;
                         Main.skeleton.PrintFunctionCall(this, "GetPickUpAble");
                         if (targetElem.GetPickUpAble()) {
                             Main.skeleton.PrintFunctionCall(this, "GetNetwork");

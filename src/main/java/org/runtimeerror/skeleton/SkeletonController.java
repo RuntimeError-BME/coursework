@@ -22,6 +22,7 @@ public final class SkeletonController {
     public static boolean isLogging = true;
 
     public static boolean random = true;
+
     private Scanner in;
     private Map<Integer, String> TestNameMap = new HashMap<>(30); // Tesztszám - Tesztnév párosok
     public static Map<Object, String> ObjNameMap = new HashMap<>(8); // Objektum - "név : típus" string párosok

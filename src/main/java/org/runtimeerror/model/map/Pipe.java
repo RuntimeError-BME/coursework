@@ -110,12 +110,13 @@ public class Pipe extends Breakable {
                         System.out.print("\tRandom value:"+random+"\t"); //Random nézésére
                         targetElem2=GetNb(new Direction(random));
                     }
-                    isLogging=false;
+                    boolean islogged=isLogging;
+                    if (islogged) isLogging=false;
                     if(targetElem2!=p.GetCurrElem()) {
-                        isLogging=true;
+                        if (islogged) isLogging=true;
                         Main.skeleton.PrintFunctionCall(this, "AddPlayer", p);
                         targetElem2.AddPlayer(p);
-                    }else isLogging=true;
+                    }else if (islogged) isLogging=true;
 
                 }
             }
@@ -174,9 +175,13 @@ public class Pipe extends Breakable {
 
     @Override
     public void Break(){
+        boolean islogged=isLogging;
+        if (islogged) isLogging=false;
         if(!slippery && !sticky && !super.GetBroken() && counter==0){
+            if (islogged) isLogging=true;
             super.Break();
         }
+        else if (islogged) isLogging=true;
     }
 
 }
