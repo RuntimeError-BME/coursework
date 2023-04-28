@@ -51,6 +51,7 @@ public class Pipe extends Breakable {
             if(sticky) counter = 0;
             sticky=false;
         }
+
         Main.skeleton.PrintFunctionReturned("SetSticky","");
     }
 
@@ -69,6 +70,7 @@ public class Pipe extends Breakable {
             if(slippery) counter=0;
             slippery=false;
         }
+
         Main.skeleton.PrintFunctionReturned("SetSlippery","");
 
     }

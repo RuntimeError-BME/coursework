@@ -3,8 +3,8 @@ import org.runtimeerror.Main;
 
 import java.util.Random;
 
-import static org.runtimeerror.skeleton.SkeletonController._Game;
-import static org.runtimeerror.skeleton.SkeletonController.random;
+import static org.runtimeerror.skeleton.SkeletonController.*;
+import static org.runtimeerror.skeleton.SkeletonController.isLogging;
 
 
 /**
@@ -28,13 +28,14 @@ public abstract class Breakable extends Element {
     public void Fix() {
         Main.skeleton.PrintFunctionCalled(this);
         broken = false;
-        Main.skeleton.PrintFunctionReturned("Fix", "" );
+
 
         if(random){
             counter = new Random().nextInt(5)+1; //1-6 közötti szám
         }else {
             counter = 2;
         }
+        Main.skeleton.PrintFunctionReturned("Fix ", "" );
     }
 
     /**

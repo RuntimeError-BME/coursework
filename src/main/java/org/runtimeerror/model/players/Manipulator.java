@@ -88,7 +88,8 @@ public abstract class Manipulator {
         if (!p.GetBroken()) {
 
             String harm = null;
-            isLogging = false;
+            boolean islogged=isLogging;
+            if (islogged) isLogging=false;
             System.out.print("Harm(SLIPPY/STICKY/BROKEN): ");
             try {
                 harm = new BufferedReader(new InputStreamReader(System.in)).readLine();
@@ -97,7 +98,7 @@ public abstract class Manipulator {
             } catch (IOException e) {
 
             }
-            isLogging=true;
+            if(islogged) isLogging = true;
             //Sticky - Ragadós, Slippery - Csúszós
 
             switch (harm){

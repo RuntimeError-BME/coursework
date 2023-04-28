@@ -215,6 +215,7 @@ public final class SkeletonController {
         currElem.AddPlayer(T);
         T.SetCurrElem(currElem);
         _Game.AddPlayer(T);
+        Random(false);
 
 
         /** objektumok hozzáadása a map-hez **/
