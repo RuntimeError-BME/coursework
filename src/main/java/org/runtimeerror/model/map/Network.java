@@ -25,6 +25,8 @@ public class Network {
     /** Külön csoportosítja minden elem közül a pumpákat. (De az "elements"-ben is szerepelnek.) */
     private final List<Pump> pumps = new ArrayList<>(8);
 
+    private final List<Pipe> pipes = new ArrayList<>(16);
+
     /**
      * Metódusok
      */

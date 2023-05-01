@@ -88,6 +88,10 @@ public abstract class Breakable extends Element {
         Main.skeleton.PrintFunctionReturned("Flood", "");
     }
 
+    public int GetCounter() { return counter; }
+
+    public int SetCounter(int value) { counter = value; }
+
     // TODO: override in PROTO
     /** Visszaadja, hogy az elem felvehető-e.
      Az Element ősbéli megvalósításhoz hozzá vesz egy új feltételt: ne legyen törött sem, hogy felvehető legyen. */

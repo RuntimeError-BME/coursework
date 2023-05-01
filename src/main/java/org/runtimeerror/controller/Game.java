@@ -27,6 +27,11 @@ public class Game {
 
     private static Game singleInstance; // a játék egyetlen példánya (Singleton)
     private Random random; // véletlenszerű viselkedés lesz megvalósítva vele
+    private boolean deterministic; // megadja, hogy a modell véletlenszerű viselkedése be van-e kapcsolva
+
+    static {
+        singleInstance = null;
+    }
 
     /**
      * Konstruktor (privát láthatóságú, mert Singleton osztály).
@@ -56,7 +61,6 @@ public class Game {
         players         = new ArrayList<>(6); // a játékban résztvevő játékosok
         network         = new Network(); // a pálya elemeit tárolja, szortírozza
         network.AddSource(new Source()); // csak egyetlen forrást tartalmaz kezdetben a pálya
-        singleInstance = null; // a játék egyetlen példánya (Singleton)
         random         = new Random(); // véletlenszerű viselkedés lesz megvalósítva vele
     }
 
@@ -75,10 +79,23 @@ public class Game {
      és ha véget ért egy teljes kör (round), akkor új egy-egy új csövet teremt a ciszternák üres szomszédjai helyén).
      Ha az egyik csapat elérte a győzelemhez szükséges pontok számát, véget vet a játéknak. */
     public void NextTurn() {
-        for (Pump pump : network.GetPumps()) {
-
+        for (Pump pump : network.GetPumps()) { // végigmegyünk a pálya összes pumpáján
+            if (shouldBreakPipe())
+                pump.Break(); // elrontunk néhányat, ha be van kapcsolva a véletlenszerű viselkedés
         }
 
+        for (Pipe pipe : network.GetPipes()) { // végigmegyünk a pálya összes csövén
+            int counter = pipe.GetCounter();
+            if (counter > 0) { // ha jelenleg csúszós vagy ragadós
+                if (counter == 1) { // ha pont most járna le az időszámlálója
+                    pipe.SetSticky(false); // már ne legyen ragadós
+                    pipe.SetSlippery(false); // már ne legyen csúszós
+                }
+                pipe.SetCounter(counter - 1); // csökkentjük az időszámlálót
+            }
+        }
+
+        network.Flood(); // elárasztjuk a pályát vízzel
     }
 
     /** Visszaadja a játékost, aki éppen soron van (akinek turnje van jelenleg). */
@@ -212,9 +229,11 @@ public class Game {
     /**
      * Megadja, hogy egy tetszőleges cső el legyen-e törve (logikai értéked ad vissza).
      */
-    private boolean shouldBreakPipe(boolean deterministic) {
+    private boolean shouldBreakPipe() {
         if (deterministic)
             return false;
+
+        return random.nextInt(100) < 2; // 2% esély
     }
 
     /** --------- CSAK A JÁTÉK INICIALIZÁLÁSKOR HASZNÁLT FÜGGVÉNYEK (nincs hibakezelés bennük): --------- */
