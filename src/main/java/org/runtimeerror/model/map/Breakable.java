@@ -1,10 +1,6 @@
 package org.runtimeerror.model.map;
 import org.runtimeerror.Main;
-
 import java.util.Random;
-
-import static org.runtimeerror.skeleton.SkeletonController.*;
-import static org.runtimeerror.skeleton.SkeletonController.isLogging;
 
 
 /**
@@ -17,7 +13,11 @@ public abstract class Breakable extends Element {
      * Attribútumok
      */
     private boolean broken = false; // hibás-e vagy sem, azaz át tud-e ereszteni magán vizet
-    protected int counter; //Muszáj itt lennie mert fos és nem éri el az ős :)
+    private boolean sticky=false;
+
+    private boolean slippery=false;
+
+    protected int counter;
 
     /**
      * Metódusok
@@ -87,6 +87,10 @@ public abstract class Breakable extends Element {
         }
         Main.skeleton.PrintFunctionReturned("Flood", "");
     }
+
+    public int GetCounter() { return counter; }
+
+    public int SetCounter(int value) { counter = value; }
 
     // TODO: override in PROTO
     /** Visszaadja, hogy az elem felvehető-e.

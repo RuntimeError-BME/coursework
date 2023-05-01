@@ -25,6 +25,8 @@ public class Network {
     /** Külön csoportosítja minden elem közül a pumpákat. (De az "elements"-ben is szerepelnek.) */
     private final List<Pump> pumps = new ArrayList<>(8);
 
+    private final List<Pipe> pipes = new ArrayList<>(16);
+
     /**
      * Metódusok
      */
@@ -64,9 +66,15 @@ public class Network {
 
     /** Felapasztja az összes vizet a pályáról, majd minden forrásból elindítja a vizet,
      aminek következtében el lesz árasztva vízzel a pálya, és pontokat fognak kapni a csapatok. */
-//    public void Flood() {
-//        throw new NotImplementedException();
-//    }
+    public void Flood() {
+        for (Element element : elements) {
+            element.Flood();
+        }
+
+        for (Source source : sources) { // végigmegyünk a pálya összes forrásán
+            source.Flood(); // és elárasztjuk őket (ez majd minden további elemet eláraszt a pályán)
+        }
+    }
 
     /** Visszaadja a pálya minden elemét. */
     public final List<Element> GetElements() {
@@ -80,6 +88,11 @@ public class Network {
         Main.skeleton.PrintFunctionCalled(this);
         Main.skeleton.PrintFunctionReturned("GetPumps","pumps");
         return pumps;
+    }
+
+    /** Visszaadja a pályán lévő csöveket. */
+    public final List<Pipe> GetPipes() {
+        return pipes;
     }
 
     /** Visszaadja a pályán lévő ciszternákat. */
