@@ -19,12 +19,9 @@ public class Pump extends Breakable {
         Main.skeleton.PrintFunctionReturned("Pump","newPump");
     }
 
-    /** Az átvett manipulátorral manipulálja ezt a konkrét elemet. */
+    /** CSAK TECHNICIAN-RE ÉRVÉNYED EDDIG!!!! - Az átvett manipulátorral manipulálja ezt a konkrét elemet. */
     @Override
     public void Manipulate(Manipulator m) {
-        Main.skeleton.PrintFunctionCalled(this);
-        Main.skeleton.PrintFunctionCall(this, "Manipulate", this);
         m.Manipulate(this);
-        Main.skeleton.PrintFunctionReturned("Manipulate", "");
     }
 }

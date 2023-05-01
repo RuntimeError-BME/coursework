@@ -1,5 +1,6 @@
 package org.runtimeerror.model.players;
 import org.runtimeerror.Main;
+import org.runtimeerror.controller.Game;
 import org.runtimeerror.model.map.Pipe;
 import org.runtimeerror.model.map.Pump;
 import static org.runtimeerror.skeleton.SkeletonController._Game;
@@ -18,20 +19,11 @@ public class ManipulatorTechnician extends Manipulator {
     /** Megjavítja az átadott p csövet. Utána pedig véget ér a jelenlegi játékos köre. */
     @Override
     public void Manipulate(Pipe p) {
-        Main.skeleton.PrintFunctionCalled(this);
-        Main.skeleton.PrintFunctionCall(this, "GetBroken");
-
-        if(p.GetBroken()){
-            Main.skeleton.PrintFunctionCall(this, "Fix");
+        if (p.GetBroken()) {
             p.Fix();
-            Main.skeleton.PrintFunctionCall(this, "NextTurn");
-            _Game.NextTurn();
-            Main.skeleton.PrintFunctionReturned("Manipulate", "");
-        }
-        else{
-            Main.skeleton.PrintFunctionCall(this, "<<base>>Manipulate",p);
+            Game.GetInstance().NextTurn();
+        } else {
             super.Manipulate(p);
-            Main.skeleton.PrintFunctionReturned("Manipulate", "");
         }
     }
 
@@ -39,18 +31,11 @@ public class ManipulatorTechnician extends Manipulator {
      (ez esetben meghívja az ősbéli megvalósítását a függvénynek). */
     @Override
     public void Manipulate(Pump p) {
-        Main.skeleton.PrintFunctionCalled(this);
-        Main.skeleton.PrintFunctionCall(this, "GetBroken");
         if (p.GetBroken()) {
-            Main.skeleton.PrintFunctionCall(this, "Fix");
             p.Fix();
-            Main.skeleton.PrintFunctionCall(this, "NextTurn");
-            _Game.NextTurn();
-            Main.skeleton.PrintFunctionReturned("Manipulate", "");
+            Game.GetInstance().NextTurn();
         } else {
-            Main.skeleton.PrintFunctionCall(this, "<<base>>Manipulate",p);
             super.Manipulate(p);
-            Main.skeleton.PrintFunctionReturned("Manipulate", "");
         }
     }
 }

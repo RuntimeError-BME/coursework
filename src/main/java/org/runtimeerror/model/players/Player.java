@@ -45,24 +45,13 @@ public class Player {
         return currElem;
     }
 
-    /** Az átadott elemre helyezi a játékost, ha ez lehetséges. */
+    /** CSAK PIPE-RA ÉRVÉNYES EDDIG!!! - Az átadott elemre helyezi a játékost, ha ez lehetséges. */
     public void MoveTo(Element e) {
-        Main.skeleton.PrintFunctionCalled(this);
-
-        Main.skeleton.PrintFunctionCall(this, "AddPlayer", this);
-        /*
         boolean playerAdded = e.AddPlayer(this);
         if (playerAdded) {
-            Main.skeleton.PrintFunctionCall(this, "RemovePlayer", this);
             currElem.RemovePlayer(this);
-
-            Main.skeleton.PrintFunctionCall(this, "SetCurrElem", e);
             SetCurrElem(e);
         }
-         */
-        e.AddPlayer(this);
-
-        Main.skeleton.PrintFunctionReturned("MoveTo", "");
     }
 
     /** A játékost a megadott irányban lévő elemre lépteti (a „gazda” elemétől), ha ez lehetséges. */
@@ -71,14 +60,10 @@ public class Player {
 //    }
 
     /** Manipulálja azt az elemet, amelyen éppen tartózkodik.
-     A manipulátora határozza meg, hogy mely „gazda” elem típus esetén mit tesz. */
+     A manipulátora határozza meg, hogy mely „gazda” elem típus esetén mit tesz. */    /** CSAK PUMP-RA ÉRVÉNYES
+     EDDIG!!! */
     public void ManipulateCurrElem() {
-        Main.skeleton.PrintFunctionCalled(this);
-
-        Main.skeleton.PrintFunctionCall(this, "Manipulate", manipulator);
         currElem.Manipulate(manipulator);
-
-        Main.skeleton.PrintFunctionReturned("ManipulateCurrElem", "");
     }
 
 

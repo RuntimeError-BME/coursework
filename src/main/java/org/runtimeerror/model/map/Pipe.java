@@ -160,10 +160,7 @@ public class Pipe extends Breakable {
      */
     @Override
     public void Manipulate(Manipulator m) {
-        Main.skeleton.PrintFunctionCalled(this);
-        Main.skeleton.PrintFunctionCall(this,"Manipulate",this);
         m.Manipulate(this);
-        Main.skeleton.PrintFunctionReturned("Manipulate","");
     }
 
     @Override

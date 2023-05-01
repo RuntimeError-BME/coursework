@@ -45,10 +45,7 @@ public class Cistern extends Element {
     /** A paraméterként kapott manipulátorral manipulálja ezt a konkrét elemet. */
     @Override
     public void Manipulate(Manipulator m) {
-        Main.skeleton.PrintFunctionCalled(this);
-        Main.skeleton.PrintFunctionCall(this,"Manipulate",this);
         m.Manipulate(this);
-        Main.skeleton.PrintFunctionReturned("Manipulate","");
     }
 
     public void ProducePipe(){

@@ -1,5 +1,6 @@
 package org.runtimeerror.model.players;
 import org.runtimeerror.Main;
+import org.runtimeerror.controller.Game;
 import org.runtimeerror.model.map.*;
 import static org.runtimeerror.skeleton.SkeletonController.isLogging;
 import org.runtimeerror.model.map.Element;
@@ -32,43 +33,24 @@ public class Technician extends Player {
     /** Megkísérli felvenni a d irányban lévő part-ot, ha van olyan. */
     @Override
     public void PickUpPart(Direction d) {
-        Main.skeleton.PrintFunctionCalled(this);
-
-
-        Main.skeleton.PrintFunctionCall(this, "GetNbCnt");
         int NbCnt = currElem.GetNbCnt();
-
-        Main.skeleton.PrintFunctionCall(this, "GetNb", "d");
         Element targetElem = currElem.GetNb(d);
 
-        Main.skeleton.PrintFunctionCall(this, "GetPickUpAble");
         boolean pickUpAble = targetElem.GetPickUpAble();
-        if(pickUpAble) {
-            Main.skeleton.PrintFunctionCall(this, "GetFlooded");
+        if (pickUpAble) {
             boolean flooded = targetElem.GetFlooded();
-
-            Main.skeleton.PrintFunctionCall(this, "GetBroken");
             boolean broken = targetElem.GetBroken();
 
             if (!flooded && !broken) {
-                Main.skeleton.PrintFunctionCall(this, "GetPart");
                 if (GetPart() == null) {
+                    Network network = Game.GetInstance().GetNetwork();
 
-                    Main.skeleton.PrintFunctionCall(this, "GetNetwork");
-                    Network network = _Game.GetNetwork();
-
-
-                    Main.skeleton.PrintFunctionCall(this, "RemoveElem", "targetElem");
                     network.RemoveElem(targetElem);
 
-                    Main.skeleton.PrintFunctionCall(this, "SetPart", "targetElem");
                     SetPart((Breakable) targetElem);
                 }
             }
         }
-        Main.skeleton.PrintFunctionReturned("PickUpPart","");
-
-
     }
 
     /** Megkísérli elhelyezni a tárolt part-ját d irányba. A művelet sikerességével tér vissza. */
@@ -123,14 +105,8 @@ public class Technician extends Player {
                             Main.skeleton.PrintFunctionCall(this, "AddPump", "storedPart", "targetElem");
                             re = network.AddPump((Pump) storedPart, targetElem);
                         }
-
-
                     }
-
                 }
-
-
-
             }
         }
         Main.skeleton.PrintFunctionReturned("PlacePart", re ? "true" : "false");
@@ -138,16 +114,14 @@ public class Technician extends Player {
     }
 
     /** Visszaadja azt a Breakable-t („part” attribútumot), ami a szerelőnél van. */
+    @Override
     public Breakable GetPart() {
-        Main.skeleton.PrintFunctionCalled(this);
-        Main.skeleton.PrintFunctionReturned("GetPart",part==null ? "null" : "part");
         return part;
     }
 
     /** Az átadott Breakable-re állítja a „part” attribútumot. */
-    public void SetPart(Breakable b) {
-        Main.skeleton.PrintFunctionCalled(this);
-        part=b;
-        Main.skeleton.PrintFunctionReturned("SetPart","");
+    @Override
+    public void SetPart(Element e) {
+        part = e;
     }
 }

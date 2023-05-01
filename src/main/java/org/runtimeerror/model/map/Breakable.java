@@ -1,5 +1,7 @@
 package org.runtimeerror.model.map;
 import org.runtimeerror.Main;
+import org.runtimeerror.controller.Game;
+
 import java.util.Random;
 
 
@@ -26,16 +28,13 @@ public abstract class Breakable extends Element {
      *  Megjavítja az elemet.
      */
     public void Fix() {
-        Main.skeleton.PrintFunctionCalled(this);
         broken = false;
 
-
-        if(random){
-            counter = new Random().nextInt(5)+1; //1-6 közötti szám
-        }else {
+/*      if (Game.GetInstance().GetDeterministic()) {
+            counter = new Random().nextInt(5)+1; // 1-6 közötti szám
+        } else {
             counter = 2;
-        }
-        Main.skeleton.PrintFunctionReturned("Fix ", "" );
+        }*/
     }
 
     /**

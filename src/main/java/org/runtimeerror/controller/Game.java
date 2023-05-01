@@ -191,7 +191,9 @@ public final class Game {
     public static class Input {
 
         /**
-         *
+         * Visszaadja, hogy véget ért-e a játék (egyik csapat elérte-e a győzelemhez szükséges pontszámot).
+         * Közli a játék végét, ha az megtörtént. Kiírja, hogy melyik csapat nyert, és hány ponttal, illetve a
+         * döntetlen helyzetet is (ha a két csapat egy körön belül lépi túl a győzelemhez szükséges pontszámot).
          */
         public static boolean IsGameOver() {
 

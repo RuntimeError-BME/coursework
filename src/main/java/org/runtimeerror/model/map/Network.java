@@ -34,9 +34,7 @@ public class Network {
      (pl. nem esne komponensekre a pálya, mint gráf), akkor igazzal tér vissza.
      Ellenkező esetben nem módosít semmi a pályán. */
     public boolean RemoveElem(Element e) {
-        Main.skeleton.PrintFunctionCalled(this);
-        boolean re=elements.remove(e);
-        Main.skeleton.PrintFunctionReturned("RemoveElem",re ? "true" : "false");
+        boolean re = elements.remove(e);
         return re;
     }
 

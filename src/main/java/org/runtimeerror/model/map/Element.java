@@ -29,18 +29,16 @@ public abstract class Element {
      */
     /** Felrak magára egy játékos, ha ez lehetséges. A művelet sikerességével tér vissza. */
     //Add palyer returnt voidra kéne rakni az új müködés miatt
-    public void AddPlayer(Player p) {
-        Main.skeleton.PrintFunctionCalled(this);
-        Main.skeleton.PrintFunctionCall(this, "GetPlayerCnt");
-        GetPlayerCnt();
-        players.add(p);
-        Main.skeleton.PrintFunctionReturned("AddPlayer", "");
-        return;
+    public boolean AddPlayer(Player p) {
+        if (GetPlayerCnt() == 0) {
+            players.add(p);
+            return true;
+        } else {
+            return false;
+        }
     }
 
     public boolean GetBroken(){
-        Main.skeleton.PrintFunctionCalled(this);
-        Main.skeleton.PrintFunctionReturned("GetBroken", "false");
         return false;
     }
 
@@ -53,11 +51,7 @@ public abstract class Element {
 
     /** Az átadott irányba lévő szomszédos elemét adja vissza, ha van ilyen. */
     public Element GetNb(Direction d) {
-        Main.skeleton.PrintFunctionCalled(this);
-
-        Main.skeleton.PrintFunctionReturned("GetNb", nbs.get(d.ordinal())==null?"null":"newInp/targetElem");
         return nbs.get(d.ordinal());
-
     }
 
     /** Megadott irányú szomszédjának állítja be az átadott elemet. */
@@ -84,16 +78,11 @@ public abstract class Element {
 
     /** Visszaadja, hogy az elem felvehető-e. A származtatott elemek felüldefiniálhatják. */
     public boolean GetPickUpAble() {
-        Main.skeleton.PrintFunctionCalled(this);
-        Main.skeleton.PrintFunctionReturned("GetPickUpAble",pickUpAble && (players.size()==0) ? "true" : "false");
-
         return pickUpAble&&(players.size()==0);
     }
 
     /** A szomszédos elemek számát adja vissza. */
     public int GetNbCnt() {
-        Main.skeleton.PrintFunctionCalled(this);
-        Main.skeleton.PrintFunctionReturned("GetNbCnt",""+nbs.size());
         return nbs.size();
     }
 
@@ -106,11 +95,7 @@ public abstract class Element {
 
     /** Visszaadja, hogy van-e benne víz. */
     public boolean GetFlooded() {
-        Main.skeleton.PrintFunctionCalled(this);
-
-        Main.skeleton.PrintFunctionReturned("GetFlooded", flooded ? "true" : "false");
         return flooded;
-
     }
 
     /** Visszaadja a bemeneti elemét, ha van ilyen. */

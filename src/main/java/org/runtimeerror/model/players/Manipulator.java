@@ -7,6 +7,7 @@ import java.io.InputStreamReader;
 import java.util.List;
 import java.util.Scanner;
 
+import org.runtimeerror.controller.Game;
 import org.runtimeerror.model.map.*;
 
 import static org.runtimeerror.skeleton.SkeletonController.*;
@@ -28,51 +29,37 @@ public abstract class Manipulator {
 
     /** Átállítja az átadott pumpát (GameInput-ot használja a bemenetért). Ezután véget ér a játékos köre (turn). */
     public void Manipulate(Pump p) {
-        Main.skeleton.PrintFunctionCalled(this);
+        Direction[] dirs = Game.Input.GetNewPumpDirections();
 
-        Main.skeleton.PrintFunctionCall(this, "GetNewPumpDirections");
-        Direction[] dirs = _GameI.GetNewPumpDirections();
-
-        Main.skeleton.PrintFunctionCall(this,"GetNb","dirs[0]");
         Element newInp = p.GetNb(dirs[0]);
 
-        Main.skeleton.PrintFunctionCall(this, "SetInput", "newInp");
         p.SetInput(newInp);
 
-        Main.skeleton.PrintFunctionCall(this,"GetNb","dirs[1]");
         Element newOut = p.GetNb(dirs[1]);
 
-        Main.skeleton.PrintFunctionCall(this, "SetOutput", "newOut");
         p.SetOutput(newOut);
 
-        Main.skeleton.PrintFunctionCall(this,"NexTurn");
-        _Game.NextTurn();
-
-        Main.skeleton.PrintFunctionReturned("Manipulate","");
+        Game.GetInstance().NextTurn();
     }
 
     /** Átlépteti a jelenlegi játékost a következő ciszternára. Ezzel nem ér véget a játékos köre (turn). */
     public void Manipulate(Cistern c) {
-        Main.skeleton.PrintFunctionCalled(this);
+        Network network = Game.GetInstance().GetNetwork();
 
-        Main.skeleton.PrintFunctionCall(this, "GetNetwork");
-        Network network = _Game.GetNetwork();
+        List<Cistern> cists = network.GetCisterns();
 
-        Main.skeleton.PrintFunctionCall(this, "GetCisterns");
-        List<Cistern> cisterns = network.GetCisterns();
+        int i = 0;
+        for (Cistern cistern : cists) {
+            if (cistern == Game.GetInstance().GetCurrPlayer().GetCurrElem()) {
+                break;
+            }
+            i++;
+        }
+        Cistern targetElem = cists.get(i + 1);
 
-        for (Cistern cistern : cisterns) {  } //ez keresné meg az input alapján
-        Cistern targetElem=cisterns.get(1); //input alapján, most konstans
+        Player player = Game.GetInstance().GetCurrPlayer();
 
-        Main.skeleton.PrintFunctionCall(this, "GetCurrPlayer");
-        Player player = _Game.GetCurrPlayer();
-
-
-        Main.skeleton.PrintFunctionCall(this, "MoveTo", "targetElem");
         player.MoveTo(targetElem);
-
-
-        Main.skeleton.PrintFunctionReturned("Manipulate", "");
     }
 
     /** Üres törzsű függvény, jelenleg a játékosok nem tesznek semmit a forráson állva.
@@ -82,14 +69,9 @@ public abstract class Manipulator {
 
 
     public void Manipulate(Pipe p) {
-        ObjNameMap.put(this,":<<base>>Manipulate");
-        Main.skeleton.PrintFunctionCalled(this);
-        Main.skeleton.PrintFunctionCall(this, "GetBroken");
-        if (!p.GetBroken()) {
+/*        if (!p.GetBroken()) {
 
             String harm = null;
-            boolean islogged=isLogging;
-            if (islogged) isLogging=false;
             System.out.print("Harm(SLIPPY/STICKY/BROKEN): ");
             try {
                 harm = new BufferedReader(new InputStreamReader(System.in)).readLine();
@@ -98,30 +80,22 @@ public abstract class Manipulator {
             } catch (IOException e) {
 
             }
-            if(islogged) isLogging = true;
-            //Sticky - Ragadós, Slippery - Csúszós
 
+            //Sticky - Ragadós, Slippery - Csúszós
             switch (harm){
                 case "STICKY":
-                    Main.skeleton.PrintFunctionCall(this, "SetSticky","true");
                     p.SetSticky(true);
                     break;
                 case "SLIPPY":
-                    Main.skeleton.PrintFunctionCall(this, "IsTechnicianTurn");
                     if(!_Game.IsTechnicianTurn()){ //Ha Technikus Slipperyvé tenné akkor eltöri
-                        Main.skeleton.PrintFunctionCall(this, "SetSlippery","true");
                         p.SetSlippery(true);
                         break;
                     }
                 default:
-                    Main.skeleton.PrintFunctionCall(this, "Break");
                     p.Break();
                     break;
             }
-            Main.skeleton.PrintFunctionCall(this, "NextTurn");
             _Game.NextTurn();
-        }
-        Main.skeleton.PrintFunctionReturned("Manipulate", "");
-
+        }*/
     }
 }
