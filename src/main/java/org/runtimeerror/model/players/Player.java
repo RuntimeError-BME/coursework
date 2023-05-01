@@ -2,6 +2,7 @@ package org.runtimeerror.model.players;
 import org.runtimeerror.Main;
 import org.runtimeerror.model.map.Direction;
 import org.runtimeerror.model.map.Element;
+import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 
 /**
@@ -25,6 +26,10 @@ public class Player {
     public Player(String name) { this.name = name; manipulator = new ManipulatorSaboteur(); }
     public Player(String name, Manipulator m) { this.name = name; manipulator = m; }
 
+    /**
+     * Visszaadja a játékos nevét.
+     */
+    public String GetName() { return name; }
 
     /** Beállítja az elemet, amelyen a játékos tartózkodik. */
     public void SetCurrElem(Element e) {
@@ -74,5 +79,26 @@ public class Player {
         currElem.Manipulate(manipulator);
 
         Main.skeleton.PrintFunctionReturned("ManipulateCurrElem", "");
+    }
+
+
+    /**
+     * Az átadott irányba próbálja léptetni a játékost az őt tartalmazó elemről.
+     * Ha az adott irányba nincs szomszédos elem, nem történik semmi. Ha van, akkor hívja MoveTo()-t, és átadja neki.
+     */
+    public void StepOnto(Direction d) {
+        Element targetElem = currElem.GetNb(d);
+        if (targetElem != null)
+            MoveTo(targetElem);
+    }
+    public void PickUpPart(Direction d) {
+    }
+    public Element GetPart() {
+        return null;
+    }
+    public boolean PlacePart(Direction d) {
+        return false;
+    }
+    public void SetPart(Element e) {
     }
 }

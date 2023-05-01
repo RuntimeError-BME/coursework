@@ -14,7 +14,7 @@ public class Technician extends Player {
     /**
      * Attribútumok
      */
-    private Breakable part; // az elem, amelyet a szerelő felvett a pályáról. Ha nincs nála ilyen, akkor null.
+    private Element part; // az elem, amelyet a szerelő felvett a pályáról. Ha nincs nála ilyen, akkor null.
 
     /**
      * Attribútumok
@@ -30,6 +30,7 @@ public class Technician extends Player {
 //    }
 
     /** Megkísérli felvenni a d irányban lévő part-ot, ha van olyan. */
+    @Override
     public void PickUpPart(Direction d) {
         Main.skeleton.PrintFunctionCalled(this);
 
@@ -71,6 +72,7 @@ public class Technician extends Player {
     }
 
     /** Megkísérli elhelyezni a tárolt part-ját d irányba. A művelet sikerességével tér vissza. */
+    @Override
     public boolean PlacePart(Direction d) {
         Main.skeleton.PrintFunctionCalled(this);
 

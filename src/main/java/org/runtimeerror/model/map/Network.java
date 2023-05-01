@@ -132,4 +132,7 @@ public class Network {
         }
 
     }
+    public void ProducePipesAroundCisterns() {
+        Main.skeleton.PrintFunctionReturned("AddSource","true");
+    }
 }
