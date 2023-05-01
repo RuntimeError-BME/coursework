@@ -67,16 +67,20 @@ public class Network {
 //    public void Flood() {
 //        throw new NotImplementedException();
 //    }
-//
-//    /** Visszaadja a pálya minden elemét. */
-//    public final List<Element> GetElements() {
-//        throw new NotImplementedException();
-//    }
-//
-//    /** Visszaadja a pályán lévő pumpákat. */
-//    public final List<Pump> GetPumps() {
-//        throw new NotImplementedException();
-//    }
+
+    /** Visszaadja a pálya minden elemét. */
+    public final List<Element> GetElements() {
+        Main.skeleton.PrintFunctionCalled(this);
+        Main.skeleton.PrintFunctionReturned("GetElements","elements");
+        return elements;
+    }
+
+    /** Visszaadja a pályán lévő pumpákat. */
+    public final List<Pump> GetPumps() {
+        Main.skeleton.PrintFunctionCalled(this);
+        Main.skeleton.PrintFunctionReturned("GetPumps","pumps");
+        return pumps;
+    }
 
     /** Visszaadja a pályán lévő ciszternákat. */
     public final List<Cistern> GetCisterns() {
