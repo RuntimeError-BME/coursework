@@ -5,11 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e386bd1d-942e-4395-9f2c-b37568fb3c05" name="Changes" comment="Skeleton of Skeleton (all declarations, 2/29 (first two) tests)">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/map/Breakable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/map/Breakable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/map/Network.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/map/Network.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/map/Pipe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/map/Pipe.java" afterDir="false" />
+    </list>
+    <list id="4470af26-99a1-49e1-961d-4efb29cd8c05" name="Changes by adammizser" comment="">
       <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/controller/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/controller/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/prototype/PrototypeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/prototype/PrototypeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/skeleton/SkeletonController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/map/Breakable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/map/Breakable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/map/Network.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/map/Network.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,6 +42,23 @@
       </list>
     </option>
   </component>
+  <component name="LineStatusTrackerManager">
+    <file path="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/map/Network.java">
+      <ranges>
+        <range start1="26" end1="26" start2="26" end2="28" changelist="4470af26-99a1-49e1-961d-4efb29cd8c05" />
+        <range start1="66" end1="69" start2="68" end2="77" changelist="e386bd1d-942e-4395-9f2c-b37568fb3c05" />
+        <range start1="83" end1="83" start2="91" end2="96" changelist="e386bd1d-942e-4395-9f2c-b37568fb3c05" />
+      </ranges>
+    </file>
+    <file path="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/map/Breakable.java">
+      <ranges>
+        <range start1="2" end1="3" start2="2" end2="2" changelist="e386bd1d-942e-4395-9f2c-b37568fb3c05" />
+        <range start1="5" end1="8" start2="4" end2="4" changelist="e386bd1d-942e-4395-9f2c-b37568fb3c05" />
+        <range start1="19" end1="20" start2="15" end2="20" changelist="e386bd1d-942e-4395-9f2c-b37568fb3c05" />
+        <range start1="90" end1="90" start2="90" end2="94" changelist="4470af26-99a1-49e1-961d-4efb29cd8c05" />
+      </ranges>
+    </file>
+  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -53,6 +74,9 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
     "codeWithMe.voiceChat.enabledByDefault": "false",
+    "git-widget-placeholder": "main",
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "settings.editor.selected.configurable": "CodeWithMe",
     "vue.rearranger.settings.migration": "true"

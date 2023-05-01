@@ -16,13 +16,6 @@ import static org.runtimeerror.skeleton.SkeletonController.*;
  * Ha lyukas, vagy a kimenete üres, akkor a szabotőrök pontot kapnak, amikor víz érkezik belé.
  */
 public class Pipe extends Breakable {
-    private boolean sticky=false;
-
-    private boolean slippery=false;
-
-    //private int counter;
-
-
     public boolean GetSplippery(){
         Main.skeleton.PrintFunctionCalled(this);
         Main.skeleton.PrintFunctionReturned("GetSplippery",slippery?"true":"false");
