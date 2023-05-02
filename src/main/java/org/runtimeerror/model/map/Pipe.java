@@ -1,176 +1,173 @@
 package org.runtimeerror.model.map;
-import org.runtimeerror.Main;
+
+import org.runtimeerror.controller.Game;
 import org.runtimeerror.model.players.Player;
-import org.runtimeerror.model.players.Manipulator;
-
-import java.util.Random;
-import java.util.Scanner;
-
-import static org.runtimeerror.skeleton.SkeletonController.*;
-
+import org.runtimeerror.model.players.ManipulatorPlayer;
 
 /**
  * Olyan elromolható, felvehető elem, amelyen legfeljebb egy játékos tartózkodhat.
- * Ki lehet lyukasztani, a lyukas csövet pedig meg is lehet javítani.
- * Ha a cső nem lyukas akkor a kimenetéhez vizet tud juttatni.
+ * Ki lehet lyukasztani, a lyukas csövet pedig meg is lehet javítani, ekkor egy (véletlenszerű) ideig nem lehet
+ * kilyukasztani ismét. Ha a cső nem lyukas akkor a kimenetéhez vizet tud juttatni.
  * Ha lyukas, vagy a kimenete üres, akkor a szabotőrök pontot kapnak, amikor víz érkezik belé.
+ * Ha nem lyukas, akkor csúszóssá vagy ragadóssá lehet tenni egy időre.
+ * Ha csúszós a cső, akkor aki rálép véletlenszerűen az egyik végére csatlakoztatott elemre csúszik át.
+ * Ilyenkor se lyukasztani, se ragadóssá tenni nem lehet az adott csövet.
+ * Ha ragadós a cső, akkor aki rálép, annak a köre véget ér. Ebben az esetben se lyukasztani, se csúszóssá nem lehet
+ * tenni az adott csövet. Egy cső általában kevesebb ideig ragadós, mint csúszós.
+ * Tehát összegezve: egyszerre csak egy állapotban lehet a felsoroltak (törött, ragadós, csúszós) közül egy cső.
  */
-public class Pipe extends Breakable {
-    public boolean GetSplippery(){
-        Main.skeleton.PrintFunctionCalled(this);
-        Main.skeleton.PrintFunctionReturned("GetSplippery",slippery?"true":"false");
-        return slippery;
+public final class Pipe extends Breakable {
+    /** Attribútumok */
+    private boolean sticky = false; // ragadós-e a cső (aki rálép, véget fog-e érni a köre)
+    private boolean slippery = false; // csúszós-e a cső (aki rálép, véletlenszerű szomszédra kerül azonnal)
+    /** időszámláló, ami körökben adja meg, hogy még hány körig (turn) nem lehet lyukasztani a csövet,
+     * vagy hogy még hány körig (turn) lesz ragadós vagy csúszós. */
+    private int counter = 0;
+    private static int defaultCounter = 2; // determinisztikus viselkedés esetén ennyi lesz a számláló kezdeti értéke
 
+    /** Statikus inicializáló blokk, ami igazra állítja az ősből örökölt STATIKUS protected pickUpAble attribútumot,
+     hiszen a csövek felvehető elemek. */
+    static {
+        pickUpAble = true;
     }
 
+    /** Konstruktor, ami igazra állítja az ősből örökölt protected pickUpAble attribútumot,
+     * hiszen a csövek felvehető elemek (a tényleges megvalósításban a statikus inicializáló blokkban lesz ez
+     * végrehajtva ehelyett, de ez csak egy implementációs részlet. */
+//    public Pipe() {
+//        pickUpAble = true;
+//    }
+
+    /** Visszaadja, hogy a cső ragadós-e. Felülírja az Element ősben lévő megvalósítást, lásd: Element.GetSticky(). */
     @Override
     public boolean GetSticky() {
-        Main.skeleton.PrintFunctionCalled(this);
-        Main.skeleton.PrintFunctionReturned("GetSticky",sticky?"true":"false");
         return sticky;
     }
 
-    public void SetSticky(boolean stick){
-        Main.skeleton.PrintFunctionCalled(this);
-        if(stick) {
-            sticky = true;
-            slippery = false;
-            if(random){
-                counter = new Random().nextInt(5)+1; //1-6 közötti szám
-            }else {
-                counter = 2;
-            }
-        }
-        else {
-            if(sticky) counter = 0;
-            sticky=false;
-        }
-
-        Main.skeleton.PrintFunctionReturned("SetSticky","");
+    /** Az átadott logikai értéknek megfelelően állítja be, hogy a cső ragadós-e. */
+    public void SetSticky(boolean sticky){
+        this.sticky = sticky;
     }
 
-    public void SetSlippery(boolean slippy){
-        Main.skeleton.PrintFunctionCalled(this);
-        if(slippy) {
-            slippery = true;
-            sticky = false;
-            if(random){
-                counter = new Random().nextInt(5)+1; //1-6 közötti szám
-            }else {
-                counter = 2;
-            }
-        }
-        else {
-            if(slippery) counter=0;
-            slippery=false;
-        }
-
-        Main.skeleton.PrintFunctionReturned("SetSlippery","");
-
+    /** Visszaadja, hogy a cső csúszós-e. */
+    public boolean GetSlippery(){
+        return slippery;
     }
+
+    /** Az átadott logikai értéknek megfelelően állítja be, hogy a cső csúszós-e. */
+    public void SetSlippery(boolean slippy) {
+        slippery = slippy;
+    }
+
+    /** Visszaadja az állapot visszaszámláló attribútum (counter) értékét. */
+    public int GetCounter() { return counter; }
+
+    /** Az átadott egész értékre állítja be az állapot visszaszámláló attribútumot (counter). */
+    public void SetCounter(int value) { counter = value; }
 
     /**
-     * Metódusok
+     * Beállítja, d irányba a Pipe szomszédjának e-t, ha még nincs 2 szomszédja (hívja az ősbéli megvalósítást).
      */
-    public Pipe(){
-        super();
-        ObjNameMap.put(this,"newPipe:Pipe");
-        Main.skeleton.PrintFunctionCalled(this);
-        pickUpAble=true;
-        Main.skeleton.PrintFunctionReturned("<<create>>Pipe","newPipe");
+    @Override
+    public void SetNb(Direction d, Element e) {
+        if (GetNbCnt() < 2) {
+            super.SetNb(d, e);
+        }
     }
 
     /**
-     *Felhelyezi az átadott játékost magára, ha nem áll rajta már más valaki. A művelet sikerességével tér vissza.
+     * Felhelyezi az átadott játékost magára, ha nem áll rajta már más valaki. A művelet sikerességével tér vissza.
+     * (Felülírja az Element ősben lévő megvalósítást - itt már nem mindig sikerül rálépni a csőre.)
+     * FONTOS MÓDOSÍTÁS: ha csúszós csőre lépne, akkor véletlenszerűen egy másik szomszédos csőre fog átkerülni (vagy
+     * determinisztikus viselkedés esetén a legkisebb sorszámú irányban lévőre), ha pedig ragadósra, akkor véget fog
+     * írni a köre egyből.
      */
     @Override
     public void AddPlayer(Player p) {
-        Main.skeleton.PrintFunctionCalled(this);
-        Main.skeleton.PrintFunctionCall(this, "GetPlayerCnt");
-        if (GetPlayerCnt() == 0) {
-            //Újitás innentől
 
+        if (GetPlayerCnt() > 0) // ha már áll valaki a csövön
+            return; // akkor nem lehet rálépni, nem lesz felhelyezve rá az átadott játékos
 
+        if (GetSlippery()) { // ha csúszós a cső
+            if (GetNbCnt() == 1) // ha csak egy szomszédja van neki (ahonnan épp érkezik a játékos)
+                return; // akkor marad ugyan ott (visszacsúszik oda, ahonnan jött)
+            // azzal az esettel nem foglalkozunk, amikor egy szomszéd nélküli csövön áll - úgy sem tud mozogni ilyenkor
 
-            Main.skeleton.PrintFunctionCall(this, "GetSplippery");
-            if(GetSplippery()){
-                Main.skeleton.PrintFunctionCall(this, "GetNbCnt");
-                if(GetNbCnt()>1){
-                    Element targetElem2=null;
-                    while (targetElem2==null){
-                        Main.skeleton.PrintFunctionCall(this, "GetNb","random");
-                        int random= new Random().nextInt()%3;//Ez egyelőre csak teszt miatt
-                        if(random<0) random*=-1;
-                        System.out.print("\tRandom value:"+random+"\t"); //Random nézésére
-                        targetElem2=GetNb(new Direction(random));
-                    }
-                    boolean islogged=isLogging;
-                    if (islogged) isLogging=false;
-                    if(targetElem2!=p.GetCurrElem()) {
-                        if (islogged) isLogging=true;
-                        Main.skeleton.PrintFunctionCall(this, "AddPlayer", p);
-                        targetElem2.AddPlayer(p);
-                    }else if (islogged) isLogging=true;
-
-                }
+            // ez lesz a másik elem, ahová csúszni fog
+            Element targetElem2 = null; // vagy ahonnan érkezett az az elem lesz, vagy a célpont másik szomszédja
+            if (Game.GetInstance().GetDeterministic()) { // ha a játék determinisztikusan viselkedik
+                // akkor a legkisebb sorszámú irányban lévő szomszédra fog kerülni
+                targetElem2 = GetNb(new Direction(GetNbMinDirNumber()));
+            } else { // ha a játék nem viselkedik determinisztikusan
+                // akkor a két elem közül véletlenszerűen fog az egyikre csúszni (controller random sorsoló függvénye)
+                targetElem2 = (Game.GetInstance().SlipToHigherDirection()) // ha a nagyobb sorszámú felé fog csúszni
+                    ? GetNb(new Direction(GetNbMaxDirNumber())) // akkor arra fog,
+                    : GetNb(new Direction(GetNbMinDirNumber())); // különben pedig a minimális sorszámú felé
             }
-            else {
-                Main.skeleton.PrintFunctionCall(this, "GetCurrElem");
-                Element currElem=p.GetCurrElem();
-                Main.skeleton.PrintFunctionCall(this, "RemovePlayer",p);
-                RemovePlayer(p);
-                Main.skeleton.PrintFunctionCall(this, "SetCurrElem",this);
-                p.SetCurrElem(this);
+            targetElem2.AddPlayer(p); // átkerül a játékos az előzőekben meghatározott szomszédos elemre
 
-                players.add(p);
-
-                Main.skeleton.PrintFunctionCall(this, "GetSticky");
-                if (GetSticky()){
-                    Main.skeleton.PrintFunctionCall(this, "NextTurn");
-                    _Game.NextTurn();
-                }
-            }
-
-            Main.skeleton.PrintFunctionReturned("AddPlayer", "");
-            return;
+        } else { // ha NEM csúszós a cső
+            super.AddPlayer(p); // akkor biztosan rá fog kerülni erre a csőre (az ősbéli megvalósítás gondoskodik erről)
+            if (GetSticky()) // ha viszont a cső ragadós, amire lépett
+                Game.GetInstance().NextTurn(); // akkor véget ér a köre
         }
-        Main.skeleton.PrintFunctionReturned("AddPlayer", "");
-        return;
-    }
-
-
-    /**Vízzel tölti meg magát. Ha lyukas a cső vagy nincs output-ja akkor pontot kapnak a szabotőrök,
-     *különben pedig hívja tovább az output-ján a Flood() függvényt (ereszti tovább a vizet).
-     *Flood volt itt.
-     *
-     */
-
-    /**
-     * Beállítja, d irányba a Pipe szomszédjának e-t ha még nincs 2 szomszédja.
-     * @param d - irány
-     * @param e - új szomszéd
-     */
-    @Override
-    public void SetNb(Direction d, Element e){
-        if(this.GetNbCnt()<2){super.SetNb(d,e);}
     }
 
     /** A paraméterként kapott manipulátorral manipulálja ezt a konkrét elemet.
      * (Meghívja az átadott manipulátoron a Manipulate() fv-t, és átadja önmagát neki az elem.) */
     @Override
-    public void Manipulate(Manipulator m) {
+    public void Manipulate(ManipulatorPlayer m) {
         m.Manipulate(this);
     }
 
+    /** Vízzel tölti meg magát. Ha lyukas a cső vagy nincs output-ja akkor pontot kapnak a szabotőrök,
+     * különben pedig hívja tovább az output-ján a Flood() függvényt (ereszti tovább a vizet).
+     */
     @Override
-    public void Break(){
-        boolean islogged=isLogging;
-        if (islogged) isLogging=false;
-        if(!slippery && !sticky && !super.GetBroken() && counter==0){
-            if (islogged) isLogging=true;
-            super.Break();
+    public void Flood() {
+        SetFlooded(true); // víz kerül belé
+        Element output = GetOutput();
+        if (GetBroken() || output == null) { // ha lyukas vagy nincs kimenete
+            Game.GetInstance().AddSaboteurPoints(1); // akkor pontot kapnak a szabotőrök
+            return; // és már nem folyik tovább belőle a víz a kimenetére
         }
-        else if (islogged) isLogging=true;
+        output.Flood(); // ha viszont minden rendben, akkor folyatja tovább a vizet a kimenetére
     }
 
+    /**
+     * Csak a prototípusban használt függvény, ami kiírja a cső adatait a következő formátumban:
+     *  details of element [idx] (pipe):
+     *      flooded: true/false
+     *      players: [player_name] [player_name] ...
+     *      nbs: [dir_nr] [dir_nr] ...
+     *      broken: true/false
+     *      sticky: true/false
+     *      slippery: true/false
+     *      counter: [value]
+     */
+    @Override
+    public void Print() {
+        int idx = Game.GetInstance().GetNetwork().GetElements().indexOf(this);
+        System.out.print("details of element " + idx + " (pipe):" +
+                         "\n\tflooded: " + GetFlooded() +
+                         "\n\tplayers: ");
+        for (Player player : players)
+            System.out.print(player.GetName() + " ");
+
+        System.out.print("\n\tnbs: ");
+        int cnt = 0, i = 0;
+        while (cnt < GetNbCnt()) {
+            Element nb = GetNb(new Direction(i));
+            if (nb != null) {
+                System.out.print(i + " ");
+                ++cnt;
+            }
+            ++i;
+        }
+        System.out.print("\n\tbroken: " + GetBroken());
+        System.out.print("\n\tsticky: " + GetSticky());
+        System.out.print("\n\tslippery: " + GetSlippery());
+        System.out.print("\n\tcounter: " + GetCounter());
+        System.out.print("\n");
+    }
 }

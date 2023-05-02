@@ -90,10 +90,12 @@ public final class Game {
         scoreSaboteur += points;
     }
 
-    /** A következő játékos turn-jét indítja el (véletlenszerűen pumpákat ront el, csökkenti a ragadós/csúszós elemek
-     időszámlálóját alaphelyzetbe állítva őket a lejártával, áramoltatja a vizet, pontokat oszt a csapatoknak,
-     és ha véget ért egy teljes kör (round), akkor új egy-egy új csövet teremt a ciszternák üres szomszédjai helyén).
-     Ha az egyik csapat elérte a győzelemhez szükséges pontok számát, véget vet a játéknak. */
+    /** A következő játékos turn-jét indítja el (véletlenszerűen pumpákat ront el (nemdeterminisztikus/véletlenszerű
+     * viselkedés esetén), csökkenti a ragadós/csúszós elemek időszámlálóját alaphelyzetbe állítva őket a lejártával,
+     * áramoltatja a vizet, pontokat oszt a csapatoknak, és ha véget ért egy teljes kör (round), akkor új egy-egy új
+     * csövet teremt a ciszternák üres szomszédjai helyén).
+     * Ha a játékos jelenleg egy ragadós elemen áll, akkor egyből véget is fog érni a köre (önmagát hívja a függvény).
+     * Ha az egyik csapat elérte a győzelemhez szükséges pontok számát, véget vet a játéknak, és közli az eredményt. */
     public void NextTurn() {
         for (Pump pump : network.GetPumps()) { // végigmegyünk a pálya összes pumpáján
             if (shouldBreakPipe())
@@ -308,19 +310,25 @@ public final class Game {
          * Bekéri a játékostól, hogy mit szeretne vele tenni (csúszóssá tenni, ragadóssá tenni vagy kilyukasztani),
          * és ennek megfelelő értéket ad vissza (lásd Harm enumeráció).
          * Ha éppen egy szerelő köre van, akkor a csúszóssá tevés lehetőségét nem ajánlja fel, hiszen erre nem
-         * képesek a szerelők.
+         * képesek a szerelők. Ha pedig az átadott "canBeBroken" paraméter hamis, akkor nem ajánlja fel a lyukasztás
+         * lehetőségét sem (ha még nem járt le a megjavítás utáni counter, amíg sérthetetlen - ezt a feltételt a
+         * hívóoldalon kell megfogalmazni, és átadni neki).
          */
-        public static Harm GetPipeHarm() {
+        public static Harm GetPipeHarm(boolean canBeBroken) {
 
             // TODO: GUI-nál dialogue-gal lesz bekérve ehelyett
             String line = PrototypeController.GetInstance().GetCurrLine(); // a jelenlegi parancs sora szövegként
             Harm harm;
+
             if (GetInstance().IsTechnicianTurn()) { // ha egy szerelőnek van most köre
                 harm = Harm.STICKY; // feltételezzük, hogy ragadóssá szeretné tenni
-                if (line.equals("break"))
+                if (line.equals("break") && canBeBroken)
                     harm = Harm.BROKEN;
             } else { // ha egy szabotőrnek van most köre
                 harm = Harm.BROKEN; // feltételezzük, hogy ki szeretné lyukasztani
+                if (!canBeBroken) // ha nem lehet kilyukasztani
+                    harm = Harm.SLIPPY; // akkor azt feltételezzük, hogy csúszóssá szeretné tenni
+
                 if (line.equals("stickify"))
                     harm = Harm.STICKY;
                 else if (line.equals("slippify"))
@@ -339,5 +347,33 @@ public final class Game {
             return false;
 
         return random.nextInt(100) < 2; // 2% esély
+    }
+
+    /** Egy véletlenszerűen sorsolt logikai értéket ad vissza, ami megadja, hogy csúszós elemre lépés esetén,
+     * amikor nemdeterminisztikusan viselkedik a modell, akkor a magasabb irány sorszámú (igaz esetén), vagy a kisebb
+     * irány sorszámú (hamis esetén) szomszédos elem felé csússzon a játékos. Pipe.AddPlayer() függvény hívja. */
+    public boolean SlipToHigherDirection() {
+        return random.nextBoolean();
+    }
+
+    /** Egy véletlenszerűen sorsolt egész számot ad vissza az [1, 6] tartományban, ami megadja, hogy hány körig legyen
+     * ragadós a cső miután ragadóssá tették, amikor nemdeterminisztikusan viselkedik a modell ("counter" új értéke).
+     * Lásd: ManipulatorPlayer.Manipulate(Pipe p) */
+    public int GetRandomStickyCounter() {
+        return random.nextInt(6) + 1; // [1, 6]
+    }
+
+    /** Egy véletlenszerűen sorsolt egész számot ad vissza az [1, 8] tartományban, ami megadja, hogy hány nem lehet a
+     * megjavított cső újra kilyukasztva, amikor nemdeterminisztikusan viselkedik a modell ("counter" új értéke).
+     * Lásd: ManipulatorTechnician.Manipulate(Pipe p) */
+    public int GetRandomUnbreakableCounter() {
+        return random.nextInt(8) + 1; // [1, 8]
+    }
+
+    /** Egy véletlenszerűen sorsolt egész számot ad vissza az [1, 10] tartományban, ami megadja, hogy hány körig legyen
+     * csúszós a cső miután csúszóssá tették, amikor nemdeterminisztikusan viselkedik a modell ("counter" új értéke).
+     * Lásd: ManipulatorPlayer.Manipulate(Pipe p) */
+    public int GetRandomSlippyCounter() {
+        return random.nextInt(10) + 1; // [1, 10]
     }
 }

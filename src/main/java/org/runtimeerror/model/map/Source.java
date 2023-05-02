@@ -1,52 +1,64 @@
 package org.runtimeerror.model.map;
-import org.runtimeerror.Main;
-import org.runtimeerror.model.players.Manipulator;
-import static org.runtimeerror.skeleton.SkeletonController._Game;
 
+import org.runtimeerror.controller.Game;
+import org.runtimeerror.model.players.ManipulatorPlayer;
+import org.runtimeerror.model.players.Player;
 
 /**
  * Olyan elem, amely vizet juttat a vele szomszédos elemekbe, és soha sincsen bemenete.
  */
-public class Source extends Element {
-    /**
-     * Metódusok
-     */
+public final class Source extends Element {
+
     /** Vízzel tölti fel magát, és minden nem lyukas szomszédjára hívja tovább a Flood() függvényt,
-     azaz ereszti tovább a vizet. Ha nem tudja ezt megtenni az adott szomszédja felé,
-     mert lyukas, vagy nincs arra szomszédja, akkor pontot ad a szabotőröknek. */
+     azaz ereszti tovább a vizet. */
     @Override
     public void Flood() {
-        Main.skeleton.PrintFunctionCalled(this);
-        Main.skeleton.PrintFunctionCall(this,"SetFlooded","true");
-        this.SetFlooded(true);
 
-        Main.skeleton.PrintFunctionCall(this,"GetNb", "0");
-        Element nb = this.GetNb(new Direction(0));
-
-        Main.skeleton.PrintFunctionCall(this, "Flood");
-        nb.Flood();
-
-        Main.skeleton.PrintFunctionCall(this,"GetNb", "1");
-        this.GetNb(new Direction(1));
-        Main.skeleton.PrintFunctionCall(this,"AddSaboteurPoints","1");
-        _Game.AddSaboteurPoints(1);
-
-        Main.skeleton.PrintFunctionCall(this,"GetNb", "2");
-        this.GetNb(new Direction(2));
-        Main.skeleton.PrintFunctionCall(this,"AddSaboteurPoints","1");
-        _Game.AddSaboteurPoints(1);
-
-        Main.skeleton.PrintFunctionCall(this,"GetNb", "3");
-        this.GetNb(new Direction(3));
-        Main.skeleton.PrintFunctionCall(this,"AddSaboteurPoints","1");
-        _Game.AddSaboteurPoints(1);
-        Main.skeleton.PrintFunctionReturned("Flood", "");
+        SetFlooded(true); // víz kerül belé
+        int cnt = 0, i = 0;
+        while (cnt < GetNbCnt()) { // végigmegyünk az összes szomszédján
+            Element nb = GetNb(new Direction(i));
+            if (nb != null) {
+                nb.Flood(); // elárasztjuk az összeset
+                ++cnt;
+            }
+            ++i;
+        }
     }
 
     /** A paraméterként kapott manipulátorral manipulálja ezt a konkrét elemet.
      * (Meghívja az átadott manipulátoron a Manipulate() fv-t, és átadja önmagát neki az elem.) */
     @Override
-    public void Manipulate(Manipulator m) {
+    public void Manipulate(ManipulatorPlayer m) {
         m.Manipulate(this);
+    }
+
+    /**
+     * Csak a prototípusban használt függvény, ami kiírja a forrás adatait a következő formátumban:
+     *  details of element [idx] (source):
+     *      flooded: true/false
+     *      players: [player_name] [player_name] ...
+     *      nbs: [dir_nr] [dir_nr] ...
+     */
+    @Override
+    public void Print() {
+        int idx = Game.GetInstance().GetNetwork().GetElements().indexOf(this);
+        System.out.print("details of element " + idx + " (source):" +
+                         "\n\tflooded: " + GetFlooded() +
+                         "\n\tplayers: ");
+        for (Player player : players)
+            System.out.print(player.GetName() + " ");
+
+        System.out.print("\n\tnbs: ");
+        int cnt = 0, i = 0;
+        while (cnt < GetNbCnt()) {
+            Element nb = GetNb(new Direction(i));
+            if (nb != null) {
+                System.out.print(i + " ");
+                ++cnt;
+            }
+            ++i;
+        }
+        System.out.print("\n");
     }
 }

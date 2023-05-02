@@ -1,14 +1,14 @@
 package org.runtimeerror.model.map;
 
 import org.runtimeerror.controller.Game;
+import org.runtimeerror.model.players.ManipulatorPlayer;
 import org.runtimeerror.model.players.Player;
-import org.runtimeerror.model.players.Manipulator;
 
 /**
  * Amennyi csőből folyik víz ebbe az elembe, annyi pontot oszt a szerelők csapatának.
  * Erről az elemről a játékosok közvetlen más ciszternákra tudnak lépni.
  */
-public class Cistern extends Element {
+public final class Cistern extends Element {
 
     /** Megpróbál pumpát adni a soron lévő játékos tárolójába.
      * (Akkor lesz sikeres, ha a jelenlegi játékos szerelő, de nem szükséges semmit ellenőrizni, mert ha szabotőr,
@@ -32,7 +32,7 @@ public class Cistern extends Element {
     /** A paraméterként kapott manipulátorral manipulálja ezt a konkrét elemet.
      * (Meghívja az átadott manipulátoron a Manipulate() fv-t, és átadja önmagát neki az elem.) */
     @Override
-    public void Manipulate(Manipulator m) {
+    public void Manipulate(ManipulatorPlayer m) {
         m.Manipulate(this);
     }
 
