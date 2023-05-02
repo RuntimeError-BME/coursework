@@ -38,18 +38,11 @@ public class Network {
         return re;
     }
 
-    /** Az átadott csövet megkísérli hozzáadni a pályához. Ennek sikerességét adja vissza. */
-    public boolean AddPipe(Pipe p) {
-        Main.skeleton.PrintFunctionCalled(this);
-        if(elements.size()<32){
-            boolean b=elements.add(p);
-            Main.skeleton.PrintFunctionReturned("AddPipe",b ? "true":"false");
-            return b;
-        }
-        else {
-            Main.skeleton.PrintFunctionReturned("AddPipe","false");
-            return false;
-        }
+    /** Az átadott csövet hozzáadja a pályához.
+     * (Hozzáadja a pipes és elements gyűjteményhez is.) */
+    public void AddPipe(Pipe p) {
+        pipes.add(p);
+        elements.add(p);
     }
 
     /** Az átadott pumpával kísérli meg felülírni a másik átadott elemet a pályán. Ennek sikerességét adja vissza. */

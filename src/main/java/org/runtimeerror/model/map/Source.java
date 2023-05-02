@@ -43,9 +43,10 @@ public class Source extends Element {
         Main.skeleton.PrintFunctionReturned("Flood", "");
     }
 
-    /** Az átvett manipulátorral manipulálja ezt a konkrét elemet. */
+    /** A paraméterként kapott manipulátorral manipulálja ezt a konkrét elemet.
+     * (Meghívja az átadott manipulátoron a Manipulate() fv-t, és átadja önmagát neki az elem.) */
     @Override
     public void Manipulate(Manipulator m) {
-
+        m.Manipulate(this);
     }
 }

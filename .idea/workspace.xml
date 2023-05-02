@@ -4,28 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e386bd1d-942e-4395-9f2c-b37568fb3c05" name="Changes" comment="old">
+    <list default="true" id="e386bd1d-942e-4395-9f2c-b37568fb3c05" name="Changes" comment="alpha 0.0.2">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/map/Harm.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/controller/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/controller/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/map/Network.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/map/Network.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/players/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/players/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/players/Technician.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/players/Technician.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/prototype/PrototypeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/prototype/PrototypeController.java" afterDir="false" />
-    </list>
-    <list id="4470af26-99a1-49e1-961d-4efb29cd8c05" name="Changes by adammizser" comment="" />
-    <list id="324ff3ac-ca5d-4e88-9bb4-6dbdc81f9775" name="Changes by sasy" comment="">
       <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/controller/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/controller/Game.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/map/Breakable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/map/Breakable.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/map/Cistern.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/map/Cistern.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/map/Direction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/map/Direction.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/map/Element.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/map/Element.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/map/Network.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/map/Network.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/map/Pipe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/map/Pipe.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/map/Pump.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/map/Pump.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/players/Manipulator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/players/Manipulator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/players/ManipulatorTechnician.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/players/ManipulatorTechnician.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/players/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/players/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/players/Technician.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/players/Technician.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/map/Source.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/map/Source.java" afterDir="false" />
     </list>
+    <list id="4470af26-99a1-49e1-961d-4efb29cd8c05" name="Changes by adammizser" comment="" />
+    <list id="324ff3ac-ca5d-4e88-9bb4-6dbdc81f9775" name="Changes by sasy" comment="Changes by sasy (alpha 0.0.2)" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -53,88 +46,6 @@
       </list>
     </option>
   </component>
-  <component name="LineStatusTrackerManager">
-    <file path="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/players/Technician.java">
-      <ranges>
-        <range start1="2" end1="2" start2="2" end2="3" changelist="324ff3ac-ca5d-4e88-9bb4-6dbdc81f9775" />
-        <range start1="16" end1="17" start2="17" end2="18" changelist="e386bd1d-942e-4395-9f2c-b37568fb3c05" />
-        <range start1="32" end1="32" start2="33" end2="34" changelist="e386bd1d-942e-4395-9f2c-b37568fb3c05" />
-        <range start1="33" end1="37" start2="35" end2="35" changelist="324ff3ac-ca5d-4e88-9bb4-6dbdc81f9775" />
-        <range start1="38" end1="40" start2="36" end2="36" changelist="324ff3ac-ca5d-4e88-9bb4-6dbdc81f9775" />
-        <range start1="42" end1="43" start2="38" end2="38" changelist="324ff3ac-ca5d-4e88-9bb4-6dbdc81f9775" />
-        <range start1="44" end1="46" start2="39" end2="40" changelist="324ff3ac-ca5d-4e88-9bb4-6dbdc81f9775" />
-        <range start1="47" end1="49" start2="41" end2="41" changelist="324ff3ac-ca5d-4e88-9bb4-6dbdc81f9775" />
-        <range start1="52" end1="53" start2="44" end2="44" changelist="324ff3ac-ca5d-4e88-9bb4-6dbdc81f9775" />
-        <range start1="54" end1="57" start2="45" end2="46" changelist="324ff3ac-ca5d-4e88-9bb4-6dbdc81f9775" />
-        <range start1="58" end1="60" start2="47" end2="47" changelist="324ff3ac-ca5d-4e88-9bb4-6dbdc81f9775" />
-        <range start1="62" end1="63" start2="49" end2="49" changelist="324ff3ac-ca5d-4e88-9bb4-6dbdc81f9775" />
-        <range start1="67" end1="70" start2="53" end2="53" changelist="324ff3ac-ca5d-4e88-9bb4-6dbdc81f9775" />
-        <range start1="73" end1="73" start2="56" end2="57" changelist="e386bd1d-942e-4395-9f2c-b37568fb3c05" />
-        <range start1="123" end1="125" start2="107" end2="107" changelist="324ff3ac-ca5d-4e88-9bb4-6dbdc81f9775" />
-        <range start1="126" end1="127" start2="108" end2="108" changelist="324ff3ac-ca5d-4e88-9bb4-6dbdc81f9775" />
-        <range start1="128" end1="131" start2="109" end2="109" changelist="324ff3ac-ca5d-4e88-9bb4-6dbdc81f9775" />
-        <range start1="138" end1="138" start2="116" end2="117" changelist="324ff3ac-ca5d-4e88-9bb4-6dbdc81f9775" />
-        <range start1="139" end1="141" start2="118" end2="118" changelist="324ff3ac-ca5d-4e88-9bb4-6dbdc81f9775" />
-        <range start1="145" end1="149" start2="122" end2="125" changelist="324ff3ac-ca5d-4e88-9bb4-6dbdc81f9775" />
-      </ranges>
-    </file>
-    <file path="$PROJECT_DIR$/src/main/java/org/runtimeerror/controller/Game.java">
-      <ranges>
-        <range start1="2" end1="3" start2="2" end2="2" changelist="e386bd1d-942e-4395-9f2c-b37568fb3c05" />
-        <range start1="4" end1="5" start2="3" end2="3" changelist="e386bd1d-942e-4395-9f2c-b37568fb3c05" />
-        <range start1="6" end1="6" start2="4" end2="6" changelist="e386bd1d-942e-4395-9f2c-b37568fb3c05" />
-        <range start1="17" end1="18" start2="17" end2="18" changelist="e386bd1d-942e-4395-9f2c-b37568fb3c05" />
-        <range start1="24" end1="24" start2="24" end2="25" changelist="e386bd1d-942e-4395-9f2c-b37568fb3c05" />
-        <range start1="61" end1="61" start2="62" end2="64" changelist="e386bd1d-942e-4395-9f2c-b37568fb3c05" />
-        <range start1="63" end1="64" start2="66" end2="66" changelist="e386bd1d-942e-4395-9f2c-b37568fb3c05" />
-        <range start1="66" end1="66" start2="68" end2="82" changelist="e386bd1d-942e-4395-9f2c-b37568fb3c05" />
-        <range start1="92" end1="92" start2="108" end2="109" changelist="e386bd1d-942e-4395-9f2c-b37568fb3c05" />
-        <range start1="97" end1="98" start2="114" end2="129" changelist="e386bd1d-942e-4395-9f2c-b37568fb3c05" />
-        <range start1="100" end1="101" start2="131" end2="132" changelist="e386bd1d-942e-4395-9f2c-b37568fb3c05" />
-        <range start1="102" end1="104" start2="133" end2="133" changelist="e386bd1d-942e-4395-9f2c-b37568fb3c05" />
-        <range start1="107" end1="108" start2="136" end2="167" changelist="e386bd1d-942e-4395-9f2c-b37568fb3c05" />
-        <range start1="109" end1="113" start2="168" end2="169" changelist="e386bd1d-942e-4395-9f2c-b37568fb3c05" />
-        <range start1="115" end1="120" start2="171" end2="184" changelist="e386bd1d-942e-4395-9f2c-b37568fb3c05" />
-        <range start1="123" end1="124" start2="187" end2="190" changelist="e386bd1d-942e-4395-9f2c-b37568fb3c05" />
-        <range start1="127" end1="128" start2="193" end2="196" changelist="324ff3ac-ca5d-4e88-9bb4-6dbdc81f9775" />
-        <range start1="129" end1="130" start2="197" end2="216" changelist="e386bd1d-942e-4395-9f2c-b37568fb3c05" />
-        <range start1="131" end1="132" start2="217" end2="224" changelist="e386bd1d-942e-4395-9f2c-b37568fb3c05" />
-        <range start1="134" end1="151" start2="226" end2="250" changelist="e386bd1d-942e-4395-9f2c-b37568fb3c05" />
-        <range start1="153" end1="172" start2="252" end2="257" changelist="e386bd1d-942e-4395-9f2c-b37568fb3c05" />
-        <range start1="173" end1="173" start2="258" end2="262" changelist="e386bd1d-942e-4395-9f2c-b37568fb3c05" />
-        <range start1="174" end1="181" start2="263" end2="268" changelist="e386bd1d-942e-4395-9f2c-b37568fb3c05" />
-        <range start1="184" end1="198" start2="271" end2="277" changelist="e386bd1d-942e-4395-9f2c-b37568fb3c05" />
-        <range start1="199" end1="200" start2="278" end2="280" changelist="e386bd1d-942e-4395-9f2c-b37568fb3c05" />
-        <range start1="201" end1="211" start2="281" end2="286" changelist="e386bd1d-942e-4395-9f2c-b37568fb3c05" />
-        <range start1="214" end1="216" start2="289" end2="290" changelist="e386bd1d-942e-4395-9f2c-b37568fb3c05" />
-        <range start1="217" end1="221" start2="291" end2="296" changelist="e386bd1d-942e-4395-9f2c-b37568fb3c05" />
-        <range start1="222" end1="224" start2="297" end2="301" changelist="e386bd1d-942e-4395-9f2c-b37568fb3c05" />
-        <range start1="229" end1="230" start2="306" end2="307" changelist="e386bd1d-942e-4395-9f2c-b37568fb3c05" />
-        <range start1="237" end1="246" start2="314" end2="314" changelist="e386bd1d-942e-4395-9f2c-b37568fb3c05" />
-      </ranges>
-    </file>
-    <file path="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/players/Player.java">
-      <ranges>
-        <range start1="4" end1="4" start2="4" end2="5" changelist="e386bd1d-942e-4395-9f2c-b37568fb3c05" />
-        <range start1="27" end1="27" start2="28" end2="32" changelist="e386bd1d-942e-4395-9f2c-b37568fb3c05" />
-        <range start1="42" end1="43" start2="47" end2="48" changelist="324ff3ac-ca5d-4e88-9bb4-6dbdc81f9775" />
-        <range start1="44" end1="48" start2="49" end2="49" changelist="324ff3ac-ca5d-4e88-9bb4-6dbdc81f9775" />
-        <range start1="50" end1="51" start2="51" end2="51" changelist="324ff3ac-ca5d-4e88-9bb4-6dbdc81f9775" />
-        <range start1="52" end1="54" start2="52" end2="52" changelist="324ff3ac-ca5d-4e88-9bb4-6dbdc81f9775" />
-        <range start1="56" end1="60" start2="54" end2="54" changelist="324ff3ac-ca5d-4e88-9bb4-6dbdc81f9775" />
-        <range start1="68" end1="69" start2="62" end2="64" changelist="324ff3ac-ca5d-4e88-9bb4-6dbdc81f9775" />
-        <range start1="70" end1="73" start2="65" end2="65" changelist="324ff3ac-ca5d-4e88-9bb4-6dbdc81f9775" />
-        <range start1="74" end1="76" start2="66" end2="66" changelist="324ff3ac-ca5d-4e88-9bb4-6dbdc81f9775" />
-        <range start1="77" end1="77" start2="67" end2="88" changelist="e386bd1d-942e-4395-9f2c-b37568fb3c05" />
-      </ranges>
-    </file>
-    <file path="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/map/Network.java">
-      <ranges>
-        <range start1="36" end1="39" start2="36" end2="37" changelist="324ff3ac-ca5d-4e88-9bb4-6dbdc81f9775" />
-        <range start1="133" end1="133" start2="131" end2="134" changelist="e386bd1d-942e-4395-9f2c-b37568fb3c05" />
-      </ranges>
-    </file>
-  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -144,24 +55,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "codeWithMe.voiceChat.enabledByDefault": "false",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "C:/Program Files/JetBrains/CLion 2022.2.1/dicts/hu_HU_without_accents.dic",
-    "node.js.detected.package.eslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "Errors",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Program Files/JetBrains/CLion 2022.2.1/dicts/hu_HU_without_accents.dic&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;Errors&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.runtimeerror.Main" />
@@ -185,7 +96,7 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="4" Folder0="C:\Program Files\JetBrains\CLion 2022.2.1\dicts" Folder1="C:\Program Files\JetBrains\CLion 2022.2.1\dicts" Folder2="C:\Program Files\JetBrains\CLion 2022.2.1\dicts" Folder3="C:\Program Files\JetBrains\CLion 2022.2.1\dicts" CustomDictionaries="4" CustomDictionary0="C:\Program Files\JetBrains\CLion 2022.2.1\dicts\hu_HU.aff" CustomDictionary1="C:\Program Files\JetBrains\CLion 2022.2.1\dicts\hu_HU.dic" CustomDictionary2="C:\Program Files\JetBrains\CLion 2022.2.1\dicts\hu_HU_without_accents.aff" CustomDictionary3="C:\Program Files\JetBrains\CLion 2022.2.1\dicts\hu_HU_without_accents.dic" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="52169174-47a2-4a8d-a704-4d727098fc35" name="Changes" comment="" />
+      <changelist id="e386bd1d-942e-4395-9f2c-b37568fb3c05" name="Changes" comment="alpha 0.0.2" />
       <created>1677421116671</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -196,6 +107,7 @@
       <workItem from="1682869249864" duration="331000" />
       <workItem from="1682871433484" duration="956000" />
       <workItem from="1682930376250" duration="497000" />
+      <workItem from="1682981580558" duration="7149000" />
     </task>
     <task id="LOCAL-00001" summary="Move to Empty pipe&#10;Manipulate &#10;Újítások&#10;Oli, Elon">
       <created>1682595103637</created>
@@ -260,7 +172,21 @@
       <option name="project" value="LOCAL" />
       <updated>1682669931450</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="alpha 0.0.2">
+      <created>1682980287840</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1682980287840</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Changes by sasy (alpha 0.0.2)">
+      <created>1682980362541</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1682980362541</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -284,7 +210,9 @@
     <MESSAGE value="...&#10;Random kiegészítés" />
     <MESSAGE value="...&#10;PrototypeController" />
     <MESSAGE value="...&#10;Network.." />
-    <option name="LAST_COMMIT_MESSAGE" value="...&#10;Network.." />
+    <MESSAGE value="alpha 0.0.2" />
+    <MESSAGE value="Changes by sasy (alpha 0.0.2)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Changes by sasy (alpha 0.0.2)" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

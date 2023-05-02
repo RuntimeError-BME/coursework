@@ -23,6 +23,7 @@ public class Pipe extends Breakable {
 
     }
 
+    @Override
     public boolean GetSticky() {
         Main.skeleton.PrintFunctionCalled(this);
         Main.skeleton.PrintFunctionReturned("GetSticky",sticky?"true":"false");
@@ -154,10 +155,8 @@ public class Pipe extends Breakable {
         if(this.GetNbCnt()<2){super.SetNb(d,e);}
     }
 
-    /**
-     * Az átvett manipulátorral manipulálja ezt a konkrét elemet.
-     * @param m - manipulátor
-     */
+    /** A paraméterként kapott manipulátorral manipulálja ezt a konkrét elemet.
+     * (Meghívja az átadott manipulátoron a Manipulate() fv-t, és átadja önmagát neki az elem.) */
     @Override
     public void Manipulate(Manipulator m) {
         m.Manipulate(this);

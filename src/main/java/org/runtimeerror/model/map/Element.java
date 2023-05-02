@@ -18,7 +18,7 @@ public abstract class Element {
      * Attribútumok
      */
     private boolean flooded = false; // van-e benne jelenleg víz
-    protected boolean pickUpAble = false; // fel tudják-e venni a játékosok
+    protected static boolean pickUpAble = false; // fel tudják-e venni a játékosok
     protected final List<Player> players = new ArrayList<>(4); // játékosok, akik éppen rajta tartózkodnak
     private final SortedMap<Integer, Element> nbs = new TreeMap<>(); // szomszédos elemei
     private Element input = null; // a szomszédja (ha van ilyen), amiből folyhat bele víz
@@ -38,7 +38,12 @@ public abstract class Element {
         }
     }
 
-    public boolean GetBroken(){
+    /**
+     * Visszaadja, hogy az elem törött-e. Mindig hamist ad vissza. Csak Breakable írja felül ezt a függvényt, azaz
+     * csak a Breakable leszármazottak lehetnek töröttek (és nem töröttek - a két állapot közül az egyik).
+     * Az Element -> Breakable downcast elkerülésének céljából van "itt fent" megvalósítva ez a függvény.
+     */
+    public boolean GetBroken() {
         return false;
     }
 
@@ -76,9 +81,10 @@ public abstract class Element {
      Az átadott manipulátorral manipulálja az elemet. */
     public abstract void Manipulate(Manipulator m);
 
-    /** Visszaadja, hogy az elem felvehető-e. A származtatott elemek felüldefiniálhatják. */
+    /** Visszaadja, hogy az elem felvehető-e (pickUpAble attribútum igaz ÉS nem áll rajta egy játékos sem).
+     * A származtatott elemek felüldefiniálhatják. */
     public boolean GetPickUpAble() {
-        return pickUpAble&&(players.size()==0);
+        return pickUpAble && players.isEmpty();
     }
 
     /** A szomszédos elemek számát adja vissza. */
@@ -138,4 +144,13 @@ public abstract class Element {
         Main.skeleton.PrintFunctionReturned("SetOutput", "");
     }
 
+    public boolean GetSticky() {
+        return false;
+    }
+
+    /**
+     * Csak a prototípusban használt függvény, ami kiírja az elem adatait.
+     * Absztrakt függvény, amit a konkrét leszármazottakban meg kell valósítani.
+     */
+    public abstract void Print();
 }

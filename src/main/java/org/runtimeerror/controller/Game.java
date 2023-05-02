@@ -120,13 +120,15 @@ public final class Game {
             return; // ha véget ért a játék, már nem jelezzük ki a következő játékos körét
 
         ++currPlayerIdx; // következő játékos jön
-        System.out.println(GetTurnInfo()); // kiírjuk a jelenlegi kör (frissült) adatait
-        // TODO: ezt majd a GUI felületére
-
         if (currPlayerIdx >= players.size()) { // ha véget ért egy teljes kör (round)
             currPlayerIdx = 0; // akkor újra a kezdő játékos jön
             network.ProducePipesAroundCisterns(); // csövek lehelyezése a ciszternák körül, amennyiben lehetséges
         }
+
+        System.out.println(GetTurnInfo()); // kiírjuk a jelenlegi kör (frissült) adatait
+        // TODO: ezt majd a GUI felületére
+        if (GetCurrPlayer().GetCurrElem().GetSticky()) // ha a következő játékos alatt (még) ragadós cső van
+            NextTurn(); // akkor egyből véget is ér a köre
     }
 
     /** Visszaadja a játékost, aki éppen soron van (akinek turn-je van jelenleg). */
@@ -299,6 +301,32 @@ public final class Game {
                 new Direction(input),
                 new Direction(output)
             };
+        }
+
+        /**
+         * Akkor hívandó függvény, amikor egy játékos egy csövet próbálna manipulálni.
+         * Bekéri a játékostól, hogy mit szeretne vele tenni (csúszóssá tenni, ragadóssá tenni vagy kilyukasztani),
+         * és ennek megfelelő értéket ad vissza (lásd Harm enumeráció).
+         * Ha éppen egy szerelő köre van, akkor a csúszóssá tevés lehetőségét nem ajánlja fel, hiszen erre nem
+         * képesek a szerelők.
+         */
+        public static Harm GetPipeHarm() {
+
+            // TODO: GUI-nál dialogue-gal lesz bekérve ehelyett
+            String line = PrototypeController.GetInstance().GetCurrLine(); // a jelenlegi parancs sora szövegként
+            Harm harm;
+            if (GetInstance().IsTechnicianTurn()) { // ha egy szerelőnek van most köre
+                harm = Harm.STICKY; // feltételezzük, hogy ragadóssá szeretné tenni
+                if (line.equals("break"))
+                    harm = Harm.BROKEN;
+            } else { // ha egy szabotőrnek van most köre
+                harm = Harm.BROKEN; // feltételezzük, hogy ki szeretné lyukasztani
+                if (line.equals("stickify"))
+                    harm = Harm.STICKY;
+                else if (line.equals("slippify"))
+                    harm = Harm.SLIPPY;
+            }
+            return harm;
         }
     }
 
