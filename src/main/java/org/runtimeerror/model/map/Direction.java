@@ -2,6 +2,8 @@ package org.runtimeerror.model.map;
 
 /**
  * A geometriát igyekeztünk eltávolítani. A Direction típus a modell szempontjából tetszőleges absztrakció lehet.
+ * A megvalósításunk: egy tetszőleges egész számból képződik az irány. Tetszőleges irányból előállítható az ellentétes
+ * iránya a megadott módon.
  */
 public class Direction {
     /**

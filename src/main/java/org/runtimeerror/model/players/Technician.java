@@ -84,7 +84,7 @@ public class Technician extends Player {
         } else if (!storedPart.GetPickUpAble_onlyAttribute()) { // ha pumpát akar lehelyezni
             if (!currElem.GetPickUpAble()) // ha nem felvehető (nem cső, törött vagy van rajta játékos),
                 return false; // akkor nem cserélheti ki a pumpát rá
-            return network.AddPump((Pump)targetElem, currElem); // különben megpróbálhatjuk lecserélni
+                return network.AddPump((Pump)targetElem, currElem); // különben megpróbálhatjuk lecserélni
         }
         return false; // más különben nem sikeres a lehelyezés
     }

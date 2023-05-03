@@ -23,7 +23,6 @@ public final class Pipe extends Breakable {
     /** időszámláló, ami körökben adja meg, hogy még hány körig (turn) nem lehet lyukasztani a csövet,
      * vagy hogy még hány körig (turn) lesz ragadós vagy csúszós. */
     private int counter = 0;
-    private static int defaultCounter = 2; // determinisztikus viselkedés esetén ennyi lesz a számláló kezdeti értéke
 
     /** Statikus inicializáló blokk, ami igazra állítja az ősből örökölt STATIKUS protected pickUpAble attribútumot,
      hiszen a csövek felvehető elemek. */

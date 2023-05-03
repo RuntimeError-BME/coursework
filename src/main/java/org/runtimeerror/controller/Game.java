@@ -190,7 +190,7 @@ public final class Game {
 
     /** Inner-class. A felhasználót és a játékot köti össze. Irányokat / célpontokat tud bekérni a felhasználótól.
      Játékosmozgatást, cső- és pumpalehelyezést, illetve csőfelvevést kezdeményezhet vele.
-     Azt is be tudja kérni a játékostól, hogy milyen módon szeretné manipulálni a csövet, amin éppen áll (tönkretenni,
+     Azt is be tudja kérni a játékostól, hogy milyen módon szeretné manipulálni a csövet, amin éppen áll (tönkre tenni,
      csúszóssá tenni, ragadóssá tenni). A játék végét is ő kommunikálja a játékosok felé. */
     public static class Input {
 
