@@ -7,3 +7,9 @@ public class Main {
 
     }
 }
+
+
+/* Nagyobb módosítások a projektben:
+
+
+ */
