@@ -17,10 +17,11 @@ public abstract class Element {
     /**
      * Attribútumok
      */
+    private int idx; // a játékban központilag kezelt azonosító
     private boolean flooded = false; // van-e benne jelenleg víz
     protected static boolean pickUpAble = false; // fel tudják-e venni a játékosok
     protected final List<Player> players = new ArrayList<>(4); // játékosok, akik éppen rajta tartózkodnak
-    private SortedMap<Integer, Element> nbs = new TreeMap<>(); // szomszédos elemei
+    private List<Element> nbs = new ArrayList<>(); // szomszédos elemei
     private Element input = null; // a szomszédja (ha van ilyen), amiből folyhat bele víz
     private Element output = null; // a szomszédja (ha van ilyen), amibe folyhat belőle víz
 
@@ -39,14 +40,17 @@ public abstract class Element {
         players.remove(p);
     }
 
+    /** Az azonosítót adja vissza */
+    public int GetIdx() { return idx; }
+
     /** Az átadott irányba lévő szomszédos elemét adja vissza, ha van ilyen. */
-    public Element GetNb(Direction d) {
-        return nbs.get(d.ordinal());
+    public List<Element> GetNb() {
+        return nbs;
     }
 
-    /** Megadott irányú szomszédjának állítja be az átadott elemet. */
-    public void SetNb(Direction d, Element e) {
-        nbs.put(d.ordinal(), e);
+    /** A szomszédjának állítja be az átadott elemet. */
+    public void AddNb(Element e) {
+        nbs.add(e);
     }
 
     /**
@@ -55,33 +59,6 @@ public abstract class Element {
      */
     public void CopyNbs(Element e) {
         nbs = e.nbs;
-    }
-
-    /** Megadja a legnagyobb értékű irányt, amerre van szomszédja az elemnek. Ha egyetlen szomszédja sincs az
-     * elemnek, akkor -1 -et ad vissza.
-     * Használat helye: Pipe.AddPlayer függvényének a csúszós csőre lépés része. */
-    public int GetNbMaxDirNumber() {
-        int max = -1;
-        for (int dir : nbs.keySet()) {
-            if (dir > max)
-                max = dir;
-        }
-        return max;
-    }
-
-    /** Megadja a legkisebb értékű irányt, amerre van szomszédja az elemnek. Ha egyetlen szomszédja sincs az
-     * elemnek, akkor -1 -et ad vissza.
-     * Használat helye: Pipe.AddPlayer függvényének a csúszós csőre lépés része. */
-    public int GetNbMinDirNumber() {
-        if (GetNbCnt() <= 0)
-            return -1;
-
-        int min = GetNbMaxDirNumber();
-        for (int dir : nbs.keySet()) {
-            if (dir < min)
-                min = dir;
-        }
-        return min;
     }
 
     /** Ha egy elem támogatni akarja azt a funkcionalitást, hogy egy szerelő rajta állva

@@ -4,12 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e386bd1d-942e-4395-9f2c-b37568fb3c05" name="Changes" comment="Added modified components comment section to the project (Main.java)">
+    <list default="true" id="e386bd1d-942e-4395-9f2c-b37568fb3c05" name="Changes" comment="Added modification ideas as comment (Main.java)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/map/Direction.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/map/Element.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/map/Element.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/players/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/players/Player.java" afterDir="false" />
     </list>
-    <list id="4470af26-99a1-49e1-961d-4efb29cd8c05" name="Changes by adammizser" comment="" />
+    <list id="0c069abf-c2a7-4671-903a-b3eeb3494593" name="Changes by adammizser" comment="" />
     <list id="324ff3ac-ca5d-4e88-9bb4-6dbdc81f9775" name="Changes by sasy" comment="Changes by sasy (alpha 0.0.2)" />
+    <list id="a4c0f49e-6999-4950-9835-6465a74e418a" name="Changes by Tep Oli" comment="">
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/map/Element.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/map/Element.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -37,6 +43,18 @@
       </list>
     </option>
   </component>
+  <component name="LineStatusTrackerManager">
+    <file path="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/map/Element.java">
+      <ranges>
+        <range start1="19" end1="19" start2="19" end2="20" changelist="e386bd1d-942e-4395-9f2c-b37568fb3c05" />
+        <range start1="22" end1="23" start2="23" end2="24" changelist="e386bd1d-942e-4395-9f2c-b37568fb3c05" />
+        <range start1="41" end1="41" start2="42" end2="45" changelist="e386bd1d-942e-4395-9f2c-b37568fb3c05" />
+        <range start1="42" end1="44" start2="46" end2="48" changelist="e386bd1d-942e-4395-9f2c-b37568fb3c05" />
+        <range start1="46" end1="49" start2="50" end2="53" changelist="e386bd1d-942e-4395-9f2c-b37568fb3c05" />
+        <range start1="50" end1="50" start2="54" end2="58" changelist="a4c0f49e-6999-4950-9835-6465a74e418a" />
+      </ranges>
+    </file>
+  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -46,24 +64,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "codeWithMe.voiceChat.enabledByDefault": "false",
-    "git-widget-placeholder": "session-week-10",
-    "last_opened_file_path": "C:/Program Files/JetBrains/CLion 2022.2.1/dicts/hu_HU_without_accents.dic",
-    "node.js.detected.package.eslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "preferences.keymap",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;session-week-10&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Program Files/JetBrains/CLion 2022.2.1/dicts/hu_HU_without_accents.dic&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.runtimeerror.Main" />
@@ -100,7 +118,8 @@
       <workItem from="1682930376250" duration="497000" />
       <workItem from="1682981580558" duration="7296000" />
       <workItem from="1683020773615" duration="51118000" />
-      <workItem from="1683540670351" duration="1174000" />
+      <workItem from="1683540670351" duration="1286000" />
+      <workItem from="1683562574867" duration="2349000" />
     </task>
     <task id="LOCAL-00001" summary="Move to Empty pipe&#10;Manipulate &#10;Újítások&#10;Oli, Elon">
       <created>1682595103637</created>
@@ -200,7 +219,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683541042915</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Added modification ideas as comment (Main.java)">
+      <created>1683544219174</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1683544219174</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -229,7 +255,8 @@
     <MESSAGE value="alpha 0.0.3" />
     <MESSAGE value="alpha 0.1.0" />
     <MESSAGE value="Added modified components comment section to the project (Main.java)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added modified components comment section to the project (Main.java)" />
+    <MESSAGE value="Added modification ideas as comment (Main.java)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added modification ideas as comment (Main.java)" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
