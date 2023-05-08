@@ -99,16 +99,12 @@ public final class Network {
         }
 
         // a kimenetnek azt a szomszédját, amerre a felülírandó cső van, felül kell írnunk az új pumpával
-        i = 0; cnt = 0; // index, és a megtalált szomszédok száma
-        while (cnt < out.GetNbCnt()) {
-            Direction d = new Direction(i); // az aktuális irány
-            Element nb = out.GetNb(d); // az aktuális irányba lévő szomszéd
-            if (nb != null) {
-                if (nb == e) // ha megtaláltuk a felülírandó csövet
-                    out.SetNb(d, p); // felülírjuk a pumpával
-                ++cnt; // növeljük a megtalált szomszédok számát
+        for (Element element : out.GetNb()) {
+            if (element == e) {
+                out.RemoveNb(element);
+                out.AddNb(e);
+                break;
             }
-            ++i; // növeljük az indexet, amelyből az irányokat képezzük
         }
 
         RemoveElem(e); // eltávolítjuk a felülírandó csövet a szortírozó gyűjtemények egyikéből
