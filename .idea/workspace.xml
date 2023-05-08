@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e386bd1d-942e-4395-9f2c-b37568fb3c05" name="Changes" comment="alpha 0.1.0">
+    <list default="true" id="e386bd1d-942e-4395-9f2c-b37568fb3c05" name="Changes" comment="Added modified components comment section to the project (Main.java)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/Main.java" afterDir="false" />
     </list>
@@ -100,7 +100,7 @@
       <workItem from="1682930376250" duration="497000" />
       <workItem from="1682981580558" duration="7296000" />
       <workItem from="1683020773615" duration="51118000" />
-      <workItem from="1683540670351" duration="303000" />
+      <workItem from="1683540670351" duration="1174000" />
     </task>
     <task id="LOCAL-00001" summary="Move to Empty pipe&#10;Manipulate &#10;Újítások&#10;Oli, Elon">
       <created>1682595103637</created>
@@ -193,7 +193,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683066010119</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Added modified components comment section to the project (Main.java)">
+      <created>1683541042915</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1683541042915</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -221,7 +228,8 @@
     <MESSAGE value="Changes by sasy (alpha 0.0.2)" />
     <MESSAGE value="alpha 0.0.3" />
     <MESSAGE value="alpha 0.1.0" />
-    <option name="LAST_COMMIT_MESSAGE" value="alpha 0.1.0" />
+    <MESSAGE value="Added modified components comment section to the project (Main.java)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added modified components comment section to the project (Main.java)" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
