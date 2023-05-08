@@ -90,16 +90,12 @@ public final class Network {
         p.CopyNbs(e); // átmásoljuk belé a felülírandó elem szomszédjainak gyűjteményét
 
         // a bemenetnek azt a szomszédját, amerre a felülírandó cső van, felül kell írnunk az új pumpával
-        int i = 0, cnt = 0; // index, és a megtalált szomszédok száma
-        while (cnt < inp.GetNbCnt()) {
-            Direction d = new Direction(i); // az aktuális irány
-            Element nb = inp.GetNb(d); // az aktuális irányba lévő szomszéd
-            if (nb != null) {
-                if (nb == e) // ha megtaláltuk a felülírandó csövet
-                    inp.SetNb(d, p); // felülírjuk a pumpával
-                ++cnt; // növeljük a megtalált szomszédok számát
+        for (Element element : inp.GetNb()) {
+            if (element == e) {
+                inp.RemoveNb(element);
+                inp.AddNb(e);
+                break;
             }
-            ++i; // növeljük az indexet, amelyből az irányokat képezzük
         }
 
         // a kimenetnek azt a szomszédját, amerre a felülírandó cső van, felül kell írnunk az új pumpával
