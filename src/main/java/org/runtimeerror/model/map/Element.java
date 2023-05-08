@@ -52,6 +52,10 @@ public abstract class Element {
     public void AddNb(Element e) {
         nbs.add(e);
     }
+    /** A megadott elemet veszi ki a szomszédok közül ha benne van különben null-t ad.*/
+    public Element RemoveNb(Element e) {
+        return nbs.contains(e) ? nbs.remove(nbs.indexOf(e)) : null;
+    }
 
     /**
      * Átmásolja a szomszédos elemek gyűjteményét (annak referenciáját állítja át) az átadott elemben lévőből.
