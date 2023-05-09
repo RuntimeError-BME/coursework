@@ -1,6 +1,9 @@
 package org.runtimeerror.gui;
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 
 
@@ -22,8 +25,18 @@ public class GuiController {
         /** A keret beállítása */
         frame = new JFrame(); /** A keret inicializálása */
         frame.setTitle("runtime_error"); /** A keret nevének beállítása */
-        frame.setSize(ScreenSize.width, ScreenSize.height); /** A keret méretének beállítása */
         frame.setLayout(null); /** A keret elhelyezkedésének beállítása */
+
+        /** A háttérkép beállítása */
+        ImageIcon imageIcon = new ImageIcon("frame_wallpaper/desert.jpg"); /** Kép betöltése ImageIcon-ba */
+        Image image = imageIcon.getImage(); /** ImageIcon --- Image transzformáció */
+        Image scaled_img = image.getScaledInstance(ScreenSize.width, ScreenSize.height,  Image.SCALE_SMOOTH); /** A kép átméretezése */
+        imageIcon = new ImageIcon(scaled_img);  /** Image --- ImageIcon transzformáció */
+        frame.setContentPane(new JLabel(imageIcon)); /** A kép panel-ba ágyazása */
+        frame.getContentPane().setPreferredSize(new Dimension(ScreenSize.width, ScreenSize.height)); /** A keret méretének beállítása */
+        frame.pack();
+
+        /** A keret indítása */
         frame.setVisible(true); /** A keret láthatóvá tétele */
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 

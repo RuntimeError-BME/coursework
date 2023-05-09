@@ -1,10 +1,12 @@
 package org.runtimeerror;
 
+import org.runtimeerror.gui.GuiController;
+
 public class Main {
 
     public static void main(String[] args) {
 
-
+        GuiController guic = new GuiController();
     }
 }
 
