@@ -1,5 +1,7 @@
 package org.runtimeerror.model.map;
 
+import org.runtimeerror.controller.Game;
+
 import java.util.List;
 import java.util.ArrayList;
 
@@ -87,25 +89,18 @@ public final class Network {
         p.SetOutput(out); // beállítjuk a pumpa kimenetét a felülírt cső kimenetére
         out.SetInput(p); // a kimenetének a bemenete most már nem a felülírandó cső lesz, hanem a pumpa
         p.SetFlooded(e.GetFlooded()); // ha a felülírandó csőben volt víz, akkor a lehelyezendő pumpában is lesz
-        p.CopyNbs(e); // átmásoljuk belé a felülírandó elem szomszédjainak gyűjteményét
+        // átmásoljuk belé a felülírandó elem szomszédjait
+        p.AddNb(inp);
+        p.AddNb(out);
 
         // a bemenetnek azt a szomszédját, amerre a felülírandó cső van, felül kell írnunk az új pumpával
-        for (Element element : inp.GetNb()) {
-            if (element == e) {
-                inp.RemoveNb(element);
-                inp.AddNb(e);
-                break;
-            }
-        }
+        inp.RemoveNb(e);
+        inp.AddNb(p);
 
         // a kimenetnek azt a szomszédját, amerre a felülírandó cső van, felül kell írnunk az új pumpával
-        for (Element element : out.GetNb()) {
-            if (element == e) {
-                out.RemoveNb(element);
-                out.AddNb(e);
-                break;
-            }
-        }
+        out.RemoveNb(e);
+        out.AddNb(p);
+
 
         RemoveElem(e); // eltávolítjuk a felülírandó csövet a szortírozó gyűjtemények egyikéből
         int idx = elements.indexOf(e); // a felülírandó elem indexe a minden elemet tároló gyűjteményben
@@ -164,5 +159,14 @@ public final class Network {
     public void ProducePipesAroundCisterns() {
         for (Cistern cistern : cisterns)
             cistern.ProducePipe();
+    }
+
+    /** Visszaadja a megadott indexű elemet a pályáról, ha van olyan. */
+    public Element GetElement(int idx){
+        for (Element element : elements) {
+            if(element.GetIdx() == idx)
+                return element;
+        }
+        return null;
     }
 }

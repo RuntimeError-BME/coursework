@@ -96,12 +96,12 @@ public final class Pipe extends Breakable {
             Element targetElem2 = null; // vagy ahonnan érkezett az az elem lesz, vagy a célpont másik szomszédja
             if (Game.GetInstance().GetDeterministic()) { // ha a játék determinisztikusan viselkedik
                 // akkor a legkisebb sorszámú irányban lévő szomszédra fog kerülni
-                targetElem2 = GetNb(new Direction(GetNbMinDirNumber()));
+                targetElem2 = GetNbs(new Direction(GetNbMinDirNumber()));
             } else { // ha a játék nem viselkedik determinisztikusan
                 // akkor a két elem közül véletlenszerűen fog az egyikre csúszni (controller random sorsoló függvénye)
                 targetElem2 = (Game.GetInstance().SlipToHigherDirection()) // ha a nagyobb sorszámú felé fog csúszni
-                    ? GetNb(new Direction(GetNbMaxDirNumber())) // akkor arra fog,
-                    : GetNb(new Direction(GetNbMinDirNumber())); // különben pedig a minimális sorszámú felé
+                    ? GetNbs(new Direction(GetNbMaxDirNumber())) // akkor arra fog,
+                    : GetNbs(new Direction(GetNbMinDirNumber())); // különben pedig a minimális sorszámú felé
             }
             targetElem2.AddPlayer(p); // átkerül a játékos az előzőekben meghatározott szomszédos elemre
 
@@ -156,7 +156,7 @@ public final class Pipe extends Breakable {
         System.out.print("\n\tnbs: ");
         int cnt = 0, i = 0;
         while (cnt < GetNbCnt()) {
-            Element nb = GetNb(new Direction(i));
+            Element nb = GetNbs(new Direction(i));
             if (nb != null) {
                 System.out.print(i + " ");
                 ++cnt;
@@ -168,5 +168,10 @@ public final class Pipe extends Breakable {
         System.out.print("\n\tslippery: " + GetSlippery());
         System.out.print("\n\tcounter: " + GetCounter());
         System.out.print("\n");
+    }
+
+    /** Hozzáadja a pályának a csöveket szortírozó gyűjteményéhez az adott csövet. */
+    public boolean NetworkAdd(Element e){
+        return Game.GetInstance().GetNetwork().AddPipe(this);
     }
 }

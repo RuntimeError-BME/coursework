@@ -1,9 +1,11 @@
 package org.runtimeerror.model.players;
 
-import org.runtimeerror.Main;
 import org.runtimeerror.controller.Game;
 import org.runtimeerror.model.map.*;
 import org.runtimeerror.model.map.Element;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Olyan játékos, vagy máshogy fogalmazva annyiban tér el egy szabotőrtől, hogy képes csöveket és pumpákat javítani.
@@ -46,9 +48,14 @@ public class Technician extends Player {
     /** Megkísérli felvenni a d irányban lévő part-ot, ha van olyan.
      Felülírja az ősbéli megvalósítást, lásd: Player.PickUpPart(Direction d) */
     @Override
-    public void PickUpPart(Direction d) {
+    public void PickUpPart(Element e) {
 
-        Element targetElem = GetCurrElem().GetNb(d); // az elem, amit megpróbál felvenni
+        List<Element> elementPool = new ArrayList<>(GetCurrElem().GetNbs());
+        Element targetElem = null; // az elem, amit megpróbál felvenni
+
+        if(elementPool.contains(e))
+            targetElem = e;
+
         if (targetElem == null) // ha nincs elem arra,
             return; // nem történik semmi
 
@@ -64,28 +71,54 @@ public class Technician extends Player {
         SetPart(targetElem); // eltároljuk a tárolójába
     }
 
-    /** Megkísérli elhelyezni a tárolt part-ját d irányba. A művelet sikerességével tér vissza.
-     A csövet az elemtől d irányba lévő üres helyre tudja lehelyezni, pumpát viszont úgy tesz le, hogy a jelenlegi
-     elemet írja felül, ha az egy cső, ami 2 másik cső között van (ilyenkor d tetszőleges, nem használt irány).
-     Felülírja az ősbéli megvalósítást, lásd: Player.PickUpPart(Direction d) */
+    /** Megkísérli elhelyezni a tárolt part-ját. A művelet sikerességével tér vissza.
+     Csövet üres helyre tud lehelyezni, pumpát viszont úgy tesz le, hogy a jelenlegi
+     elemet írja felül, ha az egy cső, ami 2 másik cső között van.
+     Ezen kívül át kell adni egy "e" elemet (ami nem az amin áll), amihez csatolni fogja a lehelyezendőt (ha van ilyen).
+     Felülírja az ősbéli megvalósítást, lásd: Player.PickUpPart(Element e) */
     @Override
-    public boolean PlacePart(Direction d) {
+    public boolean PlacePart(Element e) {
 
         Network network = Game.GetInstance().GetNetwork(); // a pálya
         Element currElem = GetCurrElem(); // az elem, amin áll
-        Element targetElem = currElem.GetNb(d); // a célpont elem
         Element storedPart = GetPart(); // az elem a szerelő tárolójában (a hívó gondoskodott róla, hogy nem null)
         boolean successfulPlacement = false; // a lehelyezés sikeressége, ezt fogjuk visszaadni
 
-        if (storedPart.GetPickUpAble_onlyAttribute() && targetElem == null) { // ha szabad helyre akar csövet tenni
-            if (currElem.GetPickUpAble_onlyAttribute() && currElem.GetNbCnt() >= 2) // ha egy csövön áll,
-                return false; // és van már 2 szomszédja, akkor nem tudja semelyik irányba sem mellé tenni
-            return network.AddPipe((Pipe)targetElem); // különben hozzáadhatjuk a pályához (megpróbálhatjuk legalábbis)
-        } else if (!storedPart.GetPickUpAble_onlyAttribute()) { // ha pumpát akar lehelyezni
-            if (!currElem.GetPickUpAble()) // ha nem felvehető (nem cső, törött vagy van rajta játékos),
+        if (storedPart.GetPickUpAble_onlyAttribute()) { // ha csövet akar letenni
+            if (currElem.GetPickUpAble_onlyAttribute() && currElem.GetNbCnt() >= 2) // ha csövön áll és már nem lehet nb-je,
+                return false; // akkor nem tudja letenni mellé
+            if (e != null) {
+                if (e.GetPickUpAble_onlyAttribute() && e.GetNbCnt() >= 2) // ha egy csövön áll,
+                    return false; // és van már 2 szomszédja, akkor nem tudja semelyik irányba sem mellé tenni
+            }
+
+            successfulPlacement = storedPart.NetworkAdd(null);// berakjuk a network pipe-jai közé
+            if (successfulPlacement){
+                //Ha van elem amihez a végét kötnénk akkor azzal beállítjuk a szomszédi viszonyokat.
+                if (e != null) {
+                    storedPart.AddNb(e);
+                    e.AddNb(storedPart);
+                    storedPart.SetOutput(e);
+                    e.SetInput(storedPart);
+                }
+
+                // beállítjuk az új cső szomszédjait, illetve be- és kimenetét (és fordított irányba is)
+                currElem.AddNb(storedPart);
+                storedPart.AddNb(currElem);
+                storedPart.SetInput(currElem);
+                currElem.SetOutput(storedPart);
+
+            }
+        } else { // ha pumpát akar lehelyezni
+            if (currElem.GetBroken() || currElem.GetNbCnt() != 2) // ha nem felvehető (törött), vagy nincs 2 szomszédja
                 return false; // akkor nem cserélheti ki a pumpát rá
-                return network.AddPump((Pump)targetElem, currElem); // különben megpróbálhatjuk lecserélni
+
+            successfulPlacement = storedPart.NetworkAdd(currElem); // különben megpróbálhatjuk lecserélni
+            if(successfulPlacement){
+               Player player = Game.GetInstance().GetCurrPlayer(); // áthelyezzük a játékost a pumpára
+               player.MoveTo(storedPart);
+            }
         }
-        return false; // más különben nem sikeres a lehelyezés
+        return successfulPlacement;
     }
 }

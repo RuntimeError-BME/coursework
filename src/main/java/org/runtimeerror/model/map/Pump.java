@@ -57,7 +57,7 @@ public final class Pump extends Breakable {
         int cnt = 0, i = 0;
         int inp_dir = -1, out_dir = -1;
         while (cnt < GetNbCnt()) {
-            Element nb = GetNb(new Direction(i));
+            Element nb = GetNbs(new Direction(i));
             if (nb != null) {
                 if (nb == GetInput())
                     inp_dir = i;
@@ -73,5 +73,10 @@ public final class Pump extends Breakable {
         System.out.print("\n\tinput: " + inp_dir);
         System.out.print("\n\toutput: " + out_dir);
         System.out.print("\n");
+    }
+
+    /** Hozzáadja a pályának a pumpákat szortírozó gyűjteményéhez az adott pumpát. */
+    public boolean NetworkAdd(Element e){
+        return Game.GetInstance().GetNetwork().AddPump(this,e);
     }
 }

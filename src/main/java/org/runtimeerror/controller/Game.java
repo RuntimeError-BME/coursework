@@ -228,10 +228,10 @@ public final class Game {
             return true;
         }
 
-        /** d irányba próbálja mozgatni az épp soron lévő játékost, arról az elemről, amelyiken éppen tartózkodik.
-         * (Hívja GetCurrPlayer()-t, és rajta StepOnto()-t az átadott iránnyal.) */
-        public static void MoveCurrPlayer(Direction d) {
-            GetInstance().GetCurrPlayer().StepOnto(d);
+        /** az átadott elemre mozgatja az épp soron lévő játékost, arról az elemről, amelyiken éppen tartózkodik.
+         * (Hívja GetCurrPlayer()-t, és rajta StepOnto()-t az átadott elemmel.) */
+        public static void MoveCurrPlayer(Element e) {
+            GetInstance().GetCurrPlayer().StepOnto(e);
         }
 
         /** Akkor hívandó függvény, amikor éppen azt az elemet szeretné manipulálni / interakcióba lépni vele a
@@ -243,20 +243,20 @@ public final class Game {
             GetInstance().GetCurrPlayer().ManipulateCurrElem();
         }
 
-        /** Akkor hívandó függvény, amikor a soron lévő játékos megpróbál egy tőle d irányba lévő szomszédos csövet
+        /** Akkor hívandó függvény, amikor a soron lévő játékos megpróbál egy tszomszédos csövet
          felvenni, és a tárolójában eltárolni.
          Megnézi, hogy egy szerelő köre van-e jelenleg (IsTechnicianTurn()), és ha igen, akkor hívja GetCurrPlayer()
-         -t, és rajta pedig PickUpPart()-ot az átadott iránnyal. */
-        public static void TryPartRelocation(Direction d) {
+         -t, és rajta pedig PickUpPart()-ot az elemmel. */
+        public static void TryPartRelocation(Element e) {
             if (GetInstance().IsTechnicianTurn()) {
-                GetInstance().GetCurrPlayer().PickUpPart(d);
+                GetInstance().GetCurrPlayer().PickUpPart(e);
             }
         }
 
-        /** Akkor hívandó függvény, amikor a soron lévő játékos megpróbálja a tárolt part-ját tőle d irányba
-         lehelyezni. Ehhez a jelenlegi játékosnak szerelőnek kell lennie, kell hogy legyen a tárolójában egy tárolt
-         elemnek, és d irányban nem szabad, hogy legyen szomszédos elem a jelenlegitől. */
-        public static void TryPartPlacement(Direction d) {
+        /** Akkor hívandó függvény, amikor a soron lévő játékos megpróbálja a tárolt part-ját lehelyezni.
+         Ehhez a jelenlegi játékosnak szerelőnek kell lennie, kell hogy legyen a tárolójában egy tárolt
+         elemnek (cső esetén nem lehet több mint 2 szomszéd). */
+        public static void TryPartPlacement(Element e) {
             if (!GetInstance().IsTechnicianTurn()) // ha nem egy szerelő köre van most (egy szabotőr köre van most)
                 return; // akkor nem fog semmi történni (hiszen ők nem képesek erre)
 
@@ -265,7 +265,8 @@ public final class Game {
             if (storedPart == null) // ha nincs nála elem, akkor
                 return; // akkor nem fog semmi történni
 
-            boolean successfulPlacement = player.PlacePart(d); // megpróbálja elhelyezni d irányba
+            //TODO: get neighbouring element from player (IN GUI stage)
+            boolean successfulPlacement = player.PlacePart(e); // megpróbálja elhelyezni
             if (successfulPlacement) { // ha sikerült elhelyezni
                 player.SetPart(null); // akkor már nem a tárolójában lesz az elem (hanem a pályán)
                 GetInstance().NextTurn(); // és véget ér a szerelő köre

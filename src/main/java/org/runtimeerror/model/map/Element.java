@@ -2,8 +2,6 @@ package org.runtimeerror.model.map;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.SortedMap;
-import java.util.TreeMap;
 
 import org.runtimeerror.model.players.ManipulatorPlayer;
 import org.runtimeerror.model.players.Player;
@@ -24,6 +22,14 @@ public abstract class Element {
     private List<Element> nbs = new ArrayList<>(); // szomszédos elemei
     private Element input = null; // a szomszédja (ha van ilyen), amiből folyhat bele víz
     private Element output = null; // a szomszédja (ha van ilyen), amibe folyhat belőle víz
+    private static int maxIdx = 0;
+
+    /**Konstruktor : az elem azonosítóval való inicializálása */
+    public Element() {
+        idx = maxIdx;
+        ++maxIdx;
+    }
+
 
     /** Felrakja magára az átadott játékost. Ehhez eltávolítja a játékost a jelenlegi eleméről, hozzáadja ennek az
      * elemnek a players gyűjteményéhez, végül pedig átállítja rá a játékos jelenlegi elemét.
@@ -44,7 +50,7 @@ public abstract class Element {
     public int GetIdx() { return idx; }
 
     /** Az átadott irányba lévő szomszédos elemét adja vissza, ha van ilyen. */
-    public List<Element> GetNb() {
+    public List<Element> GetNbs() {
         return nbs;
     }
 
@@ -159,4 +165,10 @@ public abstract class Element {
      * Absztrakt függvény, amit a konkrét leszármazottakban meg kell valósítani.
      */
     public abstract void Print();
+
+
+    /** Absztrakt függvény, amit a leszármazottak úgy írnak felül, hogy hozzáadják a pályának az egyik szortírozó
+     gyűjteményéhez az adott elemet. */
+    public abstract boolean NetworkAdd(Element e);
+
 }

@@ -1,7 +1,5 @@
 package org.runtimeerror.model.players;
 
-import org.runtimeerror.Main;
-import org.runtimeerror.model.map.Direction;
 import org.runtimeerror.model.map.Element;
 
 /**
@@ -43,14 +41,17 @@ public class Player {
     }
 
     /**
-     * Az átadott irányba próbálja léptetni a játékost az őt tartalmazó elemről.
-     * Ha az adott irányba nincs szomszédos elem, nem történik semmi. Ha van, akkor hívja MoveTo()-t, és átadja neki.
+     * Az átadott elemre lépteti a játékost az őt tartalmazó elemről.
      */
-    public void StepOnto(Direction d) {
-        Element targetElem = currElem.GetNb(d);
-        if (targetElem != null)
-            MoveTo(targetElem);
+     public void StepOnto(Element targetElem) {
+        for (Element e: currElem.GetNbs()) {
+            if(e==targetElem) {
+                MoveTo(targetElem);
+                return;
+            }
+        }
     }
+
 
 
     /** Manipulálja (vagy manipulálni próbálja) azt az elemet, amelyen éppen tartózkodik.
@@ -60,11 +61,11 @@ public class Player {
     }
 
     /** Ezt a függvényt kell felülírniuk a leszármazottaknak, amelyek támogatni akarják azt a viselkedést, hogy
-     * a játékos képes legyen felvenni a d irányban lévő part-ot, ha van olyan. A szabotőrök erre nem képesek, ezért
+     * a játékos képes legyen felvenni egy szomszédos part-ot, ha van olyan. A szabotőrök erre nem képesek, ezért
      * ez egy üres törzsű függvény. Azért kell mégis megvalósítani, mert így elkerülhető a Player -> Technician
      * downcast oly módon, hogy nem kell feleslegesen eltárolni a szabotőröknek is egy invetory-t, ha úgysem képesek
      * elemek tárolására. */
-    public void PickUpPart(Direction d) { }
+    public void PickUpPart(Element e) { }
 
     /** Ezt a függvényt kell felülírniuk a leszármazottaknak, amelyek támogatni akarják azt a viselkedést, hogy
      * a játékos képes legyen visszaadni a tárolójában lévő elemet. A szabotőrök erre nem képesek, ezért
@@ -87,7 +88,7 @@ public class Player {
      * ez a függvény mindig false-t ad vissza, jelezve, hogy a lehelyezés mindig sikertelen. Azért kell mégis
      * megvalósítani, mert így elkerülhető a Player -> Technician downcast oly módon, hogy nem kell feleslegesen
      * eltárolni a szabotőröknek is egy invetory-t, ha úgysem képesek elemek tárolására. */
-    public boolean PlacePart(Direction d) {
+    public boolean PlacePart(Element e) {
         return false;
     }
 }

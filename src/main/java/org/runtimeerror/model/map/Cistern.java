@@ -44,7 +44,7 @@ public final class Cistern extends Element {
     public void ProducePipe() {
         for (int i = 0; i < 4; ++i) { // végigmegyünk a(z első) 4 irányon, amerre letehetünk új csövet
             Direction d = new Direction(i); // az adott irány
-            Element nb = GetNb(d); // az adott irányban lévő szomszédos elem a ciszternától
+            Element nb = GetNbs(d); // az adott irányban lévő szomszédos elem a ciszternától
             if (nb == null) { // ha még nincs arra szomszédja
                 Pipe newPipe = new Pipe(); // akkor létrehozunk egy új csövet
                 SetNb(d, newPipe); // beállítjuk az adott irányba a ciszternától az új csövet szomszédnak
@@ -54,7 +54,16 @@ public final class Cistern extends Element {
             }
         } // ha mind a négy irányba van már szomszédja, akkor nem fog új cső teremni a szomszédjában
     }
-
+    public void ProducePipe() {
+        if(GetNbCnt() < 4){
+            Pipe newPipe = new Pipe();
+            if(newPipe.NetworkAdd(null)){
+                AddNb(newPipe);
+                newPipe.AddNb(this);
+                newPipe.SetOutput(this);
+            }
+        }
+    }
     /**
      * Csak a prototípusban használt függvény, ami kiírja a ciszterna adatait a következő formátumban:
      *  details of element [idx] (cistern):
@@ -74,7 +83,7 @@ public final class Cistern extends Element {
         System.out.print("\n\tnbs: ");
         int cnt = 0, i = 0;
         while (cnt < GetNbCnt()) {
-            Element nb = GetNb(new Direction(i));
+            Element nb = GetNbs(new Direction(i));
             if (nb != null) {
                 System.out.print(i + " ");
                 ++cnt;

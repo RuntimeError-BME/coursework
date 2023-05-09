@@ -17,7 +17,7 @@ public final class Source extends Element {
         SetFlooded(true); // víz kerül belé
         int cnt = 0, i = 0;
         while (cnt < GetNbCnt()) { // végigmegyünk az összes szomszédján
-            Element nb = GetNb(new Direction(i));
+            Element nb = GetNbs(new Direction(i));
             if (nb != null) {
                 nb.Flood(); // elárasztjuk az összeset
                 ++cnt;
@@ -52,7 +52,7 @@ public final class Source extends Element {
         System.out.print("\n\tnbs: ");
         int cnt = 0, i = 0;
         while (cnt < GetNbCnt()) {
-            Element nb = GetNb(new Direction(i));
+            Element nb = GetNbs(new Direction(i));
             if (nb != null) {
                 System.out.print(i + " ");
                 ++cnt;

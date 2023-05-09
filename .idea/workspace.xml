@@ -4,21 +4,33 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e386bd1d-942e-4395-9f2c-b37568fb3c05" name="Changes" comment="    1. Az idx attribútum hozzá lett adva az Element osztályhoz.&#10;    2. Érintett függvények paramétereinek, visszatérési értékeinek módosítása a tervekhez képest.&#10;    3. GetNbMaxDirNumber(), GetNbMinDirNumber() függvények eltávolítása (szükségtelenek a gráfos megközelítés miatt).">
+    <list default="true" id="e386bd1d-942e-4395-9f2c-b37568fb3c05" name="Changes" comment="    Network.java:&#10;    1. A Network szerkezetének módosítása, az indexek implementálása céljából.&#10;    2. AddPump lényeges egyszerüsítése az indexek használatához.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/misc/diagrams/ClassDiagram(Kristóf Brainstorm)" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/controller/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/controller/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/map/Cistern.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/map/Cistern.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/map/Direction.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/map/Element.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/map/Element.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/map/Network.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/map/Network.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/map/Pipe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/map/Pipe.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/map/Pump.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/map/Pump.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/map/Source.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/map/Source.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/players/ManipulatorPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/players/ManipulatorPlayer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/players/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/players/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/players/Technician.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/players/Technician.java" afterDir="false" />
     </list>
-    <list id="0c069abf-c2a7-4671-903a-b3eeb3494593" name="Changes by adammizser" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/map/Network.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/map/Network.java" afterDir="false" />
+    <list id="76e66c52-af61-4a4c-a04c-81aa9fb421ba" name="Changes by adammizser" comment="">
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/controller/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/controller/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/map/Breakable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/map/Breakable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/map/Cistern.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/map/Cistern.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/map/Element.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/map/Element.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/map/Pipe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/map/Pipe.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/map/Pump.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/map/Pump.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/map/Source.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/map/Source.java" afterDir="false" />
     </list>
     <list id="324ff3ac-ca5d-4e88-9bb4-6dbdc81f9775" name="Changes by sasy" comment="Changes by sasy (alpha 0.0.2)" />
-    <list id="a4c0f49e-6999-4950-9835-6465a74e418a" name="Changes by Tep Oli" comment="    1. Az idx attribútum hozzá lett adva az Element osztályhoz.&#10;    2. Érintett függvények paramétereinek, visszatérési értékeinek módosítása a tervekhez képest.&#10;    3. GetNbMaxDirNumber(), GetNbMinDirNumber() függvények eltávolítása (szükségtelenek a gráfos megközelítés miatt).">
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/players/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/players/Player.java" afterDir="false" />
-    </list>
+    <list id="a4c0f49e-6999-4950-9835-6465a74e418a" name="Changes by Tep Oli" comment="    1. Az idx attribútum hozzá lett adva az Element osztályhoz.&#10;    2. Érintett függvények paramétereinek, visszatérési értékeinek módosítása a tervekhez képest.&#10;    3. GetNbMaxDirNumber(), GetNbMinDirNumber() függvények eltávolítása (szükségtelenek a gráfos megközelítés miatt)." />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -47,24 +59,67 @@
     </option>
   </component>
   <component name="LineStatusTrackerManager">
-    <file path="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/players/Player.java">
+    <file path="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/map/Cistern.java">
       <ranges>
-        <range start1="2" end1="4" start2="2" end2="2" changelist="e386bd1d-942e-4395-9f2c-b37568fb3c05" />
-        <range start1="5" end1="5" start2="3" end2="6" changelist="e386bd1d-942e-4395-9f2c-b37568fb3c05" />
-        <range start1="53" end1="53" start2="54" end2="66" changelist="a4c0f49e-6999-4950-9835-6465a74e418a" />
+        <range start1="12" end1="12" start2="12" end2="15" changelist="76e66c52-af61-4a4c-a04c-81aa9fb421ba" />
+        <range start1="46" end1="47" start2="49" end2="50" changelist="e386bd1d-942e-4395-9f2c-b37568fb3c05" />
+        <range start1="56" end1="57" start2="59" end2="69" changelist="e386bd1d-942e-4395-9f2c-b37568fb3c05" />
+        <range start1="76" end1="77" start2="88" end2="89" changelist="e386bd1d-942e-4395-9f2c-b37568fb3c05" />
       </ranges>
     </file>
-    <file path="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/map/Network.java">
+    <file path="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/map/Source.java">
       <ranges>
-        <range start1="92" end1="100" start2="92" end2="97" changelist="e386bd1d-942e-4395-9f2c-b37568fb3c05" />
-        <range start1="101" end1="102" start2="98" end2="98" changelist="e386bd1d-942e-4395-9f2c-b37568fb3c05" />
-        <range start1="105" end1="113" start2="101" end2="106" changelist="0c069abf-c2a7-4671-903a-b3eeb3494593" />
-        <range start1="114" end1="115" start2="107" end2="107" changelist="0c069abf-c2a7-4671-903a-b3eeb3494593" />
+        <range start1="11" end1="11" start2="11" end2="14" changelist="76e66c52-af61-4a4c-a04c-81aa9fb421ba" />
+        <range start1="19" end1="20" start2="22" end2="23" changelist="e386bd1d-942e-4395-9f2c-b37568fb3c05" />
+        <range start1="54" end1="55" start2="57" end2="58" changelist="e386bd1d-942e-4395-9f2c-b37568fb3c05" />
+      </ranges>
+    </file>
+    <file path="$PROJECT_DIR$/src/main/java/org/runtimeerror/controller/Game.java">
+      <ranges>
+        <range start1="5" end1="5" start2="5" end2="6" changelist="76e66c52-af61-4a4c-a04c-81aa9fb421ba" />
+        <range start1="65" end1="66" start2="66" end2="67" changelist="76e66c52-af61-4a4c-a04c-81aa9fb421ba" />
+        <range start1="230" end1="234" start2="231" end2="235" changelist="e386bd1d-942e-4395-9f2c-b37568fb3c05" />
+        <range start1="245" end1="246" start2="246" end2="247" changelist="e386bd1d-942e-4395-9f2c-b37568fb3c05" />
+        <range start1="248" end1="250" start2="249" end2="251" changelist="e386bd1d-942e-4395-9f2c-b37568fb3c05" />
+        <range start1="251" end1="252" start2="252" end2="253" changelist="e386bd1d-942e-4395-9f2c-b37568fb3c05" />
+        <range start1="255" end1="259" start2="256" end2="260" changelist="e386bd1d-942e-4395-9f2c-b37568fb3c05" />
+        <range start1="267" end1="268" start2="268" end2="270" changelist="e386bd1d-942e-4395-9f2c-b37568fb3c05" />
+        <range start1="293" end1="294" start2="295" end2="296" changelist="76e66c52-af61-4a4c-a04c-81aa9fb421ba" />
+        <range start1="301" end1="304" start2="303" end2="307" changelist="76e66c52-af61-4a4c-a04c-81aa9fb421ba" />
+      </ranges>
+    </file>
+    <file path="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/map/Element.java">
+      <ranges>
+        <range start1="4" end1="6" start2="4" end2="4" changelist="e386bd1d-942e-4395-9f2c-b37568fb3c05" />
+        <range start1="26" end1="26" start2="24" end2="32" changelist="e386bd1d-942e-4395-9f2c-b37568fb3c05" />
+        <range start1="46" end1="47" start2="52" end2="53" changelist="e386bd1d-942e-4395-9f2c-b37568fb3c05" />
+        <range start1="59" end1="67" start2="65" end2="65" changelist="76e66c52-af61-4a4c-a04c-81aa9fb421ba" />
+        <range start1="161" end1="161" start2="159" end2="165" changelist="e386bd1d-942e-4395-9f2c-b37568fb3c05" />
+      </ranges>
+    </file>
+    <file path="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/map/Pump.java">
+      <ranges>
+        <range start1="12" end1="12" start2="12" end2="15" changelist="76e66c52-af61-4a4c-a04c-81aa9fb421ba" />
+        <range start1="59" end1="60" start2="62" end2="63" changelist="e386bd1d-942e-4395-9f2c-b37568fb3c05" />
+        <range start1="76" end1="76" start2="79" end2="84" changelist="e386bd1d-942e-4395-9f2c-b37568fb3c05" />
+      </ranges>
+    </file>
+    <file path="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/map/Pipe.java">
+      <ranges>
+        <range start1="39" end1="39" start2="39" end2="42" changelist="76e66c52-af61-4a4c-a04c-81aa9fb421ba" />
+        <range start1="98" end1="99" start2="101" end2="102" changelist="e386bd1d-942e-4395-9f2c-b37568fb3c05" />
+        <range start1="102" end1="104" start2="105" end2="107" changelist="e386bd1d-942e-4395-9f2c-b37568fb3c05" />
+        <range start1="126" end1="126" start2="129" end2="130" changelist="76e66c52-af61-4a4c-a04c-81aa9fb421ba" />
+        <range start1="158" end1="159" start2="162" end2="163" changelist="e386bd1d-942e-4395-9f2c-b37568fb3c05" />
+        <range start1="171" end1="171" start2="175" end2="180" changelist="e386bd1d-942e-4395-9f2c-b37568fb3c05" />
       </ranges>
     </file>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="ProjectErrors" />
   </component>
   <component name="ProjectId" id="2MHObmW8IhbUi3D5DAyeBMHOvQd" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -72,24 +127,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;session-week-10&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Program Files/JetBrains/CLion 2022.2.1/dicts/hu_HU_without_accents.dic&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "codeWithMe.voiceChat.enabledByDefault": "false",
+    "git-widget-placeholder": "session-week-10",
+    "last_opened_file_path": "C:/Users/Tep Oli/Downloads/coursework/coursework",
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "preferences.keymap",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.runtimeerror.Main" />
@@ -127,7 +182,11 @@
       <workItem from="1682981580558" duration="7296000" />
       <workItem from="1683020773615" duration="51118000" />
       <workItem from="1683540670351" duration="1286000" />
-      <workItem from="1683562574867" duration="4061000" />
+      <workItem from="1683562574867" duration="4158000" />
+      <workItem from="1683633928212" duration="4550000" />
+      <workItem from="1683638820431" duration="35000" />
+      <workItem from="1683638878532" duration="71000" />
+      <workItem from="1683639192280" duration="7894000" />
     </task>
     <task id="LOCAL-00001" summary="Move to Empty pipe&#10;Manipulate &#10;Újítások&#10;Oli, Elon">
       <created>1682595103637</created>
@@ -248,7 +307,21 @@
       <option name="project" value="LOCAL" />
       <updated>1683565398740</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="    Network.java:&#10;    1. A Network szerkezetének módosítása, az indexek implementálása céljából.&#10;    2. AddPump lényeges egyszerüsítése az indexek használatához.">
+      <created>1683566849864</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1683566849864</updated>
+    </task>
+    <task id="LOCAL-00019" summary="    Network.java:&#10;    1. A Network szerkezetének módosítása, az indexek implementálása céljából.&#10;    2. AddPump lényeges egyszerüsítése az indexek használatához.">
+      <created>1683566866785</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1683566866786</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -279,7 +352,8 @@
     <MESSAGE value="Added modified components comment section to the project (Main.java)" />
     <MESSAGE value="Added modification ideas as comment (Main.java)" />
     <MESSAGE value="    1. Az idx attribútum hozzá lett adva az Element osztályhoz.&#10;    2. Érintett függvények paramétereinek, visszatérési értékeinek módosítása a tervekhez képest.&#10;    3. GetNbMaxDirNumber(), GetNbMinDirNumber() függvények eltávolítása (szükségtelenek a gráfos megközelítés miatt)." />
-    <option name="LAST_COMMIT_MESSAGE" value="    1. Az idx attribútum hozzá lett adva az Element osztályhoz.&#10;    2. Érintett függvények paramétereinek, visszatérési értékeinek módosítása a tervekhez képest.&#10;    3. GetNbMaxDirNumber(), GetNbMinDirNumber() függvények eltávolítása (szükségtelenek a gráfos megközelítés miatt)." />
+    <MESSAGE value="    Network.java:&#10;    1. A Network szerkezetének módosítása, az indexek implementálása céljából.&#10;    2. AddPump lényeges egyszerüsítése az indexek használatához." />
+    <option name="LAST_COMMIT_MESSAGE" value="    Network.java:&#10;    1. A Network szerkezetének módosítása, az indexek implementálása céljából.&#10;    2. AddPump lényeges egyszerüsítése az indexek használatához." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

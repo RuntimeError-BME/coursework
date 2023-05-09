@@ -46,8 +46,8 @@ public class ManipulatorPlayer {
 
             // fontos, hogy a játékos ne maradjon a ragadós csövön, hiszen akkor önmagát szabotálja
             Player player = Game.GetInstance().GetCurrPlayer(); // a jelenlegi játékos
-            Element nb1 = p.GetNb(new Direction(p.GetNbMinDirNumber())); // az egyik szomszédja a jelenlegi csőnek
-            Element nb2 = p.GetNb(new Direction(p.GetNbMaxDirNumber())); // a másik szomszédja a jelenlegi csőnek
+            Element nb1 = p.GetNbs(new Direction(p.GetNbMinDirNumber())); // az egyik szomszédja a jelenlegi csőnek
+            Element nb2 = p.GetNbs(new Direction(p.GetNbMaxDirNumber())); // a másik szomszédja a jelenlegi csőnek
             nb1.AddPlayer(player); // először megpróbáljuk a kisebb sorszámú irányban lévő szomszédra tenni őt
             if (player.GetCurrElem() == p) // ha nem sikerült (mert egy cső, amin már állnak)
                 nb2.AddPlayer(player); // akkor megpróbáljuk a nagyobb sorszámú irányba lévő szomszédra is rátenni
@@ -66,10 +66,10 @@ public class ManipulatorPlayer {
     public void Manipulate(Pump p) {
         Direction[] dirs = Game.Input.GetNewPumpDirections(); // az új irányok
 
-        Element newInp = p.GetNb(dirs[0]); // az elem, ami az új bemenete lesz
+        Element newInp = p.GetNbs(dirs[0]); // az elem, ami az új bemenete lesz
         p.SetInput(newInp); // beállítjuk a pumpa bemeneteként
 
-        Element newOut = p.GetNb(dirs[1]); // az elem, ami az új kimenete lesz
+        Element newOut = p.GetNbs(dirs[1]); // az elem, ami az új kimenete lesz
         p.SetOutput(newOut); // beállítjuk a pumpa kimeneteként
 
         Game.GetInstance().NextTurn(); // véget ér a jelenlegi játékos köre
