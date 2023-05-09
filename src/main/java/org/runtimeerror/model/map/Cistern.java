@@ -10,6 +10,9 @@ import org.runtimeerror.model.players.Player;
  */
 public final class Cistern extends Element {
 
+    /** Konstruktor, ami beállítja az ősbeli indexetét az elemnek. */
+    public Cistern() { super(); }
+
     /** Megpróbál pumpát adni a soron lévő játékos tárolójába.
      * (Akkor lesz sikeres, ha a jelenlegi játékos szerelő, de nem szükséges semmit ellenőrizni, mert ha szabotőr,
      * akkor a Player ősbéli SetPart() fog hívódni, ami egy üres törzsű függvény a downcast elkerülésének céljából.) */

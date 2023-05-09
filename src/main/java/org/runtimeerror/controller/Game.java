@@ -3,6 +3,7 @@ package org.runtimeerror.controller;
 import org.runtimeerror.model.map.*;
 import org.runtimeerror.model.players.Player;
 import org.runtimeerror.prototype.PrototypeController;
+import sun.nio.ch.Net;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -63,7 +64,7 @@ public final class Game {
         random          = new Random(); // véletlenszerű viselkedés lesz megvalósítva vele
         deterministic   = false;
         network         = new Network(); // a pálya elemeit tárolja, szortírozza
-        network.AddSource(new Source()); // csak egyetlen forrást tartalmaz kezdetben a pálya
+        network.AddSource(new Source(0)); // csak egyetlen forrást tartalmaz kezdetben a pálya
     }
 
     /** Visszaadja a pálya elemeit számontartó objektumot.
@@ -292,7 +293,7 @@ public final class Game {
         }
 
         /** Pumpa átállításához visszaadja a soron lévő játékos által bevitt irányokat. */
-        public static Direction[] GetNewPumpDirections() {
+        public static Element[] GetNewPumpDirections() {
 
             // TODO: GUI-nál dialogue-gal lesz bekérve a két irány ehelyett
             String line = PrototypeController.GetInstance().GetCurrLine(); // a jelenlegi parancs sora szövegként
@@ -300,9 +301,10 @@ public final class Game {
             int output = Integer.parseInt(splitted[splitted.length - 1]);
             int input = Integer.parseInt(splitted[splitted.length - 3]);
 
-            return new Direction[]{
-                new Direction(input),
-                new Direction(output)
+            Network network = Game.GetInstance().GetNetwork();
+            return new Element[] {
+                network.GetElement(input),
+                network.GetElement(output)
             };
         }
 

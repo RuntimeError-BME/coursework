@@ -37,6 +37,9 @@ public final class Pipe extends Breakable {
 //        pickUpAble = true;
 //    }
 
+    /** Konstruktor, ami beállítja az ősbeli indexetét az elemnek. */
+    public Pipe() { super(); }
+
     /** Visszaadja, hogy a cső ragadós-e. Felülírja az Element ősben lévő megvalósítást, lásd: Element.GetSticky(). */
     @Override
     public boolean GetSticky() {
@@ -124,6 +127,7 @@ public final class Pipe extends Breakable {
      */
     @Override
     public void Flood() {
+        // TODO: itt kell outputot állítani a csőnek (meg forrásnál is)
         SetFlooded(true); // víz kerül belé
         Element output = GetOutput();
         if (GetBroken() || output == null) { // ha lyukas vagy nincs kimenete

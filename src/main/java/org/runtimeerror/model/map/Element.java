@@ -63,14 +63,6 @@ public abstract class Element {
         return nbs.contains(e) ? nbs.remove(nbs.indexOf(e)) : null;
     }
 
-    /**
-     * Átmásolja a szomszédos elemek gyűjteményét (annak referenciáját állítja át) az átadott elemben lévőből.
-     * AddPump() fogja egyedül hívni ezt a metódust, amikor lecserél egy csövet egy pumpára.
-     */
-    public void CopyNbs(Element e) {
-        nbs = e.nbs;
-    }
-
     /** Ha egy elem támogatni akarja azt a funkcionalitást, hogy egy szerelő rajta állva
      egy part-ot kaphasson a tárolójába, akkor ezt a függvényt kell felülírnia.
      Alapértelmezett megvalósítása üres törzsű függvény (alapjáraton nem támogatják az elemek ezt a funkcionalitást). */

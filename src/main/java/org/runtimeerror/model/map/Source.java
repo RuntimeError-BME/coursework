@@ -9,6 +9,9 @@ import org.runtimeerror.model.players.Player;
  */
 public final class Source extends Element {
 
+    /** Konstruktor, ami beállítja az ősbeli indexetét az elemnek. */
+    public Source() { super(); }
+
     /** Vízzel tölti fel magát, és minden nem lyukas szomszédjára hívja tovább a Flood() függvényt,
      azaz ereszti tovább a vizet. */
     @Override

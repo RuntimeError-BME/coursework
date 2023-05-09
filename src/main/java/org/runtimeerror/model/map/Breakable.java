@@ -11,6 +11,9 @@ public abstract class Breakable extends Element {
      */
     private boolean broken = false; // hibás-e vagy sem, azaz át tud-e ereszteni magán vizet
 
+    /** Konstruktor, ami beállítja az ősbeli indexetét az elemnek. */
+    public Breakable() { super(); }
+
     /**
      *  Megjavítja az elemet.
      */
