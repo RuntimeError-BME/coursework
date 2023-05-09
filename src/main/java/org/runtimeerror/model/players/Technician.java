@@ -114,7 +114,7 @@ public class Technician extends Player {
                 return false; // akkor nem cserélheti ki a pumpát rá
 
             successfulPlacement = storedPart.NetworkAdd(currElem); // különben megpróbálhatjuk lecserélni
-            if(successfulPlacement){
+            if (successfulPlacement) {
                Player player = Game.GetInstance().GetCurrPlayer(); // áthelyezzük a játékost a pumpára
                player.MoveTo(storedPart);
             }

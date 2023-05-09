@@ -68,16 +68,6 @@ public final class Pipe extends Breakable {
     public void SetCounter(int value) { counter = value; }
 
     /**
-     * Beállítja, d irányba a Pipe szomszédjának e-t, ha még nincs 2 szomszédja (hívja az ősbéli megvalósítást).
-     */
-    @Override
-    public void SetNb(Direction d, Element e) {
-        if (GetNbCnt() < 2) {
-            super.SetNb(d, e);
-        }
-    }
-
-    /**
      * Felhelyezi az átadott játékost magára, ha nem áll rajta már más valaki. A művelet sikerességével tér vissza.
      * (Felülírja az Element ősben lévő megvalósítást - itt már nem mindig sikerül rálépni a csőre.)
      * FONTOS MÓDOSÍTÁS: ha csúszós csőre lépne, akkor véletlenszerűen egy másik szomszédos csőre fog átkerülni (vagy
@@ -98,13 +88,13 @@ public final class Pipe extends Breakable {
             // ez lesz a másik elem, ahová csúszni fog
             Element targetElem2 = null; // vagy ahonnan érkezett az az elem lesz, vagy a célpont másik szomszédja
             if (Game.GetInstance().GetDeterministic()) { // ha a játék determinisztikusan viselkedik
-                // akkor a legkisebb sorszámú irányban lévő szomszédra fog kerülni
-                targetElem2 = GetNbs(new Direction(GetNbMinDirNumber()));
+                // akkor az első szomszédra fog kerülni
+                targetElem2 = GetNbs().get(0);
             } else { // ha a játék nem viselkedik determinisztikusan
                 // akkor a két elem közül véletlenszerűen fog az egyikre csúszni (controller random sorsoló függvénye)
-                targetElem2 = (Game.GetInstance().SlipToHigherDirection()) // ha a nagyobb sorszámú felé fog csúszni
-                    ? GetNbs(new Direction(GetNbMaxDirNumber())) // akkor arra fog,
-                    : GetNbs(new Direction(GetNbMinDirNumber())); // különben pedig a minimális sorszámú felé
+                targetElem2 = (Game.GetInstance().SlipToHigherNb()) // ha a nagyobb sorszámú felé fog csúszni
+                    ? GetNbs().get(1) // akkor arra fog,
+                    : GetNbs().get(0); // különben pedig a minimális sorszámú felé
             }
             targetElem2.AddPlayer(p); // átkerül a játékos az előzőekben meghatározott szomszédos elemre
 

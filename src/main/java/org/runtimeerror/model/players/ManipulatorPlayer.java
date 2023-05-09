@@ -64,12 +64,12 @@ public class ManipulatorPlayer {
      * Ez a viselkedés megfelel a szabotőröknek, viszont a szerelők manipulátorában felül kell írni a függvényt úgy,
      * hogy elromlott pumpát megjavítsák, ne átállítsák, és csak a működő pumpát állítsák át. */
     public void Manipulate(Pump p) {
-        Direction[] dirs = Game.Input.GetNewPumpDirections(); // az új irányok
+        Element[] elems = Game.Input.GetNewPumpDirections(); // az új input és output elemek
 
-        Element newInp = p.GetNbs(dirs[0]); // az elem, ami az új bemenete lesz
+        Element newInp = elems[0]; // az elem, ami az új bemenete lesz
         p.SetInput(newInp); // beállítjuk a pumpa bemeneteként
 
-        Element newOut = p.GetNbs(dirs[1]); // az elem, ami az új kimenete lesz
+        Element newOut = elems[1]; // az elem, ami az új kimenete lesz
         p.SetOutput(newOut); // beállítjuk a pumpa kimeneteként
 
         Game.GetInstance().NextTurn(); // véget ér a jelenlegi játékos köre

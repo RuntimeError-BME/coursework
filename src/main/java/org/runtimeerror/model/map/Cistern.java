@@ -40,15 +40,14 @@ public final class Cistern extends Element {
     }
 
     /**
-     * Pontosan egy csövet helyez le magától egy tőle szomszédos helyre a következő irányok egyikébe: északra (0),
-     * nyugatra (1), keletre (2), délre (3). Ez prioritási sorrend is, az első irányba fog teremni, amerre üres
-     * szomszédja van. Ha egyik irányba sincs ezek közül üres szomszédja, akkor más irányba már nem fog cső teremni.
+     * Pontosan egy csövet helyez le magától egy tőle szomszédos helyre.
+     * Ha több mint 4 szomszédja van a ciszternának, akkor nem teremt új csövet mellé.
      */
     public void ProducePipe() {
-        if(GetNbCnt() < 4){
-            Pipe newPipe = new Pipe();
-            if(newPipe.NetworkAdd(null)){
-                AddNb(newPipe);
+        if (GetNbCnt() < 4) { // ha még nincs 4 szomszédja
+            Pipe newPipe = new Pipe(); // akkor létrehozunk egy új csövet
+            if (newPipe.NetworkAdd(null)) { // amit hozzáadunk a pályához
+                AddNb(newPipe); // és beállítjuk a szomszédi viszonyokat
                 newPipe.AddNb(this);
                 newPipe.SetOutput(this);
             }

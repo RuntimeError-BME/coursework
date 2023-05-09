@@ -3,7 +3,6 @@ package org.runtimeerror.controller;
 import org.runtimeerror.model.map.*;
 import org.runtimeerror.model.players.Player;
 import org.runtimeerror.prototype.PrototypeController;
-import sun.nio.ch.Net;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -353,9 +352,9 @@ public final class Game {
     }
 
     /** Egy véletlenszerűen sorsolt logikai értéket ad vissza, ami megadja, hogy csúszós elemre lépés esetén,
-     * amikor nemdeterminisztikusan viselkedik a modell, akkor a magasabb irány sorszámú (igaz esetén), vagy a kisebb
-     * irány sorszámú (hamis esetén) szomszédos elem felé csússzon a játékos. Pipe.AddPlayer() függvény hívja. */
-    public boolean SlipToHigherDirection() {
+     * amikor nemdeterminisztikusan viselkedik a modell, akkor a magasabb indexű szomszédra, vagy a kisebb
+     * indexűre csússzon a játékos. Pipe.AddPlayer() függvény hívja. */
+    public boolean SlipToHigherNb() {
         return random.nextBoolean();
     }
 

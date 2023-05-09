@@ -67,4 +67,61 @@ public final class PrototypeController {
     /**
      * Ide kell a bemenet olvasás annak végrehajtása és a kimenet írása
      */
+
+    /**
+
+
+     add <elem_type> <nb_elem_idx>
+     add <player_type> <name> <elem_idx>
+     controller toggle random
+     controller break <elem_idx>
+     !!! controller set defaultCounter <turn_cnt>
+     load state <rel_file_name>
+     reset state
+     start game
+
+     move <elem_idx>
+     manipulate
+        stickify
+        slippify
+        break
+        change input <dir_nr> output <dir_nr>
+
+     pickup
+     relocate <dir_nr>
+     place <dir_nr>
+
+     print inventory <technician_name>
+     print currElem <name>
+     print elem <elem_nr>
+     print map
+
+     ----------------------------------------------------------------
+
+
+     lépés csőre, amin már állnak
+     lépés csőre, amin még nem állnak
+     lépés csúszós csőre, csúszós állapot elmúlása
+     lépés ragadós csőre, ragadós állapot elmúlása
+     lépés pumpára, amin már állnak
+
+     cső lyukasztása és megjavítása
+     az elromlott pumpa megjavítsa
+     cső csúszóssá tétele
+     cső ragadóssá tétele
+     pumpa bemenetének és kimenetének beállítása
+     teleportálás ciszternák között
+
+     csőfelvétel, ha lehetséges
+     csőfelvétel, ha nem lehetséges
+     csőlehelyezés, ha lehetséges
+     csőlehelyezés, ha nem lehetséges
+     pumpafeltvétel, ha lehetséges
+     pumpafeltvétel, ha nem lehetséges
+     pumpalehelyezés, ha lehetséges
+     pumpalehelyezés, ha nem lehetséges
+
+     játék vége
+
+     */
 }

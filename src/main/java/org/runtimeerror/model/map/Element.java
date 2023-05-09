@@ -154,7 +154,8 @@ public abstract class Element {
 
     /**
      * Csak a prototípusban használt függvény, ami kiírja az elem adatait.
-     * Absztrakt függvény, amit a konkrét leszármazottakban meg kell valósítani.
+     * Függvény amit a leszármazottak hívnak, amikor kiírják az adataikat.
+     * Ez a függvény a közös adatokat írja ki, ami minden elemre jellemző, a konkrét osztályától függetlenül.
      */
     public void Print(String part) {
         System.out.print("details of element " + GetIdx() + " ("+ (part) +"):" +

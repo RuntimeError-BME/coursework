@@ -41,7 +41,8 @@ public class Player {
     }
 
     /**
-     * Az átadott elemre lépteti a játékost az őt tartalmazó elemről.
+     * Az átadott elemre lépteti a játékost az őt tartalmazó elemről, ha az a szomszédjai között van.
+     * Ha nem, akkor nem történik semmi.
      */
      public void StepOnto(Element targetElem) {
         for (Element e: currElem.GetNbs()) {
