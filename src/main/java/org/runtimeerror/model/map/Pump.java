@@ -28,6 +28,12 @@ public final class Pump extends Breakable {
             Game.GetInstance().AddSaboteurPoints(1); // akkor pontot kapnak a szabotőrök
             return; // és már nem folyik tovább belőle a víz a kimenetére
         }
+        if(output.GetPickUpAble_onlyAttribute()){
+            output.SetInput(this);
+            for (Element e: output.GetNbs()){
+                if(e!=this) output.SetOutput(e);
+            }
+        }
         output.Flood(); // ha viszont minden rendben, akkor folyatja tovább a vizet a kimenetére
     }
 

@@ -4,33 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e386bd1d-942e-4395-9f2c-b37568fb3c05" name="Changes" comment=" Még mindig irányok törlése utáni fgv javítások, castolás kivédése és egyéb dolgok, olyan sok hogy már nehéz követni">
+    <list default="true" id="e386bd1d-942e-4395-9f2c-b37568fb3c05" name="Changes" comment="A prototípus megalapozásához">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/controller/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/controller/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/map/Cistern.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/map/Cistern.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/map/Element.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/map/Element.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/map/Pipe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/map/Pipe.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/map/Pump.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/map/Pump.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/map/Source.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/map/Source.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/players/ManipulatorPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/players/ManipulatorPlayer.java" afterDir="false" />
-    </list>
-    <list id="76e66c52-af61-4a4c-a04c-81aa9fb421ba" name="Changes by adammizser" comment="Még mindig irányok törlése utáni fgv javítások, castolás kivédése és egyéb dolgok, olyan sok hogy már nehéz követni ez is az csak adam része">
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/controller/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/controller/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/map/Cistern.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/map/Cistern.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/map/Element.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/map/Element.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/map/Pipe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/map/Pipe.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/players/ManipulatorPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/players/ManipulatorPlayer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/players/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/players/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/players/Technician.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/players/Technician.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/prototype/PrototypeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/prototype/PrototypeController.java" afterDir="false" />
     </list>
-    <list id="324ff3ac-ca5d-4e88-9bb4-6dbdc81f9775" name="Changes by sasy" comment="Changes by sasy (alpha 0.0.2)">
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/gui/CisternButton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/gui/CisternButton.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/gui/GuiController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/gui/GuiController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/gui/PipeButton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/gui/PipeButton.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/gui/PumpButton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/gui/PumpButton.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/gui/SourceButton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/gui/SourceButton.java" afterDir="false" />
-    </list>
+    <list id="76e66c52-af61-4a4c-a04c-81aa9fb421ba" name="Changes by adammizser" comment="A protítpus alapozásához - Ádám része" />
     <list id="a4c0f49e-6999-4950-9835-6465a74e418a" name="Changes by Tep Oli" comment="    1. Az idx attribútum hozzá lett adva az Element osztályhoz.&#10;    2. Érintett függvények paramétereinek, visszatérési értékeinek módosítása a tervekhez képest.&#10;    3. GetNbMaxDirNumber(), GetNbMinDirNumber() függvények eltávolítása (szükségtelenek a gráfos megközelítés miatt)." />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,48 +39,6 @@
         <option value="main" />
       </list>
     </option>
-  </component>
-  <component name="LineStatusTrackerManager">
-    <file path="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/map/Cistern.java">
-      <ranges>
-        <range start1="42" end1="45" start2="42" end2="44" changelist="76e66c52-af61-4a4c-a04c-81aa9fb421ba" />
-        <range start1="46" end1="59" start2="45" end2="45" changelist="e386bd1d-942e-4395-9f2c-b37568fb3c05" />
-        <range start1="60" end1="64" start2="46" end2="50" changelist="76e66c52-af61-4a4c-a04c-81aa9fb421ba" />
-        <range start1="69" end1="69" start2="55" end2="56" changelist="e386bd1d-942e-4395-9f2c-b37568fb3c05" />
-        <range start1="77" end1="96" start2="64" end2="66" changelist="e386bd1d-942e-4395-9f2c-b37568fb3c05" />
-        <range start1="97" end1="97" start2="67" end2="72" changelist="e386bd1d-942e-4395-9f2c-b37568fb3c05" />
-      </ranges>
-    </file>
-    <file path="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/players/ManipulatorPlayer.java">
-      <ranges>
-        <range start1="48" end1="52" start2="48" end2="52" changelist="e386bd1d-942e-4395-9f2c-b37568fb3c05" />
-        <range start1="66" end1="67" start2="66" end2="67" changelist="76e66c52-af61-4a4c-a04c-81aa9fb421ba" />
-        <range start1="68" end1="69" start2="68" end2="69" changelist="76e66c52-af61-4a4c-a04c-81aa9fb421ba" />
-        <range start1="71" end1="72" start2="71" end2="72" changelist="76e66c52-af61-4a4c-a04c-81aa9fb421ba" />
-      </ranges>
-    </file>
-    <file path="$PROJECT_DIR$/src/main/java/org/runtimeerror/controller/Game.java">
-      <ranges>
-        <range start1="5" end1="6" start2="5" end2="5" changelist="76e66c52-af61-4a4c-a04c-81aa9fb421ba" />
-        <range start1="66" end1="67" start2="65" end2="66" changelist="e386bd1d-942e-4395-9f2c-b37568fb3c05" />
-        <range start1="355" end1="358" start2="354" end2="357" changelist="76e66c52-af61-4a4c-a04c-81aa9fb421ba" />
-      </ranges>
-    </file>
-    <file path="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/map/Element.java">
-      <ranges>
-        <range start1="156" end1="157" start2="156" end2="158" changelist="76e66c52-af61-4a4c-a04c-81aa9fb421ba" />
-        <range start1="158" end1="159" start2="159" end2="173" changelist="e386bd1d-942e-4395-9f2c-b37568fb3c05" />
-      </ranges>
-    </file>
-    <file path="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/map/Pipe.java">
-      <ranges>
-        <range start1="69" end1="79" start2="69" end2="69" changelist="76e66c52-af61-4a4c-a04c-81aa9fb421ba" />
-        <range start1="100" end1="102" start2="90" end2="92" changelist="76e66c52-af61-4a4c-a04c-81aa9fb421ba" />
-        <range start1="104" end1="107" start2="94" end2="97" changelist="76e66c52-af61-4a4c-a04c-81aa9fb421ba" />
-        <range start1="129" end1="129" start2="119" end2="120" changelist="e386bd1d-942e-4395-9f2c-b37568fb3c05" />
-        <range start1="151" end1="169" start2="142" end2="144" changelist="e386bd1d-942e-4395-9f2c-b37568fb3c05" />
-      </ranges>
-    </file>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -173,7 +111,7 @@
       <workItem from="1683633928212" duration="4550000" />
       <workItem from="1683638820431" duration="35000" />
       <workItem from="1683638878532" duration="71000" />
-      <workItem from="1683639192280" duration="14291000" />
+      <workItem from="1683639192280" duration="15551000" />
     </task>
     <task id="LOCAL-00001" summary="Move to Empty pipe&#10;Manipulate &#10;Újítások&#10;Oli, Elon">
       <created>1682595103637</created>
@@ -322,7 +260,28 @@
       <option name="project" value="LOCAL" />
       <updated>1683647504283</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="Szabi GUI-ja">
+      <created>1683653949166</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1683653949166</updated>
+    </task>
+    <task id="LOCAL-00023" summary="A prototípus megalapozásához">
+      <created>1683654008218</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1683654008218</updated>
+    </task>
+    <task id="LOCAL-00024" summary="A protítpus alapozásához - Ádám része">
+      <created>1683654052979</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1683654052979</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -357,7 +316,10 @@
     <MESSAGE value="Még mindig irányok törlése utáni fgv javítások, castolás kivédése és egyéb dolgok, olyan sok hogy már nehéz követni" />
     <MESSAGE value=" Még mindig irányok törlése utáni fgv javítások, castolás kivédése és egyéb dolgok, olyan sok hogy már nehéz követni" />
     <MESSAGE value="Még mindig irányok törlése utáni fgv javítások, castolás kivédése és egyéb dolgok, olyan sok hogy már nehéz követni ez is az csak adam része" />
-    <option name="LAST_COMMIT_MESSAGE" value="Még mindig irányok törlése utáni fgv javítások, castolás kivédése és egyéb dolgok, olyan sok hogy már nehéz követni ez is az csak adam része" />
+    <MESSAGE value="Szabi GUI-ja" />
+    <MESSAGE value="A prototípus megalapozásához" />
+    <MESSAGE value="A protítpus alapozásához - Ádám része" />
+    <option name="LAST_COMMIT_MESSAGE" value="A protítpus alapozásához - Ádám része" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

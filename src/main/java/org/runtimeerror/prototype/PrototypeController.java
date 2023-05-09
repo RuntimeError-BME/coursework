@@ -97,6 +97,15 @@ public final class PrototypeController {
      print map
 
      ----------------------------------------------------------------
+     kell:
+
+     Setsitcky
+     SetSlippery
+     Break
+     Next Turn // kör passzolása
+
+
+     ----------------------------------------------------------------
 
 
      lépés csőre, amin már állnak
