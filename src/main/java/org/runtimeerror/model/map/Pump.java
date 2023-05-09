@@ -18,6 +18,7 @@ public final class Pump extends Breakable {
      outputra hívja tovább a Flood() függvényt. */
     @Override
     public void Flood() {
+        if(GetFlooded()) return;
         if (GetBroken()) // ha el van romolva
             return; // akkor nem tesz semmit
 
@@ -48,33 +49,12 @@ public final class Pump extends Breakable {
      *      output: [dir_nr]
      */
     @Override
-    public void Print() {
-        int idx = Game.GetInstance().GetNetwork().GetElements().indexOf(this);
-        System.out.print("details of element " + idx + " (pipe):" +
-                         "\n\tflooded: " + GetFlooded() +
-                         "\n\tplayers: ");
-        for (Player player : players)
-            System.out.print(player.GetName() + " ");
+    public void Print(String part) {
+        super.Print("pump");
 
-        System.out.print("\n\tnbs: ");
-        int cnt = 0, i = 0;
-        int inp_dir = -1, out_dir = -1;
-        while (cnt < GetNbCnt()) {
-            Element nb = GetNbs(new Direction(i));
-            if (nb != null) {
-                if (nb == GetInput())
-                    inp_dir = i;
-                else if (nb == GetOutput())
-                    out_dir = i;
-
-                System.out.print(i + " ");
-                ++cnt;
-            }
-            ++i;
-        }
         System.out.print("\n\tbroken: " + GetBroken());
-        System.out.print("\n\tinput: " + inp_dir);
-        System.out.print("\n\toutput: " + out_dir);
+        System.out.print("\n\tinput: " + GetInput().GetIdx());
+        System.out.print("\n\toutput: " + GetOutput().GetIdx());
         System.out.print("\n");
     }
 

@@ -64,7 +64,7 @@ public final class Game {
         random          = new Random(); // véletlenszerű viselkedés lesz megvalósítva vele
         deterministic   = false;
         network         = new Network(); // a pálya elemeit tárolja, szortírozza
-        network.AddSource(new Source(0)); // csak egyetlen forrást tartalmaz kezdetben a pálya
+        network.AddSource(new Source()); // csak egyetlen forrást tartalmaz kezdetben a pálya
     }
 
     /** Visszaadja a pálya elemeit számontartó objektumot.

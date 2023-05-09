@@ -127,6 +127,7 @@ public final class Pipe extends Breakable {
      */
     @Override
     public void Flood() {
+        if(GetFlooded()) return;
         // TODO: itt kell outputot állítani a csőnek (meg forrásnál is)
         SetFlooded(true); // víz kerül belé
         Element output = GetOutput();
@@ -149,24 +150,8 @@ public final class Pipe extends Breakable {
      *      counter: [value]
      */
     @Override
-    public void Print() {
-        int idx = Game.GetInstance().GetNetwork().GetElements().indexOf(this);
-        System.out.print("details of element " + idx + " (pipe):" +
-                         "\n\tflooded: " + GetFlooded() +
-                         "\n\tplayers: ");
-        for (Player player : players)
-            System.out.print(player.GetName() + " ");
-
-        System.out.print("\n\tnbs: ");
-        int cnt = 0, i = 0;
-        while (cnt < GetNbCnt()) {
-            Element nb = GetNbs(new Direction(i));
-            if (nb != null) {
-                System.out.print(i + " ");
-                ++cnt;
-            }
-            ++i;
-        }
+    public void Print(String part) {
+        super.Print("pipe");
         System.out.print("\n\tbroken: " + GetBroken());
         System.out.print("\n\tsticky: " + GetSticky());
         System.out.print("\n\tslippery: " + GetSlippery());

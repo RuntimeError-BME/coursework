@@ -46,10 +46,10 @@ public class ManipulatorPlayer {
 
             // fontos, hogy a játékos ne maradjon a ragadós csövön, hiszen akkor önmagát szabotálja
             Player player = Game.GetInstance().GetCurrPlayer(); // a jelenlegi játékos
-            Element nb1 = p.GetNbs(new Direction(p.GetNbMinDirNumber())); // az egyik szomszédja a jelenlegi csőnek
-            Element nb2 = p.GetNbs(new Direction(p.GetNbMaxDirNumber())); // a másik szomszédja a jelenlegi csőnek
-            nb1.AddPlayer(player); // először megpróbáljuk a kisebb sorszámú irányban lévő szomszédra tenni őt
-            if (player.GetCurrElem() == p) // ha nem sikerült (mert egy cső, amin már állnak)
+            Element nb1 = p.GetNbs().get(0); // az egyik szomszédja a jelenlegi csőnek
+            Element nb2 = p.GetNbs().get(1); // a másik szomszédja a jelenlegi csőnek
+            nb1.AddPlayer(player); // először megpróbáljuk a kisebb indexű szomszédra tenni őt
+            if (player.GetCurrElem() == p) // ha még rajta áll, akkor nem sikerült (mert a célpont egy cső, amin már állnak)
                 nb2.AddPlayer(player); // akkor megpróbáljuk a nagyobb sorszámú irányba lévő szomszédra is rátenni
             // ha ez sem lehetséges, nyilván marad a ragadós csövön, és ilyenkor nem tudja elkerülni az önszabotálást
 

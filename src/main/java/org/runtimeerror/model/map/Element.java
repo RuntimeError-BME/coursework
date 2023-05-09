@@ -156,7 +156,20 @@ public abstract class Element {
      * Csak a prototípusban használt függvény, ami kiírja az elem adatait.
      * Absztrakt függvény, amit a konkrét leszármazottakban meg kell valósítani.
      */
-    public abstract void Print();
+    public void Print(String part) {
+        System.out.print("details of element " + GetIdx() + " ("+ (part) +"):" +
+                "\n\tflooded: " + GetFlooded() +
+                "\n\tplayers: ");
+        for (Player player : players)
+            System.out.print(player.GetName() + " ");
+
+        System.out.print("\n\tnbs: ");
+
+        for (Element element: GetNbs()) { // végigmegyünk az összes szomszédján
+            System.out.print(element.GetIdx() + " ");//a szomszéd(ok) indexét kiírja
+        }
+        System.out.print("\n");
+    }
 
 
     /** Absztrakt függvény, amit a leszármazottak úgy írnak felül, hogy hozzáadják a pályának az egyik szortírozó

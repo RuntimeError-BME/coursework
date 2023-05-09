@@ -16,16 +16,16 @@ public final class Source extends Element {
      azaz ereszti tovább a vizet. */
     @Override
     public void Flood() {
-
+        if(GetFlooded()) return;
         SetFlooded(true); // víz kerül belé
-        int cnt = 0, i = 0;
-        while (cnt < GetNbCnt()) { // végigmegyünk az összes szomszédján
-            Element nb = GetNbs(new Direction(i));
-            if (nb != null) {
-                nb.Flood(); // elárasztjuk az összeset
-                ++cnt;
+        for (Element element: GetNbs()) { // végigmegyünk az összes szomszédján
+            if(element.GetPickUpAble_onlyAttribute()){
+                element.SetInput(this);
+                for (Element e: element.GetNbs()){
+                    if(e!=this) element.SetOutput(e);
+                }
             }
-            ++i;
+            element.Flood();//a szomszédo(ka)t elárasztja
         }
     }
 
@@ -44,24 +44,12 @@ public final class Source extends Element {
      *      nbs: [dir_nr] [dir_nr] ...
      */
     @Override
-    public void Print() {
-        int idx = Game.GetInstance().GetNetwork().GetElements().indexOf(this);
-        System.out.print("details of element " + idx + " (source):" +
-                         "\n\tflooded: " + GetFlooded() +
-                         "\n\tplayers: ");
-        for (Player player : players)
-            System.out.print(player.GetName() + " ");
+    public void Print(String part) {
+        super.Print("source");
+    }
 
-        System.out.print("\n\tnbs: ");
-        int cnt = 0, i = 0;
-        while (cnt < GetNbCnt()) {
-            Element nb = GetNbs(new Direction(i));
-            if (nb != null) {
-                System.out.print(i + " ");
-                ++cnt;
-            }
-            ++i;
-        }
-        System.out.print("\n");
+    @Override
+    public boolean NetworkAdd(Element e) {
+        return false;
     }
 }
