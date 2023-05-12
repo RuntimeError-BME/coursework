@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e386bd1d-942e-4395-9f2c-b37568fb3c05" name="Changes" comment="A prototípus megalapozásához">
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/controller/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/controller/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/prototype/PrototypeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/prototype/PrototypeController.java" afterDir="false" />
-    </list>
+    <list default="true" id="e386bd1d-942e-4395-9f2c-b37568fb3c05" name="Changes" comment="PrototypeController: Új: -ResetState() -itt valami gond van mivel bekerül egy új cső a nestturn után&#10;                         -SetCurrLine()&#10;Game: Reset()- kikommenteltem az alap forrást&#10;Main: meghívom a PrototypeController-t" />
     <list id="76e66c52-af61-4a4c-a04c-81aa9fb421ba" name="Changes by adammizser" comment="A protítpus alapozásához - Ádám része" />
     <list id="a4c0f49e-6999-4950-9835-6465a74e418a" name="Changes by Tep Oli" comment="    1. Az idx attribútum hozzá lett adva az Element osztályhoz.&#10;    2. Érintett függvények paramétereinek, visszatérési értékeinek módosítása a tervekhez képest.&#10;    3. GetNbMaxDirNumber(), GetNbMinDirNumber() függvények eltávolítása (szükségtelenek a gráfos megközelítés miatt)." />
     <option name="SHOW_DIALOG" value="false" />
@@ -283,7 +279,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683654052979</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="PrototypeController: Új: -ResetState() -itt valami gond van mivel bekerül egy új cső a nestturn után&#10;                         -SetCurrLine()&#10;Game: Reset()- kikommenteltem az alap forrást&#10;Main: meghívom a PrototypeController-t">
+      <created>1683890333296</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1683890333296</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -322,7 +325,8 @@
     <MESSAGE value="Szabi GUI-ja" />
     <MESSAGE value="A prototípus megalapozásához" />
     <MESSAGE value="A protítpus alapozásához - Ádám része" />
-    <option name="LAST_COMMIT_MESSAGE" value="A protítpus alapozásához - Ádám része" />
+    <MESSAGE value="PrototypeController: Új: -ResetState() -itt valami gond van mivel bekerül egy új cső a nestturn után&#10;                         -SetCurrLine()&#10;Game: Reset()- kikommenteltem az alap forrást&#10;Main: meghívom a PrototypeController-t" />
+    <option name="LAST_COMMIT_MESSAGE" value="PrototypeController: Új: -ResetState() -itt valami gond van mivel bekerül egy új cső a nestturn után&#10;                         -SetCurrLine()&#10;Game: Reset()- kikommenteltem az alap forrást&#10;Main: meghívom a PrototypeController-t" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
