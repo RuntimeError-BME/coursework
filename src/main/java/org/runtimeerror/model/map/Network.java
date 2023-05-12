@@ -1,7 +1,9 @@
 package org.runtimeerror.model.map;
 
 import org.runtimeerror.controller.Game;
+import org.runtimeerror.prototype.PrototypeController;
 
+import java.io.PrintStream;
 import java.util.List;
 import java.util.ArrayList;
 
@@ -175,6 +177,12 @@ public final class Network {
      */
     public void Print(){
         for (Element e: GetElements()){
+            if(PrototypeController.GetInstance().GetPrintAlsoToFile()) {
+                PrintStream ps = System.out;
+                System.setOut(PrototypeController.GetInstance().GetOutConsole());
+                e.Print("");
+                System.setOut(ps);
+            }
             e.Print("");
         }
     }

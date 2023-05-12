@@ -25,6 +25,11 @@ public final class PrototypeController {
     static {
         singleInstance = null;
     }
+    public static PrintStream GetOutConsole(){
+        return outConsole;
+    }
+
+    public boolean GetPrintAlsoToFile() { return printAlsoToFile; }
 
     /**
      * Konstruktor (privát láthatóságú, mert Singleton osztály).
@@ -131,7 +136,8 @@ public final class PrototypeController {
      */
     public static void ResetState(){
         game.Reset();
-        Network network= game.GetNetwork();
+        Network network = game.GetNetwork();
+        Element.Reset();
 
         Source s1=new Source();
         Pipe p1=new Pipe();
@@ -165,10 +171,13 @@ public final class PrototypeController {
         network.AddPump(pu1,p1_5);
         network.AddCistern(c1);
 
+
+        //Tesztelés rész inenntől:
         Player player1=new Player("S1");
         player1.SetCurrElem(s1);
         s1.AddPlayer(player1);
         game.AddPlayer(player1);
+
 
         System.out.println(game.GetTurnInfo());
         network.Print();
@@ -176,8 +185,8 @@ public final class PrototypeController {
         game.NextTurn();
         network.Print();
 
-        PrototypeController.GetInstance().SetCurrLine("sticky");
         player1.MoveTo(p1);
+        PrototypeController.GetInstance().SetCurrLine("sticky");
         player1.ManipulateCurrElem();
 
         network.Print();

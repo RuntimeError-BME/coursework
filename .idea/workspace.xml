@@ -4,22 +4,25 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e386bd1d-942e-4395-9f2c-b37568fb3c05" name="Changes" comment="PrototypeController: Új: -ResetState() -itt valami gond van mivel bekerül egy új cső a nestturn után&#10;                         -SetCurrLine()&#10;Game: Reset()- kikommenteltem az alap forrást&#10;Main: meghívom a PrototypeController-t">
-      <change afterPath="$PROJECT_DIR$/input.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/input/input1.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/input/input2.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/input/input3.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/input/input4.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/output.txt" afterDir="false" />
+    <list default="true" id="e386bd1d-942e-4395-9f2c-b37568fb3c05" name="Changes" comment="PrototypeController: További munkálatai: Streamek állítása ha van be és kimeneti fájl stb.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/input.txt" beforeDir="false" afterPath="$PROJECT_DIR$/input.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/input/input0.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/output.txt" beforeDir="false" afterPath="$PROJECT_DIR$/output.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/output/output0.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/required_output/required_output0.txt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/controller/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/controller/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/map/Element.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/map/Element.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/map/Network.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/map/Network.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/map/Pipe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/map/Pipe.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/map/Pump.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/map/Pump.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/prototype/PrototypeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/prototype/PrototypeController.java" afterDir="false" />
     </list>
-    <list id="76e66c52-af61-4a4c-a04c-81aa9fb421ba" name="Changes by adammizser" comment="A protítpus alapozásához - Ádám része">
+    <list id="76e66c52-af61-4a4c-a04c-81aa9fb421ba" name="Changes by adammizser" comment="A protítpus stream állítások - Ádám része">
       <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/controller/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/controller/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/map/Network.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/map/Network.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/prototype/PrototypeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/prototype/PrototypeController.java" afterDir="false" />
+    </list>
+    <list id="c22cf75c-1d00-4033-8a93-8ea5bf010523" name="Changes by sasy" comment="">
       <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/prototype/PrototypeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/prototype/PrototypeController.java" afterDir="false" />
     </list>
     <list id="a4c0f49e-6999-4950-9835-6465a74e418a" name="Changes by Tep Oli" comment="    1. Az idx attribútum hozzá lett adva az Element osztályhoz.&#10;    2. Érintett függvények paramétereinek, visszatérési értékeinek módosítása a tervekhez képest.&#10;    3. GetNbMaxDirNumber(), GetNbMinDirNumber() függvények eltávolítása (szükségtelenek a gráfos megközelítés miatt)." />
@@ -52,26 +55,39 @@
     </option>
   </component>
   <component name="LineStatusTrackerManager">
+    <file path="$PROJECT_DIR$/src/main/java/org/runtimeerror/controller/Game.java">
+      <ranges>
+        <range start1="6" end1="6" start2="6" end2="7" changelist="e386bd1d-942e-4395-9f2c-b37568fb3c05" />
+        <range start1="130" end1="130" start2="131" end2="138" changelist="e386bd1d-942e-4395-9f2c-b37568fb3c05" />
+        <range start1="387" end1="387" start2="395" end2="422" changelist="76e66c52-af61-4a4c-a04c-81aa9fb421ba" />
+      </ranges>
+    </file>
     <file path="$PROJECT_DIR$/src/main/java/org/runtimeerror/prototype/PrototypeController.java">
       <ranges>
-        <range start1="7" end1="9" start2="7" end2="9" changelist="76e66c52-af61-4a4c-a04c-81aa9fb421ba" />
-        <range start1="16" end1="16" start2="16" end2="19" changelist="76e66c52-af61-4a4c-a04c-81aa9fb421ba" />
+        <range start1="2" end1="2" start2="2" end2="3" changelist="c22cf75c-1d00-4033-8a93-8ea5bf010523" />
+        <range start1="8" end1="8" start2="9" end2="11" changelist="c22cf75c-1d00-4033-8a93-8ea5bf010523" />
         <range start1="19" end1="19" start2="22" end2="23" changelist="76e66c52-af61-4a4c-a04c-81aa9fb421ba" />
-        <range start1="27" end1="28" start2="31" end2="71" changelist="76e66c52-af61-4a4c-a04c-81aa9fb421ba" />
-        <range start1="68" end1="68" start2="111" end2="127" changelist="e386bd1d-942e-4395-9f2c-b37568fb3c05" />
-        <range start1="85" end1="87" start2="144" end2="145" changelist="e386bd1d-942e-4395-9f2c-b37568fb3c05" />
-        <range start1="88" end1="92" start2="146" end2="147" changelist="e386bd1d-942e-4395-9f2c-b37568fb3c05" />
-        <range start1="93" end1="97" start2="148" end2="149" changelist="e386bd1d-942e-4395-9f2c-b37568fb3c05" />
-        <range start1="98" end1="102" start2="150" end2="151" changelist="e386bd1d-942e-4395-9f2c-b37568fb3c05" />
-        <range start1="103" end1="107" start2="152" end2="153" changelist="e386bd1d-942e-4395-9f2c-b37568fb3c05" />
-        <range start1="108" end1="112" start2="154" end2="155" changelist="e386bd1d-942e-4395-9f2c-b37568fb3c05" />
-        <range start1="113" end1="115" start2="156" end2="157" changelist="e386bd1d-942e-4395-9f2c-b37568fb3c05" />
-        <range start1="125" end1="127" start2="167" end2="168" changelist="76e66c52-af61-4a4c-a04c-81aa9fb421ba" />
-        <range start1="132" end1="135" start2="173" end2="174" changelist="e386bd1d-942e-4395-9f2c-b37568fb3c05" />
-        <range start1="137" end1="140" start2="176" end2="177" changelist="e386bd1d-942e-4395-9f2c-b37568fb3c05" />
-        <range start1="141" end1="142" start2="178" end2="179" changelist="e386bd1d-942e-4395-9f2c-b37568fb3c05" />
-        <range start1="145" end1="149" start2="182" end2="183" changelist="e386bd1d-942e-4395-9f2c-b37568fb3c05" />
-        <range start1="195" end1="198" start2="229" end2="232" changelist="e386bd1d-942e-4395-9f2c-b37568fb3c05" />
+        <range start1="27" end1="27" start2="31" end2="36" changelist="e386bd1d-942e-4395-9f2c-b37568fb3c05" />
+        <range start1="37" end1="38" start2="46" end2="49" changelist="76e66c52-af61-4a4c-a04c-81aa9fb421ba" />
+        <range start1="39" end1="42" start2="50" end2="50" changelist="76e66c52-af61-4a4c-a04c-81aa9fb421ba" />
+        <range start1="71" end1="71" start2="79" end2="116" changelist="76e66c52-af61-4a4c-a04c-81aa9fb421ba" />
+        <range start1="133" end1="134" start2="178" end2="180" changelist="e386bd1d-942e-4395-9f2c-b37568fb3c05" />
+        <range start1="167" end1="167" start2="213" end2="215" changelist="e386bd1d-942e-4395-9f2c-b37568fb3c05" />
+        <range start1="172" end1="172" start2="220" end2="221" changelist="e386bd1d-942e-4395-9f2c-b37568fb3c05" />
+        <range start1="178" end1="179" start2="227" end2="227" changelist="e386bd1d-942e-4395-9f2c-b37568fb3c05" />
+        <range start1="180" end1="180" start2="228" end2="229" changelist="e386bd1d-942e-4395-9f2c-b37568fb3c05" />
+        <range start1="238" end1="243" start2="287" end2="292" changelist="76e66c52-af61-4a4c-a04c-81aa9fb421ba" />
+        <range start1="244" end1="250" start2="293" end2="299" changelist="76e66c52-af61-4a4c-a04c-81aa9fb421ba" />
+        <range start1="251" end1="259" start2="300" end2="308" changelist="76e66c52-af61-4a4c-a04c-81aa9fb421ba" />
+        <range start1="260" end1="261" start2="309" end2="310" changelist="76e66c52-af61-4a4c-a04c-81aa9fb421ba" />
+      </ranges>
+    </file>
+    <file path="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/map/Network.java">
+      <ranges>
+        <range start1="3" end1="3" start2="3" end2="4" changelist="e386bd1d-942e-4395-9f2c-b37568fb3c05" />
+        <range start1="4" end1="4" start2="5" end2="6" changelist="e386bd1d-942e-4395-9f2c-b37568fb3c05" />
+        <range start1="177" end1="177" start2="179" end2="185" changelist="e386bd1d-942e-4395-9f2c-b37568fb3c05" />
+        <range start1="180" end1="180" start2="188" end2="210" changelist="76e66c52-af61-4a4c-a04c-81aa9fb421ba" />
       </ranges>
     </file>
   </component>
@@ -161,7 +177,7 @@
       <workItem from="1683638820431" duration="35000" />
       <workItem from="1683638878532" duration="71000" />
       <workItem from="1683639192280" duration="15551000" />
-      <workItem from="1683893714698" duration="5742000" />
+      <workItem from="1683893714698" duration="10801000" />
     </task>
     <task id="LOCAL-00001" summary="Move to Empty pipe&#10;Manipulate &#10;Újítások&#10;Oli, Elon">
       <created>1682595103637</created>
@@ -338,7 +354,21 @@
       <option name="project" value="LOCAL" />
       <updated>1683890333296</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="PrototypeController: További munkálatai: Streamek állítása ha van be és kimeneti fájl stb.">
+      <created>1683899529806</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1683899529806</updated>
+    </task>
+    <task id="LOCAL-00027" summary="A protítpus stream állítások - Ádám része">
+      <created>1683899560752</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1683899560752</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -378,7 +408,9 @@
     <MESSAGE value="A prototípus megalapozásához" />
     <MESSAGE value="A protítpus alapozásához - Ádám része" />
     <MESSAGE value="PrototypeController: Új: -ResetState() -itt valami gond van mivel bekerül egy új cső a nestturn után&#10;                         -SetCurrLine()&#10;Game: Reset()- kikommenteltem az alap forrást&#10;Main: meghívom a PrototypeController-t" />
-    <option name="LAST_COMMIT_MESSAGE" value="PrototypeController: Új: -ResetState() -itt valami gond van mivel bekerül egy új cső a nestturn után&#10;                         -SetCurrLine()&#10;Game: Reset()- kikommenteltem az alap forrást&#10;Main: meghívom a PrototypeController-t" />
+    <MESSAGE value="PrototypeController: További munkálatai: Streamek állítása ha van be és kimeneti fájl stb." />
+    <MESSAGE value="A protítpus stream állítások - Ádám része" />
+    <option name="LAST_COMMIT_MESSAGE" value="A protítpus stream állítások - Ádám része" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

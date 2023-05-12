@@ -177,4 +177,8 @@ public abstract class Element {
      gyűjteményéhez az adott elemet. */
     public abstract boolean NetworkAdd(Element e);
 
+    public static void Reset() {
+        maxIdx = 0;
+    }
+
 }

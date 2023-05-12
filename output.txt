@@ -1,4 +1,3 @@
-output/output0.txt
 output/output1.txt
 output/output2.txt
 output/output3.txt

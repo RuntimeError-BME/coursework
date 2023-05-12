@@ -4,6 +4,7 @@ import org.runtimeerror.model.map.*;
 import org.runtimeerror.model.players.Player;
 import org.runtimeerror.prototype.PrototypeController;
 
+import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -128,6 +129,13 @@ public final class Game {
             network.ProducePipesAroundCisterns(); // csövek lehelyezése a ciszternák körül, amennyiben lehetséges
         }
 
+        //Ha nem csak a konzolra kell kiírni akkor lép életbe:
+        if(PrototypeController.GetInstance().GetPrintAlsoToFile()) {
+            PrintStream ps = System.out;
+            System.setOut(PrototypeController.GetInstance().GetOutConsole());
+            System.out.println(GetTurnInfo());
+            System.setOut(ps);
+        }
         System.out.println(GetTurnInfo()); // kiírjuk a jelenlegi kör (frissült) adatait
         // TODO: ezt majd a GUI felületére
         if (GetCurrPlayer().GetCurrElem().GetSticky()) // ha a következő játékos alatt (még) ragadós cső van

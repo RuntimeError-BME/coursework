@@ -13,7 +13,7 @@ public class Main {
         //GuiController guic = new GuiController();
         PrototypeController pc=PrototypeController.GetInstance();
         pc.ResetState();
-        for (int i=0;i<21;i++){
+        for (int i=1;i<21;i++){
             try {
                 if(!(new File("input/input"+i+".txt")).exists())
                     (new File("input/input"+i+".txt")).createNewFile();
