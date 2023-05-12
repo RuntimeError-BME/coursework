@@ -393,4 +393,31 @@ public final class Game {
 
     /** Az átadott értékre állítja az alapértelmezett időszámlálót. Lásd: defaultCounter attribútum. */
     public static void SetDefaultCounter(int value) { defaultCounter = value; }
+
+    /**
+     * A megadott játékosnak kiírjuk az inventory-ját
+     * @param pname - a játékos neve
+     */
+    public void PrintInventory(String pname) {
+        for (Player p : players) {
+            if (p.GetName().equals(pname)) {
+                Element part = p.GetPart();
+                if (PrototypeController.GetInstance().GetPrintAlsoToFile()) {
+                    PrintStream ps = System.out;
+                    System.setOut(PrototypeController.GetInstance().GetOutConsole());
+                    if (part != null) {
+                        p.GetPart().Print("");
+                    } else {
+                        System.out.println("Empty");
+                    }
+                    System.setOut(ps);
+                }
+                if (part != null) {
+                    p.GetPart().Print("");
+                } else {
+                    System.out.println("Empty");
+                }
+            }
+        }
+    }
 }

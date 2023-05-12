@@ -186,4 +186,26 @@ public final class Network {
             e.Print("");
         }
     }
+
+    /**
+     * Kiírja az átadott indexű elem adatait.
+     * @param idx - az átadott index
+     */
+    public void PrintElement(int idx) {
+        if(PrototypeController.GetInstance().GetPrintAlsoToFile()) {
+            PrintStream ps = System.out;
+            System.setOut(PrototypeController.GetInstance().GetOutConsole());
+            elements.get(idx).Print("");
+            System.setOut(ps);
+        }
+        elements.get(idx).Print("");
+    }
+
+    /**
+     * Kiírja a megadott nevű játékos jelenlegi elemének (amin áll) jellemzőit
+     */
+    public void PrintCurrElem() {
+        Element currElem = Game.GetInstance().GetCurrPlayer().GetCurrElem();
+        PrintElement(currElem.GetIdx());
+    }
 }

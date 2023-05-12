@@ -17,6 +17,7 @@ public final class PrototypeController {
     private boolean printAlsoToFile = false;
 
 
+    private Map<String, String> inputFiles = new TreeMap<>();
 
     private String currLine; // a jelenlegi parancs (sor) szövege
     private boolean gameOver = false; // véget ért-e a játék
@@ -40,11 +41,10 @@ public final class PrototypeController {
 
         if (!readFromFiles) {
             consoleCommandLoop();
-            return;
+        } else {
+            readInputFiles();
+            fileTestingLoop();
         }
-
-        // beolvassuk a fájlokat
-
     }
 
     /**
@@ -72,6 +72,43 @@ public final class PrototypeController {
 
     /** A konzolról olvas parancsokat végtelen ciklusban. */
     private void consoleCommandLoop() {
+
+    }
+
+    /** Beolvassa a bemeneti fájlok neveit és a hozzájuk tartozó leírást. */
+    private void readInputFiles() {
+        Scanner s = new Scanner(System.in);
+        while (s.hasNext()) {
+            String line = s.next();
+            String[] splitted = line.split("\t");
+            inputFiles.put(splitted[0], splitted[1]);
+        }
+    }
+
+    /**
+     * Kiírjuk az input.txt file-ban szereplő teszteseteket (szimpla input név-index szerint, melyet a magyarázata követ)
+     */
+    private void listInputFiles() {
+        int i = 1;
+
+        
+
+        inputFiles.forEach((name,info) -> {
+            System.out.println("Index = " + i + " Name = "
+                    + name + "\tInfo = " + info);
+        });
+    }
+
+    /** A input fájlok közül választhat a felhasználó végtelen ciklusban. */
+    private void fileTestingLoop() {
+        while (true) {
+            listInputFiles();
+            System.setOut(outConsole);
+
+        }
+    }
+
+    private void getCurrLine() {
 
     }
 
@@ -245,29 +282,29 @@ public final class PrototypeController {
      ----------------------------------------------------------------
 
 
-     lépés csőre, amin már állnak
-     lépés csőre, amin még nem állnak
-     lépés csúszós csőre, csúszós állapot elmúlása
-     lépés ragadós csőre, ragadós állapot elmúlása
-     lépés pumpára, amin már állnak
+     1) lépés csőre, amin már állnak
+     2) lépés csőre, amin még nem állnak
+     3) lépés csúszós csőre, csúszós állapot elmúlása
+     4) lépés ragadós csőre, ragadós állapot elmúlása
+     5) lépés pumpára, amin már állnak
 
-     cső lyukasztása és megjavítása
-     az elromlott pumpa megjavítsa
-     cső csúszóssá tétele
-     cső ragadóssá tétele
-     pumpa bemenetének és kimenetének beállítása
-     teleportálás ciszternák között
+     6) cső lyukasztása és megjavítása
+     7) az elromlott pumpa megjavítsa
+     8) cső csúszóssá tétele
+     9) cső ragadóssá tétele
+     10) pumpa bemenetének és kimenetének beállítása
+     11) teleportálás ciszternák között
 
-     csőfelvétel, ha lehetséges
-     csőfelvétel, ha nem lehetséges
-     csőlehelyezés, ha lehetséges
-     csőlehelyezés, ha nem lehetséges
-     pumpafeltvétel, ha lehetséges
-     pumpafeltvétel, ha nem lehetséges
-     pumpalehelyezés, ha lehetséges
-     pumpalehelyezés, ha nem lehetséges
+     12) csőfelvétel, ha lehetséges
+     13) csőfelvétel, ha nem lehetséges
+     14) csőlehelyezés, ha lehetséges
+     15) csőlehelyezés, ha nem lehetséges
+     16) pumpafeltvétel, ha lehetséges
+     17) pumpafeltvétel, ha nem lehetséges
+     18) pumpalehelyezés, ha lehetséges
+     19) pumpalehelyezés, ha nem lehetséges
 
-     játék vége
+     20) játék vége
 
      */
 }
