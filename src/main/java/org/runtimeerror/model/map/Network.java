@@ -123,7 +123,7 @@ public final class Network {
         elements.add(c);
         cisterns.add(c);
         if (PrototypeController.IsLogging())
-            System.out.println("a cistern was added as element " + c.GetIdx() + ".\n");
+            PrototypeController.GetInstance().PrintLine("a cistern was added as element " + c.GetIdx() + ".\n");
     }
 
     /** Az átadott forrást hozzáadja a pályához.
@@ -242,21 +242,43 @@ public final class Network {
     /** Hozzáad a pályához egy új csövet az átadott e elem mellé. */
     public void AddNewPipe(Element e) {
         Pipe p = new Pipe();
-        
+        Connect(p, e, null);
+        AddPipe(p);
+    }
+
+    /** Hozzáad a pályához egy új pumpát az átadott e elem mellé. */
+    public void AddNewPump(Element e) {
+        Pump p = new Pump();
+        Connect(p, e, null);
+        AddPump(p);
+    }
+
+    /** Hozzáad a pályához egy új csövet az átadott e elem mellé. */
+    public void AddNewCistern(Element e) {
+        Cistern c = new Cistern();
+        Connect(c, e, null);
+        AddCistern(c);
+    }
+
+    /** Hozzáad a pályához egy új csövet az átadott e elem mellé. */
+    public void AddNewSource(Element e) {
+        Source s = new Source();
+        Connect(s, e, null);
+        AddSource(s);
     }
 
     /**
      * Meghívja minden elemének a Print fügvényét - ami kírja az elemek tulajdonságait.
      */
-    public void Print(){
-        for (Element e: GetElements()){
-            if(PrototypeController.GetInstance().GetPrintAlsoToFile()) {
-                PrintStream ps = System.out;
-                System.setOut(PrototypeController.GetInstance().GetOutConsole());
+    public void Print() {
+        for (Element e: GetElements()) {
+            if (PrototypeController.GetInstance().GetPrintAlsoToFile())
                 e.Print("");
-                System.setOut(ps);
-            }
+
+            PrintStream ps = System.out;
+            System.setOut(PrototypeController.GetInstance().GetOutConsole());
             e.Print("");
+            System.setOut(ps);
         }
     }
 
@@ -265,13 +287,13 @@ public final class Network {
      * @param idx - az átadott index
      */
     public void PrintElement(int idx) {
-        if(PrototypeController.GetInstance().GetPrintAlsoToFile()) {
-            PrintStream ps = System.out;
-            System.setOut(PrototypeController.GetInstance().GetOutConsole());
+        if (PrototypeController.GetInstance().GetPrintAlsoToFile())
             elements.get(idx).Print("");
-            System.setOut(ps);
-        }
+
+        PrintStream ps = System.out;
+        System.setOut(PrototypeController.GetInstance().GetOutConsole());
         elements.get(idx).Print("");
+        System.setOut(ps);
     }
 
     /**

@@ -131,12 +131,14 @@ public final class Game {
 
         //Ha nem csak a konzolra kell kiírni akkor lép életbe:
         if(PrototypeController.GetInstance().GetPrintAlsoToFile()) {
-            PrintStream ps = System.out;
-            System.setOut(PrototypeController.GetInstance().GetOutConsole());
-            System.out.println(GetTurnInfo());
-            System.setOut(ps);
+            System.out.println(GetTurnInfo()); // kiírjuk a jelenlegi kör (frissült) adatait
         }
-        System.out.println(GetTurnInfo()); // kiírjuk a jelenlegi kör (frissült) adatait
+
+        PrintStream ps = System.out;
+        System.setOut(PrototypeController.GetInstance().GetOutConsole());
+        System.out.println(GetTurnInfo());
+        System.setOut(ps);
+
         // TODO: ezt majd a GUI felületére
         if (GetCurrPlayer().GetCurrElem().GetSticky()) // ha a következő játékos alatt (még) ragadós cső van
             NextTurn(); // akkor egyből véget is ér a köre
@@ -403,20 +405,21 @@ public final class Game {
             if (p.GetName().equals(pname)) {
                 Element part = p.GetPart();
                 if (PrototypeController.GetInstance().GetPrintAlsoToFile()) {
-                    PrintStream ps = System.out;
-                    System.setOut(PrototypeController.GetInstance().GetOutConsole());
                     if (part != null) {
                         p.GetPart().Print("");
                     } else {
-                        System.out.println("Empty");
+                        System.out.println("empty");
                     }
-                    System.setOut(ps);
                 }
+
+                PrintStream ps = System.out;
+                System.setOut(PrototypeController.GetInstance().GetOutConsole());
                 if (part != null) {
                     p.GetPart().Print("");
                 } else {
-                    System.out.println("Empty");
+                    System.out.println("empty");
                 }
+                System.setOut(ps);
             }
         }
     }

@@ -1,10 +1,8 @@
 package org.runtimeerror.prototype;
 
-import jdk.internal.org.objectweb.asm.tree.analysis.Value;
 import org.runtimeerror.controller.Game;
 import org.runtimeerror.model.map.*;
 import org.runtimeerror.model.players.*;
-import sun.nio.ch.Net;
 
 
 import java.io.*;
@@ -33,7 +31,7 @@ public final class PrototypeController {
 
     static {
         singleInstance = null;
-        logging = false;
+        logging = true;
     }
 
     public static PrintStream GetOutConsole(){
@@ -147,7 +145,6 @@ public final class PrototypeController {
 
             if (requiredTest == 0) break;
             testFile(requiredTest - 1);
-            break;
         }
     }
 
@@ -156,7 +153,14 @@ public final class PrototypeController {
      * @param testIdx - A futtatni kívánt teszteset indexe
      */
     private void testFile(int testIdx) {
-        // inputFiles.get(testIdx).getValue()
+        try {
+            System.setOut(new PrintStream(outputFiles.get(testIdx)));
+            Scanner s = new Scanner(new FileInputStream(inputFiles.get(testIdx).getKey()));
+            while (s.hasNextLine()) {
+                interpretCommand(s.nextLine());
+            }
+        } catch (Exception ignored) { }
+        Game.GetInstance().GetNetwork().Print();
     }
 
     /**
@@ -253,6 +257,20 @@ public final class PrototypeController {
     }
 
     /**
+     * Kiírja az átadott sztringet az átadott kimenetre - a konzolra, illetve fájlba is ha be van kapcsolva a funkció
+     * @param line - átadott sztring, ezt írja ki
+     */
+    public void PrintLine(String line) {
+        if (printAlsoToFile)
+            System.out.println(line);
+
+        PrintStream ps = System.out;
+        System.setOut(PrototypeController.GetInstance().GetOutConsole());
+        System.out.println(line);
+        System.setOut(ps);
+    }
+
+    /**
      * Beállítja a jelenlegi bemenetet. - MÓDOSÍTÁSRA szorulhat, csak a tesztek működése okán kellett.
      * @param currline - amire beállítja (string)
      */
@@ -276,11 +294,12 @@ public final class PrototypeController {
             case "add":
                 switch (splitted[1]) {
                     /** <elem_type> -ra */
-                    case "cistern":
-                    case "pipe": network.AddPipe()
-                    case "pump":
-                    case "source":
-                        /** TODO: megkapjuk <nb_elem_idx> és ezzel dolgozunk tovább */
+
+                    case "cistern": network.AddNewCistern(splitted[2].equals("-1") ? null : network.GetElement(Integer.parseInt(splitted[2]))); break;
+                    case "pipe": network.AddNewPipe(splitted[2].equals("-1") ? null : network.GetElement(Integer.parseInt(splitted[2]))); break;
+                    case "pump": network.AddNewPump(splitted[2].equals("-1") ? null : network.GetElement(Integer.parseInt(splitted[2]))); break;
+                    case "source": network.AddNewSource(splitted[2].equals("-1") ? null : network.GetElement(Integer.parseInt(splitted[2])));
+                        /** TODO: megkapjuk [nb_elem_idx] és ezzel dolgozunk tovább */
                         break;
 
                     /** <player_type> -ra */
@@ -485,6 +504,8 @@ public final class PrototypeController {
      next turn pass
      TODO: MEGVAN
      controller pipe <pump_idx> change input <dir_nr> output <dir_nr>
+     TODO: MEGVAN
+     connect <elem_idx> <in_idx> <out_idx>
 
 
      ----------------------------------------------------------------

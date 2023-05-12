@@ -1,0 +1,7 @@
+add source -1
+add pipe 0
+add pump 1
+add pipe 2
+add pipe 3
+add pipe 4
+add cistern 5
