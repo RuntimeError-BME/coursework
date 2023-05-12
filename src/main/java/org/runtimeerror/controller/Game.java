@@ -29,6 +29,7 @@ public final class Game {
     private static Game singleInstance; // a játék egyetlen példánya (Singleton)
     private Random random; // véletlenszerű viselkedés lesz megvalósítva vele
     private boolean deterministic; // megadja, hogy a modell véletlenszerű viselkedése be van-e kapcsolva
+    private static int defaultCounter = 2; // kikapcsolt véletlenszerű viselkedésnél ennyi ideig maradnak csúszósak/ragadósak a csövek
 
     static {
         singleInstance = null;
@@ -378,4 +379,10 @@ public final class Game {
     public int GetRandomSlippyCounter() {
         return random.nextInt(10) + 1; // [1, 10]
     }
+
+    /** Visszaadja az alapértelmezett időszámláló értékét. Lásd: defaultCounter attribútum. */
+    public static int GetDefaultCounter() { return defaultCounter; }
+
+    /** Az átadott értékre állítja az alapértelmezett időszámlálót. Lásd: defaultCounter attribútum. */
+    public static void SetDefaultCounter(int value) { defaultCounter = value; }
 }

@@ -5,8 +5,8 @@ import org.runtimeerror.model.map.*;
 import org.runtimeerror.model.players.*;
 
 
-import java.io.InputStream;
-import java.io.PrintStream;
+import java.io.*;
+
 public final class PrototypeController {
 
     private static Game game = Game.GetInstance(); // egy referencia a játék egyetlen példányára (Singleton)
@@ -14,9 +14,13 @@ public final class PrototypeController {
 
     private static PrintStream outConsole = System.out; // referencia a konzol kimenetre
     private static InputStream inConsole = System.in; // referencia a konzol bemenetre
+    private boolean printAlsoToFile = false;
+
+
 
     private String currLine; // a jelenlegi parancs (sor) szövege
     private boolean gameOver = false; // véget ért-e a játék
+
 
     static {
         singleInstance = null;
@@ -25,7 +29,46 @@ public final class PrototypeController {
     /**
      * Konstruktor (privát láthatóságú, mert Singleton osztály).
      */
-    private PrototypeController() { }
+    private PrototypeController() {
+        boolean readFromFiles = setInputOutputStream("input.txt", true);
+        printAlsoToFile = setInputOutputStream("output.txt", false);
+
+        if (!readFromFiles) {
+            consoleCommandLoop();
+            return;
+        }
+
+        // beolvassuk a fájlokat
+
+    }
+
+    /**
+     * Beállítja hogy honnan olvasson/hova írjon a prototípus, ha létezik a fájl akkor állítja át konzolról.
+     * @param path - a fájl eléri útja ami a kimenet/bemenet fájlok elérési útját tartalmazza.
+     * @param in - igaz ha a bemenetet állíjuk,
+     * @return - visszaadja, hogy létezik-e a fájl.
+     */
+    private boolean setInputOutputStream(String path, boolean in) {
+        File file = new File(path);
+        if (!file.exists()) {
+            outConsole.println("Nincs meg: "+path);
+            return false;
+        } else {
+            outConsole.println("Megvan: "+path);
+            try {
+                if(in) System.setIn(new FileInputStream(path));
+                else System.setOut(new PrintStream(path));
+            } catch (Exception e) {
+                outConsole.println("Hiba: Az adott fájl (" + path + ") elérése során!");
+            }
+            return true;
+        }
+    }
+
+    /** A konzolról olvas parancsokat végtelen ciklusban. */
+    private void consoleCommandLoop() {
+
+    }
 
     /**
      * Visszaadja a játék egyetlen példányát. (Első híváskor hozza létre.)
@@ -122,8 +165,7 @@ public final class PrototypeController {
         network.AddPump(pu1,p1_5);
         network.AddCistern(c1);
 
-        ManipulatorPlayer mp1=new ManipulatorPlayer();
-        Player player1=new Player("S1",mp1);
+        Player player1=new Player("S1");
         player1.SetCurrElem(s1);
         s1.AddPlayer(player1);
         game.AddPlayer(player1);
