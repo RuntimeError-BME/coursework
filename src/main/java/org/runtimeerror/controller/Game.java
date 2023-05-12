@@ -172,7 +172,7 @@ public final class Game {
      */
     public String GetTurnInfo() {
         return "it's " + GetCurrPlayer().GetName() + "'s turn!" +
-               "(Points: saboteurs: " + GetSaboteurScore() + ", technicians:" + GetTechnicianScore() + ")";
+               " (Points: saboteurs: " + GetSaboteurScore() + ", technicians:" + GetTechnicianScore() + ")";
     }
 
     /** Igazat ad vissza, ha éppen szerelő jön az adott körben.

@@ -20,7 +20,7 @@ public final class ManipulatorTechnician extends ManipulatorPlayer {
         if (p.GetBroken()) { // ha törött a cső
             p.Fix(); // akkor megjavítja
             int newCounter = Game.GetInstance().GetDeterministic() // új értéket kap counter, ameddig nem lyukadhat ki
-                ? 2 : Game.GetInstance().GetRandomUnbreakableCounter(); // fix 2 / sorsolunk (determinisztikusságtól függ)
+                ? Game.GetDefaultCounter() : Game.GetInstance().GetRandomUnbreakableCounter(); // fix 2 / sorsolunk (determinisztikusságtól függ)
             p.SetCounter(newCounter); // beállítjuk
             Game.GetInstance().NextTurn(); // következő kör
         } else {

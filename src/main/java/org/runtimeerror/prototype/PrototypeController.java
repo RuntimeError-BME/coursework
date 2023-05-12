@@ -4,11 +4,14 @@ import jdk.internal.org.objectweb.asm.tree.analysis.Value;
 import org.runtimeerror.controller.Game;
 import org.runtimeerror.model.map.*;
 import org.runtimeerror.model.players.*;
+import sun.nio.ch.Net;
 
 
 import java.io.*;
-import java.security.Key;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.*;
+import java.util.Map.Entry;
 
 public final class PrototypeController {
 
@@ -18,22 +21,28 @@ public final class PrototypeController {
     private static PrintStream outConsole = System.out; // referencia a konzol kimenetre
     private static InputStream inConsole = System.in; // referencia a konzol bemenetre
     private boolean printAlsoToFile = false;
+    private static boolean logging; // ki lesz-e írva a parancsok kimenete
 
+    private List<Entry<String, String>> inputFiles = new ArrayList<>(20);
+    private List<String> outputFiles = new ArrayList<>(20);
+    private List<String> required_outputFiles = new ArrayList<>(20);
 
-    private Map<String, String> inputFiles = new TreeMap<>();
+    private static String currLine; // a jelenlegi parancs (sor) szövege
 
-    private String currLine; // a jelenlegi parancs (sor) szövege
     private boolean gameOver = false; // véget ért-e a játék
-
 
     static {
         singleInstance = null;
+        logging = false;
     }
+
     public static PrintStream GetOutConsole(){
         return outConsole;
     }
 
     public boolean GetPrintAlsoToFile() { return printAlsoToFile; }
+
+    public static boolean IsLogging() { return logging; }
 
     /**
      * Konstruktor (privát láthatóságú, mert Singleton osztály).
@@ -41,6 +50,8 @@ public final class PrototypeController {
     private PrototypeController() {
         boolean readFromFiles = setInputOutputStream("input.txt", true);
         printAlsoToFile = setInputOutputStream("output.txt", false);
+        if (printAlsoToFile)
+            readOutputFiles();
 
         if (!readFromFiles) {
             consoleCommandLoop();
@@ -62,7 +73,6 @@ public final class PrototypeController {
             outConsole.println("Nincs meg: "+path);
             return false;
         } else {
-            outConsole.println("Megvan: "+path);
             try {
                 if (in) System.setIn(Files.newInputStream(Paths.get(path)));
             } catch (Exception e) {
@@ -80,38 +90,69 @@ public final class PrototypeController {
     /** Beolvassa a bemeneti fájlok neveit és a hozzájuk tartozó leírást. */
     private void readInputFiles() {
         Scanner s = new Scanner(System.in);
-        while (s.hasNext()) {
-            String line = s.next();
+        while (s.hasNextLine()) {
+            String line = s.nextLine();
             String[] splitted = line.split("\t");
-            inputFiles.put(splitted[0], splitted[1]);
+            inputFiles.add(new AbstractMap.SimpleEntry(splitted[0], splitted[1]));
+        }
+    }
+
+    /** Beolvassa a kimeneti fájlokat (amikbe írunk, és amikhez összehasonlítjuk őket). */
+    private void readOutputFiles() {
+        try {
+            Scanner s = new Scanner(new FileInputStream("output.txt"));
+            while (s.hasNextLine()) {
+                String outputName = s.nextLine();
+                String required_outputName = outputName.replace("output", "required_output");
+                outputFiles.add(outputName);
+                required_outputFiles.add(required_outputName);
+            }
+        } catch (Exception e)
+        {
+            System.out.println("Nem létezik output.txt!");
         }
     }
 
     /**
-     * Kiírjuk az input.txt file-ban szereplő teszteseteket (szimpla input név-index szerint, melyet a magyarázata követ)
+     * Kiírjuk az input.txt file-ban szereplő teszteseteket számát, melyet a magyarázata követ
      */
     private void listInputFiles() {
         int i = 1;
 
-        
-
-        inputFiles.forEach((name,info) -> {
-            System.out.println("Index = " + i + " Name = "
-                    + name + "\tInfo = " + info);
-        });
+        for (Entry<String, String> entry : inputFiles)
+            System.out.println(i++ + ": " + entry.getValue());
     }
 
     /** A input fájlok közül választhat a felhasználó végtelen ciklusban. */
     private void fileTestingLoop() {
         while (true) {
-            listInputFiles();
             System.setOut(outConsole);
+            System.out.println("Válassz tesztesetet:");
+            listInputFiles();
 
+            Scanner scanner = new Scanner(inConsole);
+            int requiredTest = -1;
+            while (true) {
+                try {
+                    requiredTest = scanner.nextInt();
+                    if (requiredTest >= 0 && requiredTest <= inputFiles.size())
+                        break;
+                } catch (Exception e) { }
+                System.out.println("Adj meg érvényes teszteset számot!");
+            }
+
+            if (requiredTest == 0) break;
+            testFile(requiredTest - 1);
+            break;
         }
     }
 
-    private void getCurrLine() {
-
+    /**
+     * Elindítja a megadott indexen szereplő teszt futtatását
+     * @param testIdx - A futtatni kívánt teszteset indexe
+     */
+    private void testFile(int testIdx) {
+        // inputFiles.get(testIdx).getValue()
     }
 
     /**
@@ -154,69 +195,45 @@ public final class PrototypeController {
     }
 
     /**
-     * Egy elemhez hozzárak egy új bemenetet és vagy kimenetet.
-     * @param connectthis - az elem amihez csatlakoztat.
-     * @param inp - az új bemenet, ha null akkor nem rakja hozzá
-     * @param outp - az új kimenet, ha null akkor nem rakja hozzá
-     */
-    private static void Connector( Element connectthis ,Element inp, Element outp ){
-        if(inp!=null) {
-            connectthis.AddNb(inp);
-            connectthis.SetInput(inp);
-        }
-        if(outp!=null) {
-            connectthis.AddNb(outp);
-            connectthis.SetOutput(outp);
-        }
-    }
-    /**
      * Vissza állítja a pályát alap állapotba (forrás -> cső -> pumpa -> cső -> cső -> cső -> ciszterna)
      * A függvények tesztelését egyelőre ezzel végzem, ezért mást is csinál.
      */
     public static void ResetState(){
+        logging = false;
         game.Reset();
         Network network = game.GetNetwork();
         Element.Reset();
 
-        Source s1=new Source();
-        Pipe p1=new Pipe();
-        Pipe p1_5=new Pipe();
-        Pipe p2=new Pipe();
-        Pipe p3=new Pipe();
-        Pipe p4=new Pipe();
-        Pump pu1=new Pump();
-        Cistern c1=new Cistern();
+        Source s1 = new Source();
+        Pipe p1 = new Pipe();
+        Pump pu1 = new Pump();
+        Pipe p2 = new Pipe();
+        network.ChangePumpDirs(pu1.GetIdx(), p1.GetIdx(), p2.GetIdx());
+        Pipe p3 = new Pipe();
+        Pipe p4 = new Pipe();
+        Cistern c1 = new Cistern();
 
-        Connector(s1,null,p1);
-
-        Connector(p1,s1,p1_5);
-
-        Connector(p1_5,p1,p2);
-
-        Connector(p2,p1_5,p3);
-
-        Connector(p3,p2,p4);
-
-        Connector(p4,p3,c1);
-
-        Connector(c1,p4,null);
+        network.Connect(s1,null,p1);
+        network.Connect(p1,s1,pu1);
+        network.Connect(pu1,p1,p2);
+        network.Connect(p2,pu1,p3);
+        network.Connect(p3,p2,p4);
+        network.Connect(p4,p3,c1);
+        network.Connect(c1,p4,null);
 
         network.AddSource(s1);
         network.AddPipe(p1);
-        network.AddPipe(p1_5);
+        network.AddPump(pu1);
         network.AddPipe(p2);
         network.AddPipe(p3);
         network.AddPipe(p4);
-        network.AddPump(pu1,p1_5);
         network.AddCistern(c1);
 
-
         //Tesztelés rész inenntől:
-        Player player1=new Player("S1");
+        Player player1 = new Player("S1");
         player1.SetCurrElem(s1);
         s1.AddPlayer(player1);
         game.AddPlayer(player1);
-
 
         System.out.println(game.GetTurnInfo());
         network.Print();
@@ -225,7 +242,7 @@ public final class PrototypeController {
         network.Print();
 
         player1.MoveTo(p1);
-        PrototypeController.GetInstance().SetCurrLine("sticky");
+        currLine = "sticky";
         player1.ManipulateCurrElem();
 
         network.Print();
@@ -446,7 +463,7 @@ public final class PrototypeController {
      TODO: MEGVAN
      print inventory <technician_name>
      print currElem <name>
-     print elem <elem_nr>
+     print elem <elem_idx>
      print map
 
      ----------------------------------------------------------------

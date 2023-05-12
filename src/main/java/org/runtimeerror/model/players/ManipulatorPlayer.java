@@ -35,13 +35,13 @@ public class ManipulatorPlayer {
         if (harm == Harm.SLIPPY) { // ha csúszóssá tudja, és akarja tenni
             p.SetSlippery(true); // akkor csúszóssá teszi
             int newCounter = Game.GetInstance().GetDeterministic() // megadunk egy új értéket counter-nek
-                ? 2 : Game.GetInstance().GetRandomSlippyCounter(); // fix 2 / sorsolunk (determinisztikusságtól függ)
+                ? Game.GetDefaultCounter() : Game.GetInstance().GetRandomSlippyCounter(); // fix 2 / sorsolunk (determinisztikusságtól függ)
             p.SetCounter(newCounter); // ennyi ideig lesz csúszós a cső
 
         } else if (harm == Harm.STICKY) { // ha ragadóssá tudja, és akarja tenni
             p.SetSticky(true); // akkor ragadóssá teszi
             int newCounter = Game.GetInstance().GetDeterministic() // megadunk egy új értéket counter-nek
-                ? 2 : Game.GetInstance().GetRandomStickyCounter(); // fix 2 / sorsolunk (determinisztikusságtól függ)
+                ? Game.GetDefaultCounter() : Game.GetInstance().GetRandomStickyCounter(); // fix 2 / sorsolunk (determinisztikusságtól függ)
             p.SetCounter(newCounter); // ennyi ideig lesz ragadós a cső
 
             // fontos, hogy a játékos ne maradjon a ragadós csövön, hiszen akkor önmagát szabotálja

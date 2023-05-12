@@ -73,6 +73,9 @@ public final class Network {
         if (!elements.contains(p)) // erre a check-re a felvett elem újra letétele miatt van szükség
             elements.add(p);
         pipes.add(p);
+
+        if (PrototypeController.IsLogging())
+            System.out.println("a pipe was added as element " + p.GetIdx() + ".\n");
         return true;
     }
 
@@ -108,6 +111,9 @@ public final class Network {
         int idx = elements.indexOf(e); // a felülírandó elem indexe a minden elemet tároló gyűjteményben
         elements.set(idx, p); // felülírjuk benne a csövet az újonnan lehelyezendő pumpával
         pumps.add(p); // hozzáadjuk az új pumpát a pumpákat szortírozó gyűjteményhez
+
+        if (PrototypeController.IsLogging())
+            System.out.println("element " + e.GetIdx() + " pipe replaced by new pump.\n");
         return true; // jelezzük a sikeres pumpalehelyezést
     }
 
@@ -116,6 +122,8 @@ public final class Network {
     public void AddCistern(Cistern c) {
         elements.add(c);
         cisterns.add(c);
+        if (PrototypeController.IsLogging())
+            System.out.println("a cistern was added as element " + c.GetIdx() + ".\n");
     }
 
     /** Az átadott forrást hozzáadja a pályához.
@@ -123,8 +131,37 @@ public final class Network {
     public void AddSource(Source s) {
         elements.add(s);
         sources.add(s);
+        if (PrototypeController.IsLogging())
+            System.out.println("a source was added as element " + s.GetIdx() + ".\n");
     }
 
+    /** Megváltoztatja az átadott indexű pumpa be- és kimenetét az átadott indexű elemekre.
+     * Csak inicializáláskor van használva, ezért nincs hibakezelés. */
+    public void ChangePumpDirs(int pumpIdx, int inputIdx, int outputIdx) {
+        Pump p = null;
+        for (Pump pump : pumps) {
+            if (pump.GetIdx() == pumpIdx) {
+                p = pump;
+                break;
+            }
+        }
+        if (p == null)
+            return;
+
+        Element input = null, output = null;
+        for (Element e : elements) {
+            if (e.GetIdx() == inputIdx) {
+                input = e;
+            } else if (e.GetIdx() == outputIdx) {
+                output = e;
+            }
+        }
+        p.SetInput(input);
+        p.SetOutput(output);
+        if (PrototypeController.IsLogging())
+            System.out.println("element " + pumpIdx + " pump new input " + inputIdx + " and output " + outputIdx +
+                            ", change made by controller");
+    }
 
     /** Felapasztja az összes vizet a pályáról, majd minden forrásból elindítja a vizet,
      aminek következtében el lesz árasztva vízzel a pálya, és pontokat fognak kapni a csapatok. */
@@ -170,6 +207,38 @@ public final class Network {
                 return element;
         }
         return null;
+    }
+
+    /** Hozzáad a pályához egy pumpát. Csak az inicializálásnál használt függvény. */
+    public void AddPump(Pump p) {
+        elements.add(p);
+        pumps.add(p);
+
+        if (PrototypeController.IsLogging())
+            System.out.println("a pump was added as element " + p.GetIdx() + ".\n");
+    }
+
+    /**
+     * Egy elemhez hozzárak egy új bemenetet és vagy kimenetet.
+     * @param connectthis - az elem amihez csatlakoztat.
+     * @param inp - az új bemenet, ha null akkor nem rakja hozzá
+     * @param outp - az új kimenet, ha null akkor nem rakja hozzá
+     */
+    public static void Connect(Element connectthis, Element inp, Element outp) {
+        if(inp!=null) {
+            connectthis.AddNb(inp);
+            connectthis.SetInput(inp);
+        }
+        if(outp!=null) {
+            connectthis.AddNb(outp);
+            connectthis.SetOutput(outp);
+        }
+    }
+
+    /** Hozzáad a pályához egy új csövet az átadott e elem mellé. */
+    public void AddNewPipe(Element e) {
+        Pipe p = new Pipe();
+        
     }
 
     /**
