@@ -169,4 +169,13 @@ public final class Network {
         }
         return null;
     }
+
+    /**
+     * Meghívja minden elemének a Print fügvényét - ami kírja az elemek tulajdonságait.
+     */
+    public void Print(){
+        for (Element e: GetElements()){
+            e.Print("");
+        }
+    }
 }

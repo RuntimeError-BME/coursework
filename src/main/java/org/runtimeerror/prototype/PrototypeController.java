@@ -67,6 +67,22 @@ public final class PrototypeController {
     }
 
     /**
+     * Egy elemhez hozzárak egy új bemenetet és vagy kimenetet.
+     * @param connectthis - az elem amihez csatlakoztat.
+     * @param inp - az új bemenet, ha null akkor nem rakja hozzá
+     * @param outp - az új kimenet, ha null akkor nem rakja hozzá
+     */
+    private static void Connector( Element connectthis ,Element inp, Element outp ){
+        if(inp!=null) {
+            connectthis.AddNb(inp);
+            connectthis.SetInput(inp);
+        }
+        if(outp!=null) {
+            connectthis.AddNb(outp);
+            connectthis.SetOutput(outp);
+        }
+    }
+    /**
      * Vissza állítja a pályát alap állapotba (forrás -> cső -> pumpa -> cső -> cső -> cső -> ciszterna)
      * A függvények tesztelését egyelőre ezzel végzem, ezért mást is csinál.
      */
@@ -83,36 +99,19 @@ public final class PrototypeController {
         Pump pu1=new Pump();
         Cistern c1=new Cistern();
 
-        s1.AddNb(p1);
-        s1.SetOutput(p1);
+        Connector(s1,null,p1);
 
-        p1.AddNb(s1);
-        p1.AddNb(p1_5);
-        p1.SetInput(s1);
-        p1.SetOutput(p1_5);
+        Connector(p1,s1,p1_5);
 
-        p1_5.AddNb(p1);
-        p1_5.AddNb(p2);
-        p1_5.SetInput(p1);
-        p1_5.SetOutput(p2);
+        Connector(p1_5,p1,p2);
 
-        p2.AddNb(p1_5);
-        p2.AddNb(p3);
-        p2.SetInput(p1_5);
-        p2.SetOutput(p3);
+        Connector(p2,p1_5,p3);
 
-        p3.AddNb(p2);
-        p3.AddNb(p4);
-        p3.SetInput(p2);
-        p3.SetOutput(p4);
+        Connector(p3,p2,p4);
 
-        p4.AddNb(p3);
-        p4.AddNb(c1);
-        p4.SetInput(p3);
-        p4.SetOutput(c1);
+        Connector(p4,p3,c1);
 
-        c1.AddNb(p4);
-        c1.SetInput(p4);
+        Connector(c1,p4,null);
 
         network.AddSource(s1);
         network.AddPipe(p1);
@@ -130,23 +129,16 @@ public final class PrototypeController {
         game.AddPlayer(player1);
 
         System.out.println(game.GetTurnInfo());
-        for (Element e: network.GetElements()){
-            e.Print("");
-        }
+        network.Print();
 
         game.NextTurn();
-        for (Element e: network.GetElements()){
-            e.Print("");
-        }
+        network.Print();
 
-        PrototypeController.GetInstance().SetCurrLine("break");
+        PrototypeController.GetInstance().SetCurrLine("sticky");
         player1.MoveTo(p1);
         player1.ManipulateCurrElem();
 
-
-        for (Element e: network.GetElements()){
-            e.Print("");
-        }
+        network.Print();
     }
 
     /**
@@ -193,9 +185,9 @@ public final class PrototypeController {
      ----------------------------------------------------------------
      kell:
 
-     Setsitcky
-     SetSlippery
-     Break
+     Setsitcky <elem_idx>
+     SetSlippery <elem_idx>
+     Break <elem_idx>
      Next Turn // kör passzolása
 
 

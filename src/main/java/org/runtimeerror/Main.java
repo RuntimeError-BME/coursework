@@ -3,6 +3,9 @@ package org.runtimeerror;
 import org.runtimeerror.gui.GuiController;
 import org.runtimeerror.prototype.PrototypeController;
 
+import java.io.File;
+import java.io.PrintWriter;
+
 public class Main {
 
     public static void main(String[] args) {
@@ -10,6 +13,20 @@ public class Main {
         //GuiController guic = new GuiController();
         PrototypeController pc=PrototypeController.GetInstance();
         pc.ResetState();
+        for (int i=0;i<21;i++){
+            try {
+                if(!(new File("input/input"+i+".txt")).exists())
+                    (new File("input/input"+i+".txt")).createNewFile();
+
+                if(!(new File("output/output"+i+".txt")).exists())
+                (new File("output/output"+i+".txt")).createNewFile();
+
+                if(!(new File("required_output/required_output"+i+".txt")).exists())
+                (new File("required_output/required_output"+i+".txt")).createNewFile();
+            }catch (Exception e){}
+        }
+
+
 
     }
 }

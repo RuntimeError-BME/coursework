@@ -58,7 +58,7 @@ public final class Pump extends Breakable {
     public void Print(String part) {
         super.Print("pump");
 
-        System.out.print("\n\tbroken: " + GetBroken());
+        System.out.print("\tbroken: " + GetBroken());
         System.out.print("\n\tinput: " + GetInput().GetIdx());
         System.out.print("\n\toutput: " + GetOutput().GetIdx());
         System.out.print("\n");

@@ -148,7 +148,7 @@ public final class Pipe extends Breakable {
     @Override
     public void Print(String part) {
         super.Print("pipe");
-        System.out.print("\n\tbroken: " + GetBroken());
+        System.out.print("\tbroken: " + GetBroken());
         System.out.print("\n\tsticky: " + GetSticky());
         System.out.print("\n\tslippery: " + GetSlippery());
         System.out.print("\n\tcounter: " + GetCounter());
