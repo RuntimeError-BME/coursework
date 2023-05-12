@@ -45,9 +45,10 @@ public final class PrototypeController {
     public static boolean IsLogging() { return logging; }
 
     /**
-     * Konstruktor (privát láthatóságú, mert Singleton osztály).
+     * "Konstruktor" - a végtelen ciklusok miatt kihelyezzük publikusra - muszáj meghívni.
      */
-    private PrototypeController() {
+    public void Start()
+    {
         boolean readFromFiles = setInputOutputStream("input.txt", true);
         printAlsoToFile = setInputOutputStream("output.txt", false);
         if (printAlsoToFile)
@@ -60,6 +61,9 @@ public final class PrototypeController {
             fileTestingLoop();
         }
     }
+
+    /** privát konstruktor */
+    private PrototypeController() { }
 
     /**
      * Beállítja hogy honnan olvasson/hova írjon a prototípus, ha létezik a fájl akkor állítja át konzolról.
@@ -417,14 +421,15 @@ public final class PrototypeController {
                 /** TODO: megkapjuk <turn> <pass> és ezzel dolgozunk tovább */
                 break;
 
+            /** Connect parancs végrehajtása */
+            case "connect":
+                /** TODO: megkapjuk <elem_idx> <in_idx> <out_idx> és ezzel dolgozunk tovább */
+                break;
+
             /** TODO: VALAMILYEN DEFAULT ÉRTÉK BEÁLLÍTÁSA */
             default:
                 break;
         }
-    }
-
-    private void interpretAddCommand(String command) {
-
     }
 
     /**

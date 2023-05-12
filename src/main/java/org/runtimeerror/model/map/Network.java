@@ -75,7 +75,7 @@ public final class Network {
         pipes.add(p);
 
         if (PrototypeController.IsLogging())
-            System.out.println("a pipe was added as element " + p.GetIdx() + ".\n");
+            PrototypeController.GetInstance().PrintLine("a pipe was added as element " + p.GetIdx() + ".\n");
         return true;
     }
 
@@ -132,7 +132,7 @@ public final class Network {
         elements.add(s);
         sources.add(s);
         if (PrototypeController.IsLogging())
-            System.out.println("a source was added as element " + s.GetIdx() + ".\n");
+            PrototypeController.GetInstance().PrintLine("a source was added as element " + s.GetIdx() + ".\n");
     }
 
     /** Megváltoztatja az átadott indexű pumpa be- és kimenetét az átadott indexű elemekre.
@@ -159,8 +159,8 @@ public final class Network {
         p.SetInput(input);
         p.SetOutput(output);
         if (PrototypeController.IsLogging())
-            System.out.println("element " + pumpIdx + " pump new input " + inputIdx + " and output " + outputIdx +
-                            ", change made by controller");
+            PrototypeController.GetInstance().PrintLine("element " + pumpIdx + " pump new input " + inputIdx + " and output " + outputIdx +
+                    ", change made by controller");
     }
 
     /** Felapasztja az összes vizet a pályáról, majd minden forrásból elindítja a vizet,
@@ -215,23 +215,27 @@ public final class Network {
         pumps.add(p);
 
         if (PrototypeController.IsLogging())
-            System.out.println("a pump was added as element " + p.GetIdx() + ".\n");
+            PrototypeController.GetInstance().PrintLine("a pump was added as element " + p.GetIdx() + ".\n");
     }
 
     /**
      * Egy elemhez hozzárak egy új bemenetet és vagy kimenetet.
-     * @param connectthis - az elem amihez csatlakoztat.
+     * @param connect_this - az elem amihez csatlakoztat.
      * @param inp - az új bemenet, ha null akkor nem rakja hozzá
      * @param outp - az új kimenet, ha null akkor nem rakja hozzá
      */
-    public static void Connect(Element connectthis, Element inp, Element outp) {
+    public static void Connect(Element connect_this, Element inp, Element outp) {
         if(inp!=null) {
-            connectthis.AddNb(inp);
-            connectthis.SetInput(inp);
+            connect_this.AddNb(inp);
+            inp.AddNb(connect_this);
+            connect_this.SetInput(inp);
+            inp.SetOutput(connect_this);
         }
         if(outp!=null) {
-            connectthis.AddNb(outp);
-            connectthis.SetOutput(outp);
+            connect_this.AddNb(outp);
+            outp.AddNb(connect_this);
+            connect_this.SetOutput(outp);
+            outp.SetInput(connect_this);
         }
     }
 
