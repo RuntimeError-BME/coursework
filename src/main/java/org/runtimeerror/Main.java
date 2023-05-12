@@ -1,6 +1,4 @@
 package org.runtimeerror;
-
-import org.runtimeerror.gui.GuiController;
 import org.runtimeerror.prototype.PrototypeController;
 
 import java.io.File;

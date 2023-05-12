@@ -64,8 +64,7 @@ public final class PrototypeController {
         } else {
             outConsole.println("Megvan: "+path);
             try {
-                if(in) System.setIn(new FileInputStream(path));
-                else System.setOut(new PrintStream(path));
+                if (in) System.setIn(Files.newInputStream(Paths.get(path)));
             } catch (Exception e) {
                 outConsole.println("Hiba: Az adott fájl (" + path + ") elérése során!");
             }
@@ -242,44 +241,228 @@ public final class PrototypeController {
 
 
     /**
+     * Végrehajtja a felhasználó által megadott parancsot
+     * @param command - Maga a parancs
+     */
+    private void interpretCommand(String command) {
+
+        String[] splitted = command.split(" ");
+        Game game = Game.GetInstance();
+        Network network = game.GetNetwork();
+
+        switch(splitted[0]) {
+            /** Add parancs végrehajtása */
+            case "add":
+                switch (splitted[1]) {
+                    /** <elem_type> -ra */
+                    case "cistern":
+                    case "pipe": network.AddPipe()
+                    case "pump":
+                    case "source":
+                        /** TODO: megkapjuk <nb_elem_idx> és ezzel dolgozunk tovább */
+                        break;
+
+                    /** <player_type> -ra */
+                    case "player":
+                    case "technician":
+                        /** TODO: megkapjuk <name> <elem_idx> és ezzel dolgozunk tovább */
+                        break;
+                }
+                break;
+
+            /** Controller parancs végrehajtása */
+            case "controller":
+                switch (splitted[1]) {
+                    /** <toggle> -re */
+                    case "toggle":
+                        /** TODO: megkapjuk <random> és ezzel dolgozunk tovább */
+                        break;
+
+                    /** <break> -re */
+                    case "break":
+                        /** TODO: megkapjuk <elem_idx> és ezzel dolgozunk tovább */
+                        break;
+
+                    /** <set> -re */
+                    case "set":
+                        /** TODO: !!! megkapjuk <defaultCounter> <turn_cnt> és ezzel dolgozunk tovább */
+                        break;
+
+                    /** <pipe> -re */
+                    case "pipe":
+                        /** TODO: megkapjuk <pump_idx> <change> <input> <dir_nr> <output> <dir_nr> és ezzel dolgozunk tovább */
+                        break;
+                }
+                break;
+
+            /** Load parancs végrehajtása */
+            case "load":
+                /** TODO: megkapjuk <state> <rel_file_name> és ezzel dolgozunk tovább */
+                break;
+
+            /** Reset parancs végrehajtása */
+            case "reset":
+                /** TODO: megkapjuk <state> és ezzel dolgozunk tovább */
+                break;
+
+            /** Start parancs végrehajtása */
+            case "start":
+                /** TODO: megkapjuk <game> és ezzel dolgozunk tovább */
+                break;
+
+            /** Move parancs végrehajtása */
+            case "move":
+                /** TODO: megkapjuk <elem_idx> és ezzel dolgozunk tovább */
+                break;
+
+            /** Manipulate parancs végrehajtása */
+            case "manipulate":
+                switch (splitted[1]) {
+                    /** <stickify> -ra */
+                    case "stickify":
+                        break;
+
+                    /** <slippify> -ra */
+                    case "slippify":
+                        break;
+
+                    /** <break> -re */
+                    case "break":
+                        break;
+
+                    /** <change> -re */
+                    case "change":
+                        /** TODO: megkapjuk <input> <dir_nr> <output> <dir_nr> és ezzel dolgozunk tovább */
+                        break;
+                }
+                break;
+
+            /** Pickup parancs végrehajtása */
+            case "pickup":
+                break;
+
+            /** Relocate parancs végrehajtása */
+            case "relocate":
+                /** TODO: megkapjuk <dir_nr> és ezzel dolgozunk tovább */
+                break;
+
+            /** Place parancs végrehajtása */
+            case "place":
+                /** TODO: megkapjuk <dir_nr> és ezzel dolgozunk tovább */
+                break;
+
+            /** Print parancs végrehajtása */
+            case "print":
+                switch (splitted[1]) {
+                    /** <inventory> -ra */
+                    case "inventory":
+                        /** TODO: megkapjuk <technician_name> és ezzel dolgozunk tovább */
+                        break;
+
+                    /** <currElem> -re */
+                    case "currElem":
+                        /** TODO: megkapjuk <name> és ezzel dolgozunk tovább */
+                        break;
+
+                    /** <elem> -re */
+                    case "elem":
+                        /** TODO: megkapjuk <elem_idx> és ezzel dolgozunk tovább */
+                        break;
+
+                    /** <map> -re */
+                    case "map":
+                        break;
+                }
+                break;
+
+            /** Set parancs végrehajtása */
+            case "set":
+                switch (splitted[1]) {
+                    /** <sitcky> -re */
+                    case "sitcky":
+                        /** TODO: megkapjuk <elem_idx> és ezzel dolgozunk tovább */
+                        break;
+
+                    /** <slippy> -re */
+                    case "slippy":
+                        /** TODO: megkapjuk <elem_idx> és ezzel dolgozunk tovább */
+                        break;
+                }
+                break;
+
+            /** Break parancs végrehajtása */
+            case "break":
+                /** TODO: megkapjuk <elem_idx> és ezzel dolgozunk tovább */
+                break;
+
+            /** Next parancs végrehajtása */
+            case "next":
+                /** TODO: megkapjuk <turn> <pass> és ezzel dolgozunk tovább */
+                break;
+
+            /** TODO: VALAMILYEN DEFAULT ÉRTÉK BEÁLLÍTÁSA */
+            default:
+                break;
+        }
+    }
+
+    private void interpretAddCommand(String command) {
+
+    }
+
+    /**
      * Ide kell a bemenet olvasás annak végrehajtása és a kimenet írása
      */
 
     /**
 
-
+     TODO: MEGVAN
      add <elem_type> <nb_elem_idx>
      add <player_type> <name> <elem_idx>
+     TODO: MEGVAN
      controller toggle random
      controller break <elem_idx>
-     !!! controller set defaultCounter <turn_cnt>
+     controller set defaultCounter <turn_cnt>
+     TODO: MEGVAN
      load state <rel_file_name>
+     TODO: MEGVAN
      reset state
+     TODO: MEGVAN
      start game
-
+     TODO: MEGVAN
      move <elem_idx>
+     TODO: MEGVAN
      manipulate
         stickify
         slippify
         break
         change input <dir_nr> output <dir_nr>
-
+     TODO: MEGVAN
      pickup
+     TODO: MEGVAN
      relocate <dir_nr>
+     TODO: MEGVAN
      place <dir_nr>
-
+     TODO: MEGVAN
      print inventory <technician_name>
      print currElem <name>
      print elem <elem_nr>
      print map
 
      ----------------------------------------------------------------
+
+
      kell:
 
-     Setsitcky <elem_idx>
-     SetSlippery <elem_idx>
-     Break <elem_idx>
-     Next Turn // kör passzolása
+     TODO: MEGVAN
+     set sitcky <elem_idx>
+     set slippy <elem_idx>
+     TODO: MEGVAN
+     break <elem_idx>
+     TODO: MEGVAN
+     next turn pass
+     TODO: MEGVAN
+     controller pipe <pump_idx> change input <dir_nr> output <dir_nr>
 
 
      ----------------------------------------------------------------

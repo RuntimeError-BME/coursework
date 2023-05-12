@@ -1,20 +1,20 @@
-input/input1.txt    lépés csőre, amin már állnak
-input/input2.txt    lépés csőre, amin még nem állnak
-input/input3.txt    lépés csúszós csőre, csúszós állapot elmúlása
-input/input4.txt    lépés ragadós csőre, ragadós állapot elmúlása
-input/input5.txt    lépés pumpára, amin már állnak
-input/input6.txt    cső lyukasztása és megjavítása
-input/input7.txt    az elromlott pumpa megjavítsa
-input/input8.txt    cső csúszóssá tétele
-input/input9.txt    cső ragadóssá tétele
-input/input10.txt   pumpa bemenetének és kimenetének beállítása
-input/input11.txt   teleportálás ciszternák között
-input/input12.txt   csőfelvétel, ha lehetséges
-input/input13.txt   csőfelvétel, ha nem lehetséges
-input/input14.txt   csőlehelyezés, ha lehetséges
-input/input15.txt   csőlehelyezés, ha nem lehetséges
-input/input16.txt   pumpafeltvétel, ha lehetséges
-input/input17.txt   pumpafeltvétel, ha nem lehetséges
-input/input18.txt   pumpalehelyezés, ha lehetséges
-input/input19.txt   pumpalehelyezés, ha nem lehetséges
-input/input20.txt   játék vége
+input/input1.txt	lépés csőre, amin már állnak
+input/input2.txt	lépés csőre, amin még nem állnak
+input/input3.txt	lépés csúszós csőre, csúszós állapot elmúlása
+input/input4.txt	lépés ragadós csőre, ragadós állapot elmúlása
+input/input5.txt	lépés pumpára, amin már állnak
+input/input6.txt	cső lyukasztása és megjavítása
+input/input7.txt	az elromlott pumpa megjavítsa
+input/input8.txt	cső csúszóssá tétele
+input/input9.txt	cső ragadóssá tétele
+input/input10.txt	pumpa bemenetének és kimenetének beállítása
+input/input11.txt	teleportálás ciszternák között
+input/input12.txt	csőfelvétel, ha lehetséges
+input/input13.txt	csőfelvétel, ha nem lehetséges
+input/input14.txt	csőlehelyezés, ha lehetséges
+input/input15.txt	csőlehelyezés, ha nem lehetséges
+input/input16.txt	pumpafeltvétel, ha lehetséges
+input/input17.txt	pumpafeltvétel, ha nem lehetséges
+input/input18.txt	pumpalehelyezés, ha lehetséges
+input/input19.txt	pumpalehelyezés, ha nem lehetséges
+input/input20.txt	játék vége
