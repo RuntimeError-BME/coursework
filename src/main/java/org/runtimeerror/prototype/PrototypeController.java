@@ -1,6 +1,8 @@
 package org.runtimeerror.prototype;
 
 import org.runtimeerror.controller.Game;
+import org.runtimeerror.model.map.*;
+import org.runtimeerror.model.players.*;
 
 
 import java.io.InputStream;
@@ -63,6 +65,98 @@ public final class PrototypeController {
         System.out.println(game.GetTurnInfo());
 
     }
+
+    /**
+     * Vissza állítja a pályát alap állapotba (forrás -> cső -> pumpa -> cső -> cső -> cső -> ciszterna)
+     * A függvények tesztelését egyelőre ezzel végzem, ezért mást is csinál.
+     */
+    public static void ResetState(){
+        game.Reset();
+        Network network= game.GetNetwork();
+
+        Source s1=new Source();
+        Pipe p1=new Pipe();
+        Pipe p1_5=new Pipe();
+        Pipe p2=new Pipe();
+        Pipe p3=new Pipe();
+        Pipe p4=new Pipe();
+        Pump pu1=new Pump();
+        Cistern c1=new Cistern();
+
+        s1.AddNb(p1);
+        s1.SetOutput(p1);
+
+        p1.AddNb(s1);
+        p1.AddNb(p1_5);
+        p1.SetInput(s1);
+        p1.SetOutput(p1_5);
+
+        p1_5.AddNb(p1);
+        p1_5.AddNb(p2);
+        p1_5.SetInput(p1);
+        p1_5.SetOutput(p2);
+
+        p2.AddNb(p1_5);
+        p2.AddNb(p3);
+        p2.SetInput(p1_5);
+        p2.SetOutput(p3);
+
+        p3.AddNb(p2);
+        p3.AddNb(p4);
+        p3.SetInput(p2);
+        p3.SetOutput(p4);
+
+        p4.AddNb(p3);
+        p4.AddNb(c1);
+        p4.SetInput(p3);
+        p4.SetOutput(c1);
+
+        c1.AddNb(p4);
+        c1.SetInput(p4);
+
+        network.AddSource(s1);
+        network.AddPipe(p1);
+        network.AddPipe(p1_5);
+        network.AddPipe(p2);
+        network.AddPipe(p3);
+        network.AddPipe(p4);
+        network.AddPump(pu1,p1_5);
+        network.AddCistern(c1);
+
+        ManipulatorPlayer mp1=new ManipulatorPlayer();
+        Player player1=new Player("S1",mp1);
+        player1.SetCurrElem(s1);
+        s1.AddPlayer(player1);
+        game.AddPlayer(player1);
+
+        System.out.println(game.GetTurnInfo());
+        for (Element e: network.GetElements()){
+            e.Print("");
+        }
+
+        game.NextTurn();
+        for (Element e: network.GetElements()){
+            e.Print("");
+        }
+
+        PrototypeController.GetInstance().SetCurrLine("break");
+        player1.MoveTo(p1);
+        player1.ManipulateCurrElem();
+
+
+        for (Element e: network.GetElements()){
+            e.Print("");
+        }
+    }
+
+    /**
+     * Beállítja a jelenlegi bemenetet. - MÓDOSÍTÁSRA szorulhat, csak a tesztek működése okán kellett.
+     * @param currline - amire beállítja (string)
+     */
+    private void SetCurrLine(String currline){
+        this.currLine=currline;
+    }
+
 
     /**
      * Ide kell a bemenet olvasás annak végrehajtása és a kimenet írása
