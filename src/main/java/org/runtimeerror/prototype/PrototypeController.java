@@ -27,6 +27,7 @@ public final class PrototypeController {
     private List<String> required_outputFiles = new ArrayList<>(20);
 
     private static Scanner inpScanner = new Scanner(inConsole);
+    private static Scanner lastScanner = new Scanner(inConsole);
     private static String currLine; // a jelenlegi parancs (sor) szövege
     private boolean gameOver = false; // véget ért-e a játék
 
@@ -136,7 +137,6 @@ public final class PrototypeController {
 
     /** A input fájlok közül választhat a felhasználó végtelen ciklusban. */
     private void fileTestingLoop() {
-        inpScanner = new Scanner(inConsole);
         while (true) {
             System.setOut(outConsole);
             System.out.println("Válassz tesztesetet:");
@@ -144,6 +144,7 @@ public final class PrototypeController {
             listInputFiles();
 
             int requiredTest = -1;
+            inpScanner = new Scanner(inConsole);
             while (true) {
                 try {
                     requiredTest = inpScanner.nextInt();
@@ -155,6 +156,7 @@ public final class PrototypeController {
 
             if (requiredTest == 0) break;
             testFile(requiredTest - 1, printAlsoToFile);
+            Game.GetInstance().Reset();
         }
     }
 
@@ -165,9 +167,10 @@ public final class PrototypeController {
     private void testFile(String path) {
         try {
             System.setIn(new FileInputStream(path));
-            inpScanner = new Scanner(System.in);
-            while (inpScanner.hasNextLine()) {
-                currLine = inpScanner.nextLine();
+            Scanner scanner = new Scanner(System.in);
+            while (scanner.hasNextLine()) {
+                currLine = scanner.nextLine();
+                lastScanner = scanner;
                 interpretCommand(currLine);
             }
         } catch (Exception ex) { outConsole.println(ex.getStackTrace()); }
@@ -180,9 +183,17 @@ public final class PrototypeController {
      */
     private void testFile(int testIdx, boolean correspOut) {
         try {
-        if (correspOut)
-            System.setOut(new PrintStream(outputFiles.get(testIdx)));
-            testFile(inputFiles.get(testIdx).getKey());
+            if (correspOut) {
+                String outPath = outputFiles.get(testIdx);
+                String reqOutPath = required_outputFiles.get(testIdx);
+                System.setOut(new PrintStream(outPath));
+                Entry<String, String> inputEntry = inputFiles.get(testIdx);
+                testFile(inputEntry.getKey());
+                compareTestResults(outPath, reqOutPath, (testIdx + 1) + ": " + inputEntry.getValue());
+
+            } else {
+                testFile(inputFiles.get(testIdx).getKey());
+            }
         } catch (FileNotFoundException ex) { outConsole.println(ex.toString()); }
     }
 
@@ -218,58 +229,6 @@ public final class PrototypeController {
     }
 
     /**
-     * Vissza állítja a pályát alap állapotba (forrás -> cső -> pumpa -> cső -> cső -> cső -> ciszterna)
-     * A függvények tesztelését egyelőre ezzel végzem, ezért mást is csinál.
-     */
-    public static void ResetState(){
-        logging = false;
-        game.Reset();
-        Network network = game.GetNetwork();
-        Element.Reset();
-
-        Source s1 = new Source();
-        Pipe p1 = new Pipe();
-        Pump pu1 = new Pump();
-        Pipe p2 = new Pipe();
-        network.ChangePumpDirs(pu1.GetIdx(), p1.GetIdx(), p2.GetIdx());
-        Pipe p3 = new Pipe();
-        Pipe p4 = new Pipe();
-        Cistern c1 = new Cistern();
-
-        network.Connect(s1,null,p1);
-        network.Connect(p1,s1,pu1);
-        network.Connect(pu1,p1,p2);
-        network.Connect(p2,pu1,p3);
-        network.Connect(p3,p2,p4);
-        network.Connect(p4,p3,c1);
-        network.Connect(c1,p4,null);
-
-        network.AddSource(s1);
-        network.AddPipe(p1);
-        network.AddPump(pu1);
-        network.AddPipe(p2);
-        network.AddPipe(p3);
-        network.AddPipe(p4);
-        network.AddCistern(c1);
-
-        //Tesztelés rész inenntől:
-        Player player1 = new Player("S1");
-        game.AddPlayer(player1, 0);
-
-        System.out.println(game.GetTurnInfo());
-        network.Print();
-
-        game.NextTurn();
-        network.Print();
-
-        player1.MoveTo(p1);
-        currLine = "sticky";
-        player1.ManipulateCurrElem();
-
-        network.Print();
-    }
-
-    /**
      * Kiírja az átadott sztringet az átadott kimenetre - a konzolra, illetve fájlba is ha be van kapcsolva a funkció
      * @param line - átadott sztring, ezt írja ki
      */
@@ -286,7 +245,7 @@ public final class PrototypeController {
     /** Beolvas egy új sort a teszt bemenetéről (konzol vagy tesztfájl). A manipulátorok hívják
      * (a manipulate parancs után kell megadni a következők egyikét: stickify/slippify/break/change... */
     public static void GetNextLine() {
-        currLine = inpScanner.nextLine();
+        currLine = lastScanner.nextLine();
     }
 
     /**
@@ -437,17 +396,17 @@ public final class PrototypeController {
 
      1) lépés csőre, amin már állnak
      2) lépés csőre, amin még nem állnak
-     3) lépés csúszós csőre, csúszós állapot elmúlása
-     4) lépés ragadós csőre, ragadós állapot elmúlása
-     5) lépés pumpára, amin már állnak
+     3) lépés pumpára, amin már állnak
 
-     6) cső lyukasztása és megjavítása
-     7) az elromlott pumpa megjavítsa
-     8) cső csúszóssá tétele
-     9) cső ragadóssá tétele
-     10) pumpa bemenetének és kimenetének beállítása
+     4) lépés csúszós csőre, csúszós állapot elmúlása
+     5) lépés ragadós csőre, ragadós állapot elmúlása
+     6) cső csúszóssá tétele
+     7) cső ragadóssá tétele
+     8) pumpa bemenetének és kimenetének beállítása
+     9) cső lyukasztása és megjavítása
+     10) az elromlott pumpa megjavítsa
+
      11) teleportálás ciszternák között
-
      12) csőfelvétel, ha lehetséges
      13) csőfelvétel, ha nem lehetséges
      14) csőlehelyezés, ha lehetséges

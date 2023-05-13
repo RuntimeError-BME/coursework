@@ -78,18 +78,20 @@ public final class Pipe extends Breakable {
 
             // ez lesz a másik elem, ahová csúszni fog
             Element targetElem2 = null; // vagy ahonnan érkezett az az elem lesz, vagy a célpont másik szomszédja
-            if (Game.GetInstance().GetDeterministic()) { // ha a játék determinisztikusan viselkedik
-                // akkor a második szomszédra fog kerülni
-                targetElem2 = GetNbs().get(1);
-                if (targetElem2 == null) // ha volt ilyen
-                    targetElem2 = GetNbs().get(0); // különben pedig az elsőre (ami biztosan létezik)
-            } else { // ha a játék nem viselkedik determinisztikusan
-                // akkor a két elem közül véletlenszerűen fog az egyikre csúszni (controller random sorsoló függvénye)
-                targetElem2 = (Game.GetInstance().SlipToHigherNb()) // ha a nagyobb sorszámú felé fog csúszni
-                    ? GetNbs().get(1) // akkor arra fog,
-                    : GetNbs().get(0); // különben pedig a minimális sorszámú felé
-            }
-            p.MoveTo(targetElem2); // átkerül a játékos az előzőekben meghatározott szomszédos elemre
+            int try1 = 0, try2 = 1;
+            if (Game.GetInstance().GetDeterministic() || Game.GetInstance().SlipToHigherNb())
+                { try1 = 1; try2 = 0; } // ha a nagyobb sorszámú felé fog csúszni
+
+            Element currElem = p.GetCurrElem(); // eddig itt volt
+            targetElem2 = GetNbs().get(try1); // ide szeretnénk, hogy kerüljön
+            if (targetElem2 != null) { // ha volt ilyen
+                p.MoveTo(targetElem2); // átkerül a játékos az előzőekben meghatározott szomszédos elemre
+                if (currElem != p.GetCurrElem())
+                    return;
+            } // ha arra nem sikerült, akkor az alacsonyabb indexű elemre is megpróbáljuk
+            targetElem2 = GetNbs().get(try2); // különben pedig az elsőre (ami biztosan létezik)
+            p.MoveTo(targetElem2);
+
         } else { // ha NEM csúszós a cső
             super.AddPlayer(p); // akkor biztosan rá fog kerülni erre a csőre (az ősbéli megvalósítás gondoskodik erről)
             if (GetSticky()) { // ha viszont a cső ragadós, amire lépett

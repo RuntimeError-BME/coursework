@@ -113,8 +113,14 @@ public class Technician extends Player {
                 currElem.AddNb(storedPart);
                 storedPart.AddNb(currElem);
                 storedPart.SetInput(currElem);
-                if (e != null && (e.GetPickUpAble_onlyAttribute() || e.GetOutput() == null))
+
+                if (e == null)
                     currElem.SetOutput(storedPart);
+                else if (e.GetPickUpAble_onlyAttribute() || e.GetOutput() == null)
+                    currElem.SetOutput(storedPart);
+
+//                if (e != null && (e.GetPickUpAble_onlyAttribute() || e.GetOutput() == null))
+//                    currElem.SetOutput(storedPart);
 
             }
         } else { // ha pumpát akar lehelyezni

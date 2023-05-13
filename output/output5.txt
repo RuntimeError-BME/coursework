@@ -1,0 +1,435 @@
+loading state from input/input4.txt
+a source was added as element 0
+
+a pipe was added as element 1
+
+a pump was added as element 2
+
+a pipe was added as element 3
+
+a pipe was added as element 4
+
+a cistern was added as element 5
+
+a pipe was added as element 6
+
+a pipe was added as element 7
+
+elements 7, 0 and 1 are now connected in this order
+
+a pipe was added as element 8
+
+a cistern was added as element 9
+
+a pipe was added as element 10
+
+random behaviour was turned off
+
+defaultCounter was set to 8
+
+pipe 3 was slippified by controller
+
+defaultCounter was set to 5
+
+pipe 4 was slippified by controller
+
+pipe 7 was slippified by controller
+
+technician t1 was added to element 2
+
+saboteur s1 was added to element 9
+
+details of element 0 (source):
+	flooded: false
+	players: 
+	nbs: 1 7 10 
+details of element 1 (pipe):
+	flooded: false
+	players: 
+	nbs: 0 2 
+	broken: false
+	sticky: false
+	slippery: false
+	counter: 0
+details of element 2 (pump):
+	flooded: false
+	players: t1 
+	nbs: 1 3 8 
+	broken: false
+	input: 1
+	output: 8
+details of element 3 (pipe):
+	flooded: false
+	players: 
+	nbs: 2 4 
+	broken: false
+	sticky: false
+	slippery: true
+	counter: 8
+details of element 4 (pipe):
+	flooded: false
+	players: 
+	nbs: 3 5 
+	broken: false
+	sticky: false
+	slippery: true
+	counter: 5
+details of element 5 (cistern):
+	flooded: false
+	players: 
+	nbs: 4 6 
+details of element 6 (pipe):
+	flooded: false
+	players: 
+	nbs: 5 7 
+	broken: false
+	sticky: false
+	slippery: false
+	counter: 0
+details of element 7 (pipe):
+	flooded: false
+	players: 
+	nbs: 6 0 
+	broken: false
+	sticky: false
+	slippery: true
+	counter: 5
+details of element 8 (pipe):
+	flooded: false
+	players: 
+	nbs: 2 9 
+	broken: false
+	sticky: false
+	slippery: false
+	counter: 0
+details of element 9 (cistern):
+	flooded: false
+	players: s1 
+	nbs: 8 
+details of element 10 (pipe):
+	flooded: false
+	players: 
+	nbs: 0 
+	broken: false
+	sticky: false
+	slippery: false
+	counter: 0
+
+player t1 moved to element 1
+player t1 moved to element 0
+player t1 moved to element 7
+player t1 moved to element 0
+player t1 moved to element 1
+player t1 moved to element 2
+player t1 moved to element 3
+player t1 moved to element 4
+player t1 moved to element 5
+player t1 moved to element 6
+player t1 moved to element 7
+player t1 moved to element 0
+
+it's s1's turn! (Points: saboteurs: 1, technicians: 2)
+details of element 0 (source):
+	flooded: true
+	players: t1 
+	nbs: 1 7 10 
+details of element 1 (pipe):
+	flooded: true
+	players: 
+	nbs: 0 2 
+	broken: false
+	sticky: false
+	slippery: false
+	counter: 0
+details of element 2 (pump):
+	flooded: true
+	players: 
+	nbs: 1 3 8 
+	broken: false
+	input: 1
+	output: 8
+details of element 3 (pipe):
+	flooded: false
+	players: 
+	nbs: 2 4 
+	broken: false
+	sticky: false
+	slippery: true
+	counter: 7
+details of element 4 (pipe):
+	flooded: false
+	players: 
+	nbs: 3 5 
+	broken: false
+	sticky: false
+	slippery: true
+	counter: 4
+details of element 5 (cistern):
+	flooded: true
+	players: 
+	nbs: 4 6 
+details of element 6 (pipe):
+	flooded: true
+	players: 
+	nbs: 5 7 
+	broken: false
+	sticky: false
+	slippery: false
+	counter: 0
+details of element 7 (pipe):
+	flooded: true
+	players: 
+	nbs: 6 0 
+	broken: false
+	sticky: false
+	slippery: true
+	counter: 4
+details of element 8 (pipe):
+	flooded: true
+	players: 
+	nbs: 2 9 
+	broken: false
+	sticky: false
+	slippery: false
+	counter: 0
+details of element 9 (cistern):
+	flooded: true
+	players: s1 
+	nbs: 8 
+details of element 10 (pipe):
+	flooded: true
+	players: 
+	nbs: 0 
+	broken: false
+	sticky: false
+	slippery: false
+	counter: 0
+
+player s1 moved to element 8
+player s1 moved to element 2
+player s1 moved to element 1
+player s1 moved to element 0
+details of element 0 (source):
+	flooded: true
+	players: t1 s1 
+	nbs: 1 7 10 
+
+
+a pipe was added as element 11
+
+a pipe was added as element 12
+
+it's t1's turn! (Points: saboteurs: 2, technicians: 4)
+player t1 moved to element 7
+player t1 moved to element 0
+
+it's s1's turn! (Points: saboteurs: 3, technicians: 6)
+player s1 moved to element 1
+player s1 moved to element 2
+player s1 moved to element 3
+player s1 moved to element 4
+player s1 moved to element 5
+
+a pipe was added as element 13
+
+a pipe was added as element 14
+
+it's t1's turn! (Points: saboteurs: 4, technicians: 8)
+player t1 moved to element 1
+player t1 moved to element 2
+player t1 moved to element 3
+player t1 moved to element 4
+player t1 moved to element 5
+details of element 0 (source):
+	flooded: true
+	players: 
+	nbs: 1 7 10 
+details of element 1 (pipe):
+	flooded: true
+	players: 
+	nbs: 0 2 
+	broken: false
+	sticky: false
+	slippery: false
+	counter: 0
+details of element 2 (pump):
+	flooded: true
+	players: 
+	nbs: 1 3 8 
+	broken: false
+	input: 1
+	output: 8
+details of element 3 (pipe):
+	flooded: false
+	players: 
+	nbs: 2 4 
+	broken: false
+	sticky: false
+	slippery: true
+	counter: 4
+details of element 4 (pipe):
+	flooded: false
+	players: 
+	nbs: 3 5 
+	broken: false
+	sticky: false
+	slippery: true
+	counter: 1
+details of element 5 (cistern):
+	flooded: true
+	players: s1 t1 
+	nbs: 4 6 11 13 
+details of element 6 (pipe):
+	flooded: true
+	players: 
+	nbs: 5 7 
+	broken: false
+	sticky: false
+	slippery: false
+	counter: 0
+details of element 7 (pipe):
+	flooded: true
+	players: 
+	nbs: 6 0 
+	broken: false
+	sticky: false
+	slippery: true
+	counter: 1
+details of element 8 (pipe):
+	flooded: true
+	players: 
+	nbs: 2 9 
+	broken: false
+	sticky: false
+	slippery: false
+	counter: 0
+details of element 9 (cistern):
+	flooded: true
+	players: 
+	nbs: 8 12 14 
+details of element 10 (pipe):
+	flooded: true
+	players: 
+	nbs: 0 
+	broken: false
+	sticky: false
+	slippery: false
+	counter: 0
+details of element 11 (pipe):
+	flooded: false
+	players: 
+	nbs: 5 
+	broken: false
+	sticky: false
+	slippery: false
+	counter: 0
+details of element 12 (pipe):
+	flooded: false
+	players: 
+	nbs: 9 
+	broken: false
+	sticky: false
+	slippery: false
+	counter: 0
+details of element 13 (pipe):
+	flooded: false
+	players: 
+	nbs: 5 
+	broken: false
+	sticky: false
+	slippery: false
+	counter: 0
+details of element 14 (pipe):
+	flooded: false
+	players: 
+	nbs: 9 
+	broken: false
+	sticky: false
+	slippery: false
+	counter: 0
+
+player t1 moved to element 4
+player t1 moved to element 5
+player t1 moved to element 6
+player t1 moved to element 7
+player t1 moved to element 0
+player t1 moved to element 1
+player t1 moved to element 2
+
+it's s1's turn! (Points: saboteurs: 5, technicians: 10)
+details of element 4 (pipe):
+	flooded: false
+	players: 
+	nbs: 3 5 
+	broken: false
+	sticky: false
+	slippery: false
+	counter: 0
+
+player s1 moved to element 4
+
+a pipe was added as element 15
+
+it's t1's turn! (Points: saboteurs: 6, technicians: 12)
+details of element 3 (pipe):
+	flooded: false
+	players: 
+	nbs: 2 4 
+	broken: false
+	sticky: false
+	slippery: true
+	counter: 2
+
+player t1 moved to element 3
+player t1 moved to element 2
+
+pipe 8 was stickified by controller
+
+defaultCounter was set to 3
+
+player t1 moved to element 8
+
+it's s1's turn! (Points: saboteurs: 7, technicians: 14)
+player s1 moved to element 5
+player s1 moved to element 6
+player s1 moved to element 7
+player s1 moved to element 0
+player s1 moved to element 1
+player s1 moved to element 2
+
+it's t1's turn! (Points: saboteurs: 8, technicians: 16)
+
+it's s1's turn! (Points: saboteurs: 9, technicians: 18)
+details of element 8 (pipe):
+	flooded: true
+	players: t1 
+	nbs: 2 9 
+	broken: false
+	sticky: true
+	slippery: false
+	counter: 2
+
+
+it's t1's turn! (Points: saboteurs: 10, technicians: 20)
+
+it's s1's turn! (Points: saboteurs: 11, technicians: 22)
+
+it's t1's turn! (Points: saboteurs: 12, technicians: 24)
+details of element 8 (pipe):
+	flooded: true
+	players: t1 
+	nbs: 2 9 
+	broken: false
+	sticky: false
+	slippery: false
+	counter: 0
+
+player t1 moved to element 2
+details of element 2 (pump):
+	flooded: true
+	players: s1 t1 
+	nbs: 1 3 8 
+	broken: false
+	input: 1
+	output: 8
+

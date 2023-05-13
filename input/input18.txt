@@ -1,0 +1,42 @@
+load state input/input14.txt
+move 4
+move 9
+print elem 9
+print elem 12
+print elem 14
+print elem 15
+print elem 4
+print elem 8
+relocate 12
+print elem 9
+print elem 12
+print elem 14
+print elem 15
+move 15
+print currElem t1
+place
+next turn
+print elem 9
+print elem 12
+print elem 14
+print elem 15
+move 9
+relocate 14
+move 15
+move 12
+print currElem t1
+place
+next turn
+print elem 9
+print elem 15
+print elem 12
+print elem 14
+move 15
+move 9
+pickup
+move 15
+move 12
+print elem 12
+place
+print inventory t1
+print elem 12

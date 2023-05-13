@@ -1,0 +1,18 @@
+load state input/input4.txt
+controller stickify 8
+controller set defaultCounter 3
+move 8
+move 5
+move 6
+move 7
+move 0
+move 1
+move 2
+move 8
+next turn
+print currElem t1
+next turn
+next turn
+print currElem t1
+move 2
+print currElem s1

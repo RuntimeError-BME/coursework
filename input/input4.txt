@@ -1,0 +1,59 @@
+add source -1
+add pipe 0
+add pump 1
+add pipe 2
+add pipe 3
+add cistern 4
+add pipe 5
+add pipe 6
+connect 0 7 1
+add pipe 2
+add cistern 8
+add pipe 0
+controller toggle random
+controller set defaultCounter 8
+controller slippify 3
+controller set defaultCounter 5
+controller slippify 4
+controller slippify 7
+add technician t1 2
+add saboteur s1 9
+print map
+game start
+move 1
+move 0
+move 7
+move 1
+move 2
+move 3
+move 6
+move 7
+next turn
+print map
+move 8
+move 2
+move 1
+move 0
+print currElem s1
+next turn
+move 7
+next turn
+move 1
+move 2
+move 3
+next turn
+move 1
+move 2
+move 3
+print map
+move 4
+move 6
+move 7
+move 1
+move 2
+next turn
+print elem 4
+move 4
+next turn
+print elem 3
+move 3

@@ -1,0 +1,11 @@
+load state input/input4.txt
+move 1
+move 0
+move 7
+move 6
+move 5
+print elem 4
+relocate 4
+print elem 4
+print elem 3
+print elem 5

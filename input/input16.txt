@@ -1,0 +1,6 @@
+load state input/input14.txt
+move 4
+move 9
+print inventory t1
+pickup
+print inventory t1

@@ -1,0 +1,11 @@
+load state input/input12.txt
+next turn
+move 6
+move 7
+move 0
+move 10
+place 9
+print elem 10
+print elem 9
+next turn
+print map

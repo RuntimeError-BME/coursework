@@ -1,0 +1,10 @@
+load state input/input2.txt
+next turn
+move 2
+print currElem s1
+move 1
+print elem 1
+next turn
+print currElem t1
+move 1
+print elem 1

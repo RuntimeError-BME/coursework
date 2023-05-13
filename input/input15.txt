@@ -1,0 +1,6 @@
+load state input/input12.txt
+next turn
+move 6
+place 7
+print inventory t1
+next turn
