@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.runtimeerror.controller.Game;
 import org.runtimeerror.model.map.*;
+import org.runtimeerror.prototype.PrototypeController;
 
 /**
  * Ez az osztály Visitor tervezési mintát valósít meg a leszármazottaival együtt.
@@ -28,6 +29,8 @@ public class ManipulatorPlayer {
         // a ragadósságot azért nem kell ellenőrizni, mert ragadós csövön azonnal véget ér a kör
         // csúszósságot pedig azért nem, mert csúszós csövön nem lehet állni, továbbcsúszik egy másik elemre
 
+        PrototypeController.GetNextLine(); // beolvassuk, hogy mit akar tenni vele
+
         // ha a számlálója nagyobb nullánál (és azt tudjuk, hogy "p" nem lehet ragadós és csúszós),
         // akkor tudjuk, hogy még nem telt le a megjavítás utáni lyukasztás cooldown, tehát még nem lehet kilyukasztani
         boolean canBeBroken = (p.GetCounter() == 0);
@@ -35,26 +38,33 @@ public class ManipulatorPlayer {
         if (harm == Harm.SLIPPY) { // ha csúszóssá tudja, és akarja tenni
             p.SetSlippery(true); // akkor csúszóssá teszi
             int newCounter = Game.GetInstance().GetDeterministic() // megadunk egy új értéket counter-nek
-                ? Game.GetDefaultCounter() : Game.GetInstance().GetRandomSlippyCounter(); // fix 2 / sorsolunk (determinisztikusságtól függ)
+                ? Game.GetDefaultCounter() : Game.GetInstance().GetRandomSlippyCounter(); // fix / sorsolunk (determinisztikusságtól függ)
             p.SetCounter(newCounter); // ennyi ideig lesz csúszós a cső
+            PrototypeController.PrintLine("element " + p.GetIdx() + " pipe slippified by " +
+                                          Game.GetInstance().GetCurrPlayer().GetName() + "\n");
 
         } else if (harm == Harm.STICKY) { // ha ragadóssá tudja, és akarja tenni
             p.SetSticky(true); // akkor ragadóssá teszi
             int newCounter = Game.GetInstance().GetDeterministic() // megadunk egy új értéket counter-nek
-                ? Game.GetDefaultCounter() : Game.GetInstance().GetRandomStickyCounter(); // fix 2 / sorsolunk (determinisztikusságtól függ)
+                ? Game.GetDefaultCounter() : Game.GetInstance().GetRandomStickyCounter(); // fix / sorsolunk (determinisztikusságtól függ)
             p.SetCounter(newCounter); // ennyi ideig lesz ragadós a cső
+            PrototypeController.PrintLine("element " + p.GetIdx() + " pipe stickified by " +
+                                          Game.GetInstance().GetCurrPlayer().GetName());
 
             // fontos, hogy a játékos ne maradjon a ragadós csövön, hiszen akkor önmagát szabotálja
             Player player = Game.GetInstance().GetCurrPlayer(); // a jelenlegi játékos
             Element nb1 = p.GetNbs().get(0); // az egyik szomszédja a jelenlegi csőnek
             Element nb2 = p.GetNbs().get(1); // a másik szomszédja a jelenlegi csőnek
-            nb1.AddPlayer(player); // először megpróbáljuk a kisebb indexű szomszédra tenni őt
+            player.MoveTo(nb1); // először megpróbáljuk a kisebb indexű szomszédra tenni őt
             if (player.GetCurrElem() == p) // ha még rajta áll, akkor nem sikerült (mert a célpont egy cső, amin már állnak)
-                nb2.AddPlayer(player); // akkor megpróbáljuk a nagyobb sorszámú irányba lévő szomszédra is rátenni
+                player.MoveTo(nb2); // akkor megpróbáljuk a nagyobb sorszámú irányba lévő szomszédra is rátenni
             // ha ez sem lehetséges, nyilván marad a ragadós csövön, és ilyenkor nem tudja elkerülni az önszabotálást
+            PrototypeController.PrintLine("");
 
         } else if (harm == Harm.BROKEN) { // ha ki tudja, és akarja lyukasztani
             p.Break(); // akkor kilyukasztja (ilyenkor counter-t nem kell változtatni)
+            PrototypeController.PrintLine("element " + p.GetIdx() + " pipe broken by " +
+                                          Game.GetInstance().GetCurrPlayer().GetName() + "\n");
         }
         Game.GetInstance().NextTurn(); // léptetjük a kört
     }
@@ -64,6 +74,7 @@ public class ManipulatorPlayer {
      * Ez a viselkedés megfelel a szabotőröknek, viszont a szerelők manipulátorában felül kell írni a függvényt úgy,
      * hogy elromlott pumpát megjavítsák, ne átállítsák, és csak a működő pumpát állítsák át. */
     public void Manipulate(Pump p) {
+        PrototypeController.GetNextLine(); // beolvassuk az új be- és kimenetet
         Element[] elems = Game.Input.GetNewPumpDirections(); // az új input és output elemek
 
         Element newInp = elems[0]; // az elem, ami az új bemenete lesz
@@ -72,6 +83,9 @@ public class ManipulatorPlayer {
         Element newOut = elems[1]; // az elem, ami az új kimenete lesz
         p.SetOutput(newOut); // beállítjuk a pumpa kimeneteként
 
+        PrototypeController.PrintLine("element " + p.GetIdx() + " pump new input " + newInp.GetIdx() +
+                                      " and output " + newOut.GetIdx() + ", change made by " +
+                                      Game.GetInstance().GetCurrPlayer().GetName() + "\n");
         Game.GetInstance().NextTurn(); // véget ér a jelenlegi játékos köre
     }
 

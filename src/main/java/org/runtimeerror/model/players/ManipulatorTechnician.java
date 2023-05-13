@@ -3,6 +3,7 @@ package org.runtimeerror.model.players;
 import org.runtimeerror.controller.Game;
 import org.runtimeerror.model.map.Pipe;
 import org.runtimeerror.model.map.Pump;
+import org.runtimeerror.prototype.PrototypeController;
 
 /**
  * A szerelők konkrét manipulátora, ami definiálja, hogy hogyan manipulálhatják az összes lehetséges „gazda” elemüket.
@@ -20,8 +21,10 @@ public final class ManipulatorTechnician extends ManipulatorPlayer {
         if (p.GetBroken()) { // ha törött a cső
             p.Fix(); // akkor megjavítja
             int newCounter = Game.GetInstance().GetDeterministic() // új értéket kap counter, ameddig nem lyukadhat ki
-                ? Game.GetDefaultCounter() : Game.GetInstance().GetRandomUnbreakableCounter(); // fix 2 / sorsolunk (determinisztikusságtól függ)
+                ? Game.GetDefaultCounter() : Game.GetInstance().GetRandomUnbreakableCounter(); // fix / sorsolunk (determinisztikusságtól függ)
             p.SetCounter(newCounter); // beállítjuk
+            PrototypeController.PrintLine("element " + p.GetIdx() + " pipe fixed by " +
+                                          Game.GetInstance().GetCurrPlayer().GetName() + "\n");
             Game.GetInstance().NextTurn(); // következő kör
         } else {
             super.Manipulate(p); // különben megfelel az szabotőrök viselkedése is
@@ -34,6 +37,8 @@ public final class ManipulatorTechnician extends ManipulatorPlayer {
     public void Manipulate(Pump p) {
         if (p.GetBroken()) { // ha törött a pumpa
             p.Fix(); // akkor megjavítja
+            PrototypeController.PrintLine("element " + p.GetIdx() + " pump fixed by " +
+                                          Game.GetInstance().GetCurrPlayer().GetName() + "\n");
             Game.GetInstance().NextTurn(); // és véget ér a köre
         } else {
             super.Manipulate(p); // különben átállítja a bemenetét és a kimenetét, mint egy szabotőr

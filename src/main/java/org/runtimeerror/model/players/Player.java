@@ -1,6 +1,7 @@
 package org.runtimeerror.model.players;
 
 import org.runtimeerror.model.map.Element;
+import org.runtimeerror.prototype.PrototypeController;
 
 /**
  * A Player osztály a szabotőr osztállyal ekvivalens, tehát a szabotőrök csapatának játékosai
@@ -53,8 +54,6 @@ public class Player {
         }
     }
 
-
-
     /** Manipulálja (vagy manipulálni próbálja) azt az elemet, amelyen éppen tartózkodik.
      (Meghívja a currElem-jén a Manipulate metódust, és átadja neki a manipulatort.) */
     public void ManipulateCurrElem() {
@@ -91,5 +90,11 @@ public class Player {
      * eltárolni a szabotőröknek is egy invetory-t, ha úgysem képesek elemek tárolására. */
     public boolean PlacePart(Element e) {
         return false;
+    }
+
+    /** String-gé konvertálja a játékost az alábbi módon: "saboteur jatekosnev" */
+    @Override
+    public String toString() {
+        return "saboteur " + name;
     }
 }

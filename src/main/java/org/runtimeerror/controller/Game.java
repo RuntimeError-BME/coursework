@@ -23,7 +23,7 @@ public final class Game {
     private int currPlayerIdx; // a soron lévő játékos indexe a „players” gyűjteményben
     private int scoreTechnician; // a szerelők pontszáma
     private int scoreSaboteur; // a szabotőrök pontszáma
-    private static final int maxScore = 50; // a győzelemhez szükséges pontok száma
+    private static int maxScore = 50; // a győzelemhez szükséges pontok száma
     private List<Player> players; // a játékban résztvevő játékosok
     private Network network; // a pálya elemeit tárolja, szortírozza
 
@@ -64,8 +64,10 @@ public final class Game {
         players         = new ArrayList<>(6); // a játékban résztvevő játékosok
         random          = new Random(); // véletlenszerű viselkedés lesz megvalósítva vele
         deterministic   = false;
+        defaultCounter  = 2; // alapértelmezett számláló visszaállítása
+        maxScore        = 50; // győzelemhez szükséges pontszám visszaállítása
         network         = new Network(); // a pálya elemeit tárolja, szortírozza
-        //network.AddSource(new Source()); // csak egyetlen forrást tartalmaz kezdetben a pálya -- Könnyebb ha nem itt adjuk hozzá
+        Element.Reset(); // az elemek indexelésének visszaállítása
     }
 
     /** Visszaadja a pálya elemeit számontartó objektumot.
@@ -75,11 +77,26 @@ public final class Game {
     }
 
     /** A játék inicializálásához használt függvény.
-     * Hozzáad a játékhoz (azon belül a players listába) egy játékost.
+     * Hozzáad a játékhoz (azon belül a players listába) egy játékost. A játékos az átadott indexű elemen fog állni.
      * FIGYELEM! A hívó felelőssége, hogy CSAK a következő sorrendben adjon hozzá játékosokat a játékhoz a
      * segítségével: szerelő, szabotőr, szerelő, ... */
-    public void AddPlayer(Player p) {
-        players.add(p);
+    public void AddPlayer(Player p, int elemIdx) {
+
+        Element e = null; // erre az elemre fog kerülni
+        for (Element element : network.GetElements()) { // megkeressük az adott indexű elemet
+            if (element.GetIdx() == elemIdx) {
+                e = element;
+                break;
+            }
+        }
+        if (e == null)
+            return;
+
+        e.AddPlayer(p); // hozzáadjuk az elemhez a játékost
+        players.add(p); // hozzáadjuk a játékhoz a játékost (a játékosok listájába)
+
+        if (PrototypeController.IsLogging())
+            PrototypeController.PrintLine(p + " was added to element " + elemIdx + "\n");
     }
 
     /** Átadott számú pontot ad a szerelőknek. */
@@ -121,7 +138,7 @@ public final class Game {
         // TODO: display the updated map in the GUI
 
         if (Input.IsGameOver()) // ellenőrzi, hogy véget ért-e a játék, és közli, ha igen
-            return; // ha véget ért a játék, már nem jelezzük ki a következő játékos körét
+            System.exit(0); // ha véget ért a játék, már nem jelezzük ki a következő játékos körét
 
         ++currPlayerIdx; // következő játékos jön
         if (currPlayerIdx >= players.size()) { // ha véget ért egy teljes kör (round)
@@ -129,19 +146,13 @@ public final class Game {
             network.ProducePipesAroundCisterns(); // csövek lehelyezése a ciszternák körül, amennyiben lehetséges
         }
 
-        //Ha nem csak a konzolra kell kiírni akkor lép életbe:
-        if(PrototypeController.GetInstance().GetPrintAlsoToFile()) {
-            System.out.println(GetTurnInfo()); // kiírjuk a jelenlegi kör (frissült) adatait
-        }
-
-        PrintStream ps = System.out;
-        System.setOut(PrototypeController.GetInstance().GetOutConsole());
-        System.out.println(GetTurnInfo());
-        System.setOut(ps);
+        PrototypeController.PrintLine(GetInstance().GetTurnInfo()); // kiírjuk a jelenlegi kör adatait
 
         // TODO: ezt majd a GUI felületére
-        if (GetCurrPlayer().GetCurrElem().GetSticky()) // ha a következő játékos alatt (még) ragadós cső van
+        if (GetCurrPlayer().GetCurrElem().GetSticky()) { // ha a következő játékos alatt (még) ragadós cső van
+            PrototypeController.PrintLine("");
             NextTurn(); // akkor egyből véget is ér a köre
+        }
     }
 
     /** Visszaadja a játékost, aki éppen soron van (akinek turn-je van jelenleg). */
@@ -174,7 +185,7 @@ public final class Game {
      */
     public String GetTurnInfo() {
         return "it's " + GetCurrPlayer().GetName() + "'s turn!" +
-               " (Points: saboteurs: " + GetSaboteurScore() + ", technicians:" + GetTechnicianScore() + ")";
+               " (Points: saboteurs: " + GetSaboteurScore() + ", technicians: " + GetTechnicianScore() + ")";
     }
 
     /** Igazat ad vissza, ha éppen szerelő jön az adott körben.
@@ -197,6 +208,11 @@ public final class Game {
      */
     public void SetDeterministic(boolean randomTurnedOff) {
         deterministic = randomTurnedOff;
+
+        if (PrototypeController.IsLogging()) {
+            String state = randomTurnedOff ? "off" : "on";
+            PrototypeController.PrintLine("random behaviour was turned " + state + "\n");
+        }
     }
 
     /** Inner-class. A felhasználót és a játékot köti össze. Irányokat / célpontokat tud bekérni a felhasználótól.
@@ -230,7 +246,7 @@ public final class Game {
                 notif = "A szerelők nyertek " + scrTech + " ponttal. (Szabotőrök pontszáma: " + scrSab + ")";
             }
 
-            System.out.println(notif);
+            PrototypeController.PrintLine(notif);
             // TODO: majd message box feldobása vagy vmi GUI-ban
 
             PrototypeController.GetInstance().SetGameOver(true); // jelzünk a proto kontrollernek, hogy véget ért
@@ -245,6 +261,21 @@ public final class Game {
             GetInstance().GetCurrPlayer().StepOnto(e);
         }
 
+        /** az átadott indexű elemre mozgatja az épp soron lévő játékost, arról az elemről, amelyiken éppen
+         * tartózkodik. */
+        public static void MoveCurrPlayer(int elemIdx) {
+            Element e = null;
+            for (Element element : GetInstance().GetNetwork().GetElements()) {
+                if (element.GetIdx() == elemIdx) {
+                    e = element;
+                    break;
+                }
+            }
+            if (e != null) {
+                MoveCurrPlayer(e);
+            }
+        }
+
         /** Akkor hívandó függvény, amikor éppen azt az elemet szeretné manipulálni / interakcióba lépni vele a
          soron lévő játékos, amelyiken éppen áll.
          (Csövet lyukasztani / foltozni / ragadósság/csúszóssá tenni, pumpát javítani / átállítani vagy a következő
@@ -254,7 +285,7 @@ public final class Game {
             GetInstance().GetCurrPlayer().ManipulateCurrElem();
         }
 
-        /** Akkor hívandó függvény, amikor a soron lévő játékos megpróbál egy tszomszédos csövet
+        /** Akkor hívandó függvény, amikor a soron lévő játékos megpróbál egy szomszédos csövet
          felvenni, és a tárolójában eltárolni.
          Megnézi, hogy egy szerelő köre van-e jelenleg (IsTechnicianTurn()), és ha igen, akkor hívja GetCurrPlayer()
          -t, és rajta pedig PickUpPart()-ot az elemmel. */
@@ -306,7 +337,7 @@ public final class Game {
         public static Element[] GetNewPumpDirections() {
 
             // TODO: GUI-nál dialogue-gal lesz bekérve a két irány ehelyett
-            String line = PrototypeController.GetInstance().GetCurrLine(); // a jelenlegi parancs sora szövegként
+            String line = PrototypeController.GetCurrLine(); // a jelenlegi parancs sora szövegként
             String[] splitted = line.split(" ");
             int output = Integer.parseInt(splitted[splitted.length - 1]);
             int input = Integer.parseInt(splitted[splitted.length - 3]);
@@ -330,7 +361,7 @@ public final class Game {
         public static Harm GetPipeHarm(boolean canBeBroken) {
 
             // TODO: GUI-nál dialogue-gal lesz bekérve ehelyett
-            String line = PrototypeController.GetInstance().GetCurrLine(); // a jelenlegi parancs sora szövegként
+            String line = PrototypeController.GetCurrLine(); // a jelenlegi parancs sora szövegként
             Harm harm;
 
             if (GetInstance().IsTechnicianTurn()) { // ha egy szerelőnek van most köre
@@ -394,7 +425,18 @@ public final class Game {
     public static int GetDefaultCounter() { return defaultCounter; }
 
     /** Az átadott értékre állítja az alapértelmezett időszámlálót. Lásd: defaultCounter attribútum. */
-    public static void SetDefaultCounter(int value) { defaultCounter = value; }
+    public static void SetDefaultCounter(int value) {
+        defaultCounter = value;
+        if (PrototypeController.IsLogging())
+            PrototypeController.PrintLine("defaultCounter was set to " + value + "\n");
+    }
+
+    /** Az átadott értékre állítja a győzelemhez szükséges pontok számát. Lásd: maxScore attribútum. */
+    public static void SetMaxScore(int value) {
+        maxScore = value;
+        if (PrototypeController.IsLogging())
+            PrototypeController.PrintLine("\nmaxScore was set to " + value);
+    }
 
     /**
      * A megadott játékosnak kiírjuk az inventory-ját
@@ -422,5 +464,60 @@ public final class Game {
                 System.setOut(ps);
             }
         }
+    }
+
+    /** Egy controller általi elemelrontást csinál, azaz olyat, ami nem
+     * eredményezi a jelenlegi játékos körének a végét. */
+    public void BreakElementByController(int elemIdx) {
+        Breakable p = network.GetPump(elemIdx);
+        if (p == null) {
+            p = network.GetPipe(elemIdx);
+            if (p == null)
+                return;
+        }
+
+        p.Break();
+        PrototypeController.PrintLine("element " + elemIdx + " was broken by controller\n");
+    }
+
+    /** Egy controller általi cső csúszóssá tételt csinál, azaz olyat, ami nem
+     * eredményezi a jelenlegi játékos körének a végét. */
+    public void StickifyPipeByController(int pipeIdx) {
+        Pipe p = network.GetPipe(pipeIdx);
+        if (p == null)
+            return;
+
+        p.SetSticky(true);
+        p.SetCounter(GetDeterministic() ? defaultCounter : GetRandomStickyCounter());
+        PrototypeController.PrintLine("pipe " + pipeIdx + " was stickified by controller\n");
+    }
+
+    /** Egy controller általi cső ragadóssá tételt csinál, azaz olyat, ami nem
+     * eredményezi a jelenlegi játékos körének a végét. */
+    public void SlippifyPipeByController(int pipeIdx) {
+        Pipe p = network.GetPipe(pipeIdx);
+        if (p == null)
+            return;
+
+        p.SetSlippery(true);
+        p.SetCounter(GetDeterministic() ? defaultCounter : GetRandomSlippyCounter());
+        PrototypeController.PrintLine("pipe " + pipeIdx + " was slippified by controller\n");
+    }
+
+    /**
+     * Kiírja a megadott nevű játékos jelenlegi elemének (amin áll) jellemzőit
+     */
+    public void PrintCurrElem(String pname) {
+        Player p = null;
+        for (Player player : players) {
+            if (player.GetName().equals(pname)) {
+                p = player;
+                break;
+            }
+        }
+        if (p == null)
+            return;
+
+        network.PrintElement(p.GetCurrElem().GetIdx());
     }
 }

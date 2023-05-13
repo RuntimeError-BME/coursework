@@ -63,6 +63,25 @@ public final class Network {
                 return; // és kész is vagyunk
             }
         }
+        elements.remove(e);
+    }
+
+    /** Az átadott elemnek megszünteti minden szomszédsági viszonyait a pályának minden elemével. */
+    public static void RemoveConnections(Element e) {
+        Element inp = e.GetInput(); // az elem bemenete
+        Element out = e.GetOutput(); // az elem kimenete
+
+        if (inp != null && inp.GetOutput() == e) // ha a bemenetének ez a kimenete,
+            inp.SetOutput(null); // akkor többé ez nem lesz így
+        e.SetInput(null); // nem lesz többé bemenete
+
+        if (out != null && out.GetInput() == e) // ha a kimenetének ez a bemenete,
+            out.SetOutput(null); // akkor többé ez nem lesz így
+        e.SetOutput(null); // nem lesz többé kimenete
+
+        for (Element nb : e.GetNbs()) // végigmegyünk minden szomszédján
+            nb.RemoveNb(e); // kölcsönösen eltávolítjuk a szomszédságokat
+        e.GetNbs().clear(); // kiürítjük is a szomszédok listáját
     }
 
     /** Az átadott csövet megkísérli hozzáadni a pályához. A művelet sikerességével tér vissza (egy csőnek a lerakás
@@ -72,10 +91,13 @@ public final class Network {
     public boolean AddPipe(Pipe p) {
         if (!elements.contains(p)) // erre a check-re a felvett elem újra letétele miatt van szükség
             elements.add(p);
+        else {
+            PrototypeController.PrintLine("element " + p.GetIdx() + " pipe placed");
+        }
         pipes.add(p);
 
         if (PrototypeController.IsLogging())
-            PrototypeController.GetInstance().PrintLine("a pipe was added as element " + p.GetIdx() + ".\n");
+            PrototypeController.PrintLine("a pipe was added as element " + p.GetIdx() + "\n");
         return true;
     }
 
@@ -99,21 +121,23 @@ public final class Network {
         p.AddNb(out);
 
         // a bemenetnek azt a szomszédját, amerre a felülírandó cső van, felül kell írnunk az új pumpával
-        inp.RemoveNb(e);
-        inp.AddNb(p);
+        List<Element> inpNbs = inp.GetNbs();
+        inpNbs.set(inpNbs.indexOf(e), p);
 
         // a kimenetnek azt a szomszédját, amerre a felülírandó cső van, felül kell írnunk az új pumpával
-        out.RemoveNb(e);
-        out.AddNb(p);
+        List<Element> outNbs = out.GetNbs();
+        outNbs.set(outNbs.indexOf(e), p);
 
 
         RemoveElem(e); // eltávolítjuk a felülírandó csövet a szortírozó gyűjtemények egyikéből
         int idx = elements.indexOf(e); // a felülírandó elem indexe a minden elemet tároló gyűjteményben
+        elements.remove(p); // a korábban hozzáadott pumpa eltávolítása
         elements.set(idx, p); // felülírjuk benne a csövet az újonnan lehelyezendő pumpával
+        p.SetIdx(idx); // átállítjuk az új pumpa indexét a régi cső indexére
         pumps.add(p); // hozzáadjuk az új pumpát a pumpákat szortírozó gyűjteményhez
 
         if (PrototypeController.IsLogging())
-            System.out.println("element " + e.GetIdx() + " pipe replaced by new pump.\n");
+            PrototypeController.PrintLine("element " + e.GetIdx() + " pipe replaced by new pump\n");
         return true; // jelezzük a sikeres pumpalehelyezést
     }
 
@@ -123,7 +147,7 @@ public final class Network {
         elements.add(c);
         cisterns.add(c);
         if (PrototypeController.IsLogging())
-            PrototypeController.GetInstance().PrintLine("a cistern was added as element " + c.GetIdx() + ".\n");
+            PrototypeController.PrintLine("a cistern was added as element " + c.GetIdx() + "\n");
     }
 
     /** Az átadott forrást hozzáadja a pályához.
@@ -132,7 +156,7 @@ public final class Network {
         elements.add(s);
         sources.add(s);
         if (PrototypeController.IsLogging())
-            PrototypeController.GetInstance().PrintLine("a source was added as element " + s.GetIdx() + ".\n");
+            PrototypeController.PrintLine("a source was added as element " + s.GetIdx() + "\n");
     }
 
     /** Megváltoztatja az átadott indexű pumpa be- és kimenetét az átadott indexű elemekre.
@@ -159,8 +183,8 @@ public final class Network {
         p.SetInput(input);
         p.SetOutput(output);
         if (PrototypeController.IsLogging())
-            PrototypeController.GetInstance().PrintLine("element " + pumpIdx + " pump new input " + inputIdx + " and output " + outputIdx +
-                    ", change made by controller");
+            PrototypeController.PrintLine("element " + pumpIdx + " pump new input " + inputIdx + " and output " + outputIdx +
+                    ", change made by controller\n");
     }
 
     /** Felapasztja az összes vizet a pályáról, majd minden forrásból elindítja a vizet,
@@ -209,34 +233,72 @@ public final class Network {
         return null;
     }
 
+    /** Visszaadja a megadott indexű csövet a pályáról, ha van olyan. */
+    public Pipe GetPipe(int idx){
+        for (Pipe pipe : pipes) {
+            if(pipe.GetIdx() == idx)
+                return pipe;
+        }
+        return null;
+    }
+
+    /** Visszaadja a megadott indexű pumpát a pályáról, ha van olyan. */
+    public Pump GetPump(int idx){
+        for (Pump pump : pumps) {
+            if(pump.GetIdx() == idx)
+                return pump;
+        }
+        return null;
+    }
+
     /** Hozzáad a pályához egy pumpát. Csak az inicializálásnál használt függvény. */
     public void AddPump(Pump p) {
         elements.add(p);
         pumps.add(p);
 
         if (PrototypeController.IsLogging())
-            PrototypeController.GetInstance().PrintLine("a pump was added as element " + p.GetIdx() + ".\n");
+            PrototypeController.PrintLine("a pump was added as element " + p.GetIdx() + "\n");
     }
 
     /**
      * Egy elemhez hozzárak egy új bemenetet és vagy kimenetet.
-     * @param connect_this - az elem amihez csatlakoztat.
+     * @param connect_this - az elem, amihez csatlakoztat.
      * @param inp - az új bemenet, ha null akkor nem rakja hozzá
      * @param outp - az új kimenet, ha null akkor nem rakja hozzá
      */
     public static void Connect(Element connect_this, Element inp, Element outp) {
-        if(inp!=null) {
-            connect_this.AddNb(inp);
-            inp.AddNb(connect_this);
+        if (inp != null) {
+            if (!connect_this.GetNbs().contains(inp))
+                connect_this.AddNb(inp);
+
+            if (!inp.GetNbs().contains(connect_this))
+                inp.AddNb(connect_this);
+
             connect_this.SetInput(inp);
             inp.SetOutput(connect_this);
         }
-        if(outp!=null) {
-            connect_this.AddNb(outp);
-            outp.AddNb(connect_this);
+        if (outp != null) {
+            if (!connect_this.GetNbs().contains(outp))
+                connect_this.AddNb(outp);
+
+            if (!outp.GetNbs().contains(connect_this))
+                outp.AddNb(connect_this);
+
             connect_this.SetOutput(outp);
             outp.SetInput(connect_this);
         }
+    }
+
+    /**
+     * Egy elemhez hozzárak egy új bemenetet és vagy kimenetet.
+     * @param elemIdx - az elem indexe, amihez csatlakoztat.
+     * @param inIdx - az új bemenet indexe
+     * @param outIdx - az új kimenet indexe
+     */
+    public void Connect(int elemIdx, int inIdx, int outIdx) {
+        Connect(GetElement(elemIdx), GetElement(inIdx), GetElement(outIdx));
+        PrototypeController.PrintLine("elements " + inIdx + ", " + elemIdx + " and " + outIdx + " are " +
+                                      "now connected in this order\n");
     }
 
     /** Hozzáad a pályához egy új csövet az átadott e elem mellé. */
@@ -280,6 +342,7 @@ public final class Network {
             e.Print("");
             System.setOut(ps);
         }
+        PrototypeController.PrintLine("");
     }
 
     /**
@@ -288,19 +351,11 @@ public final class Network {
      */
     public void PrintElement(int idx) {
         if (PrototypeController.GetInstance().GetPrintAlsoToFile())
-            elements.get(idx).Print("");
+            GetElement(idx).Print("");
 
         PrintStream ps = System.out;
         System.setOut(PrototypeController.GetInstance().GetOutConsole());
-        elements.get(idx).Print("");
+        GetElement(idx).Print("");
         System.setOut(ps);
-    }
-
-    /**
-     * Kiírja a megadott nevű játékos jelenlegi elemének (amin áll) jellemzőit
-     */
-    public void PrintCurrElem() {
-        Element currElem = Game.GetInstance().GetCurrPlayer().GetCurrElem();
-        PrintElement(currElem.GetIdx());
     }
 }

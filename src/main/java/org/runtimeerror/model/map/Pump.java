@@ -3,6 +3,7 @@ package org.runtimeerror.model.map;
 import org.runtimeerror.controller.Game;
 import org.runtimeerror.model.players.ManipulatorPlayer;
 import org.runtimeerror.model.players.Player;
+import org.runtimeerror.prototype.PrototypeController;
 
 /**
  * Olyan elromolható, felvehető elem, amely vizet képes átereszteni a bemenetként beállított csövéből a kimenetként beállított csövébe.
@@ -28,10 +29,11 @@ public final class Pump extends Breakable {
             Game.GetInstance().AddSaboteurPoints(1); // akkor pontot kapnak a szabotőrök
             return; // és már nem folyik tovább belőle a víz a kimenetére
         }
-        if(output.GetPickUpAble_onlyAttribute()){
-            output.SetInput(this);
-            for (Element e: output.GetNbs()){
-                if(e!=this) output.SetOutput(e);
+        if (output.GetPickUpAble_onlyAttribute()) { // ha cső a kimenet, akkor előfordulhat,
+            if (output.GetInput() != this) { // hogy rosszul van beállítva az input és output
+                Element tmp = output.GetInput(); // ilyenkor fel kel cserélnünk az inputot és az outputot
+                output.SetInput(output.GetOutput());
+                output.SetOutput(tmp);
             }
         }
         output.Flood(); // ha viszont minden rendben, akkor folyatja tovább a vizet a kimenetére
@@ -59,13 +61,26 @@ public final class Pump extends Breakable {
         super.Print("pump");
 
         System.out.print("\tbroken: " + GetBroken());
-        System.out.print("\n\tinput: " + GetInput().GetIdx());
-        System.out.print("\n\toutput: " + GetOutput().GetIdx());
+
+        Element inp = GetInput(), out = GetOutput();
+        System.out.print("\n\tinput: " + (inp == null ? "" : inp.GetIdx()));
+        System.out.print("\n\toutput: " + (out == null ? "" : out.GetIdx()));
         System.out.print("\n");
+    }
+
+    /** Felszólítja a játékost, hogy használja a "change input 'elem_idx' output 'elem_idx>' parancsot.
+     * (Kivéve, ha szerelő jön, és törött a cső - ekkor nincs választása, meg fogja javítani.) */
+    @Override
+    public void PrintManipChoice() {
+        if (Game.GetInstance().IsTechnicianTurn() && GetBroken())
+            return;
+
+        PrototypeController.PrintLine("use the following command: " +
+                                      "change input <elem_idx> output <elem_idx>");
     }
 
     /** Hozzáadja a pályának a pumpákat szortírozó gyűjteményéhez az adott pumpát. */
     public boolean NetworkAdd(Element e){
-        return Game.GetInstance().GetNetwork().AddPump(this,e);
+        return Game.GetInstance().GetNetwork().AddPump(this, e);
     }
 }

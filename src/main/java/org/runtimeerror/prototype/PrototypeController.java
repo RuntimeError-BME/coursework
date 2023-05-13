@@ -18,15 +18,16 @@ public final class PrototypeController {
 
     private static PrintStream outConsole = System.out; // referencia a konzol kimenetre
     private static InputStream inConsole = System.in; // referencia a konzol bemenetre
-    private boolean printAlsoToFile = false;
+    private static boolean readFromFiles = false;
+    private static boolean printAlsoToFile = false;
     private static boolean logging; // ki lesz-e írva a parancsok kimenete
 
     private List<Entry<String, String>> inputFiles = new ArrayList<>(20);
     private List<String> outputFiles = new ArrayList<>(20);
     private List<String> required_outputFiles = new ArrayList<>(20);
 
+    private static Scanner inpScanner = new Scanner(inConsole);
     private static String currLine; // a jelenlegi parancs (sor) szövege
-
     private boolean gameOver = false; // véget ért-e a játék
 
     static {
@@ -47,11 +48,6 @@ public final class PrototypeController {
      */
     public void Start()
     {
-        boolean readFromFiles = setInputOutputStream("input.txt", true);
-        printAlsoToFile = setInputOutputStream("output.txt", false);
-        if (printAlsoToFile)
-            readOutputFiles();
-
         if (!readFromFiles) {
             consoleCommandLoop();
         } else {
@@ -61,7 +57,12 @@ public final class PrototypeController {
     }
 
     /** privát konstruktor */
-    private PrototypeController() { }
+    private PrototypeController() {
+        readFromFiles = setInputOutputStream("input.txt", true);
+        printAlsoToFile = setInputOutputStream("output.txt", false);
+        if (printAlsoToFile)
+            readOutputFiles();
+    }
 
     /**
      * Beállítja hogy honnan olvasson/hova írjon a prototípus, ha létezik a fájl akkor állítja át konzolról.
@@ -72,7 +73,6 @@ public final class PrototypeController {
     private boolean setInputOutputStream(String path, boolean in) {
         File file = new File(path);
         if (!file.exists()) {
-            outConsole.println("Nincs meg: "+path);
             return false;
         } else {
             try {
@@ -86,14 +86,26 @@ public final class PrototypeController {
 
     /** A konzolról olvas parancsokat végtelen ciklusban. */
     private void consoleCommandLoop() {
-
+        inpScanner = new Scanner(inConsole);
+        System.out.println("Adj meg parancsokat, vagy 0-át a kilépéshez!");
+        while (true) {
+            String line = inpScanner.nextLine();
+            try {
+                if (Integer.parseInt(line) == 0)
+                    break;
+            } catch (Exception Ignored) {
+                try {
+                    interpretCommand(line);
+                } catch (Exception ex) { outConsole.println(ex.getStackTrace()); }
+            }
+        }
     }
 
     /** Beolvassa a bemeneti fájlok neveit és a hozzájuk tartozó leírást. */
     private void readInputFiles() {
-        Scanner s = new Scanner(System.in);
-        while (s.hasNextLine()) {
-            String line = s.nextLine();
+        inpScanner = new Scanner(System.in);
+        while (inpScanner.hasNextLine()) {
+            String line = inpScanner.nextLine();
             String[] splitted = line.split("\t");
             inputFiles.add(new AbstractMap.SimpleEntry(splitted[0], splitted[1]));
         }
@@ -102,17 +114,14 @@ public final class PrototypeController {
     /** Beolvassa a kimeneti fájlokat (amikbe írunk, és amikhez összehasonlítjuk őket). */
     private void readOutputFiles() {
         try {
-            Scanner s = new Scanner(new FileInputStream("output.txt"));
-            while (s.hasNextLine()) {
-                String outputName = s.nextLine();
+            inpScanner = new Scanner(new FileInputStream("output.txt"));
+            while (inpScanner.hasNextLine()) {
+                String outputName = inpScanner.nextLine();
                 String required_outputName = outputName.replace("output", "required_output");
                 outputFiles.add(outputName);
                 required_outputFiles.add(required_outputName);
             }
-        } catch (Exception e)
-        {
-            System.out.println("Nem létezik output.txt!");
-        }
+        } catch (Exception e) { System.out.println("Nem létezik output.txt!"); }
     }
 
     /**
@@ -127,16 +136,17 @@ public final class PrototypeController {
 
     /** A input fájlok közül választhat a felhasználó végtelen ciklusban. */
     private void fileTestingLoop() {
+        inpScanner = new Scanner(inConsole);
         while (true) {
             System.setOut(outConsole);
             System.out.println("Válassz tesztesetet:");
+            System.out.println("0: kilépés");
             listInputFiles();
 
-            Scanner scanner = new Scanner(inConsole);
             int requiredTest = -1;
             while (true) {
                 try {
-                    requiredTest = scanner.nextInt();
+                    requiredTest = inpScanner.nextInt();
                     if (requiredTest >= 0 && requiredTest <= inputFiles.size())
                         break;
                 } catch (Exception e) { }
@@ -144,23 +154,36 @@ public final class PrototypeController {
             }
 
             if (requiredTest == 0) break;
-            testFile(requiredTest - 1);
+            testFile(requiredTest - 1, printAlsoToFile);
         }
+    }
+
+    /**
+     * Elindítja a megadott relatív elérési úton található teszt futtatását
+     * @param path - A futtatni kívánt teszteset relatív elérési útja
+     */
+    private void testFile(String path) {
+        try {
+            System.setIn(new FileInputStream(path));
+            inpScanner = new Scanner(System.in);
+            while (inpScanner.hasNextLine()) {
+                currLine = inpScanner.nextLine();
+                interpretCommand(currLine);
+            }
+        } catch (Exception ex) { outConsole.println(ex.getStackTrace()); }
     }
 
     /**
      * Elindítja a megadott indexen szereplő teszt futtatását
      * @param testIdx - A futtatni kívánt teszteset indexe
+     * @param correspOut - Ha igaz, a hozzá tartozó kimeneti fájlba fog írni
      */
-    private void testFile(int testIdx) {
+    private void testFile(int testIdx, boolean correspOut) {
         try {
+        if (correspOut)
             System.setOut(new PrintStream(outputFiles.get(testIdx)));
-            Scanner s = new Scanner(new FileInputStream(inputFiles.get(testIdx).getKey()));
-            while (s.hasNextLine()) {
-                interpretCommand(s.nextLine());
-            }
-        } catch (Exception ignored) { }
-        Game.GetInstance().GetNetwork().Print();
+            testFile(inputFiles.get(testIdx).getKey());
+        } catch (FileNotFoundException ex) { outConsole.println(ex.toString()); }
     }
 
     /**
@@ -176,7 +199,7 @@ public final class PrototypeController {
     /**
      * Visszaadja a jelenleg beolvasott parancs sorát szövegként.
      */
-    public String GetCurrLine() {
+    public static String GetCurrLine() {
         return currLine;
     }
 
@@ -192,14 +215,6 @@ public final class PrototypeController {
      */
     private static void toggleRandom() {
         game.SetDeterministic(!game.GetDeterministic());
-    }
-
-    /**
-     * Elkezdi a játék főciklusát (amíg nem éri el az egyik csapat a győzelemhez szükséges pontszámot, addig TODO!!!
-     */
-    private static void startGame() {
-        System.out.println(game.GetTurnInfo());
-
     }
 
     /**
@@ -239,9 +254,7 @@ public final class PrototypeController {
 
         //Tesztelés rész inenntől:
         Player player1 = new Player("S1");
-        player1.SetCurrElem(s1);
-        s1.AddPlayer(player1);
-        game.AddPlayer(player1);
+        game.AddPlayer(player1, 0);
 
         System.out.println(game.GetTurnInfo());
         network.Print();
@@ -260,7 +273,7 @@ public final class PrototypeController {
      * Kiírja az átadott sztringet az átadott kimenetre - a konzolra, illetve fájlba is ha be van kapcsolva a funkció
      * @param line - átadott sztring, ezt írja ki
      */
-    public void PrintLine(String line) {
+    public static void PrintLine(String line) {
         if (printAlsoToFile)
             System.out.println(line);
 
@@ -270,14 +283,11 @@ public final class PrototypeController {
         System.setOut(ps);
     }
 
-    /**
-     * Beállítja a jelenlegi bemenetet. - MÓDOSÍTÁSRA szorulhat, csak a tesztek működése okán kellett.
-     * @param currline - amire beállítja (string)
-     */
-    private void SetCurrLine(String currline){
-        this.currLine=currline;
+    /** Beolvas egy új sort a teszt bemenetéről (konzol vagy tesztfájl). A manipulátorok hívják
+     * (a manipulate parancs után kell megadni a következők egyikét: stickify/slippify/break/change... */
+    public static void GetNextLine() {
+        currLine = inpScanner.nextLine();
     }
-
 
     /**
      * Végrehajtja a felhasználó által megadott parancsot
@@ -286,230 +296,144 @@ public final class PrototypeController {
     private void interpretCommand(String command) {
 
         String[] splitted = command.split(" ");
-        Game game = Game.GetInstance();
         Network network = game.GetNetwork();
 
         switch(splitted[0]) {
-            /** Add parancs végrehajtása */
+            /** add parancs végrehajtása */
             case "add":
                 switch (splitted[1]) {
                     /** <elem_type> -ra */
-
                     case "cistern": network.AddNewCistern(splitted[2].equals("-1") ? null : network.GetElement(Integer.parseInt(splitted[2]))); break;
                     case "pipe": network.AddNewPipe(splitted[2].equals("-1") ? null : network.GetElement(Integer.parseInt(splitted[2]))); break;
                     case "pump": network.AddNewPump(splitted[2].equals("-1") ? null : network.GetElement(Integer.parseInt(splitted[2]))); break;
-                    case "source": network.AddNewSource(splitted[2].equals("-1") ? null : network.GetElement(Integer.parseInt(splitted[2])));
-                        /** TODO: megkapjuk [nb_elem_idx] és ezzel dolgozunk tovább */
-                        break;
+                    case "source": network.AddNewSource(splitted[2].equals("-1") ? null : network.GetElement(Integer.parseInt(splitted[2]))); break;
 
                     /** <player_type> -ra */
-                    case "player":
-                    case "technician":
-                        /** TODO: megkapjuk <name> <elem_idx> és ezzel dolgozunk tovább */
-                        break;
+                    case "saboteur": game.AddPlayer(new Player(splitted[2]), Integer.parseInt(splitted[3])); break;
+                    case "technician": game.AddPlayer(new Technician(splitted[2]), Integer.parseInt(splitted[3])); break;
                 }
                 break;
 
-            /** Controller parancs végrehajtása */
+            /** connect parancs végrehajtása */
+            case "connect": network.Connect(Integer.parseInt(splitted[1]), Integer.parseInt(splitted[2]),
+                                            Integer.parseInt(splitted[3])); break;
+
+            /** controller parancs végrehajtása */
             case "controller":
                 switch (splitted[1]) {
                     /** <toggle> -re */
-                    case "toggle":
-                        /** TODO: megkapjuk <random> és ezzel dolgozunk tovább */
-                        break;
+                    case "toggle": toggleRandom(); break;
 
                     /** <break> -re */
-                    case "break":
-                        /** TODO: megkapjuk <elem_idx> és ezzel dolgozunk tovább */
-                        break;
+                    case "break": game.BreakElementByController(Integer.parseInt(splitted[2])); break;
+
+                    /** <sticky> -re */
+                    case "stickify": game.StickifyPipeByController(Integer.parseInt(splitted[2])); break;
+
+                    /** <slippy> -re */
+                    case "slippify": game.SlippifyPipeByController(Integer.parseInt(splitted[2])); break;
 
                     /** <set> -re */
                     case "set":
-                        /** TODO: !!! megkapjuk <defaultCounter> <turn_cnt> és ezzel dolgozunk tovább */
+                        switch (splitted[2]) {
+                            /** <defaultCounter> -re */
+                            case "defaultCounter": Game.SetDefaultCounter(Integer.parseInt(splitted[3])); break;
+
+                            /** <maxCounter> -re */
+                            case "maxScore": Game.SetMaxScore(Integer.parseInt(splitted[3])); break;
+                        }
                         break;
 
                     /** <pipe> -re */
-                    case "pipe":
-                        /** TODO: megkapjuk <pump_idx> <change> <input> <dir_nr> <output> <dir_nr> és ezzel dolgozunk tovább */
-                        break;
+                    case "pump": network.ChangePumpDirs(
+                        Integer.parseInt(splitted[2]), Integer.parseInt(splitted[5]), Integer.parseInt(splitted[7])); break;
                 }
                 break;
 
-            /** Load parancs végrehajtása */
-            case "load":
-                /** TODO: megkapjuk <state> <rel_file_name> és ezzel dolgozunk tovább */
-                break;
+            /** load parancs végrehajtása */
+            case "load": Game.GetInstance().Reset(); PrintLine("loading state from " + splitted[2]);
+                testFile(splitted[2]); PrintLine(""); break;
 
-            /** Reset parancs végrehajtása */
-            case "reset":
-                /** TODO: megkapjuk <state> és ezzel dolgozunk tovább */
-                break;
+            /** reset parancs végrehajtása */
+            case "reset": Game.GetInstance().Reset(); PrintLine("game state was reset"); break;
 
-            /** Start parancs végrehajtása */
-            case "start":
-                /** TODO: megkapjuk <game> és ezzel dolgozunk tovább */
-                break;
+            /** start parancs végrehajtása */
+            case "start": PrintLine("game started\n" + Game.GetInstance().GetTurnInfo()); break;
 
-            /** Move parancs végrehajtása */
-            case "move":
-                /** TODO: megkapjuk <elem_idx> és ezzel dolgozunk tovább */
-                break;
+            /** move parancs végrehajtása */
+            case "move": Game.Input.MoveCurrPlayer(Integer.parseInt(splitted[1])); break;
 
-            /** Manipulate parancs végrehajtása */
-            case "manipulate":
-                switch (splitted[1]) {
-                    /** <stickify> -ra */
-                    case "stickify":
-                        break;
+            /** manipulate parancs végrehajtása */
+            case "manipulate": game.GetCurrPlayer().GetCurrElem().PrintManipChoice();
+                Game.Input.TryCurrElemManipulation(); break;
 
-                    /** <slippify> -ra */
-                    case "slippify":
-                        break;
+            /** pickup parancs végrehajtása */
+            case "pickup": Game.Input.Pickup(); break;
 
-                    /** <break> -re */
-                    case "break":
-                        break;
+            /** relocate parancs végrehajtása */
+            case "relocate": Game.Input.TryPartRelocation(network.GetElement(Integer.parseInt(splitted[1]))); break;
 
-                    /** <change> -re */
-                    case "change":
-                        /** TODO: megkapjuk <input> <dir_nr> <output> <dir_nr> és ezzel dolgozunk tovább */
-                        break;
-                }
-                break;
+            /** place parancs végrehajtása */
+            case "place": Game.Input.TryPartPlacement(
+                splitted.length > 1 ? network.GetElement(Integer.parseInt(splitted[1])) : null); break;
 
-            /** Pickup parancs végrehajtása */
-            case "pickup":
-                break;
+            /** next parancs végrehajtása */
+            case "next": PrintLine(""); game.NextTurn(); break;
 
-            /** Relocate parancs végrehajtása */
-            case "relocate":
-                /** TODO: megkapjuk <dir_nr> és ezzel dolgozunk tovább */
-                break;
-
-            /** Place parancs végrehajtása */
-            case "place":
-                /** TODO: megkapjuk <dir_nr> és ezzel dolgozunk tovább */
-                break;
-
-            /** Print parancs végrehajtása */
+            /** print parancs végrehajtása */
             case "print":
                 switch (splitted[1]) {
                     /** <inventory> -ra */
-                    case "inventory":
-                        /** TODO: megkapjuk <technician_name> és ezzel dolgozunk tovább */
-                        break;
+                    case "inventory": game.PrintInventory(splitted[2]); PrintLine(""); break;
 
                     /** <currElem> -re */
-                    case "currElem":
-                        /** TODO: megkapjuk <name> és ezzel dolgozunk tovább */
-                        break;
+                    case "currElem": game.PrintCurrElem(splitted[2]); PrintLine(""); break;
 
                     /** <elem> -re */
-                    case "elem":
-                        /** TODO: megkapjuk <elem_idx> és ezzel dolgozunk tovább */
-                        break;
+                    case "elem": network.PrintElement(Integer.parseInt(splitted[2])); PrintLine(""); break;
 
                     /** <map> -re */
-                    case "map":
-                        break;
+                    case "map": network.Print(); break;
                 }
                 break;
 
-            /** Set parancs végrehajtása */
-            case "set":
-                switch (splitted[1]) {
-                    /** <sitcky> -re */
-                    case "sitcky":
-                        /** TODO: megkapjuk <elem_idx> és ezzel dolgozunk tovább */
-                        break;
-
-                    /** <slippy> -re */
-                    case "slippy":
-                        /** TODO: megkapjuk <elem_idx> és ezzel dolgozunk tovább */
-                        break;
-                }
-                break;
-
-            /** Break parancs végrehajtása */
-            case "break":
-                /** TODO: megkapjuk <elem_idx> és ezzel dolgozunk tovább */
-                break;
-
-            /** Next parancs végrehajtása */
-            case "next":
-                /** TODO: megkapjuk <turn> <pass> és ezzel dolgozunk tovább */
-                break;
-
-            /** Connect parancs végrehajtása */
-            case "connect":
-                /** TODO: megkapjuk <elem_idx> <in_idx> <out_idx> és ezzel dolgozunk tovább */
-                break;
-
-            /** TODO: VALAMILYEN DEFAULT ÉRTÉK BEÁLLÍTÁSA */
             default:
                 break;
         }
     }
 
     /**
-     * Ide kell a bemenet olvasás annak végrehajtása és a kimenet írása
-     */
 
-    /**
-
-     TODO: MEGVAN
      add <elem_type> <nb_elem_idx>
      add <player_type> <name> <elem_idx>
-     TODO: MEGVAN
+     connect <elem_idx> <in_idx> <out_idx>
      controller toggle random
      controller break <elem_idx>
+     controller stickify <elem_idx>
+     controller slippify <elem_idx>
      controller set defaultCounter <turn_cnt>
-     TODO: MEGVAN
+     controller set maxScore <amount>
+     controller pump <pump_idx> change input <elem_idx> output <elem_idx>
+
      load state <rel_file_name>
-     TODO: MEGVAN
      reset state
-     TODO: MEGVAN
      start game
-     TODO: MEGVAN
      move <elem_idx>
-     TODO: MEGVAN
      manipulate
         stickify
         slippify
         break
-        change input <dir_nr> output <dir_nr>
-     TODO: MEGVAN
+        change input <elem_idx> output <elem_idx>
      pickup
-     TODO: MEGVAN
-     relocate <dir_nr>
-     TODO: MEGVAN
-     place <dir_nr>
-     TODO: MEGVAN
+     relocate <elem_idx>
+     place [elem_idx]
+     next turn
      print inventory <technician_name>
      print currElem <name>
      print elem <elem_idx>
      print map
 
      ----------------------------------------------------------------
-
-
-     kell:
-
-     TODO: MEGVAN
-     set sitcky <elem_idx>
-     set slippy <elem_idx>
-     TODO: MEGVAN
-     break <elem_idx>
-     TODO: MEGVAN
-     next turn pass
-     TODO: MEGVAN
-     controller pipe <pump_idx> change input <dir_nr> output <dir_nr>
-     TODO: MEGVAN
-     connect <elem_idx> <in_idx> <out_idx>
-
-
-     ----------------------------------------------------------------
-
 
      1) lépés csőre, amin már állnak
      2) lépés csőre, amin még nem állnak

@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.runtimeerror.model.players.ManipulatorPlayer;
 import org.runtimeerror.model.players.Player;
+import org.runtimeerror.prototype.PrototypeController;
 
 /**
  * Player-eket tud felrakni, illetve eltávolítani magáról, és számon is tartja a rajta tartózkodókat.
@@ -17,7 +18,8 @@ public abstract class Element {
      */
     private int idx; // a játékban központilag kezelt azonosító
     private boolean flooded = false; // van-e benne jelenleg víz
-    protected static boolean pickUpAble = false; // fel tudják-e venni a játékosok
+    protected boolean pickUpAble = false; // fel tudják-e venni a játékosok
+    protected boolean multiInput = false; // több bemenettel rendelkező elem-e
     protected final List<Player> players = new ArrayList<>(4); // játékosok, akik éppen rajta tartózkodnak
     private List<Element> nbs = new ArrayList<>(); // szomszédos elemei
     private Element input = null; // a szomszédja (ha van ilyen), amiből folyhat bele víz
@@ -34,9 +36,20 @@ public abstract class Element {
     /** Felrakja magára az átadott játékost. Ehhez eltávolítja a játékost a jelenlegi eleméről, hozzáadja ennek az
      * elemnek a players gyűjteményéhez, végül pedig átállítja rá a játékos jelenlegi elemét.
      * Felül kell írni azokban a származtatott elemekben, ahol nem szeretnénk megengedni, hogy bármikor rá lehessen
-     * lépni az adott elemre (pl. ne lehessen több játékos egy elemen, lásd Pipe). */
+     * lépni az adott elemre (pl. ne lehessen több játékos egy elemen, lásd Pipe).
+     * Visszatérési értéke: sikerült-e feltenni az elemre a játékost. */
     public void AddPlayer(Player p) {
-        p.GetCurrElem().RemovePlayer(p); // eltávolítjuk a játékost a régi eleméről
+
+        if (p.GetCurrElem() != null) {
+            p.GetCurrElem().RemovePlayer(p); // eltávolítjuk a játékost a régi eleméről
+            if (p.GetCurrElem().IsMultiInput() && IsMultiInput()) { // ha ciszternákat keresztezett
+                PrototypeController.PrintLine(p.GetName() + " crossed cisterns, new location: cistern " + GetIdx());
+            } else {
+                PrototypeController.PrintLine("player " + p.GetName() + " moved to " +
+                                              "element " + GetIdx());
+            }
+        }
+
         players.add(p); // az új elem játékosaihoz hozzáadjuk
         p.SetCurrElem(this); // átállítjuk a játékost jelenlegi elemét rá
     }
@@ -46,8 +59,11 @@ public abstract class Element {
         players.remove(p);
     }
 
-    /** Az azonosítót adja vissza */
+    /** Az azonosítót adja vissza. */
     public int GetIdx() { return idx; }
+
+    /** Beállítja az azonosítót. */
+    public void SetIdx(int idx) { this.idx = idx; }
 
     /** Az átadott irányba lévő szomszédos elemét adja vissza, ha van ilyen. */
     public List<Element> GetNbs() {
@@ -90,6 +106,9 @@ public abstract class Element {
     public boolean GetPickUpAble_onlyAttribute() {
         return pickUpAble;
     }
+
+    /** Visszaadja, hogy az elem támogat-e több bemenetről érkező víz áteresztését. */
+    public boolean IsMultiInput() { return multiInput; }
 
     /** A szomszédos elemek számát adja vissza. */
     public int GetNbCnt() {
@@ -166,17 +185,20 @@ public abstract class Element {
 
         System.out.print("\n\tnbs: ");
 
-        for (Element element: GetNbs()) { // végigmegyünk az összes szomszédján
+        for (Element element : GetNbs()) { // végigmegyünk az összes szomszédján
             System.out.print(element.GetIdx() + " ");//a szomszéd(ok) indexét kiírja
         }
         System.out.print("\n");
     }
 
+    /** Kiírja, hogy milyen manipulációk közül választhat ezen az elemen a játékos. */
+    public void PrintManipChoice() { }
 
     /** Absztrakt függvény, amit a leszármazottak úgy írnak felül, hogy hozzáadják a pályának az egyik szortírozó
      gyűjteményéhez az adott elemet. */
     public abstract boolean NetworkAdd(Element e);
 
+    /** Visszaállítja az elemek osztályszintű indexelőjét 0-ra. */
     public static void Reset() {
         maxIdx = 0;
     }

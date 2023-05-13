@@ -19,10 +19,11 @@ public final class Source extends Element {
         if(GetFlooded()) return;
         SetFlooded(true); // víz kerül belé
         for (Element element: GetNbs()) { // végigmegyünk az összes szomszédján
-            if(element.GetPickUpAble_onlyAttribute()){
-                element.SetInput(this);
-                for (Element e: element.GetNbs()){
-                    if(e!=this) element.SetOutput(e);
+            if (element.GetPickUpAble_onlyAttribute()) { // ha cső a kimenet, akkor előfordulhat,
+                if (element.GetInput() != this) { // hogy rosszul van beállítva az input és output
+                    Element tmp = element.GetInput(); // ilyenkor fel kel cserélnünk az inputot és az outputot
+                    element.SetInput(element.GetOutput());
+                    element.SetOutput(tmp);
                 }
             }
             element.Flood();//a szomszédo(ka)t elárasztja

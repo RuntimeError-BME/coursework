@@ -3,6 +3,7 @@ package org.runtimeerror.model.map;
 import org.runtimeerror.controller.Game;
 import org.runtimeerror.model.players.Player;
 import org.runtimeerror.model.players.ManipulatorPlayer;
+import org.runtimeerror.prototype.PrototypeController;
 
 /**
  * Olyan elromolható, felvehető elem, amelyen legfeljebb egy játékos tartózkodhat.
@@ -24,21 +25,9 @@ public final class Pipe extends Breakable {
      * vagy hogy még hány körig (turn) lesz ragadós vagy csúszós. */
     private int counter = 0;
 
-    /** Statikus inicializáló blokk, ami igazra állítja az ősből örökölt STATIKUS protected pickUpAble attribútumot,
-     hiszen a csövek felvehető elemek. */
-    static {
-        pickUpAble = true;
-    }
-
-    /** Konstruktor, ami igazra állítja az ősből örökölt protected pickUpAble attribútumot,
-     * hiszen a csövek felvehető elemek (a tényleges megvalósításban a statikus inicializáló blokkban lesz ez
-     * végrehajtva ehelyett, de ez csak egy implementációs részlet. */
-//    public Pipe() {
-//        pickUpAble = true;
-//    }
-
-    /** Konstruktor, ami beállítja az ősbeli indexetét az elemnek. */
-    public Pipe() { super(); }
+    /** Konstruktor, ami beállítja az ősbeli indexetét az elemnek, illetve
+     * igazra állítja az ősből örökölt protected pickUpAble attribútumot, hiszen a csövek felvehető elemek. */
+    public Pipe() { super(); pickUpAble = true; }
 
     /** Visszaadja, hogy a cső ragadós-e. Felülírja az Element ősben lévő megvalósítást, lásd: Element.GetSticky(). */
     @Override
@@ -85,23 +74,28 @@ public final class Pipe extends Breakable {
                 return; // akkor marad ugyan ott (visszacsúszik oda, ahonnan jött)
             // azzal az esettel nem foglalkozunk, amikor egy szomszéd nélküli csövön áll - úgy sem tud mozogni ilyenkor
 
+            super.AddPlayer(p); // rálép a csúszós csőre, viszont tovább fog róla csúszni
+
             // ez lesz a másik elem, ahová csúszni fog
             Element targetElem2 = null; // vagy ahonnan érkezett az az elem lesz, vagy a célpont másik szomszédja
             if (Game.GetInstance().GetDeterministic()) { // ha a játék determinisztikusan viselkedik
-                // akkor az első szomszédra fog kerülni
-                targetElem2 = GetNbs().get(0);
+                // akkor a második szomszédra fog kerülni
+                targetElem2 = GetNbs().get(1);
+                if (targetElem2 == null) // ha volt ilyen
+                    targetElem2 = GetNbs().get(0); // különben pedig az elsőre (ami biztosan létezik)
             } else { // ha a játék nem viselkedik determinisztikusan
                 // akkor a két elem közül véletlenszerűen fog az egyikre csúszni (controller random sorsoló függvénye)
                 targetElem2 = (Game.GetInstance().SlipToHigherNb()) // ha a nagyobb sorszámú felé fog csúszni
                     ? GetNbs().get(1) // akkor arra fog,
                     : GetNbs().get(0); // különben pedig a minimális sorszámú felé
             }
-            targetElem2.AddPlayer(p); // átkerül a játékos az előzőekben meghatározott szomszédos elemre
-
+            p.MoveTo(targetElem2); // átkerül a játékos az előzőekben meghatározott szomszédos elemre
         } else { // ha NEM csúszós a cső
             super.AddPlayer(p); // akkor biztosan rá fog kerülni erre a csőre (az ősbéli megvalósítás gondoskodik erről)
-            if (GetSticky()) // ha viszont a cső ragadós, amire lépett
+            if (GetSticky()) { // ha viszont a cső ragadós, amire lépett
+                PrototypeController.PrintLine("");
                 Game.GetInstance().NextTurn(); // akkor véget ér a köre
+            }
         }
     }
 
@@ -117,20 +111,23 @@ public final class Pipe extends Breakable {
      */
     @Override
     public void Flood() {
-        if(GetFlooded()) return;
-        // TODO: itt kell outputot állítani a csőnek (meg forrásnál is)
+        if (GetFlooded()) return;
         SetFlooded(true); // víz kerül belé
         Element output = GetOutput();
         if (GetBroken() || output == null) { // ha lyukas vagy nincs kimenete
             Game.GetInstance().AddSaboteurPoints(1); // akkor pontot kapnak a szabotőrök
             return; // és már nem folyik tovább belőle a víz a kimenetére
         }
-        if(output.GetPickUpAble_onlyAttribute()){
-            output.SetInput(this);
-            for (Element e: output.GetNbs()){
-                if(e!=this) output.SetOutput(e);
+        if (output.GetPickUpAble_onlyAttribute()) { // ha cső a kimenet, akkor előfordulhat,
+            if (output.GetInput() != this) { // hogy rosszul van beállítva az input és output
+                Element tmp = output.GetInput(); // ilyenkor fel kel cserélnünk az inputot és az outputot
+                output.SetInput(output.GetOutput());
+                output.SetOutput(tmp);
             }
         }
+        if (!output.IsMultiInput() && output.GetInput() != this) // annak az esete, amikor egy pumpába nem tud víz folyni,
+            return; // mert nem ez a cső a bemenete
+
         output.Flood(); // ha viszont minden rendben, akkor folyatja tovább a vizet a kimenetére
     }
 
@@ -153,6 +150,25 @@ public final class Pipe extends Breakable {
         System.out.print("\n\tslippery: " + GetSlippery());
         System.out.print("\n\tcounter: " + GetCounter());
         System.out.print("\n");
+    }
+
+    /** Felsorolja a játékosnak, hogy miket tehet az adott csővel. */
+    @Override
+    public void PrintManipChoice() {
+        if (GetBroken())
+            return;
+
+        if (Game.GetInstance().IsTechnicianTurn()) {
+            if (counter > 0)
+                PrototypeController.PrintLine("choose: stickify");
+            else
+                PrototypeController.PrintLine("choose: stickify/break");
+        } else {
+            if (counter > 0)
+                PrototypeController.PrintLine("choose: stickify/slippify");
+            else
+                PrototypeController.PrintLine("choose: stickify/slippify/break");
+        }
     }
 
     /** Hozzáadja a pályának a csöveket szortírozó gyűjteményéhez az adott csövet. */

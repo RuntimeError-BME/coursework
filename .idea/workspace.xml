@@ -4,20 +4,26 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e386bd1d-942e-4395-9f2c-b37568fb3c05" name="Changes" comment="Update on the project">
+    <list default="true" id="e386bd1d-942e-4395-9f2c-b37568fb3c05" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/input/input_alpha_test.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/output1.txt" beforeDir="false" afterPath="$PROJECT_DIR$/output/output1.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/map/Network.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/map/Network.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/prototype/PrototypeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/prototype/PrototypeController.java" afterDir="false" />
-    </list>
-    <list id="76e66c52-af61-4a4c-a04c-81aa9fb421ba" name="Changes by adammizser" comment="Update on the project">
       <change beforePath="$PROJECT_DIR$/input/input1.txt" beforeDir="false" afterPath="$PROJECT_DIR$/input/input1.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/input/input2.txt" beforeDir="false" afterPath="$PROJECT_DIR$/input/input2.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/output/output1.txt" beforeDir="false" afterPath="$PROJECT_DIR$/output/output1.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/controller/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/controller/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/map/Cistern.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/map/Cistern.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/map/Element.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/map/Element.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/map/Network.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/map/Network.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/map/Pipe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/map/Pipe.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/map/Pump.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/map/Pump.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/map/Source.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/map/Source.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/players/ManipulatorPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/players/ManipulatorPlayer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/players/ManipulatorTechnician.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/players/ManipulatorTechnician.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/players/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/players/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/players/Technician.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/players/Technician.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/prototype/PrototypeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/prototype/PrototypeController.java" afterDir="false" />
     </list>
+    <list id="76e66c52-af61-4a4c-a04c-81aa9fb421ba" name="Changes by adammizser" comment="Update on the project" />
     <list id="c22cf75c-1d00-4033-8a93-8ea5bf010523" name="Changes by sasy" comment="" />
     <list id="a4c0f49e-6999-4950-9835-6465a74e418a" name="Changes by Tep Oli" comment="    1. Az idx attribútum hozzá lett adva az Element osztályhoz.&#10;    2. Érintett függvények paramétereinek, visszatérési értékeinek módosítása a tervekhez képest.&#10;    3. GetNbMaxDirNumber(), GetNbMinDirNumber() függvények eltávolítása (szükségtelenek a gráfos megközelítés miatt)." />
     <option name="SHOW_DIALOG" value="false" />
@@ -48,52 +54,6 @@
       </list>
     </option>
   </component>
-  <component name="LineStatusTrackerManager">
-    <file path="$PROJECT_DIR$/src/main/java/org/runtimeerror/Main.java">
-      <ranges>
-        <range start1="3" end1="5" start2="3" end2="3" changelist="e386bd1d-942e-4395-9f2c-b37568fb3c05" />
-        <range start1="11" end1="13" start2="9" end2="11" changelist="76e66c52-af61-4a4c-a04c-81aa9fb421ba" />
-        <range start1="15" end1="33" start2="13" end2="13" changelist="e386bd1d-942e-4395-9f2c-b37568fb3c05" />
-      </ranges>
-    </file>
-    <file path="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/map/Network.java">
-      <ranges>
-        <range start1="77" end1="78" start2="77" end2="78" changelist="e386bd1d-942e-4395-9f2c-b37568fb3c05" />
-        <range start1="125" end1="126" start2="125" end2="126" changelist="76e66c52-af61-4a4c-a04c-81aa9fb421ba" />
-        <range start1="134" end1="135" start2="134" end2="135" changelist="e386bd1d-942e-4395-9f2c-b37568fb3c05" />
-        <range start1="161" end1="163" start2="161" end2="163" changelist="e386bd1d-942e-4395-9f2c-b37568fb3c05" />
-        <range start1="217" end1="218" start2="217" end2="218" changelist="e386bd1d-942e-4395-9f2c-b37568fb3c05" />
-        <range start1="222" end1="223" start2="222" end2="223" changelist="e386bd1d-942e-4395-9f2c-b37568fb3c05" />
-        <range start1="226" end1="227" start2="226" end2="227" changelist="e386bd1d-942e-4395-9f2c-b37568fb3c05" />
-        <range start1="228" end1="230" start2="228" end2="232" changelist="e386bd1d-942e-4395-9f2c-b37568fb3c05" />
-        <range start1="232" end1="234" start2="234" end2="238" changelist="e386bd1d-942e-4395-9f2c-b37568fb3c05" />
-        <range start1="240" end1="241" start2="244" end2="246" changelist="76e66c52-af61-4a4c-a04c-81aa9fb421ba" />
-        <range start1="242" end1="242" start2="247" end2="268" changelist="76e66c52-af61-4a4c-a04c-81aa9fb421ba" />
-        <range start1="246" end1="254" start2="272" end2="279" changelist="76e66c52-af61-4a4c-a04c-81aa9fb421ba" />
-        <range start1="255" end1="255" start2="280" end2="281" changelist="76e66c52-af61-4a4c-a04c-81aa9fb421ba" />
-        <range start1="263" end1="266" start2="289" end2="290" changelist="76e66c52-af61-4a4c-a04c-81aa9fb421ba" />
-        <range start1="267" end1="269" start2="291" end2="294" changelist="76e66c52-af61-4a4c-a04c-81aa9fb421ba" />
-        <range start1="270" end1="270" start2="295" end2="296" changelist="76e66c52-af61-4a4c-a04c-81aa9fb421ba" />
-      </ranges>
-    </file>
-    <file path="$PROJECT_DIR$/src/main/java/org/runtimeerror/prototype/PrototypeController.java">
-      <ranges>
-        <range start1="2" end1="3" start2="2" end2="2" changelist="76e66c52-af61-4a4c-a04c-81aa9fb421ba" />
-        <range start1="6" end1="7" start2="5" end2="5" changelist="76e66c52-af61-4a4c-a04c-81aa9fb421ba" />
-        <range start1="35" end1="36" start2="33" end2="34" changelist="76e66c52-af61-4a4c-a04c-81aa9fb421ba" />
-        <range start1="47" end1="48" start2="45" end2="46" changelist="e386bd1d-942e-4395-9f2c-b37568fb3c05" />
-        <range start1="49" end1="50" start2="47" end2="49" changelist="e386bd1d-942e-4395-9f2c-b37568fb3c05" />
-        <range start1="62" end1="62" start2="61" end2="64" changelist="e386bd1d-942e-4395-9f2c-b37568fb3c05" />
-        <range start1="145" end1="146" start2="147" end2="147" changelist="76e66c52-af61-4a4c-a04c-81aa9fb421ba" />
-        <range start1="154" end1="155" start2="155" end2="163" changelist="76e66c52-af61-4a4c-a04c-81aa9fb421ba" />
-        <range start1="250" end1="250" start2="258" end2="272" changelist="76e66c52-af61-4a4c-a04c-81aa9fb421ba" />
-        <range start1="274" end1="279" start2="296" end2="302" changelist="76e66c52-af61-4a4c-a04c-81aa9fb421ba" />
-        <range start1="419" end1="419" start2="442" end2="447" changelist="e386bd1d-942e-4395-9f2c-b37568fb3c05" />
-        <range start1="424" end1="428" start2="452" end2="452" changelist="e386bd1d-942e-4395-9f2c-b37568fb3c05" />
-        <range start1="482" end1="482" start2="506" end2="508" changelist="76e66c52-af61-4a4c-a04c-81aa9fb421ba" />
-      </ranges>
-    </file>
-  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -108,33 +68,33 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "Notification.DisplayName-DoNotAsk-Settings Error": "Could not save settings",
-    "Notification.DoNotAsk-Settings Error": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "codeWithMe.voiceChat.enabledByDefault": "false",
-    "git-widget-placeholder": "session-week-10",
-    "last_opened_file_path": "C:/Users/Tep Oli/Downloads/coursework/coursework",
-    "node.js.detected.package.eslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "preferences.keymap",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;Notification.DisplayName-DoNotAsk-Settings Error&quot;: &quot;Could not save settings&quot;,
+    &quot;Notification.DoNotAsk-Settings Error&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;session-week-10&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Tep Oli/Downloads/coursework/coursework&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File": [
-      "TEXT"
+  &quot;keyToStringList&quot;: {
+    &quot;com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File&quot;: [
+      &quot;TEXT&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Tep Oli\SzoftProj\coursework" />
@@ -434,34 +394,13 @@
     <MESSAGE value="Update on the project" />
     <option name="LAST_COMMIT_MESSAGE" value="Update on the project" />
   </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/org/runtimeerror/prototype/PrototypeController.java</url>
-          <line>255</line>
-          <option name="timeStamp" value="23" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/org/runtimeerror/prototype/PrototypeController.java</url>
-          <line>300</line>
-          <option name="timeStamp" value="30" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/org/runtimeerror/model/map/Network.java</url>
-          <line>243</line>
-          <option name="timeStamp" value="33" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/org/runtimeerror/model/map/Pump.java</url>
-          <line>58</line>
-          <option name="timeStamp" value="34" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
-  </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
     <select />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/coursework$Main.ic" NAME="Main Coverage Results" MODIFIED="1683944317293" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>org.runtimeerror.*</FILTER>
+    </SUITE>
   </component>
 </project>
