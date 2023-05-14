@@ -161,8 +161,6 @@ details of element 5 (pipe):
 	slippery: false
 	counter: 3
 
-random behaviour was turned on
-
 pipe 4 was slippified by controller
 
 details of element 4 (pipe):
@@ -172,9 +170,7 @@ details of element 4 (pipe):
 	broken: false
 	sticky: false
 	slippery: true
-	counter: 4
-
-random behaviour was turned off
+	counter: 3
 
 defaultCounter was set to 10
 
@@ -224,7 +220,7 @@ details of element 4 (pipe):
 	broken: false
 	sticky: false
 	slippery: true
-	counter: 4
+	counter: 3
 details of element 5 (pipe):
 	flooded: false
 	players: 

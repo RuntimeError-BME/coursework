@@ -157,6 +157,7 @@ public final class PrototypeController {
             if (requiredTest == 0) break;
             testFile(requiredTest - 1, printAlsoToFile);
             Game.GetInstance().Reset();
+            gameOver = false;
         }
     }
 
@@ -168,7 +169,7 @@ public final class PrototypeController {
         try {
             System.setIn(new FileInputStream(path));
             Scanner scanner = new Scanner(System.in);
-            while (scanner.hasNextLine()) {
+            while (scanner.hasNextLine() && !gameOver) {
                 currLine = scanner.nextLine();
                 lastScanner = scanner;
                 interpretCommand(currLine);
@@ -454,7 +455,7 @@ public final class PrototypeController {
                     if (!requiredOutputList.get(i).equals(outputList.get(i))) {
                         outConsole.println("A megadott két fájl tartalma " +
                                            "eltérő! -> A teszt: [" + testName + "] - sikertelen.");
-                        break;
+                        return;
                     }
                 }
                 outConsole.println("A megadott két fájl tartalma " +

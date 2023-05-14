@@ -29,10 +29,8 @@ controller pump 2 change input 7 output 8
 print elem 2
 controller stickify 5
 print elem 5
-controller toggle random
 controller slippify 4
 print elem 4
-controller toggle random
 controller set defaultCounter 10
 add pump 8
 add pipe 9

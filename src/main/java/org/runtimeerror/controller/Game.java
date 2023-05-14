@@ -137,8 +137,11 @@ public final class Game {
 
         // TODO: display the updated map in the GUI
 
-        if (Input.IsGameOver()) // ellenőrzi, hogy véget ért-e a játék, és közli, ha igen
-            System.exit(0); // ha véget ért a játék, már nem jelezzük ki a következő játékos körét
+        if (Input.IsGameOver()) { // ellenőrzi, hogy véget ért-e a játék, és közli, ha igen
+            PrototypeController.GetInstance().SetGameOver(true);
+            return; // ha véget ért a játék, már nem jelezzük ki a következő játékos körét
+        }
+
 
         ++currPlayerIdx; // következő játékos jön
         if (currPlayerIdx >= players.size()) { // ha véget ért egy teljes kör (round)
