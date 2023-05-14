@@ -61,6 +61,8 @@ public final class PrototypeController {
     private PrototypeController() {
         readFromFiles = setInputOutputStream("input.txt", true);
         printAlsoToFile = setInputOutputStream("output.txt", false);
+        if (!readFromFiles)
+            printAlsoToFile = false;
         if (printAlsoToFile)
             readOutputFiles();
     }
