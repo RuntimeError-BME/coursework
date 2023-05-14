@@ -1,0 +1,6 @@
+load state input/input4.txt
+controller break 2
+print elem 2
+manipulate print 4
+print elem 2
+next turn

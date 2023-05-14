@@ -1,13 +1,13 @@
 input/input1.txt	lépés csőre, amin már állnak
 input/input2.txt	lépés csőre, amin még nem állnak
-input/input3.txt	lépés csúszós csőre, csúszós állapot elmúlása
-input/input4.txt	lépés ragadós csőre, ragadós állapot elmúlása
-input/input5.txt	lépés pumpára, amin már állnak
-input/input6.txt	cső lyukasztása és megjavítása
-input/input7.txt	az elromlott pumpa megjavítsa
-input/input8.txt	cső csúszóssá tétele
-input/input9.txt	cső ragadóssá tétele
-input/input10.txt	pumpa bemenetének és kimenetének beállítása
+input/input3.txt	lépés pumpára, amin már állnak
+input/input4.txt	lépés csúszós csőre, csúszós állapot elmúlása
+input/input5.txt	lépés ragadós csőre, ragadós állapot elmúlása
+input/input6.txt	cső csúszóssá tétele
+input/input7.txt	cső ragadóssá tétele
+input/input8.txt	pumpa bemenetének és kimenetének beállítása
+input/input9.txt	cső lyukasztása és megjavítása
+input/input10.txt	az elromlott pumpa megjavítsa
 input/input11.txt	teleportálás ciszternák között
 input/input12.txt	csőfelvétel, ha lehetséges
 input/input13.txt	csőfelvétel, ha nem lehetséges

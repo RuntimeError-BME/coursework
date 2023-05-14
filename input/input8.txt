@@ -1,0 +1,7 @@
+load state input/input4.txt
+print elem 2
+manipulate
+change input 1 output 3
+print elem 2
+next turn
+print map

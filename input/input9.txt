@@ -1,0 +1,18 @@
+load state input/input4.txt
+next turn
+move 5
+move 6
+move 7
+print elem 7
+manipulate
+break
+print elem 7
+next turn
+move 6
+next turn
+move 1
+move 0
+move 7
+manipulate
+print elem 7
+next turn

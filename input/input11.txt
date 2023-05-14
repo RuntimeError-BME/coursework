@@ -1,0 +1,6 @@
+load state input/input4.txt
+move 8
+move 9
+print elem 9
+manipulate
+next turn

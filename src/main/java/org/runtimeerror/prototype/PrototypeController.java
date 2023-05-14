@@ -419,4 +419,55 @@ public final class PrototypeController {
      20) játék vége
 
      */
+
+
+    /**
+     * Összehasonlítja a teszt által generált kimenetet, az általunk előre definiált/elvárt kimenettel
+     */
+    private void compareTestResults(String outputName, String requiredOutputName, String testName) {
+        try {
+            /** A teszt által generált output sorainak beolvasása egy listába */
+            List<String> outputList = new ArrayList<>();
+            File output = new File(outputName);
+            Scanner sc1 = new Scanner(output);
+            while (sc1.hasNextLine()) {
+                String data = sc1.nextLine();
+                outputList.add(data);
+            }
+            sc1.close();
+
+            /** Az általunk definiált output sorainak beolvasása egy listába */
+            List<String> requiredOutputList = new ArrayList<>();
+            File requiredOutput = new File(requiredOutputName);
+            Scanner sc2 = new Scanner(requiredOutput);
+            while (sc2.hasNextLine()) {
+                String data = sc2.nextLine();
+                requiredOutputList.add(data);
+            }
+            sc2.close();
+
+            /** A két output összehasonlítása soronként - a teszt kiértékelése */
+            if (outputList.size() != requiredOutputList.size()) outConsole.println("A megadott két fájl tartalma " +
+                                                                                   "eltérő! -> A teszt: [" + testName + "] - sikertelen.");
+            else {
+                for (int i = 0; i < requiredOutputList.size(); i++) {
+                    if (!requiredOutputList.get(i).equals(outputList.get(i))) {
+                        outConsole.println("A megadott két fájl tartalma " +
+                                           "eltérő! -> A teszt: [" + testName + "] - sikertelen.");
+                        break;
+                    }
+                }
+                outConsole.println("A megadott két fájl tartalma " +
+                                   "megegyezik! -> A teszt: [" + testName + "] - sikeres.");
+            }
+
+        } catch (FileNotFoundException e) {
+            outConsole.println("A fájlok valamelyike nem létezik, vagy hibásan adta meg elérési útvonalát!");
+            e.printStackTrace();
+        }
+    }
+
+
+
+
 }
