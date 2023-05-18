@@ -5,79 +5,29 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e386bd1d-942e-4395-9f2c-b37568fb3c05" name="Changes" comment="HUGE UPDATE, prototype completed (yea I didn't sleep) &#10;todo: test cases, potential debugging">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frame_wallpaper/desert.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/input1.txt" beforeDir="false" afterPath="$PROJECT_DIR$/input/input1.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/input13.txt" beforeDir="false" afterPath="$PROJECT_DIR$/input/input13.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/input14.txt" beforeDir="false" afterPath="$PROJECT_DIR$/input/input14.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/input15.txt" beforeDir="false" afterPath="$PROJECT_DIR$/input/input15.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/input16.txt" beforeDir="false" afterPath="$PROJECT_DIR$/input/input16.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/input17.txt" beforeDir="false" afterPath="$PROJECT_DIR$/input/input17.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/input18.txt" beforeDir="false" afterPath="$PROJECT_DIR$/input/input18.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/input19.txt" beforeDir="false" afterPath="$PROJECT_DIR$/input/input19.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/input2.txt" beforeDir="false" afterPath="$PROJECT_DIR$/input/input2.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/input20.txt" beforeDir="false" afterPath="$PROJECT_DIR$/input/input20.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/input3.txt" beforeDir="false" afterPath="$PROJECT_DIR$/input/input3.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/input4.txt" beforeDir="false" afterPath="$PROJECT_DIR$/input/input4.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/input5.txt" beforeDir="false" afterPath="$PROJECT_DIR$/input/input5.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/input_alpha_test.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/output1.txt" beforeDir="false" afterPath="$PROJECT_DIR$/output/output1.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/output10.txt" beforeDir="false" afterPath="$PROJECT_DIR$/output/output10.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/output11.txt" beforeDir="false" afterPath="$PROJECT_DIR$/output/output11.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/output12.txt" beforeDir="false" afterPath="$PROJECT_DIR$/output/output12.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/output13.txt" beforeDir="false" afterPath="$PROJECT_DIR$/output/output13.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/output14.txt" beforeDir="false" afterPath="$PROJECT_DIR$/output/output14.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/output15.txt" beforeDir="false" afterPath="$PROJECT_DIR$/output/output15.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/output16.txt" beforeDir="false" afterPath="$PROJECT_DIR$/output/output16.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/output17.txt" beforeDir="false" afterPath="$PROJECT_DIR$/output/output17.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/output18.txt" beforeDir="false" afterPath="$PROJECT_DIR$/output/output18.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/output19.txt" beforeDir="false" afterPath="$PROJECT_DIR$/output/output19.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/output2.txt" beforeDir="false" afterPath="$PROJECT_DIR$/output/output2.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/output20.txt" beforeDir="false" afterPath="$PROJECT_DIR$/output/output20.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/output3.txt" beforeDir="false" afterPath="$PROJECT_DIR$/output/output3.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/output4.txt" beforeDir="false" afterPath="$PROJECT_DIR$/output/output4.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/output5.txt" beforeDir="false" afterPath="$PROJECT_DIR$/output/output5.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/output6.txt" beforeDir="false" afterPath="$PROJECT_DIR$/output/output6.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/output7.txt" beforeDir="false" afterPath="$PROJECT_DIR$/output/output7.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/output8.txt" beforeDir="false" afterPath="$PROJECT_DIR$/output/output8.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/output9.txt" beforeDir="false" afterPath="$PROJECT_DIR$/output/output9.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/required_output/required_output1.txt" beforeDir="false" afterPath="$PROJECT_DIR$/required_output/required_output1.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/required_output/required_output10.txt" beforeDir="false" afterPath="$PROJECT_DIR$/required_output/required_output10.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/required_output/required_output11.txt" beforeDir="false" afterPath="$PROJECT_DIR$/required_output/required_output11.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/required_output/required_output2.txt" beforeDir="false" afterPath="$PROJECT_DIR$/required_output/required_output2.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/required_output/required_output20.txt" beforeDir="false" afterPath="$PROJECT_DIR$/required_output/required_output20.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/required_output/required_output3.txt" beforeDir="false" afterPath="$PROJECT_DIR$/required_output/required_output3.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/map/Pipe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/map/Pipe.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/players/Technician.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/players/Technician.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/prototype/PrototypeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/prototype/PrototypeController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/output/output1.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/output/output2.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/output/output3.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/gui/background/Desert.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/gui/background/SetBackgroundImage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/gui/buttons/CisternButton.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/gui/buttons/ElementButton.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/gui/buttons/PipeButton.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/gui/buttons/PumpButton.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/gui/buttons/SourceButton.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/gui/controller/GuiController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/gui/fileIO/OpenFromFile.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/gui/fileIO/StartTwoFrames.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/gui/frames/ContinueGameFrame.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/gui/frames/InfoFrame.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/gui/frames/MenuFrame.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/gui/frames/NewGameFrame.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/gui/layout/Gbc.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/Main.java" afterDir="false" />
     </list>
     <list id="76e66c52-af61-4a4c-a04c-81aa9fb421ba" name="Changes by adammizser" comment="Update on the project" />
     <list id="c22cf75c-1d00-4033-8a93-8ea5bf010523" name="Changes by sasy" comment="" />
-    <list id="85fe050a-6f6c-4ac2-ac10-c929c7cb8ee0" name="Changes by szabo" comment="">
-      <change beforePath="$PROJECT_DIR$/input.txt" beforeDir="false" afterPath="$PROJECT_DIR$/input.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/input10.txt" beforeDir="false" afterPath="$PROJECT_DIR$/input/input10.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/input11.txt" beforeDir="false" afterPath="$PROJECT_DIR$/input/input11.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/input12.txt" beforeDir="false" afterPath="$PROJECT_DIR$/input/input12.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/input6.txt" beforeDir="false" afterPath="$PROJECT_DIR$/input/input6.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/input7.txt" beforeDir="false" afterPath="$PROJECT_DIR$/input/input7.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/input8.txt" beforeDir="false" afterPath="$PROJECT_DIR$/input/input8.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/input9.txt" beforeDir="false" afterPath="$PROJECT_DIR$/input/input9.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/required_output/required_output12.txt" beforeDir="false" afterPath="$PROJECT_DIR$/required_output/required_output12.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/required_output/required_output13.txt" beforeDir="false" afterPath="$PROJECT_DIR$/required_output/required_output13.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/required_output/required_output14.txt" beforeDir="false" afterPath="$PROJECT_DIR$/required_output/required_output14.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/required_output/required_output15.txt" beforeDir="false" afterPath="$PROJECT_DIR$/required_output/required_output15.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/required_output/required_output16.txt" beforeDir="false" afterPath="$PROJECT_DIR$/required_output/required_output16.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/required_output/required_output17.txt" beforeDir="false" afterPath="$PROJECT_DIR$/required_output/required_output17.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/required_output/required_output18.txt" beforeDir="false" afterPath="$PROJECT_DIR$/required_output/required_output18.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/required_output/required_output19.txt" beforeDir="false" afterPath="$PROJECT_DIR$/required_output/required_output19.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/required_output/required_output4.txt" beforeDir="false" afterPath="$PROJECT_DIR$/required_output/required_output4.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/required_output/required_output5.txt" beforeDir="false" afterPath="$PROJECT_DIR$/required_output/required_output5.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/required_output/required_output6.txt" beforeDir="false" afterPath="$PROJECT_DIR$/required_output/required_output6.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/required_output/required_output7.txt" beforeDir="false" afterPath="$PROJECT_DIR$/required_output/required_output7.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/required_output/required_output8.txt" beforeDir="false" afterPath="$PROJECT_DIR$/required_output/required_output8.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/required_output/required_output9.txt" beforeDir="false" afterPath="$PROJECT_DIR$/required_output/required_output9.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/prototype/PrototypeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/prototype/PrototypeController.java" afterDir="false" />
-    </list>
+    <list id="85fe050a-6f6c-4ac2-ac10-c929c7cb8ee0" name="Changes by szabo" comment="" />
     <list id="a4c0f49e-6999-4950-9835-6465a74e418a" name="Changes by Tep Oli" comment="    1. Az idx attribútum hozzá lett adva az Element osztályhoz.&#10;    2. Érintett függvények paramétereinek, visszatérési értékeinek módosítása a tervekhez képest.&#10;    3. GetNbMaxDirNumber(), GetNbMinDirNumber() függvények eltávolítása (szükségtelenek a gráfos megközelítés miatt)." />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -107,24 +57,6 @@
       </list>
     </option>
   </component>
-  <component name="LineStatusTrackerManager">
-    <file path="$PROJECT_DIR$/src/main/java/org/runtimeerror/prototype/PrototypeController.java">
-      <ranges>
-        <range start1="29" end1="29" start2="29" end2="30" changelist="e386bd1d-942e-4395-9f2c-b37568fb3c05" />
-        <range start1="138" end1="139" start2="139" end2="139" changelist="e386bd1d-942e-4395-9f2c-b37568fb3c05" />
-        <range start1="146" end1="146" start2="146" end2="147" changelist="e386bd1d-942e-4395-9f2c-b37568fb3c05" />
-        <range start1="157" end1="157" start2="158" end2="159" changelist="e386bd1d-942e-4395-9f2c-b37568fb3c05" />
-        <range start1="167" end1="170" start2="169" end2="173" changelist="e386bd1d-942e-4395-9f2c-b37568fb3c05" />
-        <range start1="182" end1="185" start2="185" end2="196" changelist="e386bd1d-942e-4395-9f2c-b37568fb3c05" />
-        <range start1="219" end1="271" start2="230" end2="230" changelist="e386bd1d-942e-4395-9f2c-b37568fb3c05" />
-        <range start1="288" end1="289" start2="247" end2="248" changelist="e386bd1d-942e-4395-9f2c-b37568fb3c05" />
-        <range start1="439" end1="442" start2="398" end2="399" changelist="e386bd1d-942e-4395-9f2c-b37568fb3c05" />
-        <range start1="443" end1="448" start2="400" end2="408" changelist="e386bd1d-942e-4395-9f2c-b37568fb3c05" />
-        <range start1="449" end1="450" start2="409" end2="409" changelist="e386bd1d-942e-4395-9f2c-b37568fb3c05" />
-        <range start1="462" end1="462" start2="421" end2="472" changelist="85fe050a-6f6c-4ac2-ac10-c929c7cb8ee0" />
-      </ranges>
-    </file>
-  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -139,33 +71,33 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;Notification.DisplayName-DoNotAsk-Settings Error&quot;: &quot;Could not save settings&quot;,
-    &quot;Notification.DoNotAsk-Settings Error&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;session-week-10&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Tep Oli/Downloads/coursework/coursework&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "Notification.DisplayName-DoNotAsk-Settings Error": "Could not save settings",
+    "Notification.DoNotAsk-Settings Error": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "codeWithMe.voiceChat.enabledByDefault": "false",
+    "git-widget-placeholder": "session-week-11-sasy-gui",
+    "last_opened_file_path": "/Users/sasy/Documents/PROJLAB_CURRENT_WITH_GUI/coursework/src/main/java/org/runtimeerror",
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "preferences.keymap",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File&quot;: [
-      &quot;TEXT&quot;
+  "keyToStringList": {
+    "com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File": [
+      "TEXT"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Tep Oli\SzoftProj\coursework" />
