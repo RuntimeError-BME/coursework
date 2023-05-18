@@ -16,9 +16,9 @@ public class SetBackgroundImage {
     /** A játékosok kijelző méretének lehívása */
     public Dimension ScreenSize = Toolkit.getDefaultToolkit().getScreenSize();
 
-    public JLabel setBackgroundImage() throws IOException {
+    public JLabel setBackgroundImage(String path) throws IOException {
         /** Beolvassa a képet (Desert.jpg) */
-        BufferedImage bufferedImage = ImageIO.read(new File("src/main/java/org/runtimeerror/gui/background/Desert.jpg"));
+        BufferedImage bufferedImage = ImageIO.read(new File(path));
 
         /** Újra skálázza a játékos kijelzőméretéhez */
         Image image = bufferedImage.getScaledInstance(ScreenSize.width, ScreenSize.height, Image.SCALE_DEFAULT);

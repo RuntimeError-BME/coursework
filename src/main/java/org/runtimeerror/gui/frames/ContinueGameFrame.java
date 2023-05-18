@@ -1,5 +1,6 @@
 package org.runtimeerror.gui.frames;
 import org.runtimeerror.gui.background.SetBackgroundImage;
+import org.runtimeerror.gui.controller.GuiController;
 import org.runtimeerror.gui.layout.Gbc;
 import javax.swing.*;
 import java.awt.*;
@@ -12,6 +13,9 @@ import java.io.IOException;
 
 
 public class ContinueGameFrame extends JFrame {
+    /** A GUI-t kezelő objektum */
+    GuiController guic;
+
     /** A mindent magába foglaló konténer */
     Container con;
 
@@ -23,7 +27,10 @@ public class ContinueGameFrame extends JFrame {
     JButton backButton;
 
     /** Az osztály konstruktora - inicializálja az elemeket */
-    public ContinueGameFrame() throws IOException {
+    public ContinueGameFrame(GuiController guic) throws IOException {
+        /** A GUI-t kezelő objektum */
+        this.guic = guic;
+
         /** Alap ablak beállítások megadása */
         this.setExtendedState(JFrame.MAXIMIZED_BOTH);
         this.setTitle("Continue Game");
@@ -51,7 +58,7 @@ public class ContinueGameFrame extends JFrame {
         backButton = new JButton("Back"); backButton.setFont(new Font(Font.MONOSPACED, Font.PLAIN, 15));;
         backButton.addActionListener(e -> {
             try {
-                MenuFrame menu = new MenuFrame();
+                MenuFrame menu = new MenuFrame(guic);
                 this.setVisible(false);
                 this.dispose();
             } catch (Exception error) {
@@ -68,7 +75,7 @@ public class ContinueGameFrame extends JFrame {
 
         /** A háttér beállítása */
         SetBackgroundImage backgroundTool = new SetBackgroundImage();
-        JLabel background = backgroundTool.setBackgroundImage();
+        JLabel background = backgroundTool.setBackgroundImage("src/main/java/org/runtimeerror/gui/background/Desert.png");
         background.add(mainPanel, new GridBagConstraints());
         con.add(background);
         this.setUndecorated(true);

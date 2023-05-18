@@ -1,5 +1,6 @@
 package org.runtimeerror.gui.frames;
 import org.runtimeerror.gui.background.SetBackgroundImage;
+import org.runtimeerror.gui.controller.GuiController;
 import org.runtimeerror.gui.layout.Gbc;
 import javax.swing.*;
 import javax.swing.text.SimpleAttributeSet;
@@ -15,6 +16,9 @@ import java.io.IOException;
 
 
 public class InfoFrame extends JFrame {
+    /** A GUI-t kezelő objektum */
+    GuiController guic;
+
     /** A mindent magába foglaló konténer */
     Container con;
 
@@ -27,7 +31,10 @@ public class InfoFrame extends JFrame {
     JButton backButton;
 
     /** Az osztály konstruktora - inicializálja az elemeket */
-    public InfoFrame() throws IOException {
+    public InfoFrame(GuiController guic) throws IOException {
+        /** A GUI-t kezelő objektum */
+        this.guic = guic;
+
         /** Alap ablak beállítások megadása */
         this.setExtendedState(JFrame.MAXIMIZED_BOTH);
         this.setTitle("Information");
@@ -83,7 +90,7 @@ public class InfoFrame extends JFrame {
         backButton = new JButton("Back"); backButton.setFont(new Font(Font.MONOSPACED, Font.PLAIN, 15));;
         backButton.addActionListener(e -> {
             try {
-                MenuFrame menu = new MenuFrame();
+                MenuFrame menu = new MenuFrame(guic);
                 this.setVisible(false);
                 this.dispose();
             } catch (Exception error) {
@@ -102,7 +109,7 @@ public class InfoFrame extends JFrame {
 
         /** A háttér beállítása és az ablak láthatóvá tétele */
         SetBackgroundImage backgroundTool = new SetBackgroundImage();
-        JLabel background = backgroundTool.setBackgroundImage();
+        JLabel background = backgroundTool.setBackgroundImage("src/main/java/org/runtimeerror/gui/background/Desert.png");
         background.add(mainPanel, new GridBagConstraints());
         con.add(background);
         this.setUndecorated(true);

@@ -1,9 +1,9 @@
 package org.runtimeerror.gui.controller;
 import org.runtimeerror.gui.buttons.ElementButton;
+import org.runtimeerror.gui.frames.GameFrame;
 import org.runtimeerror.gui.frames.MenuFrame;
 import javax.swing.*;
 import java.io.IOException;
-import java.util.ArrayList;
 
 
 /** TODO: CLASS INFORMATION - MÉG NAGYON SOK MÓDOSÍTÁS SZÜKSÉGES EBBEN AZ OSZTÁLYBAN
@@ -15,39 +15,40 @@ import java.util.ArrayList;
 
 /** A grafikus megjelenítést végző osztály */
 public class GuiController {
-    private JFrame frame; /** A pálya ablaka */
-
-    private ArrayList<ElementButton> buttons; /** A pályán elhelyezett objektumokat (gombokat) számon tartó tároló */
+    private GameFrame frame; /** A pálya ablaka */
 
     /** Az attribútumok iniciaizálása */
     public GuiController() {
         /** A keret indítása */
         try {
-            frame = new MenuFrame();
+            /** Először csak egy menüt indítunk, később állítjuk be a kontrollálandó játék ablakot */
+            JFrame mf = new MenuFrame(this);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+    }
 
-        /** A keret indítása */
-        frame.setVisible(true); /** A keret láthatóvá tétele */
-        frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-
-        /** Az objektum lista inicializálása */
-        buttons = new ArrayList<>();
+    /** A kontrollálandó játék ablakot beállító függvény */
+    public void SetGameFrame(GameFrame gf) {
+        this.frame = gf;
     }
 
     /** A megadott objektumot hozzá adja a pályához */
     public void AddButton(ElementButton button) {
-        buttons.add(button);
+        /** A GameFrame osztálybeli AddButton függvény meghívása */
+        this.frame.AddButton(button);
 
-        RefreshFrame(); /** A keret frissítése */
+        /** A keret frissítése */
+        RefreshFrame();
     }
 
     /** A megadott objektumot eltávolítja a pályáról */
     public void RemoveButton(ElementButton button) {
-        buttons.remove(button);
+        /** A GameFrame osztálybeli RemoveButton függvény meghívása */
+        this.frame.RemoveButton(button);
 
-        RefreshFrame(); /** A keret frissítése */
+        /** A keret frissítése */
+        RefreshFrame();
     }
 
     /* TODO: NINCS MÉG VÉGIGGONDOLVA */

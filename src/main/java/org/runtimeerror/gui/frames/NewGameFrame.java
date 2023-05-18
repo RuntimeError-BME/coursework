@@ -1,5 +1,6 @@
 package org.runtimeerror.gui.frames;
 import org.runtimeerror.gui.background.SetBackgroundImage;
+import org.runtimeerror.gui.controller.GuiController;
 import org.runtimeerror.gui.layout.Gbc;
 import javax.swing.*;
 import java.awt.*;
@@ -14,6 +15,9 @@ import java.io.IOException;
 
 
 public class NewGameFrame extends JFrame {
+    /** A GUI-t kezelő objektum */
+    GuiController guic;
+
     /** A mindent magába foglaló konténer */
     Container con;
 
@@ -30,11 +34,14 @@ public class NewGameFrame extends JFrame {
 
     /** A felhasználó által megadott beállítások */
     Object numberOfPlayers;
-    Object MapComplexity;
-    Object MapTheme;
+    Object mapComplexity;
+    Object mapTheme;
 
     /** Az osztály konstruktora - inicializálja az elemeket */
-    public NewGameFrame() throws IOException {
+    public NewGameFrame(GuiController guic) throws IOException {
+        /** A GUI-t kezelő objektum */
+        this.guic = guic;
+
         /** Alap ablak beállítások megadása */
         this.setExtendedState(JFrame.MAXIMIZED_BOTH);
         this.setTitle("New Game");
@@ -76,24 +83,24 @@ public class NewGameFrame extends JFrame {
         cbMapComplexity.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                MapComplexity = cbMapComplexity.getSelectedItem();
+                mapComplexity = cbMapComplexity.getSelectedItem();
             }
         });
         cbMapTheme.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                MapTheme = cbMapTheme.getSelectedItem();
+                mapTheme = cbMapTheme.getSelectedItem();
             }
         });
-        MapComplexity = cbMapTheme.getItemAt(cbMapTheme.getSelectedIndex());
-        MapTheme = cbMapComplexity.getItemAt(cbMapComplexity.getSelectedIndex());
+        mapComplexity = cbMapTheme.getItemAt(cbMapTheme.getSelectedIndex());
+        mapTheme = cbMapComplexity.getItemAt(cbMapComplexity.getSelectedIndex());
 
         /** Az ablakot vezérlő gombok inicializálása - modifikálása - azok megnyomásával a hozzájuk tartozó ablak elindítása */
         /** Vissza a főmenübe */
         backButton = new JButton("Back"); backButton.setFont(new Font(Font.MONOSPACED, Font.PLAIN, 15));
         backButton.addActionListener(e -> {
             try {
-                MenuFrame menu = new MenuFrame();
+                MenuFrame menu = new MenuFrame(guic);
                 this.setVisible(false);
                 this.dispose();
             } catch (Exception error) {
@@ -104,9 +111,9 @@ public class NewGameFrame extends JFrame {
         startGameButton = new JButton("Start game"); startGameButton.setFont(new Font(Font.MONOSPACED, Font.PLAIN, 15));
         startGameButton.addActionListener(e -> {
             try {
-                System.out.println("Still not implemented!");
-                // this.setVisible(false);
-                // this.dispose();
+                GameFrame gf = new GameFrame((int) numberOfPlayers, (String) mapComplexity, (String) mapTheme, guic);
+                this.setVisible(false);
+                this.dispose();
             } catch (Exception error) {
                 System.out.println("Error while loading menu background image!");
             }
@@ -126,7 +133,7 @@ public class NewGameFrame extends JFrame {
 
         /** A háttér beállítása és az ablak láthatóvá tétele */
         SetBackgroundImage backgroundTool = new SetBackgroundImage();
-        JLabel background = backgroundTool.setBackgroundImage();
+        JLabel background = backgroundTool.setBackgroundImage("src/main/java/org/runtimeerror/gui/background/Desert.png");
         background.add(mainPanel, new GridBagConstraints());
         con.add(background);
         this.setUndecorated(true);

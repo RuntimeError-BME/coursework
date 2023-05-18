@@ -1,4 +1,5 @@
 package org.runtimeerror.gui.frames;
+import org.runtimeerror.gui.controller.GuiController;
 import org.runtimeerror.gui.fileIO.OpenFromFile;
 import org.runtimeerror.gui.fileIO.StartTwoFrames;
 import org.runtimeerror.gui.background.SetBackgroundImage;
@@ -25,6 +26,9 @@ import java.io.IOException;
 
 
 public class MenuFrame extends JFrame {
+    /** A GUI-t kezelő objektum */
+    GuiController guic;
+
     /** A mindent magába foglaló konténer */
     Container con;
 
@@ -36,7 +40,10 @@ public class MenuFrame extends JFrame {
     JButton newGameButton; JButton continueGameButton; JButton infoButton;JButton exitButton;
 
     /** Az osztály konstruktora - inicializálja az elemeket */
-    public MenuFrame() throws IOException {
+    public MenuFrame(GuiController guic) throws IOException {
+        /** A GUI-t kezelő objektum */
+        this.guic = guic;
+
         /** Alap ablak beállítások megadása */
         this.setExtendedState(JFrame.MAXIMIZED_BOTH);
         this.setTitle("Menu");
@@ -70,7 +77,7 @@ public class MenuFrame extends JFrame {
         newGameButton = new JButton("New Game"); newGameButton.setFont(new Font(Font.MONOSPACED, Font.PLAIN, 15));
         newGameButton.addActionListener(e -> {
             try {
-                NewGameFrame newGame = new NewGameFrame();
+                NewGameFrame newGame = new NewGameFrame(guic);
                 this.setVisible(false);
                 this.dispose();
             } catch (Exception error) {
@@ -81,7 +88,7 @@ public class MenuFrame extends JFrame {
         continueGameButton = new JButton("Continue Game"); continueGameButton.setFont(new Font(Font.MONOSPACED, Font.PLAIN, 15));
         continueGameButton.addActionListener(e -> {
             try {
-                ContinueGameFrame mainFrame = new ContinueGameFrame();
+                ContinueGameFrame mainFrame = new ContinueGameFrame(guic);
                 OpenFromFile off = new OpenFromFile();
 
                 Thread t1 = new Thread(new StartTwoFrames(mainFrame));
@@ -101,7 +108,7 @@ public class MenuFrame extends JFrame {
         infoButton = new JButton("Information"); infoButton.setFont(new Font(Font.MONOSPACED, Font.PLAIN, 15));
         infoButton.addActionListener(e -> {
             try {
-                InfoFrame info = new InfoFrame();
+                InfoFrame info = new InfoFrame(guic);
                 this.setVisible(false);
                 this.dispose();
             } catch (Exception error) {
@@ -130,7 +137,7 @@ public class MenuFrame extends JFrame {
 
         /** A háttér beállítása és az ablak láthatóvá tétele */
         SetBackgroundImage backgroundTool = new SetBackgroundImage();
-        JLabel background = backgroundTool.setBackgroundImage();
+        JLabel background = backgroundTool.setBackgroundImage("src/main/java/org/runtimeerror/gui/background/Desert.png");
         background.add(mainPanel, new GridBagConstraints());
         con.add(background);
         this.setUndecorated(true);
