@@ -39,23 +39,23 @@ public class GuiController {
         this.frame = gf;
     }
 
-    /** A megadott objektumot hozzá adja a pályához */
-    public void AddButton(ElementButton button) {
-        /** A GameFrame osztálybeli AddButton függvény meghívása */
-        this.frame.AddButton(button);
-
-        /** A keret frissítése */
-        RefreshFrame();
-    }
-
-    /** A megadott objektumot eltávolítja a pályáról */
-    public void RemoveButton(ElementButton button) {
-        /** A GameFrame osztálybeli RemoveButton függvény meghívása */
-        this.frame.RemoveButton(button);
-
-        /** A keret frissítése */
-        RefreshFrame();
-    }
+//    /** A megadott objektumot hozzá adja a pályához */
+//    public void AddButton(ElementButton button) {
+//        /** A GameFrame osztálybeli AddButton függvény meghívása */
+//        this.frame.AddButton(button);
+//
+//        /** A keret frissítése */
+//        RefreshFrame();
+//    }
+//
+//    /** A megadott objektumot eltávolítja a pályáról */
+//    public void RemoveButton(ElementButton button) {
+//        /** A GameFrame osztálybeli RemoveButton függvény meghívása */
+//        this.frame.RemoveButton(button);
+//
+//        /** A keret frissítése */
+//        RefreshFrame();
+//    }
 
     /* TODO: NINCS MÉG VÉGIGGONDOLVA */
     /** Az objetumok pozíciójának meghatározásáért felelős függvény */
