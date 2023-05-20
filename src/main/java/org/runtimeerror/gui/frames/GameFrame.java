@@ -1,11 +1,16 @@
 package org.runtimeerror.gui.frames;
+import org.runtimeerror.gui.background.ImagePanel;
 import org.runtimeerror.gui.background.SetBackgroundImage;
 import org.runtimeerror.gui.buttons.ElementButton;
 import org.runtimeerror.gui.controller.GuiController;
-import org.runtimeerror.gui.layout.Gbc;
+import org.runtimeerror.gui.layout.GridBagConstraintsConfig;
 import org.runtimeerror.gui.timer.GameTimer;
+
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -17,9 +22,14 @@ import java.util.ArrayList;
  */
 
 
+
+
 public class GameFrame extends JFrame {
     /** A GUI-t kezelő objektum */
     GuiController guic;
+
+    /** A játékosok kijelző méretének lehívása */
+    public Dimension ScreenSize = Toolkit.getDefaultToolkit().getScreenSize();
 
     /** A felhasználó által megadott beállításokat átvesszük a NewGameFrame-től */
     public static int numberOfPlayers;
@@ -34,6 +44,7 @@ public class GameFrame extends JFrame {
 
     /** Az ablakon használt régiók paneljai */
     JPanel mainPanel; JPanel timePanel;
+    JPanel mapPanel;
 
     /** Az ablakon használt elemek */
     JButton exit;
@@ -55,11 +66,12 @@ public class GameFrame extends JFrame {
         con = getContentPane();
 
         /** Az ablakban használt layout megvalósítása Gbc-vel */
-        Gbc gbc = new Gbc(10, 0, 10, 0);
+        GridBagConstraintsConfig gbc = new GridBagConstraintsConfig(10, 0, 10, 0);
 
         /** Panelok inicializálása - modifikálása */
         mainPanel = new JPanel(); mainPanel.setLayout(new GridBagLayout()); mainPanel.setOpaque(false);
         timePanel = new JPanel(); timePanel.setLayout(new GridBagLayout()); timePanel.setOpaque(false);
+        mapPanel = new JPanel(); mapPanel.setOpaque(false);
 
         /** Az ablakot vezérlő gombok inicializálása - modifikálása - azok megnyomásával a hozzájuk tartozó ablak elindítása */
         /** Játék mentése, majd vissza a főmenübe */
@@ -78,17 +90,19 @@ public class GameFrame extends JFrame {
         GameTimer gt = new GameTimer();
         timePanel = gt.returnPanel();
         timePanel.add(exit);
+        setSize(Toolkit.getDefaultToolkit().getScreenSize());
 
-        /** Az elemek paneljeikhez adása */
+
         mainPanel.add(timePanel, gbc.gbcRemainder);
+        mainPanel.add(mapPanel, gbc.gbcRemainder);
 
-        /** A háttér beállítása és az ablak láthatóvá tétele */
-        SetBackgroundImage backgroundTool = new SetBackgroundImage();
-        JLabel background = backgroundTool.setBackgroundImage("src/main/java/org/runtimeerror/gui/background/" + MapTheme + ".png");
-        background.add(mainPanel, new GridBagConstraints());
-        con.add(background);
-        this.setUndecorated(true);
-        setVisible(true);
+        mainPanel.setLocation(500, 500);
+
+        BufferedImage myImage = ImageIO.read(...);
+        JFrame myJFrame = new JFrame("Image pane");
+        myJFrame.setContentPane(new ImagePanel(myImage));
+
+        this.setVisible(true);
     }
 
     /** A megadott objektumot hozzá adja a pályához */

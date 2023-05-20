@@ -1,7 +1,7 @@
 package org.runtimeerror.gui.frames;
 import org.runtimeerror.gui.background.SetBackgroundImage;
 import org.runtimeerror.gui.controller.GuiController;
-import org.runtimeerror.gui.layout.Gbc;
+import org.runtimeerror.gui.layout.GridBagConstraintsConfig;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -51,10 +51,10 @@ public class NewGameFrame extends JFrame {
         con = getContentPane();
 
         /** Az ablakban használt layout megvalósítása Gbc-vel */
-        Gbc gbc1 = new Gbc(0, 0, 200, 0);
-        Gbc gbc2 = new Gbc(200, 0, 0, 0);
-        Gbc gbc3 = new Gbc(20, 0, 20, 0);
-        Gbc gbc4 = new Gbc(0, 10, 0, 10);
+        GridBagConstraintsConfig gbc1 = new GridBagConstraintsConfig(0, 0, 200, 0);
+        GridBagConstraintsConfig gbc2 = new GridBagConstraintsConfig(200, 0, 0, 0);
+        GridBagConstraintsConfig gbc3 = new GridBagConstraintsConfig(20, 0, 20, 0);
+        GridBagConstraintsConfig gbc4 = new GridBagConstraintsConfig(0, 10, 0, 10);
 
         /** Panelok inicializálása - modifikálása */
         mainPanel = new JPanel(); mainPanel.setLayout(new GridBagLayout()); mainPanel.setOpaque(false);

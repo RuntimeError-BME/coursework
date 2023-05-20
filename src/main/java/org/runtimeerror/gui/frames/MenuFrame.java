@@ -3,7 +3,7 @@ import org.runtimeerror.gui.controller.GuiController;
 import org.runtimeerror.gui.fileIO.OpenFromFile;
 import org.runtimeerror.gui.fileIO.StartTwoFrames;
 import org.runtimeerror.gui.background.SetBackgroundImage;
-import org.runtimeerror.gui.layout.Gbc;
+import org.runtimeerror.gui.layout.GridBagConstraintsConfig;
 import javax.swing.*;
 import java.awt.*;
 import java.io.IOException;
@@ -53,9 +53,9 @@ public class MenuFrame extends JFrame {
         con = getContentPane();
 
         /** Az ablakban használt layout megvalósítása Gbc-vel */
-        Gbc gbc1 = new Gbc(0, 0, 160, 0);
-        Gbc gbc2 = new Gbc(20, 0, 20, 0);
-        Gbc gbc3 = new Gbc(160, 0, 0, 0);
+        GridBagConstraintsConfig gbc1 = new GridBagConstraintsConfig(0, 0, 160, 0);
+        GridBagConstraintsConfig gbc2 = new GridBagConstraintsConfig(20, 0, 20, 0);
+        GridBagConstraintsConfig gbc3 = new GridBagConstraintsConfig(160, 0, 0, 0);
 
         /** Panelok inicializálása - modifikálása */
         mainPanel = new JPanel(); mainPanel.setLayout(new GridBagLayout()); mainPanel.setOpaque(false);

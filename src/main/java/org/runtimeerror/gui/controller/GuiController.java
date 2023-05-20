@@ -15,6 +15,7 @@ import java.io.IOException;
 
 /** A grafikus megjelenítést végző osztály */
 public class GuiController {
+    private static GuiController guiController;
     private GameFrame frame; /** A pálya ablaka */
 
     /** Az attribútumok iniciaizálása */
@@ -26,6 +27,11 @@ public class GuiController {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    public static GuiController GetInstance() {
+        if (guiController == null) guiController = new GuiController();
+        return guiController;
     }
 
     /** A kontrollálandó játék ablakot beállító függvény */

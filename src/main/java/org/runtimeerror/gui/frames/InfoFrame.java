@@ -1,7 +1,7 @@
 package org.runtimeerror.gui.frames;
 import org.runtimeerror.gui.background.SetBackgroundImage;
 import org.runtimeerror.gui.controller.GuiController;
-import org.runtimeerror.gui.layout.Gbc;
+import org.runtimeerror.gui.layout.GridBagConstraintsConfig;
 import javax.swing.*;
 import javax.swing.text.SimpleAttributeSet;
 import javax.swing.text.StyleConstants;
@@ -44,7 +44,7 @@ public class InfoFrame extends JFrame {
         con = getContentPane();
 
         /** Az ablakban használt layout megvalósítása Gbc-vel */
-        Gbc gbc = new Gbc(100, 0, 100, 0);
+        GridBagConstraintsConfig gbc = new GridBagConstraintsConfig(100, 0, 100, 0);
 
         /** Panelok inicializálása - modifikálása */
         mainPanel = new JPanel(); mainPanel.setLayout(new GridBagLayout()); mainPanel.setOpaque(false);

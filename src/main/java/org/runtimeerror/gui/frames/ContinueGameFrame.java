@@ -1,7 +1,7 @@
 package org.runtimeerror.gui.frames;
 import org.runtimeerror.gui.background.SetBackgroundImage;
 import org.runtimeerror.gui.controller.GuiController;
-import org.runtimeerror.gui.layout.Gbc;
+import org.runtimeerror.gui.layout.GridBagConstraintsConfig;
 import javax.swing.*;
 import java.awt.*;
 import java.io.IOException;
@@ -40,8 +40,8 @@ public class ContinueGameFrame extends JFrame {
         con = getContentPane();
 
         /** Az ablakban használt layout megvalósítása Gbc-vel */
-        Gbc gbc1 = new Gbc(0, 0, 340, 0);
-        Gbc gbc2 = new Gbc(300, 0, 0, 0);
+        GridBagConstraintsConfig gbc1 = new GridBagConstraintsConfig(0, 0, 340, 0);
+        GridBagConstraintsConfig gbc2 = new GridBagConstraintsConfig(300, 0, 0, 0);
 
         /** Panelok inicializálása - modifikálása */
         mainPanel = new JPanel(); mainPanel.setLayout(new GridBagLayout()); mainPanel.setOpaque(false);

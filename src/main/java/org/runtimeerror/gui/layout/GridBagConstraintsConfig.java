@@ -9,7 +9,7 @@ import java.awt.*;
 
 
 /** A megjelenítési elemek tájolásáért felelős osztály */
-public class Gbc {
+public class GridBagConstraintsConfig {
     /** A három különböző elhelyezési attribútum (Amelyek a projektbe előfordulhatnak) */
     public GridBagConstraints gbcRemainder;
     public GridBagConstraints gbcRelative;
@@ -18,7 +18,7 @@ public class Gbc {
     /** - Itt történik az előre definiált attribútumok inicializálása (a konstruktorban)
         - A konstruktorban megadott paramétereket állítjuk be az inset-eknek
      */
-    public Gbc(int top, int left, int bottom, int right) {
+    public GridBagConstraintsConfig(int top, int left, int bottom, int right) {
         gbcRemainder = new GridBagConstraints();
         gbcRemainder.weightx = 1;
         gbcRemainder.weighty = .25;
