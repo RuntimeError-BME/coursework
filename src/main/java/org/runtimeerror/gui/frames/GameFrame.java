@@ -70,6 +70,9 @@ public class GameFrame extends JFrame {
 
         /** Az ablakban használt layout megvalósítása Gbc-vel */
         GridBagConstraintsConfig gbc = new GridBagConstraintsConfig(10, 0, 10, 0);
+        GridBagConstraintsConfig gbcTopMap = new GridBagConstraintsConfig(10, 0, 10, 0);
+        GridBagConstraintsConfig gbcBottomMap = new GridBagConstraintsConfig(0, 0, 10, 0);
+        GridBagConstraintsConfig gbcMidMap = new GridBagConstraintsConfig(0, 0, 0, 0);
 
         /** Panelok inicializálása - modifikálása */
         mainPanel = new JPanel(); mainPanel.setLayout(new GridBagLayout()); mainPanel.setOpaque(false);
@@ -124,7 +127,7 @@ public class GameFrame extends JFrame {
 
             for (int j = 0; j < ((int) Math.sqrt(tableSize * 2)); j++) {
                 JButton current = new JButton(); current.setPreferredSize(new Dimension(50, 50));
-                current.setIcon(new ImageIcon(""));
+                current.setIcon(new ImageIcon("src/main/java/org/runtimeerror/gui/background/Forest.png"));
 
                 current.addActionListener(ae -> {
                     /** Itt történnek a felhasználó általi cselekvések metódushívásai TODO: NAGYON NINCS MÉG VÉGIG GONDOLVA */
@@ -132,7 +135,9 @@ public class GameFrame extends JFrame {
 
                 panels[i].add(current);
             }
-            cardsPanel.add(panels[i], gbc.gbcRemainder);
+            if (i == 0) cardsPanel.add(panels[i], gbcTopMap.gbcRemainder);
+            if (i == (((int) Math.sqrt(tableSize * 2)) - 1)) cardsPanel.add(panels[i], gbcBottomMap.gbcRemainder);
+            else cardsPanel.add(panels[i], gbcMidMap.gbcRemainder);
         }
 
         /** Az elemek paneljeikhez adása */

@@ -4,15 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e386bd1d-942e-4395-9f2c-b37568fb3c05" name="Changes" comment="GUI BASICS ADDED BY SASY V3">
-      <change afterPath="$PROJECT_DIR$/output/output1.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/output/output2.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/output/output3.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/gui/players/Players.java" afterDir="false" />
+    <list default="true" id="e386bd1d-942e-4395-9f2c-b37568fb3c05" name="Changes" comment="GUI BASICS ADDED BY SASY V4 - NAGYON SOK MÉG A FELADAT, DE MÁR VAN VALAMILYEN TÁBLA">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/gui/background/ImagePanel.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/gui/controller/GuiController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/gui/controller/GuiController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/gui/frames/GameFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/gui/frames/GameFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/gui/players/Players.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/gui/players/Players.java" afterDir="false" />
     </list>
     <list id="76e66c52-af61-4a4c-a04c-81aa9fb421ba" name="Changes by adammizser" comment="Update on the project" />
     <list id="c22cf75c-1d00-4033-8a93-8ea5bf010523" name="Changes by sasy" comment="" />
@@ -144,7 +139,8 @@
       <workItem from="1684429795955" duration="7295000" />
       <workItem from="1684591071152" duration="8593000" />
       <workItem from="1684603643640" duration="1465000" />
-      <workItem from="1684613562500" duration="3602000" />
+      <workItem from="1684613562500" duration="4047000" />
+      <workItem from="1684657378483" duration="3433000" />
     </task>
     <task id="LOCAL-00001" summary="Move to Empty pipe&#10;Manipulate &#10;Újítások&#10;Oli, Elon">
       <created>1682595103637</created>
@@ -377,7 +373,14 @@
       <option name="project" value="LOCAL" />
       <updated>1684603675328</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="GUI BASICS ADDED BY SASY V4 - NAGYON SOK MÉG A FELADAT, DE MÁR VAN VALAMILYEN TÁBLA">
+      <created>1684617513280</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1684617513280</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -396,7 +399,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="...&#10;Random kiegészítés" />
     <MESSAGE value="...&#10;PrototypeController" />
     <MESSAGE value="...&#10;Network.." />
     <MESSAGE value="alpha 0.0.2" />
@@ -421,7 +423,8 @@
     <MESSAGE value="GUI BASICS ADDED BY SASY" />
     <MESSAGE value="GUI BASICS ADDED BY SASY V2" />
     <MESSAGE value="GUI BASICS ADDED BY SASY V3" />
-    <option name="LAST_COMMIT_MESSAGE" value="GUI BASICS ADDED BY SASY V3" />
+    <MESSAGE value="GUI BASICS ADDED BY SASY V4 - NAGYON SOK MÉG A FELADAT, DE MÁR VAN VALAMILYEN TÁBLA" />
+    <option name="LAST_COMMIT_MESSAGE" value="GUI BASICS ADDED BY SASY V4 - NAGYON SOK MÉG A FELADAT, DE MÁR VAN VALAMILYEN TÁBLA" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
