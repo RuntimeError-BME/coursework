@@ -1,5 +1,9 @@
 package org.runtimeerror.gui.buttons;
+import org.runtimeerror.gui.controller.GuiController;
+
 import javax.swing.*;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 
 /** TODO: CLASS INFORMATION
@@ -19,13 +23,20 @@ public class ElementButton extends JButton {
     private int Width;
     private int Height;
     private int Rotation;
+    private final GuiController guiController = GuiController.GetInstance();
 
     /* TODO: EZT MÉG MEG KELL CSINÁLNI - NINCS GRAFIKA MÖGÖTTE - DE IDE KELL TENNI ICON FORMÁBAN */
     private Icon ButtonUI; /** Az objetum UI-ja */
 
 
-    /** GETTER SETTER FÜGGVÉNYEK AZ ATTRIBÚTUMOKHOZ */
+    public ElementButton() {
+        addActionListener(e -> {
+            if(id < 0) return;
+            guiController.handleMoveEvent(this.id);
+        });
+    }
 
+    /** GETTER SETTER FÜGGVÉNYEK AZ ATTRIBÚTUMOKHOZ */
 
     // Visszaadja az objektum azonosítóját
     public int GetId() {

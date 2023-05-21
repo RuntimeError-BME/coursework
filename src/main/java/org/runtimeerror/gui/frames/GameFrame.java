@@ -9,6 +9,8 @@ import org.runtimeerror.model.map.Cistern;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -34,6 +36,7 @@ public class GameFrame extends JFrame implements KeyListener {
 
     /** A mindent magába foglaló konténer */
     Container con;
+    private static GuiController guiController;
 
     /** Az ablakon használt régiók paneljai */
     JPanel mainPanel; JPanel cardsPanel; JPanel timePanel;
@@ -53,6 +56,8 @@ public class GameFrame extends JFrame implements KeyListener {
     public GameFrame(int nop, String mc, String mt) throws IOException, InterruptedException {
         /** Beállítások átvetele a NewGameFrame osztálytól */
         numberOfPlayers = nop; MapComplexity = mc; MapTheme = mt;
+
+        guiController = GuiController.GetInstance();
 
         /** Az elemek gombjainak inicializálása */
         buttons = new ArrayList<ElementButton>();
@@ -232,4 +237,17 @@ public class GameFrame extends JFrame implements KeyListener {
     public void RefreshMap() {
 
     }
+    @Override
+    public void keyTyped(KeyEvent e) {
+        guiController.handleKeyboardEvent(e.getKeyCode());
+    }
+
+    @Override
+    public void keyPressed(KeyEvent e) {
+
+    }
+
+    @Override
+    public void keyReleased(KeyEvent e) { }
+
 }
