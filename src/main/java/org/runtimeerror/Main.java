@@ -12,6 +12,6 @@ public class Main {
         // pc.ResetState();
 
         /** GUI */
-        GuiController guic = new GuiController();
+        GuiController guic = GuiController.GetInstance();
     }
 }
