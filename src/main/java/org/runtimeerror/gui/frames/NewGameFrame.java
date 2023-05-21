@@ -15,9 +15,6 @@ import java.io.IOException;
 
 
 public class NewGameFrame extends JFrame {
-    /** A GUI-t kezelő objektum */
-    GuiController guic;
-
     /** A mindent magába foglaló konténer */
     Container con;
 
@@ -38,10 +35,7 @@ public class NewGameFrame extends JFrame {
     Object mapTheme;
 
     /** Az osztály konstruktora - inicializálja az elemeket */
-    public NewGameFrame(GuiController guic) throws IOException {
-        /** A GUI-t kezelő objektum */
-        this.guic = guic;
-
+    public NewGameFrame() throws IOException {
         /** Alap ablak beállítások megadása */
         this.setExtendedState(JFrame.MAXIMIZED_BOTH);
         this.setTitle("New Game");
@@ -100,7 +94,7 @@ public class NewGameFrame extends JFrame {
         backButton = new JButton("Back"); backButton.setFont(new Font(Font.MONOSPACED, Font.PLAIN, 15));
         backButton.addActionListener(e -> {
             try {
-                MenuFrame menu = new MenuFrame(guic);
+                MenuFrame menu = new MenuFrame();
                 this.setVisible(false);
                 this.dispose();
             } catch (Exception error) {
@@ -111,7 +105,7 @@ public class NewGameFrame extends JFrame {
         startGameButton = new JButton("Start game"); startGameButton.setFont(new Font(Font.MONOSPACED, Font.PLAIN, 15));
         startGameButton.addActionListener(e -> {
             try {
-                GameFrame gf = new GameFrame((int) numberOfPlayers, (String) mapComplexity, (String) mapTheme, guic);
+                GameFrame gf = new GameFrame((int) numberOfPlayers, (String) mapComplexity, (String) mapTheme);
                 this.setVisible(false);
                 this.dispose();
             } catch (Exception error) {

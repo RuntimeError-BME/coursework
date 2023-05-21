@@ -1,10 +1,12 @@
 package org.runtimeerror.gui.frames;
 import org.runtimeerror.gui.background.SetBackgroundImage;
-import org.runtimeerror.gui.buttons.ElementButton;
+import org.runtimeerror.gui.buttons.*;
 import org.runtimeerror.gui.controller.GuiController;
 import org.runtimeerror.gui.layout.GridBagConstraintsConfig;
 import org.runtimeerror.gui.players.Players;
 import org.runtimeerror.gui.timer.GameTimer;
+import org.runtimeerror.model.map.Cistern;
+
 import javax.swing.*;
 import java.awt.*;
 import java.io.IOException;
@@ -18,10 +20,7 @@ import java.util.ArrayList;
  */
 
 
-public class GameFrame extends JFrame {
-    /** A GUI-t kezelő objektum */
-    GuiController guic;
-
+public class GameFrame extends JFrame implements KeyListener {
     /** A játékosok kijelző méretének lehívása */
     public Dimension ScreenSize = Toolkit.getDefaultToolkit().getScreenSize();
 
@@ -51,10 +50,7 @@ public class GameFrame extends JFrame {
     GridBagConstraintsConfig gbcMidMap = new GridBagConstraintsConfig(0, 0, 0, 0);
 
     /** Az osztály konstruktora - inicializálja az elemeket */
-    public GameFrame(int nop, String mc, String mt, GuiController guic) throws IOException, InterruptedException {
-        /** A GUI-t kezelő objektum */
-        this.guic = guic;
-
+    public GameFrame(int nop, String mc, String mt) throws IOException, InterruptedException {
         /** Beállítások átvetele a NewGameFrame osztálytól */
         numberOfPlayers = nop; MapComplexity = mc; MapTheme = mt;
 
@@ -83,7 +79,7 @@ public class GameFrame extends JFrame {
         exit = new JButton("Save and exit");
         exit.addActionListener(ae -> {
             try {
-                MenuFrame menu = new MenuFrame(guic);
+                MenuFrame menu = new MenuFrame();
                 this.setVisible(false);
                 this.dispose();
             } catch (Exception error) {
@@ -124,11 +120,44 @@ public class GameFrame extends JFrame {
         setVisible(true);
     }
 
+    /** A pályakészítéshez készített speciális osztály, mely tartalmazza
+        a sor, oszlop, és elem típus attribútumokat
+     */
+    class Tuple {
+        public String type;
+        public int row, col;
+
+        public Tuple(String t, int r, int c) {
+            this.type = t; this.row = r; this.col = c;
+        }
+    }
+
     /** Megépíti a kezdő pályát a felhasználó által megadott kompelxitás függvényében */
     public void BuildMap() {
+        /** Ebben tároljuk a pályához kszítendő elemeket */
+        ArrayList<Tuple> map = new ArrayList<>();
+
         /** A felhasználó által megadott pálya komplexitás alkalmazása adott számú mező készítésével */
         switch (MapComplexity) {
             case "Low":
+//                pipe: 9-5, 8-5, 7-5, 6-4, 5-5, 3-5, 6-6, 6-7, 6-8,
+//                pump: 6-5, 4-5, 6-9
+//                cistern: 6-3
+//                source: 10-5,
+                map.add(new Tuple("Pipe", 9, 5));
+                map.add(new Tuple("Pipe", 8, 5));
+                map.add(new Tuple("Pipe", 7, 5));
+                map.add(new Tuple("Pipe", 6, 4));
+                map.add(new Tuple("Pipe", 5, 5));
+                map.add(new Tuple("Pipe", 3, 5));
+                map.add(new Tuple("Pipe", 6, 6));
+                map.add(new Tuple("Pipe", 6, 7));
+                map.add(new Tuple("Pipe", 6, 8));
+                map.add(new Tuple("Pump", 6, 5));
+                map.add(new Tuple("Pump", 4, 5));
+                map.add(new Tuple("Pump", 6, 9));
+                map.add(new Tuple("Cistern", 6, 3));
+                map.add(new Tuple("Source", 10, 5));
 
                 break;
             case "Medium":
@@ -143,14 +172,55 @@ public class GameFrame extends JFrame {
             panels[i] = new JPanel(); panels[i].setLayout(new GridBagLayout()); panels[i].setOpaque(false);
 
             for (int j = 0; j < 21; j++) {
-                JButton current = new JButton(); current.setPreferredSize(new Dimension(80, 80));
-                current.setIcon(new ImageIcon(""));
-
-                current.addActionListener(ae -> {
-                    /** Itt történnek a felhasználó általi cselekvések metódushívásai TODO: NAGYON NINCS MÉG VÉGIG GONDOLVA */
-                });
-
-                panels[i].add(current);
+                for (int k = 0; k < map.size(); k++) {
+                    if (map.get(k).row == i) {
+                        if (map.get(k).col == j) {
+                            switch (map.get(k).type) {
+                                case "Pipe":
+                                    PipeButton currentPipe = new PipeButton(); currentPipe.setPreferredSize(new Dimension(80, 80)); currentPipe.setText(""+j);
+                                    currentPipe.setIcon(new ImageIcon("src/main/java/org/runtimeerror/gui/buttons/texture/Pipe.png"));
+                                    currentPipe.addActionListener(ae -> {
+                                        /** Itt történnek a felhasználó általi cselekvések metódushívásai TODO: NAGYON NINCS MÉG VÉGIG GONDOLVA */
+                                    });
+                                    panels[i].add(currentPipe);
+                                    break;
+                                case "Pump":
+                                    PumpButton currentPump = new PumpButton(); currentPump.setPreferredSize(new Dimension(80, 80)); currentPump.setText(""+j);
+                                    currentPump.setIcon(new ImageIcon("src/main/java/org/runtimeerror/gui/buttons/texture/Pump.png"));
+                                    currentPump.addActionListener(ae -> {
+                                        /** Itt történnek a felhasználó általi cselekvések metódushívásai TODO: NAGYON NINCS MÉG VÉGIG GONDOLVA */
+                                    });
+                                    panels[i].add(currentPump);
+                                    break;
+                                case "Cistern":
+                                    CisternButton currentCistern = new CisternButton(); currentCistern.setPreferredSize(new Dimension(80, 80)); currentCistern.setText(""+j);
+                                    currentCistern.setIcon(new ImageIcon("src/main/java/org/runtimeerror/gui/buttons/texture/Cistern.png"));
+                                    currentCistern.addActionListener(ae -> {
+                                        /** Itt történnek a felhasználó általi cselekvések metódushívásai TODO: NAGYON NINCS MÉG VÉGIG GONDOLVA */
+                                    });
+                                    panels[i].add(currentCistern);
+                                    break;
+                                case "Source":
+                                    SourceButton currentSource = new SourceButton(); currentSource.setPreferredSize(new Dimension(80, 80)); currentSource.setText(""+j);
+                                    currentSource.setIcon(new ImageIcon("src/main/java/org/runtimeerror/gui/buttons/texture/Source.png"));
+                                    currentSource.addActionListener(ae -> {
+                                        /** Itt történnek a felhasználó általi cselekvések metódushívásai TODO: NAGYON NINCS MÉG VÉGIG GONDOLVA */
+                                    });
+                                    panels[i].add(currentSource);
+                                    break;
+                            }
+                        }
+                    }
+                    else {
+                        JButton current = new JButton();
+                        current.setPreferredSize(new Dimension(80, 80));
+                        current.setText("" + j);
+                        current.addActionListener(ae -> {
+                            /** Itt történnek a felhasználó általi cselekvések metódushívásai TODO: NAGYON NINCS MÉG VÉGIG GONDOLVA */
+                        });
+                        panels[i].add(current);
+                    }
+                }
             }
             if (i == 0) cardsPanel.add(panels[i], gbcTopMap.gbcRemainder);
             if (i == 10) cardsPanel.add(panels[i], gbcBottomMap.gbcRemainder);

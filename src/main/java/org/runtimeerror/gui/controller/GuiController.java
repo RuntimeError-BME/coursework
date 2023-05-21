@@ -23,7 +23,7 @@ public class GuiController {
         /** A keret indítása */
         try {
             /** Először csak egy menüt indítunk, később állítjuk be a kontrollálandó játék ablakot */
-            JFrame mf = new MenuFrame(this);
+            JFrame mf = new MenuFrame();
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

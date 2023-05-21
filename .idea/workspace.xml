@@ -4,15 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e386bd1d-942e-4395-9f2c-b37568fb3c05" name="Changes" comment="GUI BASICS ADDED BY SASY V5 - MÁR VAN GRID">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/gui/buttons/texture/cistern.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/gui/buttons/texture/pipe.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/gui/buttons/texture/pump.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/gui/buttons/texture/source.png" afterDir="false" />
+    <list default="true" id="e386bd1d-942e-4395-9f2c-b37568fb3c05" name="Changes" comment="GUI BASICS ADDED BY SASY V6 - LAYOUT KÉSZ, ÖSSZEKÖTTETÉSEK HIÁNYOZNAK">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/gui/background/Desert.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/gui/background/texture/Desert.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/gui/background/Forest.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/gui/background/texture/Forest.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/gui/background/Space.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/gui/background/texture/Space.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/gui/controller/GuiController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/gui/controller/GuiController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/gui/frames/ContinueGameFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/gui/frames/ContinueGameFrame.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/gui/frames/GameFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/gui/frames/GameFrame.java" afterDir="false" />
@@ -21,9 +14,16 @@
       <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/gui/frames/NewGameFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/gui/frames/NewGameFrame.java" afterDir="false" />
     </list>
     <list id="76e66c52-af61-4a4c-a04c-81aa9fb421ba" name="Changes by adammizser" comment="Update on the project" />
+    <list id="78d913d9-ba48-4f54-9b30-cf2de78b808f" name="Changes by betonitcso" comment="">
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/gui/buttons/ElementButton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/gui/buttons/ElementButton.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/gui/controller/GuiController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/gui/controller/GuiController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/gui/frames/GameFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/gui/frames/GameFrame.java" afterDir="false" />
+    </list>
     <list id="c22cf75c-1d00-4033-8a93-8ea5bf010523" name="Changes by sasy" comment="" />
     <list id="85fe050a-6f6c-4ac2-ac10-c929c7cb8ee0" name="Changes by szabo" comment="" />
-    <list id="a4c0f49e-6999-4950-9835-6465a74e418a" name="Changes by Tep Oli" comment="    1. Az idx attribútum hozzá lett adva az Element osztályhoz.&#10;    2. Érintett függvények paramétereinek, visszatérési értékeinek módosítása a tervekhez képest.&#10;    3. GetNbMaxDirNumber(), GetNbMinDirNumber() függvények eltávolítása (szükségtelenek a gráfos megközelítés miatt)." />
+    <list id="a4c0f49e-6999-4950-9835-6465a74e418a" name="Changes by Tep Oli" comment="    1. Az idx attribútum hozzá lett adva az Element osztályhoz.&#10;    2. Érintett függvények paramétereinek, visszatérési értékeinek módosítása a tervekhez képest.&#10;    3. GetNbMaxDirNumber(), GetNbMinDirNumber() függvények eltávolítása (szükségtelenek a gráfos megközelítés miatt).">
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/Main.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -51,6 +51,35 @@
         <option value="main" />
       </list>
     </option>
+  </component>
+  <component name="LineStatusTrackerManager">
+    <file path="$PROJECT_DIR$/src/main/java/org/runtimeerror/gui/controller/GuiController.java">
+      <ranges>
+        <range start1="1" end1="2" start2="1" end2="2" changelist="78d913d9-ba48-4f54-9b30-cf2de78b808f" />
+        <range start1="4" end1="4" start2="4" end2="6" changelist="78d913d9-ba48-4f54-9b30-cf2de78b808f" />
+        <range start1="5" end1="5" start2="7" end2="8" changelist="78d913d9-ba48-4f54-9b30-cf2de78b808f" />
+        <range start1="18" end1="18" start2="21" end2="22" changelist="78d913d9-ba48-4f54-9b30-cf2de78b808f" />
+        <range start1="25" end1="26" start2="29" end2="30" changelist="e386bd1d-942e-4395-9f2c-b37568fb3c05" />
+        <range start1="40" end1="40" start2="44" end2="82" changelist="78d913d9-ba48-4f54-9b30-cf2de78b808f" />
+      </ranges>
+    </file>
+    <file path="$PROJECT_DIR$/src/main/java/org/runtimeerror/gui/frames/GameFrame.java">
+      <ranges>
+        <range start1="2" end1="3" start2="2" end2="3" changelist="e386bd1d-942e-4395-9f2c-b37568fb3c05" />
+        <range start1="7" end1="7" start2="7" end2="9" changelist="e386bd1d-942e-4395-9f2c-b37568fb3c05" />
+        <range start1="9" end1="9" start2="11" end2="13" changelist="78d913d9-ba48-4f54-9b30-cf2de78b808f" />
+        <range start1="20" end1="24" start2="24" end2="25" changelist="e386bd1d-942e-4395-9f2c-b37568fb3c05" />
+        <range start1="37" end1="37" start2="38" end2="39" changelist="78d913d9-ba48-4f54-9b30-cf2de78b808f" />
+        <range start1="53" end1="57" start2="55" end2="56" changelist="e386bd1d-942e-4395-9f2c-b37568fb3c05" />
+        <range start1="59" end1="59" start2="58" end2="60" changelist="78d913d9-ba48-4f54-9b30-cf2de78b808f" />
+        <range start1="85" end1="86" start2="86" end2="87" changelist="e386bd1d-942e-4395-9f2c-b37568fb3c05" />
+        <range start1="126" end1="126" start2="127" end2="139" changelist="e386bd1d-942e-4395-9f2c-b37568fb3c05" />
+        <range start1="128" end1="128" start2="141" end2="144" changelist="e386bd1d-942e-4395-9f2c-b37568fb3c05" />
+        <range start1="131" end1="131" start2="147" end2="165" changelist="e386bd1d-942e-4395-9f2c-b37568fb3c05" />
+        <range start1="145" end1="153" start2="179" end2="228" changelist="e386bd1d-942e-4395-9f2c-b37568fb3c05" />
+        <range start1="164" end1="164" start2="239" end2="252" changelist="78d913d9-ba48-4f54-9b30-cf2de78b808f" />
+      </ranges>
+    </file>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -94,6 +123,9 @@
   }
 }</component>
   <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="org.runtimeerror.gui.buttons" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main/java/org/runtimeerror" />
     </key>
@@ -154,7 +186,7 @@
       <workItem from="1684591071152" duration="8593000" />
       <workItem from="1684603643640" duration="1465000" />
       <workItem from="1684613562500" duration="4047000" />
-      <workItem from="1684657378483" duration="8396000" />
+      <workItem from="1684657378483" duration="13957000" />
     </task>
     <task id="LOCAL-00001" summary="Move to Empty pipe&#10;Manipulate &#10;Újítások&#10;Oli, Elon">
       <created>1682595103637</created>
@@ -401,7 +433,14 @@
       <option name="project" value="LOCAL" />
       <updated>1684660963689</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="GUI BASICS ADDED BY SASY V6 - LAYOUT KÉSZ, ÖSSZEKÖTTETÉSEK HIÁNYOZNAK">
+      <created>1684668285856</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1684668285856</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -420,7 +459,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="...&#10;Network.." />
     <MESSAGE value="alpha 0.0.2" />
     <MESSAGE value="Changes by sasy (alpha 0.0.2)" />
     <MESSAGE value="alpha 0.0.3" />
@@ -445,7 +483,8 @@
     <MESSAGE value="GUI BASICS ADDED BY SASY V3" />
     <MESSAGE value="GUI BASICS ADDED BY SASY V4 - NAGYON SOK MÉG A FELADAT, DE MÁR VAN VALAMILYEN TÁBLA" />
     <MESSAGE value="GUI BASICS ADDED BY SASY V5 - MÁR VAN GRID" />
-    <option name="LAST_COMMIT_MESSAGE" value="GUI BASICS ADDED BY SASY V5 - MÁR VAN GRID" />
+    <MESSAGE value="GUI BASICS ADDED BY SASY V6 - LAYOUT KÉSZ, ÖSSZEKÖTTETÉSEK HIÁNYOZNAK" />
+    <option name="LAST_COMMIT_MESSAGE" value="GUI BASICS ADDED BY SASY V6 - LAYOUT KÉSZ, ÖSSZEKÖTTETÉSEK HIÁNYOZNAK" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -454,6 +493,15 @@
           <url>file://$PROJECT_DIR$/src/main/java/org/runtimeerror/model/players/Technician.java</url>
           <line>121</line>
           <option name="timeStamp" value="35" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/org/runtimeerror/model/map/Element.java</url>
+          <line>84</line>
+          <properties class="org.runtimeerror.model.map.Element" method="OnPickup">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="36" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

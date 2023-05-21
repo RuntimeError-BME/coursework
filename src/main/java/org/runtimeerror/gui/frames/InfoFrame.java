@@ -16,9 +16,6 @@ import java.io.IOException;
 
 
 public class InfoFrame extends JFrame {
-    /** A GUI-t kezelő objektum */
-    GuiController guic;
-
     /** A mindent magába foglaló konténer */
     Container con;
 
@@ -31,10 +28,7 @@ public class InfoFrame extends JFrame {
     JButton backButton;
 
     /** Az osztály konstruktora - inicializálja az elemeket */
-    public InfoFrame(GuiController guic) throws IOException {
-        /** A GUI-t kezelő objektum */
-        this.guic = guic;
-
+    public InfoFrame() throws IOException {
         /** Alap ablak beállítások megadása */
         this.setExtendedState(JFrame.MAXIMIZED_BOTH);
         this.setTitle("Information");
@@ -90,7 +84,7 @@ public class InfoFrame extends JFrame {
         backButton = new JButton("Back"); backButton.setFont(new Font(Font.MONOSPACED, Font.PLAIN, 15));;
         backButton.addActionListener(e -> {
             try {
-                MenuFrame menu = new MenuFrame(guic);
+                MenuFrame menu = new MenuFrame();
                 this.setVisible(false);
                 this.dispose();
             } catch (Exception error) {
