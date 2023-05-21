@@ -109,7 +109,7 @@ public class InfoFrame extends JFrame {
 
         /** A háttér beállítása és az ablak láthatóvá tétele */
         SetBackgroundImage backgroundTool = new SetBackgroundImage();
-        JLabel background = backgroundTool.setBackgroundImage("src/main/java/org/runtimeerror/gui/background/Desert.png");
+        JLabel background = backgroundTool.setBackgroundImage("src/main/java/org/runtimeerror/gui/background/texture/Desert.png");
         background.add(mainPanel, new GridBagConstraints());
         con.add(background);
         this.setUndecorated(true);

@@ -4,10 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e386bd1d-942e-4395-9f2c-b37568fb3c05" name="Changes" comment="GUI BASICS ADDED BY SASY V4 - NAGYON SOK MÉG A FELADAT, DE MÁR VAN VALAMILYEN TÁBLA">
+    <list default="true" id="e386bd1d-942e-4395-9f2c-b37568fb3c05" name="Changes" comment="GUI BASICS ADDED BY SASY V5 - MÁR VAN GRID">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/gui/buttons/texture/cistern.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/gui/buttons/texture/pipe.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/gui/buttons/texture/pump.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/gui/buttons/texture/source.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/gui/background/Desert.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/gui/background/texture/Desert.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/gui/background/Forest.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/gui/background/texture/Forest.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/gui/background/Space.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/gui/background/texture/Space.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/gui/controller/GuiController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/gui/controller/GuiController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/gui/frames/ContinueGameFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/gui/frames/ContinueGameFrame.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/gui/frames/GameFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/gui/frames/GameFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/gui/players/Players.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/gui/players/Players.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/gui/frames/InfoFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/gui/frames/InfoFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/gui/frames/MenuFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/gui/frames/MenuFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/gui/frames/NewGameFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/gui/frames/NewGameFrame.java" afterDir="false" />
     </list>
     <list id="76e66c52-af61-4a4c-a04c-81aa9fb421ba" name="Changes by adammizser" comment="Update on the project" />
     <list id="c22cf75c-1d00-4033-8a93-8ea5bf010523" name="Changes by sasy" comment="" />
@@ -87,6 +98,9 @@
       <recent name="$PROJECT_DIR$/src/main/java/org/runtimeerror" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/java/org/runtimeerror/gui/background/texture" />
+      <recent name="$PROJECT_DIR$/src/main/java/org/runtimeerror/gui/buttons/texture" />
+      <recent name="$PROJECT_DIR$/src/main/java/org/runtimeerror/gui/buttons" />
       <recent name="C:\Users\Tep Oli\SzoftProj\coursework" />
       <recent name="C:\Users\Tep Oli\SzoftProj\coursework\input" />
     </key>
@@ -140,7 +154,7 @@
       <workItem from="1684591071152" duration="8593000" />
       <workItem from="1684603643640" duration="1465000" />
       <workItem from="1684613562500" duration="4047000" />
-      <workItem from="1684657378483" duration="3433000" />
+      <workItem from="1684657378483" duration="8396000" />
     </task>
     <task id="LOCAL-00001" summary="Move to Empty pipe&#10;Manipulate &#10;Újítások&#10;Oli, Elon">
       <created>1682595103637</created>
@@ -380,7 +394,14 @@
       <option name="project" value="LOCAL" />
       <updated>1684617513280</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="GUI BASICS ADDED BY SASY V5 - MÁR VAN GRID">
+      <created>1684660963689</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1684660963689</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -399,7 +420,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="...&#10;PrototypeController" />
     <MESSAGE value="...&#10;Network.." />
     <MESSAGE value="alpha 0.0.2" />
     <MESSAGE value="Changes by sasy (alpha 0.0.2)" />
@@ -424,7 +444,8 @@
     <MESSAGE value="GUI BASICS ADDED BY SASY V2" />
     <MESSAGE value="GUI BASICS ADDED BY SASY V3" />
     <MESSAGE value="GUI BASICS ADDED BY SASY V4 - NAGYON SOK MÉG A FELADAT, DE MÁR VAN VALAMILYEN TÁBLA" />
-    <option name="LAST_COMMIT_MESSAGE" value="GUI BASICS ADDED BY SASY V4 - NAGYON SOK MÉG A FELADAT, DE MÁR VAN VALAMILYEN TÁBLA" />
+    <MESSAGE value="GUI BASICS ADDED BY SASY V5 - MÁR VAN GRID" />
+    <option name="LAST_COMMIT_MESSAGE" value="GUI BASICS ADDED BY SASY V5 - MÁR VAN GRID" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
