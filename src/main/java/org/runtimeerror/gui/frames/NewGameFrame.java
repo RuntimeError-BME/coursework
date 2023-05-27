@@ -1,6 +1,5 @@
 package org.runtimeerror.gui.frames;
-import org.runtimeerror.gui.background.SetBackgroundImage;
-import org.runtimeerror.gui.controller.GuiController;
+import org.runtimeerror.gui.backgrounds.SetBackgroundImage;
 import org.runtimeerror.gui.layout.GridBagConstraintsConfig;
 import javax.swing.*;
 import java.awt.*;
@@ -127,7 +126,7 @@ public class NewGameFrame extends JFrame {
 
         /** A háttér beállítása és az ablak láthatóvá tétele */
         SetBackgroundImage backgroundTool = new SetBackgroundImage();
-        JLabel background = backgroundTool.setBackgroundImage("src/main/java/org/runtimeerror/gui/background/texture/Desert.png");
+        JLabel background = backgroundTool.setBackgroundImage("src/main/java/org/runtimeerror/gui/backgrounds/texture/Desert.png");
         background.add(mainPanel, new GridBagConstraints());
         con.add(background);
         this.setUndecorated(true);

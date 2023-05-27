@@ -5,25 +5,32 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e386bd1d-942e-4395-9f2c-b37568fb3c05" name="Changes" comment="GUI BASICS ADDED BY SASY V6 - LAYOUT KÉSZ, ÖSSZEKÖTTETÉSEK HIÁNYOZNAK">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/gui/background/SetBackgroundImage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/gui/backgrounds/SetBackgroundImage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/gui/background/texture/Desert.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/gui/backgrounds/texture/Desert.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/gui/background/texture/Forest.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/gui/backgrounds/texture/Forest.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/gui/background/texture/Space.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/gui/backgrounds/texture/Space.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/gui/buttons/CisternButton.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/gui/buttons/ElementButton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/gui/buttons/ElementButton.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/gui/buttons/PipeButton.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/gui/buttons/PumpButton.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/gui/buttons/SourceButton.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/gui/controller/GuiController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/gui/controller/GuiController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/gui/frames/ContinueGameFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/gui/frames/ContinueGameFrame.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/gui/frames/GameFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/gui/frames/GameFrame.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/gui/frames/InfoFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/gui/frames/InfoFrame.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/gui/frames/MenuFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/gui/frames/MenuFrame.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/gui/frames/NewGameFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/gui/frames/NewGameFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/gui/players/Players.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/gui/players/Players.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/gui/timer/GameTimer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/gui/timer/GameTimer.java" afterDir="false" />
     </list>
     <list id="76e66c52-af61-4a4c-a04c-81aa9fb421ba" name="Changes by adammizser" comment="Update on the project" />
-    <list id="78d913d9-ba48-4f54-9b30-cf2de78b808f" name="Changes by betonitcso" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/gui/buttons/ElementButton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/gui/buttons/ElementButton.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/gui/controller/GuiController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/gui/controller/GuiController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/gui/frames/GameFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/gui/frames/GameFrame.java" afterDir="false" />
-    </list>
+    <list id="78d913d9-ba48-4f54-9b30-cf2de78b808f" name="Changes by betonitcso" comment="" />
     <list id="c22cf75c-1d00-4033-8a93-8ea5bf010523" name="Changes by sasy" comment="" />
     <list id="85fe050a-6f6c-4ac2-ac10-c929c7cb8ee0" name="Changes by szabo" comment="" />
-    <list id="a4c0f49e-6999-4950-9835-6465a74e418a" name="Changes by Tep Oli" comment="    1. Az idx attribútum hozzá lett adva az Element osztályhoz.&#10;    2. Érintett függvények paramétereinek, visszatérési értékeinek módosítása a tervekhez képest.&#10;    3. GetNbMaxDirNumber(), GetNbMinDirNumber() függvények eltávolítása (szükségtelenek a gráfos megközelítés miatt).">
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/Main.java" afterDir="false" />
-    </list>
+    <list id="a4c0f49e-6999-4950-9835-6465a74e418a" name="Changes by Tep Oli" comment="    1. Az idx attribútum hozzá lett adva az Element osztályhoz.&#10;    2. Érintett függvények paramétereinek, visszatérési értékeinek módosítása a tervekhez képest.&#10;    3. GetNbMaxDirNumber(), GetNbMinDirNumber() függvények eltávolítása (szükségtelenek a gráfos megközelítés miatt)." />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -52,37 +59,15 @@
       </list>
     </option>
   </component>
-  <component name="LineStatusTrackerManager">
-    <file path="$PROJECT_DIR$/src/main/java/org/runtimeerror/gui/controller/GuiController.java">
-      <ranges>
-        <range start1="1" end1="2" start2="1" end2="2" changelist="78d913d9-ba48-4f54-9b30-cf2de78b808f" />
-        <range start1="4" end1="4" start2="4" end2="6" changelist="78d913d9-ba48-4f54-9b30-cf2de78b808f" />
-        <range start1="5" end1="5" start2="7" end2="8" changelist="78d913d9-ba48-4f54-9b30-cf2de78b808f" />
-        <range start1="18" end1="18" start2="21" end2="22" changelist="78d913d9-ba48-4f54-9b30-cf2de78b808f" />
-        <range start1="25" end1="26" start2="29" end2="30" changelist="e386bd1d-942e-4395-9f2c-b37568fb3c05" />
-        <range start1="40" end1="40" start2="44" end2="82" changelist="78d913d9-ba48-4f54-9b30-cf2de78b808f" />
-      </ranges>
-    </file>
-    <file path="$PROJECT_DIR$/src/main/java/org/runtimeerror/gui/frames/GameFrame.java">
-      <ranges>
-        <range start1="2" end1="3" start2="2" end2="3" changelist="e386bd1d-942e-4395-9f2c-b37568fb3c05" />
-        <range start1="7" end1="7" start2="7" end2="9" changelist="e386bd1d-942e-4395-9f2c-b37568fb3c05" />
-        <range start1="9" end1="9" start2="11" end2="13" changelist="78d913d9-ba48-4f54-9b30-cf2de78b808f" />
-        <range start1="20" end1="24" start2="24" end2="25" changelist="e386bd1d-942e-4395-9f2c-b37568fb3c05" />
-        <range start1="37" end1="37" start2="38" end2="39" changelist="78d913d9-ba48-4f54-9b30-cf2de78b808f" />
-        <range start1="53" end1="57" start2="55" end2="56" changelist="e386bd1d-942e-4395-9f2c-b37568fb3c05" />
-        <range start1="59" end1="59" start2="58" end2="60" changelist="78d913d9-ba48-4f54-9b30-cf2de78b808f" />
-        <range start1="85" end1="86" start2="86" end2="87" changelist="e386bd1d-942e-4395-9f2c-b37568fb3c05" />
-        <range start1="126" end1="126" start2="127" end2="139" changelist="e386bd1d-942e-4395-9f2c-b37568fb3c05" />
-        <range start1="128" end1="128" start2="141" end2="144" changelist="e386bd1d-942e-4395-9f2c-b37568fb3c05" />
-        <range start1="131" end1="131" start2="147" end2="165" changelist="e386bd1d-942e-4395-9f2c-b37568fb3c05" />
-        <range start1="145" end1="153" start2="179" end2="228" changelist="e386bd1d-942e-4395-9f2c-b37568fb3c05" />
-        <range start1="164" end1="164" start2="239" end2="252" changelist="78d913d9-ba48-4f54-9b30-cf2de78b808f" />
-      </ranges>
-    </file>
-  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="useMavenConfig" value="true" />
+      </MavenGeneralSettings>
+    </option>
   </component>
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="CurrentFile" />
@@ -105,15 +90,15 @@
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
     &quot;git-widget-placeholder&quot;: &quot;session-week-11-sasy-gui&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/sasy/Documents/PROJLAB_CURRENT_WITH_GUI/coursework/src/main/java/org/runtimeerror&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/szabo/Desktop/IMPORTED_FROM_WIN&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
     &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;com.intellij.jarRepository.settings.RemoteRepositoriesConfigurable&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.editor&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
   &quot;keyToStringList&quot;: {
@@ -187,6 +172,11 @@
       <workItem from="1684603643640" duration="1465000" />
       <workItem from="1684613562500" duration="4047000" />
       <workItem from="1684657378483" duration="13957000" />
+      <workItem from="1684693997168" duration="1148000" />
+      <workItem from="1685037524745" duration="318000" />
+      <workItem from="1685037854979" duration="10208000" />
+      <workItem from="1685081501348" duration="6480000" />
+      <workItem from="1685210582288" duration="1680000" />
     </task>
     <task id="LOCAL-00001" summary="Move to Empty pipe&#10;Manipulate &#10;Újítások&#10;Oli, Elon">
       <created>1682595103637</created>

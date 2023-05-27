@@ -2,6 +2,7 @@ package org.runtimeerror.gui.players;
 import org.runtimeerror.gui.layout.GridBagConstraintsConfig;
 import javax.swing.*;
 import java.awt.*;
+import java.util.ArrayList;
 
 
 /** TODO: CLASS INFORMATION
@@ -14,7 +15,6 @@ public class Players {
     JButton[] buttons;
     JTextField[] texts; JTextField gameplay;
     int[] points;
-    int Active;
 
     public Players(int numberOfPlayers) {
         panel = new JPanel(); panel.setLayout(new GridBagLayout()); panel.setOpaque(false);
@@ -29,6 +29,7 @@ public class Players {
         for (int i = 0; i < 2; i++) {
             if (i == 0) {
                 buttons[i] = new JButton("Team Technician");
+                buttons[i].setBorder(BorderFactory.createLineBorder(Color.blue, 5));
                 texts[i] = new JTextField("  Points - " + points[i] + "  "); texts[i].setEditable(false);
                 panel.add(buttons[i], gbc1.gbcCentre); panel.add(texts[i], gbc2.gbcCentre);
 
@@ -36,27 +37,38 @@ public class Players {
             }
             if (i == 1) {
                 buttons[i] = new JButton("Team Saboteur");
+                buttons[i].setBorder(BorderFactory.createLineBorder(Color.black, 5));
                 texts[i] = new JTextField("  Points - " + points[i] + "  ");
                 panel.add(buttons[i], gbc1.gbcCentre); panel.add(texts[i], gbc2.gbcCentre);
             }
         }
     }
 
-//    public int AddPoint(int idx) {
-//        points[idx]++;
-//        texts[idx].setText("  Points - " + points[idx] + "  ");
-//        return points[idx];
-//    }
-//
-//    public int GetActivate() {
-//        return Active;
-//    }
-//
-//    public boolean SetActivate(int idx) {
-//        Active = idx;
-//        return true;
-//    }
+    /** A backend által meghatározott pontok csapatok pontjaihoz való adását intézi */
+    public int AddPoint(int idx, int nPoints) {
+        points[idx] += nPoints;
+        texts[idx].setText("  Points - " + points[idx] + "  ");
+        return points[idx];
+    }
 
+    /** Beállítja az információs sávot a prototípus általi visszajelzett aktuális értékre */
+    public void SetInformation(String info) {
+        gameplay.setText(info);
+    }
+
+    /** Beállítja a soron következő csapat színét a gameplay keretének */
+    public void SetCurrentTeam(String playerType) {
+        switch (playerType) {
+            case "Technician":
+                gameplay.setBorder(BorderFactory.createLineBorder(Color.blue, 5));
+                break;
+            case "Saboteur":
+                gameplay.setBorder(BorderFactory.createLineBorder(Color.black, 5));
+                break;
+        }
+    }
+
+    /** Visszaadja a csapatokat és a játék menedzselő elemeket tartalmazó panelt */
     public JPanel ReturnPanel() {
         return panel;
     }

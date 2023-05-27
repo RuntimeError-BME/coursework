@@ -81,5 +81,11 @@ public class GuiController {
         Game.Input.MoveCurrPlayer(targetComponentIndex);
     }
 
-
+    /**
+        TODO: FONTOS!!!
+        Az irányításon kívül, még három függvény összeköttetést kell megvalósítani a backend és frontend között, ezek pedig:
+            1. A fenti információs sáv feltöltése a prototípus visszajelzéseivel (SetInformation(String info) függvény a Players osztályban)
+            2. A csapatok által kapott pontok kiírása a GUI-ban (AddPoint(int idx, int nPoints) függvény a Players osztályban)
+            3. A csapatok inventory-jainak kiírása a GUI-ba (ActualiseInventory(String team, String inventory) függvény a GameTimer osztályban)
+     */
 }

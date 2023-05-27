@@ -1,4 +1,4 @@
-package org.runtimeerror.gui.background;
+package org.runtimeerror.gui.backgrounds;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
