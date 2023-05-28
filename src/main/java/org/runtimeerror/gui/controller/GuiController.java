@@ -77,8 +77,9 @@ public class GuiController {
     }
 
     /** A GUIController egérkattintásra mozgatja a soron lévő játékost a lenyomott gombhoz tartozó pályaelemre */
-    public void handleMoveEvent(int targetComponentIndex) {
-        Game.Input.MoveCurrPlayer(targetComponentIndex);
+    public boolean handleMoveEvent(int fromButtonId, int toButtonId, String playerType) {
+        //Game.Input.MoveCurrPlayer(targetComponentIndex);
+        return true;
     }
 
     /**

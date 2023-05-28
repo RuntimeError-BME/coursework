@@ -4,27 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e386bd1d-942e-4395-9f2c-b37568fb3c05" name="Changes" comment="GUI BASICS ADDED BY SASY V6 - LAYOUT KÉSZ, ÖSSZEKÖTTETÉSEK HIÁNYOZNAK">
+    <list default="true" id="e386bd1d-942e-4395-9f2c-b37568fb3c05" name="Changes" comment="GUI BASICS ADDED BY SASY V8 - FRONTEND ALAPVETŐEN MŰKÖDIK, ELVI KIDOLGOZÁSOK KÉSZEN VANNAK, SEGÉD FÜGGVÉNYEK KÉSZEN VANNAK, BEFEJEZÉSHEZ SZÜKSÉGES A BACKEND ISMERETE (AMI MÉG NINCS MEG)!">
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/gui/background/SetBackgroundImage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/gui/backgrounds/SetBackgroundImage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/gui/background/texture/Desert.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/gui/backgrounds/texture/Desert.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/gui/background/texture/Forest.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/gui/backgrounds/texture/Forest.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/gui/background/texture/Space.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/gui/backgrounds/texture/Space.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/gui/buttons/CisternButton.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/gui/buttons/ElementButton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/gui/buttons/ElementButton.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/gui/buttons/PipeButton.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/gui/buttons/PumpButton.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/gui/buttons/SourceButton.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/gui/controller/GuiController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/gui/controller/GuiController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/gui/frames/ContinueGameFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/gui/frames/ContinueGameFrame.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/gui/frames/GameFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/gui/frames/GameFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/gui/frames/InfoFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/gui/frames/InfoFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/gui/frames/MenuFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/gui/frames/MenuFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/gui/frames/NewGameFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/gui/frames/NewGameFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/gui/players/Players.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/gui/players/Players.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/gui/timer/GameTimer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/gui/timer/GameTimer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/prototype/PrototypeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/prototype/PrototypeController.java" afterDir="false" />
     </list>
     <list id="76e66c52-af61-4a4c-a04c-81aa9fb421ba" name="Changes by adammizser" comment="Update on the project" />
     <list id="78d913d9-ba48-4f54-9b30-cf2de78b808f" name="Changes by betonitcso" comment="" />
@@ -176,7 +162,9 @@
       <workItem from="1685037524745" duration="318000" />
       <workItem from="1685037854979" duration="10208000" />
       <workItem from="1685081501348" duration="6480000" />
-      <workItem from="1685210582288" duration="1680000" />
+      <workItem from="1685210582288" duration="1882000" />
+      <workItem from="1685275141137" duration="2130000" />
+      <workItem from="1685286961980" duration="2111000" />
     </task>
     <task id="LOCAL-00001" summary="Move to Empty pipe&#10;Manipulate &#10;Újítások&#10;Oli, Elon">
       <created>1682595103637</created>
@@ -430,7 +418,14 @@
       <option name="project" value="LOCAL" />
       <updated>1684668285856</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL-00037" summary="GUI BASICS ADDED BY SASY V8 - FRONTEND ALAPVETŐEN MŰKÖDIK, ELVI KIDOLGOZÁSOK KÉSZEN VANNAK, SEGÉD FÜGGVÉNYEK KÉSZEN VANNAK, BEFEJEZÉSHEZ SZÜKSÉGES A BACKEND ISMERETE (AMI MÉG NINCS MEG)!">
+      <created>1685212425566</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1685212425566</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -449,7 +444,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="alpha 0.0.2" />
     <MESSAGE value="Changes by sasy (alpha 0.0.2)" />
     <MESSAGE value="alpha 0.0.3" />
     <MESSAGE value="alpha 0.1.0" />
@@ -474,7 +468,8 @@
     <MESSAGE value="GUI BASICS ADDED BY SASY V4 - NAGYON SOK MÉG A FELADAT, DE MÁR VAN VALAMILYEN TÁBLA" />
     <MESSAGE value="GUI BASICS ADDED BY SASY V5 - MÁR VAN GRID" />
     <MESSAGE value="GUI BASICS ADDED BY SASY V6 - LAYOUT KÉSZ, ÖSSZEKÖTTETÉSEK HIÁNYOZNAK" />
-    <option name="LAST_COMMIT_MESSAGE" value="GUI BASICS ADDED BY SASY V6 - LAYOUT KÉSZ, ÖSSZEKÖTTETÉSEK HIÁNYOZNAK" />
+    <MESSAGE value="GUI BASICS ADDED BY SASY V8 - FRONTEND ALAPVETŐEN MŰKÖDIK, ELVI KIDOLGOZÁSOK KÉSZEN VANNAK, SEGÉD FÜGGVÉNYEK KÉSZEN VANNAK, BEFEJEZÉSHEZ SZÜKSÉGES A BACKEND ISMERETE (AMI MÉG NINCS MEG)!" />
+    <option name="LAST_COMMIT_MESSAGE" value="GUI BASICS ADDED BY SASY V8 - FRONTEND ALAPVETŐEN MŰKÖDIK, ELVI KIDOLGOZÁSOK KÉSZEN VANNAK, SEGÉD FÜGGVÉNYEK KÉSZEN VANNAK, BEFEJEZÉSHEZ SZÜKSÉGES A BACKEND ISMERETE (AMI MÉG NINCS MEG)!" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

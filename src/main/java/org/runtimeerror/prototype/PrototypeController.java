@@ -128,7 +128,7 @@ public final class PrototypeController {
     }
 
     /**
-     * Kiírjuk az input.txt file-ban szereplő teszteseteket számát, melyet a magyarázata követ
+     Kiírjuk az input.txt file-ban szereplő teszteseteket számát, melyet a magyarázata követ
      */
     private void listInputFiles() {
         int i = 1;

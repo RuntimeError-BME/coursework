@@ -15,14 +15,21 @@ import java.awt.event.ActionEvent;
 
 
 public class ElementButton extends JButton {
-    private int id; /** Az objetum pályán kapott azonosítója, ezzel történik a hivatkozás */
+    /** Az objetum pályán kapott azonosítója, ezzel történik a hivatkozás */
+    private int id;
+
+    /** Megadja, hogy az adott elem hibás-e */
+    boolean isBroken = false;
+
+    /** Megadja, hogy az adott elem aktív-e */
+    boolean isActive = false;
 
     private final GuiController guiController = GuiController.GetInstance();
 
     public ElementButton() {
         addActionListener(e -> {
             if(id < 0) return;
-            guiController.handleMoveEvent(this.id);
+            //guiController.handleMoveEvent(this.id);
         });
     }
 

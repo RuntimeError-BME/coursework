@@ -56,6 +56,7 @@ public class GameFrame extends JFrame implements KeyListener {
         numberOfPlayers = nop; MapComplexity = mc; MapTheme = mt;
 
         guiController = GuiController.GetInstance();
+        guiController.SetGameFrame(this);
 
         /** Az elemek gombjainak inicializálása */
         buttons = new ArrayList<ElementButton>();
@@ -384,7 +385,7 @@ public class GameFrame extends JFrame implements KeyListener {
             }
         }
 
-        /** Repainting the frame if needed */
+        /** Az ablak újrafestése, ha szükséges */
         if (repaintIt) {
             Repaint();
         }
@@ -409,45 +410,48 @@ public class GameFrame extends JFrame implements KeyListener {
             }
         }
 
-        /** Repainting the frame if needed */
+        /** Az ablak újrafestése, ha szükséges */
         if (repaintIt) {
             Repaint();
         }
     }
 
-    /** Change the buttons' border if a specific player stands on it */
+    /** Ha a felhasználó léptetné a játékost, akkor a backend pozitív visszajelzését követően az elem kerete megváltozik a függvény hatására */
     public void MovePlayer(int fromButtonId, int toButtonId, String playerType, boolean repaintIt) {
-        for (ElementButton eb : buttons) {
-            if (eb.GetId() == fromButtonId) {
-                eb.setBorder(null);
-            }
-            if (eb.GetId() == toButtonId) {
-                ButtonSetterPlayer(toButtonId, playerType, false);
-            }
-        }
+        boolean isPossible = guiController.handleMoveEvent(fromButtonId, toButtonId, playerType);
 
-        /** Repainting the frame if needed */
-        if (repaintIt) {
-            Repaint();
+        if (isPossible) {
+            for (ElementButton eb : buttons) {
+                if (eb.GetId() == fromButtonId) {
+                    eb.setBorder(null);
+                }
+                if (eb.GetId() == toButtonId) {
+                    ButtonSetterPlayer(toButtonId, playerType, false);
+                }
+            }
+
+            /** Az ablak újrafestése, ha szükséges */
+            if (repaintIt) {
+                Repaint();
+            }
         }
     }
 
-    /** Function that calls the repaint of the frame */
+    /** Az ablak újrafestését végző függvény */
     public void Repaint() {
         this.revalidate();
         this.pack();
         this.repaint();
     }
 
+    /** A felhasználó általi modifikációkat jelentő gombok lenyomásainak kezelését végző függvények */
     @Override
     public void keyTyped(KeyEvent e) {
         guiController.handleKeyboardEvent(e.getKeyCode());
     }
 
     @Override
-    public void keyPressed(KeyEvent e) {
-
-    }
+    public void keyPressed(KeyEvent e) { }
 
     @Override
     public void keyReleased(KeyEvent e) { }
