@@ -4,19 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e386bd1d-942e-4395-9f2c-b37568fb3c05" name="Changes" comment="GUI BASICS ADDED BY SASY V8 - FRONTEND ALAPVETŐEN MŰKÖDIK, ELVI KIDOLGOZÁSOK KÉSZEN VANNAK, SEGÉD FÜGGVÉNYEK KÉSZEN VANNAK, BEFEJEZÉSHEZ SZÜKSÉGES A BACKEND ISMERETE (AMI MÉG NINCS MEG)!">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="e386bd1d-942e-4395-9f2c-b37568fb3c05" name="Changes" comment="GUI BASICS ADDED BY SASY V9">
+      <change afterPath="$PROJECT_DIR$/buildLowComplexityMap.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/gui/buttons/ElementButton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/gui/buttons/ElementButton.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/gui/controller/GuiController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/gui/controller/GuiController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/gui/frames/GameFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/gui/frames/GameFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/prototype/PrototypeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/prototype/PrototypeController.java" afterDir="false" />
     </list>
     <list id="76e66c52-af61-4a4c-a04c-81aa9fb421ba" name="Changes by adammizser" comment="Update on the project" />
     <list id="78d913d9-ba48-4f54-9b30-cf2de78b808f" name="Changes by betonitcso" comment="" />
     <list id="c22cf75c-1d00-4033-8a93-8ea5bf010523" name="Changes by sasy" comment="" />
     <list id="85fe050a-6f6c-4ac2-ac10-c929c7cb8ee0" name="Changes by szabo" comment="" />
-    <list id="a4c0f49e-6999-4950-9835-6465a74e418a" name="Changes by Tep Oli" comment="    1. Az idx attribútum hozzá lett adva az Element osztályhoz.&#10;    2. Érintett függvények paramétereinek, visszatérési értékeinek módosítása a tervekhez képest.&#10;    3. GetNbMaxDirNumber(), GetNbMinDirNumber() függvények eltávolítása (szükségtelenek a gráfos megközelítés miatt)." />
+    <list id="a4c0f49e-6999-4950-9835-6465a74e418a" name="Changes by Tep Oli" comment="    1. Az idx attribútum hozzá lett adva az Element osztályhoz.&#10;    2. Érintett függvények paramétereinek, visszatérési értékeinek módosítása a tervekhez képest.&#10;    3. GetNbMaxDirNumber(), GetNbMinDirNumber() függvények eltávolítása (szükségtelenek a gráfos megközelítés miatt).">
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/gui/controller/GuiController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/gui/controller/GuiController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/map/Element.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/map/Element.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/prototype/PrototypeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/prototype/PrototypeController.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -164,7 +164,8 @@
       <workItem from="1685081501348" duration="6480000" />
       <workItem from="1685210582288" duration="1882000" />
       <workItem from="1685275141137" duration="2130000" />
-      <workItem from="1685286961980" duration="2111000" />
+      <workItem from="1685286961980" duration="2207000" />
+      <workItem from="1685289580158" duration="2426000" />
     </task>
     <task id="LOCAL-00001" summary="Move to Empty pipe&#10;Manipulate &#10;Újítások&#10;Oli, Elon">
       <created>1682595103637</created>
@@ -425,7 +426,14 @@
       <option name="project" value="LOCAL" />
       <updated>1685212425566</updated>
     </task>
-    <option name="localTasksCounter" value="38" />
+    <task id="LOCAL-00038" summary="GUI BASICS ADDED BY SASY V9">
+      <created>1685289363198</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1685289363198</updated>
+    </task>
+    <option name="localTasksCounter" value="39" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -444,7 +452,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Changes by sasy (alpha 0.0.2)" />
     <MESSAGE value="alpha 0.0.3" />
     <MESSAGE value="alpha 0.1.0" />
     <MESSAGE value="Added modified components comment section to the project (Main.java)" />
@@ -469,7 +476,8 @@
     <MESSAGE value="GUI BASICS ADDED BY SASY V5 - MÁR VAN GRID" />
     <MESSAGE value="GUI BASICS ADDED BY SASY V6 - LAYOUT KÉSZ, ÖSSZEKÖTTETÉSEK HIÁNYOZNAK" />
     <MESSAGE value="GUI BASICS ADDED BY SASY V8 - FRONTEND ALAPVETŐEN MŰKÖDIK, ELVI KIDOLGOZÁSOK KÉSZEN VANNAK, SEGÉD FÜGGVÉNYEK KÉSZEN VANNAK, BEFEJEZÉSHEZ SZÜKSÉGES A BACKEND ISMERETE (AMI MÉG NINCS MEG)!" />
-    <option name="LAST_COMMIT_MESSAGE" value="GUI BASICS ADDED BY SASY V8 - FRONTEND ALAPVETŐEN MŰKÖDIK, ELVI KIDOLGOZÁSOK KÉSZEN VANNAK, SEGÉD FÜGGVÉNYEK KÉSZEN VANNAK, BEFEJEZÉSHEZ SZÜKSÉGES A BACKEND ISMERETE (AMI MÉG NINCS MEG)!" />
+    <MESSAGE value="GUI BASICS ADDED BY SASY V9" />
+    <option name="LAST_COMMIT_MESSAGE" value="GUI BASICS ADDED BY SASY V9" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -481,7 +489,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/org/runtimeerror/model/map/Element.java</url>
-          <line>84</line>
+          <line>88</line>
           <properties class="org.runtimeerror.model.map.Element" method="OnPickup">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />

@@ -1,0 +1,20 @@
+add source -1
+add pipe 0
+add pump 1
+add pipe 2
+add pipe 3
+add cistern 4
+add pipe 2
+add source 6
+add technician t1 5
+add saboteur s1 4
+controller toggle random
+print map
+start game
+move 4
+next turn
+print map
+
+
+
+
