@@ -28,7 +28,7 @@ public class ManipulatorPlayer {
             return; // akkor nem lehet semmit tenni vele
         // a ragadósságot azért nem kell ellenőrizni, mert ragadós csövön azonnal véget ér a kör
         // csúszósságot pedig azért nem, mert csúszós csövön nem lehet állni, továbbcsúszik egy másik elemre
-
+//TODO:GuIcontrollerhez is működjön
         PrototypeController.GetNextLine(); // beolvassuk, hogy mit akar tenni vele
 
         // ha a számlálója nagyobb nullánál (és azt tudjuk, hogy "p" nem lehet ragadós és csúszós),

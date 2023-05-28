@@ -11,6 +11,9 @@ public final class Source extends Element {
 
     /** Konstruktor, ami beállítja az ősbeli indexetét az elemnek. */
     public Source() { super(); }
+    public Source(int idx){
+        super(idx);
+    }
 
     /** Vízzel tölti fel magát, és minden nem lyukas szomszédjára hívja tovább a Flood() függvényt,
      azaz ereszti tovább a vizet. */

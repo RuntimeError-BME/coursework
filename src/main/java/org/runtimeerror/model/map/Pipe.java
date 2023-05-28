@@ -28,6 +28,7 @@ public final class Pipe extends Breakable {
     /** Konstruktor, ami beállítja az ősbeli indexetét az elemnek, illetve
      * igazra állítja az ősből örökölt protected pickUpAble attribútumot, hiszen a csövek felvehető elemek. */
     public Pipe() { super(); pickUpAble = true; }
+    public Pipe(int idx){super(idx); pickUpAble = true; }
 
     /** Visszaadja, hogy a cső ragadós-e. Felülírja az Element ősben lévő megvalósítást, lásd: Element.GetSticky(). */
     @Override

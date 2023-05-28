@@ -86,7 +86,8 @@ public class GameFrame extends JFrame implements KeyListener {
         this.BuildMap();
 
         /** A játékot kezdő csapat beállítása */
-        players.SetCurrentTeam("Saboteur");
+        //TODO: TEKNIKUSSSSSSSSSSSSSSSSSSSSSSSSSS
+        players.SetCurrentTeam("Technician");
 
         /** Az elemek paneljeikhez adása */
         mainPanel.add(players.ReturnPanel(), gbc.gbcRemainder);
@@ -307,6 +308,7 @@ public class GameFrame extends JFrame implements KeyListener {
         ButtonSetterElement(54, "Pipe", false);
         ButtonSetterElement(28, "Source", false);
         ButtonSetterElement(80, "Pipe", false);
+        
     }
 
     /** Megépíti a kezdő pályát a felhasználó által megadott kompelxitás függvényében */
@@ -351,6 +353,7 @@ public class GameFrame extends JFrame implements KeyListener {
         switch (MapComplexity) {
             case "Low":
                 buildLowComplexityMap();
+                break;
             case "Medium":
                 buildMediumComplexityMap();
                 break;

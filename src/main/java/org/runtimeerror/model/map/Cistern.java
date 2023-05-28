@@ -18,6 +18,10 @@ public final class Cistern extends Element {
         super();
         multiInput = true;
     }
+    public Cistern(int idx){
+        super(idx);
+        multiInput = true;
+    }
 
     /** Megpróbál pumpát adni a soron lévő játékos tárolójába.
      * (Akkor lesz sikeres, ha a jelenlegi játékos szerelő, de nem szükséges semmit ellenőrizni, mert ha szabotőr,
