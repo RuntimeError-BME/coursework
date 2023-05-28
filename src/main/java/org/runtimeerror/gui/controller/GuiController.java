@@ -70,12 +70,6 @@ public class GuiController {
             case KeyEvent.VK_R:
                 Game.Input.TryPartRelocation(currentElement);
                 break;
-            case KeyEvent.VK_1:
-                game.StickifyPipeByController(currentElementIndex);
-                break;
-            case KeyEvent.VK_2:
-                game.SlippifyPipeByController(currentElementIndex);
-                break;
 
             default:
                 break;

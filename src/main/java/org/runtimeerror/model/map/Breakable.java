@@ -14,6 +14,8 @@ public abstract class Breakable extends Element {
     /** Konstruktor, ami beállítja az ősbeli indexetét az elemnek. */
     public Breakable() { super(); }
 
+    public Breakable(int idx) { super(idx); }
+
     /**
      *  Megjavítja az elemet.
      */

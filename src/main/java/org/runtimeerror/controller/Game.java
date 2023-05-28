@@ -367,6 +367,8 @@ public final class Game {
             String line = PrototypeController.GetCurrLine(); // a jelenlegi parancs sora szövegként
             Harm harm;
 
+
+
             if (GetInstance().IsTechnicianTurn()) { // ha egy szerelőnek van most köre
                 harm = Harm.STICKY; // feltételezzük, hogy ragadóssá szeretné tenni
                 if (line.equals("break") && canBeBroken)
@@ -381,6 +383,9 @@ public final class Game {
                 else if (line.equals("slippify"))
                     harm = Harm.SLIPPY;
             }
+
+            //
+
             return harm;
         }
     }

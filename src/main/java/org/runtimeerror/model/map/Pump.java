@@ -14,6 +14,8 @@ public final class Pump extends Breakable {
     /** Konstruktor, ami beállítja az ősbeli indexetét az elemnek. */
     public Pump() { super(); }
 
+    public Pump(int idx) { super(idx); }
+
     /** Ha a pumpa el van romolva, nem tesz semmit. Ha nincs elromolva akkor vízzel tölti
      fel magát. Ha nincsen outputja, akkor a szabotőrök pontot kapnak, de ha van outputja, akkor az
      outputra hívja tovább a Flood() függvényt. */
