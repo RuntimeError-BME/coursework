@@ -167,7 +167,7 @@ public final class PrototypeController {
      * Elindítja a megadott relatív elérési úton található teszt futtatását
      * @param path - A futtatni kívánt teszteset relatív elérési útja
      */
-    private void testFile(String path) {
+    public void testFile(String path) {
         try {
             System.setIn(new FileInputStream(path));
             Scanner scanner = new Scanner(System.in);

@@ -31,6 +31,10 @@ public abstract class Element {
         idx = maxIdx;
         ++maxIdx;
     }
+    /** Paraméteres konstruktor az azonosító megadásához (frontend-backend összeköttetés miatt kell) */
+    public Element(int idx) {
+        this.idx = idx;
+    }
 
 
     /** Felrakja magára az átadott játékost. Ehhez eltávolítja a játékost a jelenlegi eleméről, hozzáadja ennek az
