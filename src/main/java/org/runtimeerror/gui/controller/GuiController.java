@@ -3,7 +3,6 @@ import org.runtimeerror.controller.Game;
 import org.runtimeerror.gui.frames.GameFrame;
 import org.runtimeerror.gui.frames.MenuFrame;
 import org.runtimeerror.model.map.*;
-import org.runtimeerror.prototype.PrototypeController;
 
 import javax.swing.*;
 import java.awt.event.KeyEvent;
@@ -75,11 +74,14 @@ public class GuiController {
                 break;
         }
     }
+
     /** Kezdőpálya építő segédfüggvények - low, medium, high complexity - és ráhelyezi a játékosokat a pályára */
-    private void buildLowComplexityMap() {
+    public void BuildLowComplexityMap() {
+        /** Játék reset-elése és a hálózat inicializálása */
         game.Reset();
         network= game.GetNetwork();
 
+        /** Pálya elemeinek létrehozása */
         Source s7 = new Source(7);
         Pipe pi32 = new Pipe(32);
         Cistern c40 = new Cistern(40);
@@ -150,6 +152,7 @@ public class GuiController {
         Pipe pi314 = new Pipe(314);
         Source s339 = new Source(339);
 
+        /** Pálya elemek pályához való adása */
         network.AddSource(s7);
         network.AddPipe(pi32);
         network.AddCistern(c40);
@@ -220,40 +223,84 @@ public class GuiController {
         network.AddPipe(pi314);
         network.AddSource(s339);
 
-
-
+        /** Pálya elemek összeköttetése a hálózatban */
+        /** Első ág (ÉNY) */
         s7.AddNb(pi32);
         network.Connect(32,7,57);
+        network.Connect(57, 32, 58);
         network.Connect(58,57,83);
-        network.Connect(108,109,83);
+        network.Connect(83, 58, 108);
+        network.Connect(108, 83, 109);
+        network.Connect(109, 108, 134);
+        network.Connect(134, 109, 159);
+        network.Connect(159, 134, 184);
 
+        /** Második ág (NY) */
+        s250.AddNb(pi251);
+        network.Connect(251, 250, 252);
+        network.Connect(252, 251, 227);
+        network.Connect(227, 252, 202);
+        network.Connect(202, 227, 203);
+        network.Connect(203, 202, 178);
+        network.Connect(178, 203, 179);
+        network.Connect(179, 178, 180);
+        network.Connect(180, 179, 181);
+        network.Connect(181, 180, 182);
+        network.Connect(182, 181, 183);
+        network.Connect(183, 182, 184);
 
+        /** Harmadik ár (DNY) */
+        s259.AddNb(pi234);
+        network.Connect(234, 259, 209);
+        network.Connect(209, 234, 184);
 
+        /** Negyedik ág (D) */
+        s339.AddNb(pi314);
+        network.Connect(314, 339, 289);
+        network.Connect(292, 293, 291);
+        network.Connect(291, 292, 290);
+        network.Connect(290, 291, 289);
+        network.Connect(264, 289, 239);
+        network.Connect(239, 264, 214);
+        network.Connect(214, 239, 189);
+        network.Connect(189, 214, 188);
+        network.Connect(188, 189, 187);
+        network.Connect(187, 188, 186);
+        network.Connect(186, 187, 185);
+        network.Connect(185, 186, 184);
 
-        /** Itt helyezzük el a játkosokat */
-        /*
-        switch (numberOfPlayers) {
-            case 1:
-                ButtonSetterPlayer(252, "Technician", false);
-                ButtonSetterPlayer(68, "Saboteur", false);
-                break;
-            case 2:
-                ButtonSetterPlayer(252, "Technician", false);
-                ButtonSetterPlayer(68, "Saboteur", false);
-                ButtonSetterPlayer(155, "Technician", false);
-                ButtonSetterPlayer(194, "Saboteur", false);
-                break;
-            case 3:
-                ButtonSetterPlayer(252, "Technician", false);
-                ButtonSetterPlayer(68, "Saboteur", false);
-                ButtonSetterPlayer(155, "Technician", false);
-                ButtonSetterPlayer(194, "Saboteur", false);
-                ButtonSetterPlayer(184, "Technician", false);
-                ButtonSetterPlayer(40, "Saboteur", false);
-                break;
-        }
+        /** Ötödik ág (ÉK) */
+        network.Connect(65, 40, 90);
+        network.Connect(90, 65, 115);
+        network.Connect(115, 90, 140);
+        network.Connect(140, 115, 139);
+        network.Connect(139, 140, 138);
+        network.Connect(138, 139, 163);
+        network.Connect(163, 138, 188);
 
-         */
+        /** Hatodik ág (ÉK/K) */
+        s99.AddNb(pi98);
+        network.Connect(98, 99, 97);
+        network.Connect(97, 98, 96);
+        network.Connect(96, 97, 121);
+        network.Connect(121, 96, 120);
+        network.Connect(120, 121, 145);
+        network.Connect(145, 120, 144);
+        network.Connect(144, 145, 169);
+        network.Connect(169, 144, 194);
+
+        s224.AddNb(pi223);
+        network.Connect(223, 224, 222);
+        network.Connect(222, 223, 221);
+        network.Connect(221, 222, 220);
+        network.Connect(220, 221, 195);
+        network.Connect(195, 220, 194);
+        network.Connect(194, 195, 193);
+        network.Connect(193, 194, 192);
+        network.Connect(192, 193, 191);
+        network.Connect(191, 192, 216);
+        network.Connect(216, 191, 215);
+        network.Connect(215, 216, 214);
     }
     private void buildMediumComplexityMap() {
         Pump pu35 = new Pump(35);

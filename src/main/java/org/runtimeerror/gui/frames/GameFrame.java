@@ -116,6 +116,10 @@ public class GameFrame extends JFrame implements KeyListener {
 
     /** Kezdőpálya építő segédfüggvények - low, medium, high complexity - és ráhelyezi a játékosokat a pályára */
     private void buildLowComplexityMap() {
+        /** A backend általi pálya építése */
+        guiController.BuildLowComplexityMap();
+
+        /** A frontend általi pálya építése */
         ButtonSetterElement(259, "Source", false);
         ButtonSetterElement(234, "Pipe", false);
         ButtonSetterElement(209, "Pipe", false);
