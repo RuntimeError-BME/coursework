@@ -567,4 +567,10 @@ public final class Game {
 
         network.PrintElement(p.GetCurrElem().GetIdx());
     }
+    public String GetInventory(int idx){
+        Element inv = players.get(idx).GetPart();
+        if (inv == null) return "Has an empty pocket";
+        if (inv.GetPickUpAble_onlyAttribute()) return "Has a pipe in pocket";
+        else return "Has a pump in pocket";
+    }
 }

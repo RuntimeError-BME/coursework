@@ -396,6 +396,7 @@ public class GameFrame extends JFrame implements KeyListener {
                 buildHighComplexityMap();
                 break;
         }
+        UpdateInventory();
     }
 
     /**
@@ -508,6 +509,20 @@ public class GameFrame extends JFrame implements KeyListener {
             btn.setBorder(i % 2 == 0 ? borders[0] : borders[1]);
             ++i;
         }
+        players.SetPoints(Game.GetInstance().GetTechnicianScore(),Game.GetInstance().GetSaboteurScore());
+    }
+
+    /**
+     * A szerelők tároló tartalmához tartozó kiírás frissítése. És a jelenleg soronlevő játékos kiírása.
+     */
+    public void UpdateInventory(){
+        Game game= Game.GetInstance();
+        for (int p=0; p < numberOfPlayers; p++){
+            gt.ActualiseInventory(p, game.GetInventory(p*2));
+        }
+        players.SetInformation(game.GetCurrPlayer().GetName() + " player turn");
+        if(game.IsTechnicianTurn()) players.SetCurrentTeam("Technician");
+        else players.SetCurrentTeam("Saboteur");
     }
 
     /**

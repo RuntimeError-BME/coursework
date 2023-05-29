@@ -51,7 +51,19 @@ public class Players {
         return points[idx];
     }
 
-    /** Beállítja az információs sávot a prototípus általi visszajelzett aktuális értékre */
+    /**
+     * Beállítja  a csapat pontjainak kiírását, a backend szerint lesz.
+     * @param techpoints - a technikusuk pontjai
+     * @param sabpoints - a szabotőrök pontjai
+     */
+    public void SetPoints(int techpoints, int sabpoints){
+        points[0]=techpoints; points[1]=sabpoints;
+        for (int i=0;i<2;i++)
+            texts[i].setText("  Points - " + points[i] + "  ");
+    }
+
+    /** Beállítja az információs sávot a prototípus általi visszajelzett aktuális értékre
+     * Helyett arra akinek a köre van */
     public void SetInformation(String info) {
         gameplay.setText(info);
     }

@@ -94,6 +94,7 @@ public class GameTimer extends JFrame implements ActionListener {
         }
     }
 
+
     /** Visszaadja a hordozó ablaknak az órát tartalmazó panelt */
     public JPanel returnPanel() {
         return timePanel;

@@ -82,6 +82,7 @@ public class GuiController {
             default:
                 break;
         }
+        frame.UpdateInventory();
     }
 
     /** Kezdőpálya építő segédfüggvények - low, medium, high complexity - és ráhelyezi a játékosokat a pályára */
@@ -311,6 +312,10 @@ public class GuiController {
         network.Connect(216, 191, 215);
         network.Connect(215, 216, 214);
     }
+
+    /**
+     * A közepesen összetett pálya létrehozása a modellben.
+     */
     public void BuildMediumComplexityMap() {
         Pump pu35 = new Pump(35);
         Pipe pi36 = new Pipe(36);
@@ -431,6 +436,9 @@ public class GuiController {
         network.Connect(153, 178, 152);
         network.Connect(152, 153, 127);
     }
+    /**
+     * A nagyon összetett pálya létrehozása a modellben.
+     */
     public void BuildHighComplexityMap() {
         Source s13 = new Source(13);
         Pipe pi14 = new Pipe(14);
@@ -744,7 +752,7 @@ public class GuiController {
     /**
         TODO: FONTOS!!!
         Az irányításon kívül, még három függvény összeköttetést kell megvalósítani a backend és frontend között, ezek pedig:
-            1. A fenti információs sáv feltöltése a prototípus visszajelzéseivel (SetInformation(String info) függvény a Players osztályban)
+            1. A fenti információs sáv feltöltése a prototípus visszajelzéseivel (SetInformation(String info) függvény a Players osztályban) -ez nem lesz
             2. A csapatok által kapott pontok kiírása a GUI-ban (AddPoint(int idx, int nPoints) függvény a Players osztályban)
             3. A csapatok inventory-jainak kiírása a GUI-ba (ActualiseInventory(String team, String inventory) függvény a GameTimer osztályban)
      */

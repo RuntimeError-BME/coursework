@@ -4,19 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="97be4888-42b0-41bc-b2a0-968cd14ce1b8" name="Changes" comment="">
+    <list default="true" id="97be4888-42b0-41bc-b2a0-968cd14ce1b8" name="Changes" comment="Skeleton of Skeleton (all declarations, 2/29 (first two) tests)">
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/controller/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/controller/Game.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/gui/controller/GuiController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/gui/controller/GuiController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/gui/frames/GameFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/gui/frames/GameFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/gui/frames/NewGameFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/gui/frames/NewGameFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/map/Cistern.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/map/Cistern.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/map/Element.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/map/Element.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/map/Network.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/map/Network.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/map/Pipe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/map/Pipe.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/players/ManipulatorPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/players/ManipulatorPlayer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/players/Technician.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/model/players/Technician.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/gui/players/Players.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/gui/players/Players.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/gui/timer/GameTimer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/gui/timer/GameTimer.java" afterDir="false" />
+    </list>
+    <list id="cf0743b5-cdb7-46d4-9764-f741fcf59748" name="Changes by szabo" comment="">
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/gui/frames/GameFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/gui/frames/GameFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/gui/players/Players.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/gui/players/Players.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/runtimeerror/gui/timer/GameTimer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/runtimeerror/gui/timer/GameTimer.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,6 +39,36 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="LineStatusTrackerManager">
+    <file path="$PROJECT_DIR$/src/main/java/org/runtimeerror/gui/timer/GameTimer.java">
+      <ranges>
+        <range start1="8" end1="8" start2="8" end2="9" changelist="cf0743b5-cdb7-46d4-9764-f741fcf59748" />
+        <range start1="28" end1="30" start2="29" end2="30" changelist="cf0743b5-cdb7-46d4-9764-f741fcf59748" />
+        <range start1="32" end1="34" start2="32" end2="34" changelist="cf0743b5-cdb7-46d4-9764-f741fcf59748" />
+        <range start1="37" end1="38" start2="37" end2="38" changelist="cf0743b5-cdb7-46d4-9764-f741fcf59748" />
+        <range start1="41" end1="44" start2="41" end2="41" changelist="cf0743b5-cdb7-46d4-9764-f741fcf59748" />
+        <range start1="46" end1="47" start2="43" end2="52" changelist="cf0743b5-cdb7-46d4-9764-f741fcf59748" />
+        <range start1="63" end1="65" start2="68" end2="68" changelist="cf0743b5-cdb7-46d4-9764-f741fcf59748" />
+        <range start1="86" end1="93" start2="89" end2="97" changelist="cf0743b5-cdb7-46d4-9764-f741fcf59748" />
+        <range start1="95" end1="95" start2="99" end2="100" changelist="97be4888-42b0-41bc-b2a0-968cd14ce1b8" />
+      </ranges>
+    </file>
+    <file path="$PROJECT_DIR$/src/main/java/org/runtimeerror/gui/frames/GameFrame.java">
+      <ranges>
+        <range start1="54" end1="54" start2="54" end2="55" changelist="cf0743b5-cdb7-46d4-9764-f741fcf59748" />
+        <range start1="91" end1="92" start2="92" end2="93" changelist="cf0743b5-cdb7-46d4-9764-f741fcf59748" />
+        <range start1="398" end1="398" start2="399" end2="400" changelist="97be4888-42b0-41bc-b2a0-968cd14ce1b8" />
+        <range start1="510" end1="510" start2="512" end2="513" changelist="97be4888-42b0-41bc-b2a0-968cd14ce1b8" />
+        <range start1="511" end1="511" start2="514" end2="527" changelist="97be4888-42b0-41bc-b2a0-968cd14ce1b8" />
+      </ranges>
+    </file>
+    <file path="$PROJECT_DIR$/src/main/java/org/runtimeerror/gui/players/Players.java">
+      <ranges>
+        <range start1="40" end1="41" start2="40" end2="41" changelist="cf0743b5-cdb7-46d4-9764-f741fcf59748" />
+        <range start1="53" end1="54" start2="53" end2="66" changelist="97be4888-42b0-41bc-b2a0-968cd14ce1b8" />
+      </ranges>
+    </file>
+  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -60,33 +90,33 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;Notification.DisplayName-DoNotAsk-Settings Error&quot;: &quot;Could not save settings&quot;,
-    &quot;Notification.DoNotAsk-Settings Error&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;session-week-11-sasy-gui&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/szabo/Desktop/IMPORTED_FROM_WIN&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.editor&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "Notification.DisplayName-DoNotAsk-Settings Error": "Could not save settings",
+    "Notification.DoNotAsk-Settings Error": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "codeWithMe.voiceChat.enabledByDefault": "false",
+    "git-widget-placeholder": "session-week-12",
+    "last_opened_file_path": "C:/Users/szabo/Desktop/IMPORTED_FROM_WIN",
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "preferences.editor",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File&quot;: [
-      &quot;TEXT&quot;
+  "keyToStringList": {
+    "com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File": [
+      "TEXT"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="org.runtimeerror.gui.buttons" />
