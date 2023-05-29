@@ -52,6 +52,7 @@ public class GameFrame extends JFrame implements KeyListener {
     /** Az ablakon használt elemek */
     Players players;
     JPanel[] panels;
+    GameTimer gt;
 
     /** Az ablakban használt layout megvalósítása Gbc-vel */
     GridBagConstraintsConfig gbc = new GridBagConstraintsConfig(20, 0, 20, 0);
@@ -89,7 +90,7 @@ public class GameFrame extends JFrame implements KeyListener {
         timePanel = new JPanel(); timePanel.setLayout(new GridBagLayout()); timePanel.setOpaque(false);
 
         /** Virtuális óra beállítás és a játékosok inventory-jainak inicializálása */
-        GameTimer gt = new GameTimer(this);
+        gt = new GameTimer(this, nop);
         timePanel.add(gt.returnPanel());
 
         /** pálya felépítése */

@@ -38,7 +38,7 @@ public class Players {
             if (i == 1) {
                 buttons[i] = new JButton("Team Saboteur");
                 buttons[i].setBorder(BorderFactory.createLineBorder(Color.black, 5));
-                texts[i] = new JTextField("  Points - " + points[i] + "  ");
+                texts[i] = new JTextField("  Points - " + points[i] + "  "); texts[i].setEditable(false);
                 panel.add(buttons[i], gbc1.gbcCentre); panel.add(texts[i], gbc2.gbcCentre);
             }
         }

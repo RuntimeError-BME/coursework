@@ -6,6 +6,7 @@ import org.runtimeerror.gui.layout.GridBagConstraintsConfig;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.util.ArrayList;
 
 
 /** TODO: CLASS INFORMATION
@@ -26,25 +27,29 @@ public class GameTimer extends JFrame implements ActionListener {
     private JButton button;
     JPanel timePanel;
     JButton exit;
-    JButton jbTeamTechnicianInventory; JTextField tfTeamTechnicianInventory;
-    JButton jbTeamSaboteurInventory; JTextField tfTeamSaboteurInventory;
+    ArrayList<JButton> jbTeamTechnicianInventory; ArrayList<JTextField> tfTeamTechnicianInventory;
 
     /** Az osztály konstruktora (ténylegesen nem ez az) */
-    public GameTimer(GameFrame gf) {
-        setTimer(gf);
+    public GameTimer(GameFrame gf, int nop) {
+        setTimer(gf, nop);
     }
 
     /** Az osztály valódi konstruktora - inicializálja az attribútumokat */
-    private void setTimer(GameFrame gf) {
+    private void setTimer(GameFrame gf, int nop) {
         GridBagConstraintsConfig gbc1 = new GridBagConstraintsConfig(0, 100, 0, 0);
         GridBagConstraintsConfig gbc2 = new GridBagConstraintsConfig(0, 0, 0, 100);
 
-        jbTeamTechnicianInventory = new JButton("Team Technician Inventory"); tfTeamTechnicianInventory = new JTextField("xxxxxxxxxx"); tfTeamTechnicianInventory.setEditable(false);
-        jbTeamSaboteurInventory = new JButton("Team Saboteur Inventory"); tfTeamSaboteurInventory = new JTextField("yyyyyyyyyy"); tfTeamSaboteurInventory.setEditable(false);
-
         button = new JButton("Starting Timer...");
         timePanel = new JPanel(); timePanel.setLayout(new GridBagLayout()); timePanel.setOpaque(false);
-        timePanel.add(jbTeamTechnicianInventory, gbc1.gbcCentre); timePanel.add(tfTeamTechnicianInventory, gbc2.gbcCentre);
+
+        jbTeamTechnicianInventory = new ArrayList<JButton>();
+        tfTeamTechnicianInventory = new ArrayList<JTextField>();
+
+        for (int i = 0; i < nop; i++) {
+            jbTeamTechnicianInventory.add(new JButton("Technician number " + (i + 1)));
+            tfTeamTechnicianInventory.add(new JTextField("")); tfTeamTechnicianInventory.get(i).setEditable(false);
+            timePanel.add(jbTeamTechnicianInventory.get(i), gbc1.gbcCentre); timePanel.add(tfTeamTechnicianInventory.get(i), gbc2.gbcCentre);
+        }
 
         timePanel.add(button, gbc1.gbcCentre);
 
@@ -61,8 +66,6 @@ public class GameTimer extends JFrame implements ActionListener {
             }
         });
         timePanel.add(exit, gbc2.gbcCentre);
-
-        timePanel.add(tfTeamSaboteurInventory, gbc1.gbcCentre); timePanel.add(jbTeamSaboteurInventory, gbc2.gbcCentre);
 
         timer = new javax.swing.Timer(1000,this);
         timer.start();
@@ -84,13 +87,14 @@ public class GameTimer extends JFrame implements ActionListener {
         button.setText("Time (hours - minutes - seconds) : "+ hours+ " - " + minutes + " - " + seconds);
     }
 
-    /** A csapatok inventory-ját aktualizálja */
-    public void ActualiseInventory(String team, String inventory) {
-        switch (team) {
-            case "Technician":
-                tfTeamTechnicianInventory.setText(inventory);
-            case "Saboteur":
-                tfTeamSaboteurInventory.setText(inventory);
+    /** A szerelők inventory-ját aktualizálja */
+    public void ActualiseInventory(int id, String inventory) {
+        for (int i = 0; i < jbTeamTechnicianInventory.size(); i++) {
+            if (i == id) {
+                tfTeamTechnicianInventory.get(i).setEditable(true);
+                tfTeamTechnicianInventory.get(i).setText(inventory);
+                tfTeamTechnicianInventory.get(i).setEditable(false);
+            }
         }
     }
 
