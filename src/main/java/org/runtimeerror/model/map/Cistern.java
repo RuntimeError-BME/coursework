@@ -58,11 +58,19 @@ public final class Cistern extends Element {
      */
     public void ProducePipe() {
         if (GetNbCnt() < 4) { // ha még nincs 4 szomszédja
-            Pipe newPipe = new Pipe(); // akkor létrehozunk egy új csövet
-            if (newPipe.NetworkAdd(null)) { // amit hozzáadunk a pályához
-                AddNb(newPipe); // és beállítjuk a szomszédi viszonyokat
-                newPipe.AddNb(this);
-                newPipe.SetOutput(this);
+
+            int[] possibleIndices = { GetIdx() - 25, GetIdx() - 1, GetIdx() + 1, GetIdx() + 25 };
+            for (int idx : possibleIndices) {
+                if (idx < 0 || idx > 374 || GetNbs().contains(Game.GetInstance().GetNetwork().GetElement(idx)))
+                    continue;
+
+                Pipe newPipe = new Pipe(idx); // akkor létrehozunk egy új csövet
+                if (newPipe.NetworkAdd(null)) { // amit hozzáadunk a pályához
+                    AddNb(newPipe); // és beállítjuk a szomszédi viszonyokat
+                    newPipe.AddNb(this);
+                    newPipe.SetOutput(this);
+                }
+                return;
             }
         }
     }

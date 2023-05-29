@@ -1,5 +1,6 @@
 package org.runtimeerror.model.players;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.runtimeerror.controller.Game;
@@ -28,8 +29,8 @@ public class ManipulatorPlayer {
             return; // akkor nem lehet semmit tenni vele
         // a ragadósságot azért nem kell ellenőrizni, mert ragadós csövön azonnal véget ér a kör
         // csúszósságot pedig azért nem, mert csúszós csövön nem lehet állni, továbbcsúszik egy másik elemre
-//TODO:GuIcontrollerhez is működjön
-        PrototypeController.GetNextLine(); // beolvassuk, hogy mit akar tenni vele
+
+        // PrototypeController.GetNextLine(); // beolvassuk, hogy mit akar tenni vele
 
         // ha a számlálója nagyobb nullánál (és azt tudjuk, hogy "p" nem lehet ragadós és csúszós),
         // akkor tudjuk, hogy még nem telt le a megjavítás utáni lyukasztás cooldown, tehát még nem lehet kilyukasztani
@@ -74,8 +75,12 @@ public class ManipulatorPlayer {
      * Ez a viselkedés megfelel a szabotőröknek, viszont a szerelők manipulátorában felül kell írni a függvényt úgy,
      * hogy elromlott pumpát megjavítsák, ne átállítsák, és csak a működő pumpát állítsák át. */
     public void Manipulate(Pump p) {
-        PrototypeController.GetNextLine(); // beolvassuk az új be- és kimenetet
-        Element[] elems = Game.Input.GetNewPumpDirections(); // az új input és output elemek
+        // PrototypeController.GetNextLine(); // beolvassuk az új be- és kimenetet
+
+        if (p.GetNbCnt() < 2) // csak akkor lehet átállítani, ha van legalább 2 szomszédja
+            return;
+
+        Element[] elems = Game.Input.GetNewPumpDirections(p); // az új input és output elemek
 
         Element newInp = elems[0]; // az elem, ami az új bemenete lesz
         p.SetInput(newInp); // beállítjuk a pumpa bemeneteként

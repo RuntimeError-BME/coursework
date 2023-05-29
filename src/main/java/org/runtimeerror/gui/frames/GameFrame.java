@@ -1,17 +1,26 @@
 package org.runtimeerror.gui.frames;
+import org.runtimeerror.controller.Game;
 import org.runtimeerror.gui.backgrounds.SetBackgroundImage;
 import org.runtimeerror.gui.buttons.*;
 import org.runtimeerror.gui.controller.GuiController;
 import org.runtimeerror.gui.layout.GridBagConstraintsConfig;
 import org.runtimeerror.gui.players.Players;
 import org.runtimeerror.gui.timer.GameTimer;
+import org.runtimeerror.model.map.Element;
+import org.runtimeerror.model.map.Network;
+import org.runtimeerror.model.map.Pipe;
+import org.runtimeerror.model.players.Player;
+import org.runtimeerror.model.players.Technician;
 
 import javax.swing.*;
+import javax.swing.border.Border;
+import javax.swing.border.LineBorder;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 
 
 /** TODO: CLASS INFORMATION
@@ -57,6 +66,7 @@ public class GameFrame extends JFrame implements KeyListener {
 
         guiController = GuiController.GetInstance();
         guiController.SetGameFrame(this);
+        setFocusable(true);
 
         /** Az elemek gombjainak inicializálása */
         buttons = new ArrayList<ElementButton>();
@@ -82,12 +92,16 @@ public class GameFrame extends JFrame implements KeyListener {
         GameTimer gt = new GameTimer(this);
         timePanel.add(gt.returnPanel());
 
-        /** TODO: NA ITT NAGYON SOK GOND LESZ MÉG!!! */
+        /** pálya felépítése */
         this.BuildMap();
 
         /** A játékot kezdő csapat beállítása */
-        //TODO: TEKNIKUSSSSSSSSSSSSSSSSSSSSSSSSSS
         players.SetCurrentTeam("Technician");
+
+        UpdateButtons();
+        /** Kezdőjátékosnak sárgán jelezzük az elemét, amin áll. */
+        UpdateCurrPlayerBtnBorder(-1);
+
 
         /** Az elemek paneljeikhez adása */
         mainPanel.add(players.ReturnPanel(), gbc.gbcRemainder);
@@ -112,6 +126,7 @@ public class GameFrame extends JFrame implements KeyListener {
         con.add(background);
         this.setUndecorated(true);
         setVisible(true);
+        addKeyListener(this);
     }
 
     /** Kezdőpálya építő segédfüggvények - low, medium, high complexity - és ráhelyezi a játékosokat a pályára */
@@ -191,29 +206,39 @@ public class GameFrame extends JFrame implements KeyListener {
         ButtonSetterElement(250, "Source", false);
 
         /** Itt helyezzük el a játkosokat */
-        switch (numberOfPlayers) {
-            case 1:
-                ButtonSetterPlayer(252, "Technician", false);
-                ButtonSetterPlayer(68, "Saboteur", false);
-                break;
-            case 2:
-                ButtonSetterPlayer(252, "Technician", false);
-                ButtonSetterPlayer(68, "Saboteur", false);
-                ButtonSetterPlayer(155, "Technician", false);
-                ButtonSetterPlayer(194, "Saboteur", false);
-                break;
-            case 3:
-                ButtonSetterPlayer(252, "Technician", false);
-                ButtonSetterPlayer(68, "Saboteur", false);
-                ButtonSetterPlayer(155, "Technician", false);
-                ButtonSetterPlayer(194, "Saboteur", false);
-                ButtonSetterPlayer(184, "Technician", false);
-                ButtonSetterPlayer(40, "Saboteur", false);
-                break;
+        Game.GetInstance().AddPlayer(new Technician("t1"), 252);
+        Game.GetInstance().AddPlayer(new Player("s1"), 120);
+        ButtonSetterPlayer(252, "Technician", false);
+        buttons.get(252).setToolTipText("t1");
+        ButtonSetterPlayer(120, "Saboteur", false);
+        buttons.get(120).setToolTipText("s1");
+
+        if (numberOfPlayers >= 2) {
+            Game.GetInstance().AddPlayer(new Technician("t2"), 7);
+            Game.GetInstance().AddPlayer(new Player("s2"), 194);
+            ButtonSetterPlayer(7, "Technician", false);
+            buttons.get(7).setToolTipText("t2");
+            ButtonSetterPlayer(194, "Saboteur", false);
+            buttons.get(194).setToolTipText("s2");
         }
+
+        if (numberOfPlayers >= 3) {
+            Game.GetInstance().AddPlayer(new Technician("t3"), 184);
+            Game.GetInstance().AddPlayer(new Player("s3"), 40);
+            ButtonSetterPlayer(184, "Technician", false);
+            buttons.get(184).setToolTipText("t3");
+            ButtonSetterPlayer(40, "Saboteur", false);
+            buttons.get(40).setToolTipText("s3");
+        }
+        UpdateButtonTooltips();
     }
     private void buildMediumComplexityMap() {
+
         buildLowComplexityMap();
+
+        /** A backend általi pálya építése */
+        guiController.BuildMediumComplexityMap();
+
         ButtonSetterElement(153, "Pipe", false);
         ButtonSetterElement(152, "Pipe", false);
         ButtonSetterElement(127, "Pipe", false);
@@ -252,7 +277,12 @@ public class GameFrame extends JFrame implements KeyListener {
         ButtonSetterElement(41, "Pipe", false);
     }
     private void buildHighComplexityMap() {
+
         buildMediumComplexityMap();
+
+        /** A backend általi pálya építése */
+        guiController.BuildHighComplexityMap();
+
         ButtonSetterElement(352, "Pipe", false);
         ButtonSetterElement(353, "Pipe", false);
         ButtonSetterElement(355, "Pipe", false);
@@ -343,6 +373,7 @@ public class GameFrame extends JFrame implements KeyListener {
                         else moveButtons.add(current.GetId());
                 });
 
+                current.addKeyListener(this);
                 buttons.add(current);
                 panels[i].add(buttons.get(id));
                 id++;
@@ -425,23 +456,7 @@ public class GameFrame extends JFrame implements KeyListener {
 
     /** Ha a felhasználó léptetné a játékost, akkor a backend pozitív visszajelzését követően az elem kerete megváltozik a függvény hatására */
     public void MovePlayer(int fromButtonId, int toButtonId, String playerType, boolean repaintIt) {
-        boolean isPossible = guiController.handleMoveEvent(fromButtonId, toButtonId, playerType);
-
-        if (isPossible) {
-            for (ElementButton eb : buttons) {
-                if (eb.GetId() == fromButtonId) {
-                    eb.setBorder(null);
-                }
-                if (eb.GetId() == toButtonId) {
-                    ButtonSetterPlayer(toButtonId, playerType, false);
-                }
-            }
-
-            /** Az ablak újrafestése, ha szükséges */
-            if (repaintIt) {
-                Repaint();
-            }
-        }
+        guiController.handleMoveEvent(fromButtonId, toButtonId, playerType);
     }
 
     /** Az ablak újrafestését végző függvény */
@@ -451,16 +466,162 @@ public class GameFrame extends JFrame implements KeyListener {
         this.repaint();
     }
 
-    /** A felhasználó általi modifikációkat jelentő gombok lenyomásainak kezelését végző függvények */
-    @Override
-    public void keyTyped(KeyEvent e) {
-        guiController.handleKeyboardEvent(e.getKeyCode());
+    /** Frissíti a játék összes gombját. */
+    public void UpdateButtons() {
+        Network network = Game.GetInstance().GetNetwork();
+        JButton defBtn = new JButton();
+        int i = 0;
+        for (ElementButton btn : buttons) {
+            btn.setBorder(defBtn.getBorder());
+
+            Element elem = network.GetElement(i++); // a gombhoz tartozó elem
+            if (elem == null)
+                continue;
+
+            if (elem.GetBroken())
+                btn.setBackground(Color.RED);
+            else if (elem.GetFlooded())
+                btn.setBackground(new Color(33, 189, 196, 255));
+            else
+                btn.setBackground(null);
+
+            if (!elem.GetPickUpAble_onlyAttribute())
+                continue; // az ezutáni textúracsere csak csövekre vonatkozik
+
+
+            if (elem.GetSticky()) {
+                btn.setIcon(new ImageIcon("src/main/java/org/runtimeerror/gui/buttons/texture/pipe_sticky.png"));
+            } else if (elem.GetSlippery()) {
+                btn.setIcon(new ImageIcon("src/main/java/org/runtimeerror/gui/buttons/texture/pipe_slippy.png"));
+            } else if (elem.GetNbCnt() > 0) {
+                btn.setIcon(new ImageIcon("src/main/java/org/runtimeerror/gui/buttons/texture/pipe.png"));
+            }
+        }
+
+        Border[] borders = new LineBorder[2];
+        borders[0] = BorderFactory.createLineBorder(Color.blue, 5);
+        borders[1] = BorderFactory.createLineBorder(Color.black, 5);
+
+        i = 0;
+        for (Player player : Game.GetInstance().GetPlayers()) {
+            ElementButton btn = buttons.get(player.GetCurrElem().GetIdx());
+            btn.setBorder(i % 2 == 0 ? borders[0] : borders[1]);
+            ++i;
+        }
+    }
+
+    /**
+     * Frissíti a gombok tooltipjeit aszerint, hogy milyen játékosok állnak rajtuk.
+     */
+    public void UpdateButtonTooltips()
+    {
+        for (ElementButton btn : buttons) {
+            btn.setToolTipText(null);
+        }
+
+        for (Player player : Game.GetInstance().GetPlayers()) {
+            ElementButton btn = buttons.get(player.GetCurrElem().GetIdx());
+
+            String toolTip = btn.getToolTipText();
+            if (toolTip == null)
+                btn.setToolTipText(player.GetName() + "  ");
+            else
+                btn.setToolTipText(btn.getToolTipText() + player.GetName() + "  ");
+        }
+    }
+
+    /** Beállítja a jelenlegi játékos eleméhez tartozó gomb keretét sárgára. */
+    public void UpdateCurrPlayerBtnBorder(int prevBtnIdx) {
+        Player player = Game.GetInstance().GetCurrPlayer();
+        ElementButton btn = null;
+        if (player != null) {
+            btn = buttons.get(player.GetCurrElem().GetIdx());
+            btn.setBorder(BorderFactory.createLineBorder(Color.YELLOW, 5));
+        }
+
+        if (prevBtnIdx == -1) {
+            return;
+        }
+
+        boolean toolTip_refreshNeeded = false;
+        Element elem = Game.GetInstance().GetNetwork().GetElement(prevBtnIdx);
+        if (elem.GetPlayerCnt() > 0) {
+            toolTip_refreshNeeded = true;
+            if (elem.GetPlayer(0).GetName().charAt(0) == 't')
+                buttons.get(prevBtnIdx).setBorder(BorderFactory.createLineBorder(Color.blue, 5));
+            else
+                buttons.get(prevBtnIdx).setBorder(BorderFactory.createLineBorder(Color.black, 5));
+        } else {
+            buttons.get(prevBtnIdx).setBorder(new JButton().getBorder());
+        }
+
+        /** tooltip frissítése */
+        buttons.get(prevBtnIdx).setToolTipText(null);
+        String toolTip = btn.getToolTipText();
+        if (toolTip == null)
+            btn.setToolTipText(player.GetName() + "  ");
+        else
+            btn.setToolTipText(btn.getToolTipText() + player.GetName() + "  ");
+        if (toolTip_refreshNeeded)
+            UpdateButtonTooltips();
+
+
+        /** Az ablak újrafestése */
+        Repaint();
+    }
+
+    /** Az átadott indexű elemnek a textúráját kicseréli egy pumpa textúrára. */
+    public void ReplaceTextureToPump(int idx) {
+        buttons.get(idx).setIcon(new ImageIcon("src/main/java/org/runtimeerror/gui/buttons/texture/pump.png"));
+    }
+
+    /** Visszaállítja alapállapotába az adott indexű gomb kinézetét. */
+    public void ResetElementButton(int idx) {
+        ElementButton btn = buttons.get(idx);
+        btn.setIcon(null);
+        btn.setBackground(null);
+
+    }
+
+    /** Felajánlja a játékosnak a 'centerIdx' indexű ElementButton-tól szomszédos összes üres ElementButtont, hogy
+     * válasszon közülök. A választott indexével tér vissza. */
+    public int GetEmptyElementButton(int centerIdx) {
+        int[] possibleIndices = { centerIdx - 25, centerIdx - 1, centerIdx + 1, centerIdx + 25 };
+        List<Integer> correctIndices = new ArrayList<>();
+        for (int idx : possibleIndices) {
+            if (idx < 0 || idx > 374 || (Game.GetInstance().GetNetwork().GetElement(idx) != null
+            && Game.GetInstance().GetCurrPlayer().GetPart().GetIdx() != idx))
+                continue;
+
+            correctIndices.add(idx);
+        }
+        if (correctIndices.isEmpty())
+            return -1;
+
+        Object[] options = correctIndices.toArray();
+        int chosenIdx = JOptionPane.showOptionDialog(this, "Where do you want to place the pipe?", "Placing pipe",
+                                                     JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null, options, options[0]);
+        return correctIndices.get(chosenIdx);
     }
 
     @Override
-    public void keyPressed(KeyEvent e) { }
+    public void addNotify() {
+        super.addNotify();
+        requestFocus();
+    }
+
+    @Override
+    public void setFocusable(boolean b) {
+        super.setFocusable(b);
+    }
+
+    /** A felhasználó általi modifikációkat jelentő gombok lenyomásainak kezelését végző függvények */
+    @Override
+    public void keyTyped(KeyEvent e) { }
+
+    @Override
+    public void keyPressed(KeyEvent e) { guiController.handleKeyboardEvent(e.getKeyCode()); }
 
     @Override
     public void keyReleased(KeyEvent e) { }
-
 }

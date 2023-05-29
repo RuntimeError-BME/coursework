@@ -3,6 +3,7 @@ package org.runtimeerror.model.map;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.runtimeerror.gui.controller.GuiController;
 import org.runtimeerror.model.players.ManipulatorPlayer;
 import org.runtimeerror.model.players.Player;
 import org.runtimeerror.prototype.PrototypeController;
@@ -24,7 +25,7 @@ public abstract class Element {
     private List<Element> nbs = new ArrayList<>(); // szomszédos elemei
     private Element input = null; // a szomszédja (ha van ilyen), amiből folyhat bele víz
     private Element output = null; // a szomszédja (ha van ilyen), amibe folyhat belőle víz
-    private static int maxIdx = 0;
+    private static int maxIdx = 375; // új pumpákhoz (biztosan nem kapnak így olyan indexet, ami már van a pályán)
 
     /**Konstruktor : az elem azonosítóval való inicializálása */
     public Element() {
@@ -43,8 +44,9 @@ public abstract class Element {
      * lépni az adott elemre (pl. ne lehessen több játékos egy elemen, lásd Pipe).
      * Visszatérési értéke: sikerült-e feltenni az elemre a játékost. */
     public void AddPlayer(Player p) {
-
+        int prevBtnIdx = -1;
         if (p.GetCurrElem() != null) {
+            prevBtnIdx = p.GetCurrElem().GetIdx();
             p.GetCurrElem().RemovePlayer(p); // eltávolítjuk a játékost a régi eleméről
             if (p.GetCurrElem().IsMultiInput() && IsMultiInput()) { // ha ciszternákat keresztezett
                 PrototypeController.PrintLine(p.GetName() + " crossed cisterns, new location: cistern " + GetIdx());
@@ -56,6 +58,7 @@ public abstract class Element {
 
         players.add(p); // az új elem játékosaihoz hozzáadjuk
         p.SetCurrElem(this); // átállítjuk a játékost jelenlegi elemét rá
+        GuiController.GetInstance().UpdateCurrPlayerBtnBorder(prevBtnIdx);
     }
 
     /** Eltávolítja a rajta lévő játékosai közül az átadottat. */
@@ -124,6 +127,11 @@ public abstract class Element {
         return players.size();
     }
 
+    /** A megadott indexen tárolt játékosát adja vissza. */
+    public Player GetPlayer(int idx) {
+        return players.get(idx);
+    }
+
     /** Visszaadja, hogy van-e benne víz. */
     public boolean GetFlooded() {
         return flooded;
@@ -175,6 +183,11 @@ public abstract class Element {
         return false;
     }
 
+    /** Visszaadja, hogy az elem csúszós-e. */
+    public boolean GetSlippery() {
+        return false;
+    }
+
     /**
      * Csak a prototípusban használt függvény, ami kiírja az elem adatait.
      * Függvény amit a leszármazottak hívnak, amikor kiírják az adataikat.
@@ -204,7 +217,7 @@ public abstract class Element {
 
     /** Visszaállítja az elemek osztályszintű indexelőjét 0-ra. */
     public static void Reset() {
-        maxIdx = 0;
+        maxIdx = 375;
     }
 
 }

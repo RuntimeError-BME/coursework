@@ -130,9 +130,11 @@ public final class Network {
 
 
         RemoveElem(e); // eltávolítjuk a felülírandó csövet a szortírozó gyűjtemények egyikéből
-        int idx = elements.indexOf(e); // a felülírandó elem indexe a minden elemet tároló gyűjteményben
+        int idx = e.GetIdx(); // a felülírandó elem indexe a minden elemet tároló gyűjteményben
         elements.remove(p); // a korábban hozzáadott pumpa eltávolítása
-        elements.set(idx, p); // felülírjuk benne a csövet az újonnan lehelyezendő pumpával
+        int listIdx =
+            Game.GetInstance().GetNetwork().GetElements().indexOf(Game.GetInstance().GetNetwork().GetElement(idx));
+        elements.set(listIdx, p); // felülírjuk benne a csövet az újonnan lehelyezendő pumpával
         p.SetIdx(idx); // átállítjuk az új pumpa indexét a régi cső indexére
         pumps.add(p); // hozzáadjuk az új pumpát a pumpákat szortírozó gyűjteményhez
 

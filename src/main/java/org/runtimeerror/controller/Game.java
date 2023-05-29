@@ -1,13 +1,14 @@
 package org.runtimeerror.controller;
 
+import org.runtimeerror.gui.controller.GuiController;
 import org.runtimeerror.model.map.*;
 import org.runtimeerror.model.players.Player;
 import org.runtimeerror.prototype.PrototypeController;
+import org.w3c.dom.html.HTMLLabelElement;
 
 import java.io.PrintStream;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
+import java.security.KeyPair;
+import java.util.*;
 
 /**
  * A játékmenetet kezeli (vizsgálja, hogy véget ért-e a játék, valamint a köröket vezérli).
@@ -23,7 +24,7 @@ public final class Game {
     private int currPlayerIdx; // a soron lévő játékos indexe a „players” gyűjteményben
     private int scoreTechnician; // a szerelők pontszáma
     private int scoreSaboteur; // a szabotőrök pontszáma
-    private static int maxScore = 50; // a győzelemhez szükséges pontok száma
+    private static int maxScore = 500; // a győzelemhez szükséges pontok száma
     private List<Player> players; // a játékban résztvevő játékosok
     private Network network; // a pálya elemeit tárolja, szortírozza
 
@@ -65,7 +66,7 @@ public final class Game {
         random          = new Random(); // véletlenszerű viselkedés lesz megvalósítva vele
         deterministic   = false;
         defaultCounter  = 2; // alapértelmezett számláló visszaállítása
-        maxScore        = 50; // győzelemhez szükséges pontszám visszaállítása
+        maxScore        = 500; // győzelemhez szükséges pontszám visszaállítása
         network         = new Network(); // a pálya elemeit tárolja, szortírozza
         Element.Reset(); // az elemek indexelésének visszaállítása
     }
@@ -75,6 +76,9 @@ public final class Game {
     public Network GetNetwork() {
         return network;
     }
+
+    /** Visszaadja a játékosok listáját. */
+    public List<Player> GetPlayers() { return players; }
 
     /** A játék inicializálásához használt függvény.
      * Hozzáad a játékhoz (azon belül a players listába) egy játékost. A játékos az átadott indexű elemen fog állni.
@@ -116,6 +120,10 @@ public final class Game {
      * Ha a játékos jelenleg egy ragadós elemen áll, akkor egyből véget is fog érni a köre (önmagát hívja a függvény).
      * Ha az egyik csapat elérte a győzelemhez szükséges pontok számát, véget vet a játéknak, és közli az eredményt. */
     public void NextTurn() {
+        if (currPlayerIdx == players.size() - 1) {
+            network.ProducePipesAroundCisterns(); // csövek lehelyezése a ciszternák körül, amennyiben lehetséges
+        }
+
         for (Pump pump : network.GetPumps()) { // végigmegyünk a pálya összes pumpáján
             if (shouldBreakPipe())
                 pump.Break(); // elrontunk néhányat, ha be van kapcsolva a véletlenszerű viselkedés
@@ -135,7 +143,9 @@ public final class Game {
 
         network.Flood(); // elárasztjuk a pályát vízzel (ez a függvény osztja közvetetten a pontokat is)
 
-        // TODO: display the updated map in the GUI
+        /** GUI frissítése */
+        GuiController.GetInstance().UpdateButtons();
+        GuiController.GetInstance().UpdateButtonTooltips();
 
         if (Input.IsGameOver()) { // ellenőrzi, hogy véget ért-e a játék, és közli, ha igen
             PrototypeController.GetInstance().SetGameOver(true);
@@ -146,12 +156,11 @@ public final class Game {
         ++currPlayerIdx; // következő játékos jön
         if (currPlayerIdx >= players.size()) { // ha véget ért egy teljes kör (round)
             currPlayerIdx = 0; // akkor újra a kezdő játékos jön
-            network.ProducePipesAroundCisterns(); // csövek lehelyezése a ciszternák körül, amennyiben lehetséges
         }
 
+        GuiController.GetInstance().UpdateCurrPlayerBtnBorder(-1);
         PrototypeController.PrintLine(GetInstance().GetTurnInfo()); // kiírjuk a jelenlegi kör adatait
 
-        // TODO: ezt majd a GUI felületére
         if (GetCurrPlayer().GetCurrElem().GetSticky()) { // ha a következő játékos alatt (még) ragadós cső van
             PrototypeController.PrintLine("");
             NextTurn(); // akkor egyből véget is ér a köre
@@ -160,6 +169,8 @@ public final class Game {
 
     /** Visszaadja a játékost, aki éppen soron van (akinek turn-je van jelenleg). */
     public Player GetCurrPlayer() {
+        if (players.isEmpty())
+            return null;
         return players.get(currPlayerIdx);
     }
 
@@ -293,9 +304,7 @@ public final class Game {
          Megnézi, hogy egy szerelő köre van-e jelenleg (IsTechnicianTurn()), és ha igen, akkor hívja GetCurrPlayer()
          -t, és rajta pedig PickUpPart()-ot az elemmel. */
         public static void TryPartRelocation(Element e) {
-            if (GetInstance().IsTechnicianTurn()) {
-                GetInstance().GetCurrPlayer().PickUpPart(e);
-            }
+            GetInstance().GetCurrPlayer().PickUpPart(e);
         }
 
         /** Akkor hívandó függvény, amikor a soron lévő játékos megpróbálja a tárolt part-ját lehelyezni.
@@ -310,11 +319,12 @@ public final class Game {
             if (storedPart == null) // ha nincs nála elem, akkor
                 return; // akkor nem fog semmi történni
 
-            //TODO: get neighbouring element from player (IN GUI stage)
             boolean successfulPlacement = player.PlacePart(e); // megpróbálja elhelyezni
             if (successfulPlacement) { // ha sikerült elhelyezni
                 player.SetPart(null); // akkor már nem a tárolójában lesz az elem (hanem a pályán)
                 GetInstance().NextTurn(); // és véget ér a szerelő köre
+            } else {
+                GuiController.GetInstance().DisplayPlacementFailureDialogue();
             }
         }
 
@@ -337,13 +347,27 @@ public final class Game {
         }
 
         /** Pumpa átállításához visszaadja a soron lévő játékos által bevitt irányokat. */
-        public static Element[] GetNewPumpDirections() {
+        public static Element[] GetNewPumpDirections(Pump p) {
 
-            // TODO: GUI-nál dialogue-gal lesz bekérve a két irány ehelyett
-            String line = PrototypeController.GetCurrLine(); // a jelenlegi parancs sora szövegként
-            String[] splitted = line.split(" ");
-            int output = Integer.parseInt(splitted[splitted.length - 1]);
-            int input = Integer.parseInt(splitted[splitted.length - 3]);
+            List<Integer> possibleChoices = new ArrayList<>();
+            for (Element elem : p.GetNbs())
+                possibleChoices.add(elem.GetIdx());
+
+            int input =
+                possibleChoices.get(
+                    GuiController.GetInstance().GetPumpDirectionDialogue(possibleChoices.toArray(), true));
+
+            possibleChoices.remove((Integer)input);
+
+            int output =
+                possibleChoices.get(
+                    GuiController.GetInstance().GetPumpDirectionDialogue(possibleChoices.toArray(), false));
+
+//            // TODO: GUI-nál dialogue-gal lesz bekérve a két irány ehelyett
+//            String line = PrototypeController.GetCurrLine(); // a jelenlegi parancs sora szövegként
+//            String[] splitted = line.split(" ");
+//            int output = Integer.parseInt(splitted[splitted.length - 1]);
+//            int input = Integer.parseInt(splitted[splitted.length - 3]);
 
             Network network = Game.GetInstance().GetNetwork();
             return new Element[] {
@@ -363,30 +387,45 @@ public final class Game {
          */
         public static Harm GetPipeHarm(boolean canBeBroken) {
 
-            // TODO: GUI-nál dialogue-gal lesz bekérve ehelyett
             String line = PrototypeController.GetCurrLine(); // a jelenlegi parancs sora szövegként
+
             Harm harm;
+            Map<String, Harm> harms = new HashMap<>();
+            harms.put("Break", Harm.BROKEN);
+            harms.put("Stickify", Harm.STICKY);
+            harms.put("Slippify", Harm.SLIPPY);
 
+            List<String> possibleHarms = new ArrayList<>();
 
-
-            if (GetInstance().IsTechnicianTurn()) { // ha egy szerelőnek van most köre
-                harm = Harm.STICKY; // feltételezzük, hogy ragadóssá szeretné tenni
-                if (line.equals("break") && canBeBroken)
-                    harm = Harm.BROKEN;
-            } else { // ha egy szabotőrnek van most köre
-                harm = Harm.BROKEN; // feltételezzük, hogy ki szeretné lyukasztani
-                if (!canBeBroken) // ha nem lehet kilyukasztani
-                    harm = Harm.SLIPPY; // akkor azt feltételezzük, hogy csúszóssá szeretné tenni
-
-                if (line.equals("stickify"))
-                    harm = Harm.STICKY;
-                else if (line.equals("slippify"))
-                    harm = Harm.SLIPPY;
+            if (GetInstance().IsTechnicianTurn()) {
+                possibleHarms.add("Stickify");
+                if (canBeBroken)
+                    possibleHarms.add("Break");
+            } else {
+                if (canBeBroken)
+                    possibleHarms.add("Break");
+                possibleHarms.add("Slippify");
+                possibleHarms.add("Stickify");
             }
 
-            //
+            return harms.get(possibleHarms.get(GuiController.GetInstance().GetHarmDialogue(possibleHarms.toArray())));
 
-            return harm;
+//            if (GetInstance().IsTechnicianTurn()) { // ha egy szerelőnek van most köre
+//                harm = Harm.STICKY; // feltételezzük, hogy ragadóssá szeretné tenni
+//                if (line.equals("break") && canBeBroken)
+//                    harm = Harm.BROKEN;
+//            } else { // ha egy szabotőrnek van most köre
+//                harm = Harm.BROKEN; // feltételezzük, hogy ki szeretné lyukasztani
+//                if (!canBeBroken) // ha nem lehet kilyukasztani
+//                    harm = Harm.SLIPPY; // akkor azt feltételezzük, hogy csúszóssá szeretné tenni
+//
+//                if (line.equals("stickify"))
+//                    harm = Harm.STICKY;
+//                else if (line.equals("slippify"))
+//                    harm = Harm.SLIPPY;
+//            }
+//
+//            return harm;
         }
     }
 
@@ -412,21 +451,21 @@ public final class Game {
      * ragadós a cső miután ragadóssá tették, amikor nemdeterminisztikusan viselkedik a modell ("counter" új értéke).
      * Lásd: ManipulatorPlayer.Manipulate(Pipe p) */
     public int GetRandomStickyCounter() {
-        return random.nextInt(6) + 1; // [1, 6]
+        return random.nextInt(7) + 2; // [2, 8]
     }
 
     /** Egy véletlenszerűen sorsolt egész számot ad vissza az [1, 8] tartományban, ami megadja, hogy hány nem lehet a
      * megjavított cső újra kilyukasztva, amikor nemdeterminisztikusan viselkedik a modell ("counter" új értéke).
      * Lásd: ManipulatorTechnician.Manipulate(Pipe p) */
     public int GetRandomUnbreakableCounter() {
-        return random.nextInt(8) + 1; // [1, 8]
+        return random.nextInt(7) + 2; // [2, 8]
     }
 
     /** Egy véletlenszerűen sorsolt egész számot ad vissza az [1, 10] tartományban, ami megadja, hogy hány körig legyen
      * csúszós a cső miután csúszóssá tették, amikor nemdeterminisztikusan viselkedik a modell ("counter" új értéke).
      * Lásd: ManipulatorPlayer.Manipulate(Pipe p) */
     public int GetRandomSlippyCounter() {
-        return random.nextInt(10) + 1; // [1, 10]
+        return random.nextInt(14) + 2; // [2, 15]
     }
 
     /** Visszaadja az alapértelmezett időszámláló értékét. Lásd: defaultCounter attribútum. */

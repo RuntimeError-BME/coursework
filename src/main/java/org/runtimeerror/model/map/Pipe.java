@@ -42,6 +42,7 @@ public final class Pipe extends Breakable {
     }
 
     /** Visszaadja, hogy a cső csúszós-e. */
+    @Override
     public boolean GetSlippery(){
         return slippery;
     }

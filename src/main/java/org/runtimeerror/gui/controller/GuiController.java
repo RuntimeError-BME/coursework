@@ -1,12 +1,18 @@
 package org.runtimeerror.gui.controller;
 import org.runtimeerror.controller.Game;
+import org.runtimeerror.gui.buttons.ElementButton;
 import org.runtimeerror.gui.frames.GameFrame;
 import org.runtimeerror.gui.frames.MenuFrame;
 import org.runtimeerror.model.map.*;
+import org.runtimeerror.model.players.Player;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.ListResourceBundle;
 
 
 /** TODO: CLASS INFORMATION - MÉG NAGYON SOK MÓDOSÍTÁS SZÜKSÉGES EBBEN AZ OSZTÁLYBAN
@@ -45,29 +51,32 @@ public class GuiController {
     }
 
     public void handleKeyboardEvent(int pressedKeyCode) {
-        int currentElementIndex = game.GetCurrPlayer().GetCurrElem().GetIdx();
+        Player player = game.GetCurrPlayer();
+        if (player == null)
+            return;
+        int currentElementIndex = player.GetCurrElem().GetIdx();
         //Network network = game.GetNetwork();
 
         Element currentElement = network.GetElement(currentElementIndex);
         switch(pressedKeyCode) {
-            case KeyEvent.VK_T:
+            case KeyEvent.VK_D:
                 game.SetDeterministic(!game.GetDeterministic());
                 break;
 
             case KeyEvent.VK_M:
-                //TODO: írni egy stringet amit átad/belvas a manipulatenek
-
                 Game.Input.TryCurrElemManipulation();
-
                 break;
+
             case KeyEvent.VK_P:
                 Game.Input.TryPartPlacement(currentElement);
                 break;
+
             case KeyEvent.VK_U:
                 Game.Input.Pickup();
                 break;
+
             case KeyEvent.VK_R:
-                Game.Input.TryPartRelocation(currentElement);
+                ChoosePipeToBeRelocated();
                 break;
 
             default:
@@ -79,7 +88,7 @@ public class GuiController {
     public void BuildLowComplexityMap() {
         /** Játék reset-elése és a hálózat inicializálása */
         game.Reset();
-        network= game.GetNetwork();
+        network = game.GetNetwork();
 
         /** Pálya elemeinek létrehozása */
         Source s7 = new Source(7);
@@ -302,7 +311,7 @@ public class GuiController {
         network.Connect(216, 191, 215);
         network.Connect(215, 216, 214);
     }
-    private void buildMediumComplexityMap() {
+    public void BuildMediumComplexityMap() {
         Pump pu35 = new Pump(35);
         Pipe pi36 = new Pipe(36);
         Pipe pi41 = new Pipe(41);
@@ -377,8 +386,52 @@ public class GuiController {
         network.AddSource(s354);
         network.AddSource(s369);
 
+        s86.AddNb(pi61);
+        network.Connect(61, 86, 36);
+        network.Connect(36, 61, 35);
+        network.Connect(87, 86, 88);
+        network.Connect(88, 87, 89);
+        network.Connect(89, 88, 90);
+
+        s354.AddNb(pi329);
+        network.Connect(329, 354, 330);
+        network.Connect(330, 329, 305);
+        network.Connect(305, 330, 306);
+        network.Connect(306, 305, 281);
+        network.Connect(281, 306, 256);
+        network.Connect(256, 281, 255);
+        network.Connect(255, 256, 230);
+        network.Connect(230, 255, 205);
+        network.Connect(205, 230, 180);
+        Element pi180 = network.GetElement(180);
+        c155.AddNb(pi180);
+        pi180.AddNb(c155);
+
+        s369.AddNb(pi344);
+        network.Connect(344, 369, 343);
+        network.Connect(343, 344, 318);
+        network.Connect(318, 343, 293);
+        network.Connect(293, 318, 294);
+        network.Connect(294, 293, 295);
+        network.Connect(295, 294, 270);
+        network.Connect(270, 295, 245);
+        network.Connect(245, 270, 220);
+
+        Element pi144 = network.GetElement(144);
+        pi144.AddNb(s143);
+        s143.AddNb(pi144);
+        s143.AddNb(pi118);
+        network.Connect(118, 145, 93);
+        network.Connect(93, 118, 68);
+        network.Connect(68, 93, 43);
+        network.Connect(43, 68, 42);
+        network.Connect(42, 43, 41);
+        network.Connect(41, 42, 40);
+
+        network.Connect(153, 178, 152);
+        network.Connect(152, 153, 127);
     }
-    private void buildHighComplexityMap() {
+    public void BuildHighComplexityMap() {
         Source s13 = new Source(13);
         Pipe pi14 = new Pipe(14);
         Source s23 = new Source(23);
@@ -499,12 +552,193 @@ public class GuiController {
         network.AddSource(s361);
         network.AddPump(pu372);
 
+        s13.AddNb(pi14);
+        network.Connect(14, 13, 39);
+        network.Connect(39, 14, 40);
+
+        s23.AddNb(pi48);
+        network.Connect(48, 23, 47);
+        network.Connect(47, 48, 46);
+        network.Connect(46, 47, 71);
+        network.Connect(71, 46, 96);
+
+        s28.AddNb(pi53);
+        network.Connect(53, 28, 52);
+        network.Connect(52, 53, 51);
+        network.Connect(51, 52, 76);
+        network.Connect(76, 51, 101);
+        network.Connect(101, 76, 126);
+        Element pi127 = network.GetElement(127);
+        s126.AddNb(pi127);
+        pi127.AddNb(s126);
+
+
+        pi54.AddNb(pi53);
+        pi53.AddNb(pi54);
+        Element pi57 = network.GetElement(57);
+        pi57.AddNb(pi56);
+        pi56.AddNb(pi57);
+        network.Connect(55, 54, 56);
+        network.Connect(55, 56, 80);
+        network.Connect(80, 55, 105);
+        network.Connect(105, 80, 130);
+        network.Connect(130, 105, 155);
+        network.Connect(106, 105, 107);
+        network.Connect(107, 106, 108);
+
+        s349.AddNb(pi348);
+        network.Connect(348, 349, 323);
+        network.Connect(323, 348, 298);
+        network.Connect(298, 323, 273);
+        network.Connect(273, 298, 248);
+        network.Connect(248, 273, 223);
+        network.Connect(347, 348, 372);
+
+        s361.AddNb(c336);
+        network.Connect(336, 361, 337);
+        network.Connect(337, 336, 338);
+        network.Connect(338, 337, 339);
+        network.Connect(336, 337, 335);
+        network.Connect(335, 336, 334);
+        network.Connect(334, 335, 333);
+        network.Connect(333, 334, 358);
+        network.Connect(358, 333, 357);
+        network.Connect(357, 358, 356);
+        network.Connect(356, 357, 355);
+        network.Connect(355, 356, 354);
+        network.Connect(354, 355, 353);
+        network.Connect(353, 354, 352);
+        network.Connect(352, 353, 351);
+
+        network.Connect(260, 259, 261);
+        network.Connect(261, 260, 262);
+        network.Connect(262, 261, 287);
+        network.Connect(287, 262, 288);
+        network.Connect(288, 287, 289);
+        network.Connect(284, 259, 309);
+        network.Connect(309, 284, 310);
+        network.Connect(309, 284, 310);
+        network.Connect(310, 309, 311);
+        network.Connect(336, 311, 361);
+        pu309.AddNb(pi334);
+        pi334.AddNb(pu309);
+        pi310.AddNb(pi335);
+        pi335.AddNb(pi310);
+
+        network.Connect(277, 252, 302);
+        network.Connect(148, 173, 123);
+        network.Connect(123, 148, 98);
+    }
+
+    /** Frissíti a játék összes gombját. */
+    public void UpdateButtons() {
+        frame.UpdateButtons();
+    }
+
+    /**
+     * Frissíti a gombok tooltipjeit aszerint, hogy milyen játékosok állnak rajtuk.
+     */
+    public void UpdateButtonTooltips() {
+        frame.UpdateButtonTooltips();
+    }
+
+    /** Beállítja a jelenlegi játékos eleméhez tartozó gomb keretét sárgára. */
+    public void UpdateCurrPlayerBtnBorder(int prevBtnIdx) {
+        frame.UpdateCurrPlayerBtnBorder(prevBtnIdx);
+    }
+
+    /** Bekéri a felhasználótól, hogy melyik szomszédos csövet akarja felvenni. */
+    private void ChoosePipeToBeRelocated() {
+        if (!Game.GetInstance().IsTechnicianTurn()) {
+            return;
+        }
+
+        List<Integer> candidatePipeIndices = new ArrayList<>();
+        Player player = Game.GetInstance().GetCurrPlayer();
+
+        for (Element targetElem : player.GetCurrElem().GetNbs()) {
+
+            if (targetElem == null) // ha nincs elem arra,
+                continue; // nem történik semmi
+
+            if (!targetElem.GetPickUpAble() || player.GetPart() != null) // ha nem felvehető, vagy nem üres a tárolója
+                continue; // akkor sem történik semmi
+
+            if (targetElem.GetFlooded()) // ha van benne víz,
+                continue; // akkor sem tudja felvenni
+
+            candidatePipeIndices.add(targetElem.GetIdx());
+        }
+        if (candidatePipeIndices.isEmpty())
+            return;
+
+        // ha minden jó, akkor el fogja tudni tárolni
+        Object[] options = candidatePipeIndices.toArray();
+        int chosenIdx = JOptionPane.showOptionDialog(frame, "Which pipe do you want to pick up?", "Picking up a pipe",
+            JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null, options, options[0]);
+
+        if (chosenIdx == -1) return;
+        Game.Input.TryPartRelocation(network.GetElement(candidatePipeIndices.get(chosenIdx)));
+
+    }
+
+    /** Felajánlja a játékosnak a 'centerIdx' indexű ElementButton-tól szomszédos összes üres ElementButtont, hogy
+     * válasszon közülök. A választott indexével tér vissza. */
+    public int GetEmptyElementButton(int centerIdx) {
+        return frame.GetEmptyElementButton(centerIdx);
+    }
+
+    /** Dialógusban jeleníti meg annak a tényét, hogy nem sikerült letenni egy elemet. */
+    public void DisplayPlacementFailureDialogue() {
+        JOptionPane.showMessageDialog(null, "Element placement failed!",
+                                      "Placement failure", JOptionPane.ERROR_MESSAGE);
+
+    }
+
+    /** Bekéri a felhasználótól, hogy milyen módon szeretné manipulálni a csövet. */
+    public int GetHarmDialogue(Object[] options) {
+
+        if (options.length > 2) {
+            return JOptionPane.showOptionDialog(frame,
+                                     "What do you want to do with the pipe?",
+                                     "Manipulation choice",
+                                     JOptionPane.YES_NO_CANCEL_OPTION,
+                                     JOptionPane.QUESTION_MESSAGE,
+                                     null,
+                                     options,
+                                     options[0]);
+        }
+
+        return JOptionPane.showOptionDialog(frame,
+                                            "What do you want to do with the pipe?",
+                                            "Manipulation choice",
+                                            JOptionPane.YES_NO_OPTION,
+                                            JOptionPane.QUESTION_MESSAGE,
+                                            null,
+                                            options,
+                                            options[0]);
+    }
+
+    public int GetPumpDirectionDialogue(Object[] options, boolean input) {
+        String str = input ? "input" : "output";
+        return JOptionPane.showOptionDialog(frame, "Choose a new " + str + ":", "Changing pump directions",
+                                            JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null, options,
+                                            options[0]);
+    }
+
+    /** Az átadott indexű elemnek a textúráját kicseréli egy pumpa textúrára. */
+    public void ReplaceTextureToPump(int idx) {
+        frame.ReplaceTextureToPump(idx);
+    }
+
+    /** Visszaállítja alapállapotába az adott indexű gomb kinézetét. */
+    public void ResetElementButton(int idx) {
+        frame.ResetElementButton(idx);
     }
 
     /** A GUIController egérkattintásra mozgatja a soron lévő játékost a lenyomott gombhoz tartozó pályaelemre */
-    public boolean handleMoveEvent(int fromButtonId, int toButtonId, String playerType) {
-        //Game.Input.MoveCurrPlayer(targetComponentIndex);
-        return true;
+    public void handleMoveEvent(int fromButtonId, int toButtonId, String playerType) {
+        Game.Input.MoveCurrPlayer(toButtonId);
     }
 
     /**

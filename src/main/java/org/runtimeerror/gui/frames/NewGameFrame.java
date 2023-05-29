@@ -85,8 +85,10 @@ public class NewGameFrame extends JFrame {
                 mapTheme = cbMapTheme.getSelectedItem();
             }
         });
-        mapComplexity = cbMapTheme.getItemAt(cbMapTheme.getSelectedIndex());
-        mapTheme = cbMapComplexity.getItemAt(cbMapComplexity.getSelectedIndex());
+
+        numberOfPlayers = cbNumberOfPlayers.getItemAt(cbNumberOfPlayers.getSelectedIndex());
+        mapComplexity = cbMapComplexity.getItemAt(cbMapComplexity.getSelectedIndex());
+        mapTheme = cbMapTheme.getItemAt(cbMapTheme.getSelectedIndex());
 
         /** Az ablakot vezérlő gombok inicializálása - modifikálása - azok megnyomásával a hozzájuk tartozó ablak elindítása */
         /** Vissza a főmenübe */
